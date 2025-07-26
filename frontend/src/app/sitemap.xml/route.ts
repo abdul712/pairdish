@@ -1,0 +1,72 @@
+import { NextResponse } from 'next/server';
+import pairDishAPI from '@/lib/api';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+export async function GET() {
+  try {
+    // Get all dishes and recipes from the API
+    const [dishes, recipes] = await Promise.all([
+      pairDishAPI.getAllDishes(),
+      pairDishAPI.getAllRecipes()
+    ]);
+
+    // Generate sitemap XML
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Static pages -->
+  <url>
+    <loc>${SITE_URL}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/search</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/categories</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/recipes</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Dynamic dish pairing pages -->
+  ${dishes.map(dish => `
+  <url>
+    <loc>${SITE_URL}/what-to-serve-with/${dish.slug}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`).join('')}
+  
+  <!-- Recipe pages -->
+  ${recipes.map(recipe => `
+  <url>
+    <loc>${SITE_URL}/recipe/${recipe.slug}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`).join('')}
+</urlset>`;
+
+    return new NextResponse(sitemap, {
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600', // Cache for 1 hour
+      },
+    });
+  } catch (error) {
+    console.error('Error generating sitemap:', error);
+    return new NextResponse('Error generating sitemap', { status: 500 });
+  }
+}
