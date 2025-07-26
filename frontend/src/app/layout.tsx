@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import Navigation from '@/components/Navigation';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,26 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="bg-white shadow-sm border-b">
-          <div className="container">
-            <div className="flex justify-between items-center h-16">
-              <a href="/" className="text-2xl font-bold text-primary-600">
-                PairDish
-              </a>
-              <div className="flex items-center space-x-6">
-                <a href="/search" className="text-gray-700 hover:text-primary-600 transition-colors">
-                  Search
-                </a>
-                <a href="/categories" className="text-gray-700 hover:text-primary-600 transition-colors">
-                  Categories
-                </a>
-                <a href="/recipes" className="text-gray-700 hover:text-primary-600 transition-colors">
-                  All Recipes
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <Navigation />
         <main className="min-h-screen">
           {children}
         </main>
