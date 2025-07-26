@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "pairing-plates",
+	"name": "pairdish",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-07-25",
 	"assets": {
@@ -13,7 +13,23 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "pairdish-db",
+			"database_id": "ea9dfa42-f1fc-46df-9093-ed810809934c"
+		}
+	],
+	"vars": {
+		"DOMAIN": "https://www.pairdish.com"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "CACHE",
+			"id": "d7129dbe259e4b31acc67d5318042bc1"
+		}
+	],
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
