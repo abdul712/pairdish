@@ -21,9 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <ErrorBoundary>
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </ErrorBoundary>
         <footer className="bg-gray-100 mt-16">
           <div className="container py-8">
             <div className="text-center text-gray-600">
