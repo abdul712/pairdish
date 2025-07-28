@@ -7,6 +7,7 @@ type Bindings = {
   DB: D1Database
   DOMAIN: string
   CACHE: KVNamespace
+  ASSETS: Fetcher
 }
 
 const app = new Hono<{ Bindings: Bindings }>()
@@ -65,13 +66,13 @@ const pairingDataSchema = z.object({
   timestamp: z.string().optional()
 })
 
-// Home route
-app.get('/', (c) => {
+// API info route (moved to /api)
+app.get('/api', (c) => {
   return c.json({
     name: 'PairDish API',
     version: '1.0.0',
     endpoints: {
-      'GET /': 'API information',
+      'GET /api': 'API information',
       'POST /api/import-dishes': 'Import dish pairings',
       'GET /api/dishes': 'List all dishes',
       'GET /api/dishes/:slug': 'Get dish by slug',
@@ -754,5 +755,36 @@ app.get('/categories', async (c) => {
 
 // Search dishes (frontend compatible)
 app.get('/search', (c) => handleSearch(c, false))
+
+// Serve static assets and frontend
+app.get('*', async (c) => {
+  try {
+    // Try to serve the requested path from assets
+    const response = await c.env.ASSETS.fetch(c.req.raw)
+    
+    // If the response is OK, return it
+    if (response.ok) {
+      return response
+    }
+    
+    // If not found and it's not an API route, serve index.html for client-side routing
+    if (!c.req.path.startsWith('/api')) {
+      const indexResponse = await c.env.ASSETS.fetch(new Request(new URL('/index.html', c.req.url)))
+      if (indexResponse.ok) {
+        return new Response(indexResponse.body, {
+          headers: {
+            'content-type': 'text/html; charset=utf-8',
+          },
+        })
+      }
+    }
+    
+    // If still not found, return 404
+    return c.notFound()
+  } catch (error) {
+    console.error('Asset serving error:', error)
+    return c.notFound()
+  }
+})
 
 export default app
