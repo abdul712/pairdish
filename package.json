@@ -3,6 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "wrangler dev",
+		"build": "echo 'Build completed'",
 		"deploy": "wrangler deploy --minify",
 		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
 		"test": "vitest",
@@ -15,9 +16,10 @@
 		"zod": "^3.22.3"
 	},
 	"devDependencies": {
-		"wrangler": "^4.26.0",
-		"vitest": "^1.0.0",
+		"@vitest/coverage-v8": "^1.0.0",
 		"@vitest/ui": "^1.0.0",
-		"@vitest/coverage-v8": "^1.0.0"
+		"typescript": "^5.8.3",
+		"vitest": "^1.0.0",
+		"wrangler": "^4.26.0"
 	}
 }
