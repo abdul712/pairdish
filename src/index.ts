@@ -308,9 +308,18 @@ app.get('/what-to-serve-with/:slug', async (c) => {
   const { slug } = c.param()
   const { DB, CACHE } = c.env
   
-  // The slug parameter already contains the full slug from database
-  // No need to remove any prefix
-  const cacheKey = `pairings:${slug}`
+  // The frontend is passing the full slug which already contains "what-to-serve-with-"
+  // But if it's double-prefixed, we need to handle that
+  let querySlug = slug
+  if (slug.startsWith('what-to-serve-with-')) {
+    // The slug parameter already has the prefix, use as-is
+    querySlug = slug
+  } else {
+    // Add the prefix if not present
+    querySlug = `what-to-serve-with-${slug}`
+  }
+  
+  const cacheKey = `pairings:${querySlug}`
   const cached = await CACHE.get(cacheKey)
   
   if (cached) {
@@ -322,7 +331,7 @@ app.get('/what-to-serve-with/:slug', async (c) => {
     // Get the main dish using the full slug as it appears in the database
     const mainDish = await DB.prepare(
       'SELECT * FROM dishes WHERE slug = ?'
-    ).bind(slug).first()
+    ).bind(querySlug).first()
     
     if (!mainDish) {
       return c.json({ error: 'Dish not found' }, 404)

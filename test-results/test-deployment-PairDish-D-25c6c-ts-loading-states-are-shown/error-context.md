@@ -1,0 +1,102 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - link "PairDish":
+    - /url: /
+  - searchbox "Search for dishes, recipes, or ingredients..."
+  - button
+  - navigation:
+    - link "Home":
+      - /url: /
+    - link "Browse":
+      - /url: /search
+    - link "Recipes":
+      - /url: /recipe/featured
+- main:
+  - heading "Find the Perfect Pairings for Every Dish" [level=1]
+  - paragraph: Discover delicious side dishes, complementary flavors, and complete meal ideas with our curated collection of food pairings.
+  - link "Explore Dishes":
+    - /url: /search
+  - link "Browse Main Courses":
+    - /url: /search?type=main
+  - heading "Expert Curated" [level=3]
+  - paragraph: Professional chef-approved pairings for perfect meal combinations
+  - heading "Flavor Harmony" [level=3]
+  - paragraph: Scientifically matched flavors that complement and enhance each dish
+  - heading "Quick & Easy" [level=3]
+  - paragraph: Find the perfect pairing in seconds with our smart search
+  - heading "Popular Dishes" [level=2]
+  - paragraph: Discover what everyone's pairing this week
+  - heading "Browse by Category" [level=2]
+  - paragraph: Find the perfect dish for any occasion
+  - link "Main Dishes Hearty entrees and complete meals Browse collection":
+    - /url: /search?type=main
+    - heading "Main Dishes" [level=3]
+    - paragraph: Hearty entrees and complete meals
+    - text: Browse collection
+    - img
+  - link "Side Dishes Perfect accompaniments Browse collection":
+    - /url: /search?type=side
+    - heading "Side Dishes" [level=3]
+    - paragraph: Perfect accompaniments
+    - text: Browse collection
+    - img
+  - link "Desserts Sweet endings to any meal Browse collection":
+    - /url: /search?type=dessert
+    - heading "Desserts" [level=3]
+    - paragraph: Sweet endings to any meal
+    - text: Browse collection
+    - img
+  - link "Appetizers Start your meal right Browse collection":
+    - /url: /search?type=appetizer
+    - heading "Appetizers" [level=3]
+    - paragraph: Start your meal right
+    - text: Browse collection
+    - img
+  - link "Beverages Drinks to complement any dish Browse collection":
+    - /url: /search?type=beverage
+    - heading "Beverages" [level=3]
+    - paragraph: Drinks to complement any dish
+    - text: Browse collection
+    - img
+  - link "Soups Warm and comforting bowls Browse collection":
+    - /url: /search?type=soup
+    - heading "Soups" [level=3]
+    - paragraph: Warm and comforting bowls
+    - text: Browse collection
+    - img
+  - heading "Ready to Create Amazing Meals?" [level=2]
+  - paragraph: Join thousands of home cooks who use PairDish to create perfectly balanced, delicious meals every day.
+  - link "Start Exploring":
+    - /url: /search
+- contentinfo:
+  - text: PairDish
+  - paragraph: Discover perfect food pairings and delicious recipes for every meal.
+  - heading "Quick Links" [level=3]
+  - list:
+    - listitem:
+      - link "Home":
+        - /url: /
+    - listitem:
+      - link "Browse Dishes":
+        - /url: /search
+    - listitem:
+      - link "Featured Recipes":
+        - /url: /recipe/featured
+  - heading "Categories" [level=3]
+  - list:
+    - listitem:
+      - link "Main Dishes":
+        - /url: /search?type=main
+    - listitem:
+      - link "Side Dishes":
+        - /url: /search?type=side
+    - listitem:
+      - link "Desserts":
+        - /url: /search?type=dessert
+  - heading "Connect" [level=3]
+  - paragraph: Join our community of food lovers and get the latest recipes delivered to your inbox.
+  - button "Subscribe"
+  - paragraph: © 2024 PairDish. All rights reserved. Made with ❤️ for food lovers.
+```
