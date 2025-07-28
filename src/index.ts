@@ -65,6 +65,24 @@ const pairingDataSchema = z.object({
   timestamp: z.string().optional()
 })
 
+// Get categories endpoint (required by frontend)
+app.get('/categories', async (c) => {
+  const { DB } = c.env
+  
+  try {
+    const { results } = await DB.prepare(`
+      SELECT DISTINCT dish_type as category
+      FROM dishes 
+      WHERE dish_type IS NOT NULL AND dish_type != ''
+      ORDER BY dish_type ASC
+    `).all()
+    
+    return c.json(results.map(r => r.category))
+  } catch (error) {
+    return c.json([])
+  }
+})
+
 // Home route
 app.get('/', (c) => {
   return c.json({
@@ -74,8 +92,14 @@ app.get('/', (c) => {
       'GET /': 'API information',
       'POST /api/import-dishes': 'Import dish pairings',
       'GET /api/dishes': 'List all dishes',
+      'GET /dishes': 'List all dishes (frontend)',
       'GET /api/dishes/:slug': 'Get dish by slug',
-      'GET /api/pairings/:slug': 'Get pairings for a dish'
+      'GET /dishes/:slug': 'Get dish by slug (frontend)',
+      'GET /dishes/popular': 'Get popular dishes',
+      'GET /dishes/:slug/pairings': 'Get pairings for a dish',
+      'GET /api/pairings/:slug': 'Get pairings for a dish (legacy)',
+      'GET /search': 'Search dishes',
+      'GET /categories': 'Get dish categories'
     }
   })
 })
@@ -291,6 +315,20 @@ app.post('/api/import-dishes',
   }
 )
 
+// Helper function to transform dish data to frontend format
+function transformDish(dish) {
+  return {
+    id: dish.id,
+    slug: dish.slug,
+    name: dish.name,
+    description: dish.description || '',
+    category: dish.dish_type || '',
+    cuisine: dish.cuisine || '',
+    imageUrl: dish.image_url || '',
+    pairings: [] // Will be populated separately when needed
+  }
+}
+
 // Get all dishes
 app.get('/api/dishes', async (c) => {
   const { DB } = c.env
@@ -310,14 +348,35 @@ app.get('/api/dishes', async (c) => {
     
     const { results } = await DB.prepare(query).bind(...params).all()
     
+    return c.json(results.map(transformDish))
+  } catch (error) {
     return c.json({
-      success: true,
-      data: results,
-      pagination: {
-        limit: parseInt(limit),
-        offset: parseInt(offset)
-      }
-    })
+      success: false,
+      error: 'Failed to fetch dishes'
+    }, 500)
+  }
+})
+
+// Get all dishes (frontend expects /dishes endpoint)
+app.get('/dishes', async (c) => {
+  const { DB } = c.env
+  const { type, limit = '50', offset = '0' } = c.req.query()
+  
+  try {
+    let query = 'SELECT * FROM dishes'
+    const params = []
+    
+    if (type) {
+      query += ' WHERE dish_type = ?'
+      params.push(type)
+    }
+    
+    query += ' ORDER BY name ASC LIMIT ? OFFSET ?'
+    params.push(parseInt(limit), parseInt(offset))
+    
+    const { results } = await DB.prepare(query).bind(...params).all()
+    
+    return c.json(results.map(transformDish))
   } catch (error) {
     return c.json({
       success: false,
@@ -351,10 +410,41 @@ app.get('/api/dishes/:slug', async (c) => {
     return c.json({
       success: true,
       data: {
-        ...dish,
+        ...transformDish(dish),
         recipe: recipe || null
       }
     })
+  } catch (error) {
+    return c.json({
+      success: false,
+      error: 'Failed to fetch dish'
+    }, 500)
+  }
+})
+
+// Get dish by slug (frontend expects /dishes/:slug endpoint)
+app.get('/dishes/:slug', async (c) => {
+  const { DB } = c.env
+  const slug = c.req.param('slug')
+  
+  try {
+    const dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slug)
+      .first()
+    
+    if (!dish) {
+      return c.notFound()
+    }
+    
+    // Get pairings count for this dish
+    const { count } = await DB.prepare(`
+      SELECT COUNT(*) as count FROM pairings WHERE main_dish_id = ?
+    `).bind(dish.id).first()
+    
+    const transformedDish = transformDish(dish)
+    transformedDish.pairings = []; // Empty array, actual pairings loaded separately
+    
+    return c.json(transformedDish)
   } catch (error) {
     return c.json({
       success: false,
@@ -497,6 +587,113 @@ app.get('/api/pairings/:slug', async (c) => {
   }
 })
 
+// Get popular dishes endpoint (required by frontend)
+app.get('/dishes/popular', async (c) => {
+  const { DB } = c.env
+  const { limit = '10' } = c.req.query()
+  
+  try {
+    const { results } = await DB.prepare(`
+      SELECT d.*, COALESCE(p.view_count, 0) as views
+      FROM dishes d
+      LEFT JOIN popular_dishes p ON d.id = p.dish_id
+      ORDER BY COALESCE(p.view_count, 0) DESC, d.name ASC
+      LIMIT ?
+    `).bind(parseInt(limit)).all()
+    
+    return c.json(results.map(transformDish))
+  } catch (error) {
+    return c.json({
+      success: false,
+      error: 'Failed to fetch popular dishes'
+    }, 500)
+  }
+})
+
+// Get dish pairings (frontend expects /dishes/:slug/pairings)
+app.get('/dishes/:slug/pairings', async (c) => {
+  const { DB, CACHE } = c.env
+  const slug = c.req.param('slug')
+  const cacheKey = `pairings:${slug}`
+  
+  try {
+    // Check cache first
+    const cached = await CACHE.get(cacheKey, 'json')
+    if (cached) {
+      c.header('X-Cache', 'HIT')
+      return c.json(cached)
+    }
+    
+    // Get main dish
+    const mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slug)
+      .first()
+    
+    if (!mainDish) {
+      return c.notFound()
+    }
+    
+    // Get pairings
+    const { results: pairings } = await DB.prepare(`
+      SELECT 
+        d.*,
+        p.match_score,
+        p.order_position,
+        r.ingredients,
+        r.instructions,
+        r.prep_time,
+        r.cook_time,
+        r.servings,
+        r.difficulty
+      FROM pairings p
+      JOIN dishes d ON p.side_dish_id = d.id
+      LEFT JOIN recipes r ON d.id = r.dish_id
+      WHERE p.main_dish_id = ?
+      ORDER BY p.order_position ASC
+      LIMIT 15
+    `).bind(mainDish.id).all()
+    
+    // Transform pairings to expected format
+    const transformedPairings = pairings.map(p => ({
+      id: p.id,
+      dish: mainDish.name,
+      pairingDish: p.name,
+      pairingType: 'side', // Default to 'side' for now
+      description: p.description || '',
+      popularity: p.match_score,
+      recipe: p.ingredients ? {
+        id: `recipe-${p.id}`,
+        slug: p.slug,
+        title: p.name,
+        description: p.description || '',
+        imageUrl: p.image_url || '',
+        ingredients: JSON.parse(p.ingredients || '[]'),
+        instructions: JSON.parse(p.instructions || '[]'),
+        prepTime: p.prep_time,
+        cookTime: p.cook_time,
+        servings: p.servings,
+        difficulty: p.difficulty
+      } : null
+    }))
+    
+    const response = transformedPairings
+    
+    // Cache for 1 hour
+    await CACHE.put(cacheKey, JSON.stringify(response), {
+      expirationTtl: 3600
+    })
+    
+    c.header('X-Cache', 'MISS')
+    return c.json(response)
+  } catch (error) {
+    console.error('Pairings error:', error)
+    return c.json({
+      success: false,
+      error: 'Failed to fetch pairings'
+    }, 500)
+  }
+})
+
 // Search dishes
 app.get('/api/search', async (c) => {
   const { DB } = c.env
@@ -517,14 +714,57 @@ app.get('/api/search', async (c) => {
     `).bind(`%${q}%`, `%${q}%`).all()
     
     return c.json({
-      success: true,
-      data: results
+      dishes: results.map(transformDish),
+      recipes: [], // Empty for now
+      totalResults: results.length,
+      page: 1,
+      totalPages: 1
     })
   } catch (error) {
     return c.json({
       success: false,
       error: 'Search failed'
     }, 500)
+  }
+})
+
+// Search dishes (frontend expects /search endpoint)
+app.get('/search', async (c) => {
+  const { DB } = c.env
+  const { q, page = '1', limit = '20' } = c.req.query()
+  
+  if (!q || q.length < 2) {
+    return c.json({
+      dishes: [],
+      recipes: [],
+      totalResults: 0,
+      page: parseInt(page),
+      totalPages: 0
+    })
+  }
+  
+  try {
+    const { results } = await DB.prepare(`
+      SELECT * FROM dishes 
+      WHERE name LIKE ? OR description LIKE ?
+      LIMIT ?
+    `).bind(`%${q}%`, `%${q}%`, parseInt(limit)).all()
+    
+    return c.json({
+      dishes: results.map(transformDish),
+      recipes: [], // Empty for now
+      totalResults: results.length,
+      page: parseInt(page),
+      totalPages: Math.ceil(results.length / parseInt(limit))
+    })
+  } catch (error) {
+    return c.json({
+      dishes: [],
+      recipes: [],
+      totalResults: 0,
+      page: parseInt(page),
+      totalPages: 0
+    })
   }
 })
 
