@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import Navigation from '@/components/Navigation';
 import ErrorBoundary from '@/components/ErrorBoundary';
 
-const inter = Inter({ subsets: ['latin'] });
+const plusJakartaSans = Plus_Jakarta_Sans({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap'
+});
 
 export const metadata: Metadata = generateSEOMetadata({
   title: 'PairDish - Perfect Side Dishes for Every Meal',
@@ -19,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={plusJakartaSans.className}>
         <Navigation />
         <ErrorBoundary>
           <main className="min-h-screen">
