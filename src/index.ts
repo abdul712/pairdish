@@ -303,6 +303,100 @@ app.get('/api/dishes', (c) => handleGetAllDishes(c, true))
 // Get dish by slug (API format)
 app.get('/api/dishes/:slug', (c) => handleGetDishBySlug(c, true))
 
+// Handle frontend's what-to-serve-with URLs
+app.get('/what-to-serve-with/:slug', async (c) => {
+  const { slug } = c.param()
+  const { DB, CACHE } = c.env
+  
+  // Remove duplicate "what-to-serve-with-" prefix if present
+  const cleanSlug = slug.replace(/^what-to-serve-with-/, '')
+  
+  const cacheKey = `pairings:${cleanSlug}`
+  const cached = await CACHE.get(cacheKey)
+  
+  if (cached) {
+    c.header('X-Cache', 'HIT')
+    return c.json(JSON.parse(cached))
+  }
+  
+  try {
+    // Get the main dish
+    const mainDish = await DB.prepare(
+      'SELECT * FROM dishes WHERE slug = ?'
+    ).bind(cleanSlug).first()
+    
+    if (!mainDish) {
+      return c.json({ error: 'Dish not found' }, 404)
+    }
+    
+    // Get pairings
+    const pairings = await DB.prepare(`
+      SELECT 
+        d.*,
+        p.match_score,
+        p.order_position,
+        r.ingredients,
+        r.instructions,
+        r.prep_time,
+        r.cook_time,
+        r.servings,
+        r.difficulty
+      FROM dish_pairings p
+      JOIN dishes d ON p.side_dish_id = d.id
+      LEFT JOIN recipes r ON r.dish_id = d.id
+      WHERE p.main_dish_id = ?
+      ORDER BY p.order_position, p.match_score DESC
+    `).bind(mainDish.id).all()
+    
+    const response = {
+      success: true,
+      data: {
+        main_dish: transformDish(mainDish),
+        side_dishes: pairings.results.map(p => {
+          const sideDish = transformDish({
+            id: p.id,
+            name: p.name,
+            slug: p.slug,
+            description: p.description,
+            image_url: p.image_url,
+            cuisine: p.cuisine,
+            dish_type: p.dish_type,
+            dietary_tags: p.dietary_tags || '[]'
+          })
+          
+          sideDish.matchScore = p.match_score
+          sideDish.orderPosition = p.order_position
+          
+          // Add recipe if exists
+          if (p.ingredients) {
+            sideDish.recipe = {
+              ingredients: safeJsonParse(p.ingredients, []),
+              instructions: safeJsonParse(p.instructions, []),
+              prepTime: p.prep_time,
+              cookTime: p.cook_time,
+              servings: p.servings,
+              difficulty: p.difficulty
+            }
+          }
+          
+          return sideDish
+        })
+      }
+    }
+    
+    // Cache for 1 hour
+    await CACHE.put(cacheKey, JSON.stringify(response), {
+      expirationTtl: 3600
+    })
+    
+    c.header('X-Cache', 'MISS')
+    return c.json(response)
+  } catch (error) {
+    console.error('Pairings error:', error)
+    return c.json({ error: 'Failed to fetch pairings' }, 500)
+  }
+})
+
 // Get pairings for a dish
 app.get('/api/pairings/:slug', async (c) => {
   const { DB, CACHE } = c.env

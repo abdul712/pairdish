@@ -77,7 +77,8 @@ describe('/sitemap.xml API Route', () => {
     const response = await GET()
     const sitemapText = await response.text()
 
-    expect(sitemapText).toContain('<loc>http://localhost:3000/what-to-serve-with/test-dish</loc>')
+    expect(sitemapText).toContain('<loc>http://localhost:3000/dishes/test-dish</loc>')
+    expect(sitemapText).toContain('<loc>http://localhost:3000/dishes/test-dish/pairings</loc>')
   })
 
   it('includes recipe pages in sitemap', async () => {

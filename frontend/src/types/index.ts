@@ -24,17 +24,28 @@ export interface Dish {
   category: string;
   cuisine?: string;
   imageUrl?: string;
-  pairings: Pairing[];
+  dietaryTags?: string[];
+  keywords?: string[];
+  pairings?: Pairing[];
 }
 
 export interface Pairing {
   id: string;
-  dish: string;
-  pairingDish: string;
-  pairingType: 'side' | 'sauce' | 'beverage' | 'dessert';
+  name: string;
+  slug: string;
   description?: string;
+  imageUrl?: string;
+  cuisine?: string;
+  category: string;
+  matchScore?: number;
+  orderPosition?: number;
+  dietaryTags?: string[];
   recipe?: Recipe;
-  popularity?: number;
+}
+
+export interface DishPairingsResponse {
+  mainDish: Dish;
+  sideDishes: Pairing[];
 }
 
 export interface SearchResult {

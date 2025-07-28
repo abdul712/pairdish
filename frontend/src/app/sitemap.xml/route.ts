@@ -49,10 +49,16 @@ export async function GET() {
     <priority>0.9</priority>
   </url>
   
-  <!-- Dynamic dish pairing pages -->
+  <!-- Dynamic dish pages -->
   ${dishes.map(dish => `
   <url>
-    <loc>${escapeXml(SITE_URL)}/what-to-serve-with/${escapeXml(dish.slug)}</loc>
+    <loc>${escapeXml(SITE_URL)}/dishes/${escapeXml(dish.slug)}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${escapeXml(SITE_URL)}/dishes/${escapeXml(dish.slug)}/pairings</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Dish, Recipe, SearchResult, Pairing } from '@/types';
+import { Dish, Recipe, SearchResult, Pairing, DishPairingsResponse } from '@/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8787';
 
@@ -32,8 +32,8 @@ export const pairDishAPI = {
   },
 
   async getDishPairings(slug: string): Promise<Pairing[]> {
-    const { data } = await api.get(`/dishes/${slug}/pairings`);
-    return data;
+    const { data } = await api.get<DishPairingsResponse>(`/dishes/${slug}/pairings`);
+    return data.sideDishes;
   },
 
   // Recipe endpoints

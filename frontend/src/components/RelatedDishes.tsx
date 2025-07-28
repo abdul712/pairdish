@@ -26,7 +26,7 @@ export default async function RelatedDishes({ currentDish }: RelatedDishesProps)
         {relatedDishes.map((dish) => (
           <li key={dish.id}>
             <Link
-              href={`/what-to-serve-with/${dish.slug}`}
+              href={`/dishes/${dish.slug}/pairings`}
               className="text-primary-600 hover:text-primary-700 font-medium"
             >
               {dish.name}

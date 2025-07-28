@@ -10,7 +10,7 @@ export default async function PopularDishes() {
       {dishes.map((dish) => (
         <Link
           key={dish.id}
-          href={`/what-to-serve-with/${dish.slug}`}
+          href={`/dishes/${dish.slug}/pairings`}
           className="block"
         >
           <DishCard dish={dish} />
