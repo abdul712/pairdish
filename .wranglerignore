@@ -1,0 +1,15 @@
+# Exclude frontend from Cloudflare Worker deployment
+frontend/
+node_modules/
+*.log
+*.env*
+.git/
+.github/
+README.md
+SETUP_GUIDE.md
+IMPLEMENTATION_GUIDE.md
+scraper/
+*.csv
+*.json
+!package.json
+!wrangler.jsonc
