@@ -528,4 +528,252 @@ app.get('/api/search', async (c) => {
   }
 })
 
+// Data transformation function for frontend compatibility
+function transformDish(dish: any) {
+  if (!dish) return dish;
+  
+  return {
+    ...dish,
+    imageUrl: dish.image_url,
+    category: dish.dish_type,
+    dietaryTags: JSON.parse(dish.dietary_tags || '[]'),
+    keywords: JSON.parse(dish.keywords || '[]')
+  };
+}
+
+// Frontend-compatible endpoints (without /api prefix)
+
+// Get all dishes (frontend compatible)
+app.get('/dishes', async (c) => {
+  const { DB } = c.env
+  const { type, limit = '50', offset = '0' } = c.req.query()
+  
+  try {
+    let query = 'SELECT * FROM dishes'
+    const params = []
+    
+    if (type) {
+      query += ' WHERE dish_type = ?'
+      params.push(type)
+    }
+    
+    query += ' ORDER BY name ASC LIMIT ? OFFSET ?'
+    params.push(parseInt(limit), parseInt(offset))
+    
+    const { results } = await DB.prepare(query).bind(...params).all()
+    
+    return c.json(results.map(transformDish))
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch dishes' }, 500)
+  }
+})
+
+// Get dish by slug (frontend compatible)
+app.get('/dishes/:slug', async (c) => {
+  const { DB } = c.env
+  const slug = c.req.param('slug')
+  
+  try {
+    const dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slug)
+      .first()
+    
+    if (!dish) {
+      return c.json({ error: 'Dish not found' }, 404)
+    }
+    
+    // Get recipe if exists
+    const recipe = await DB.prepare('SELECT * FROM recipes WHERE dish_id = ?')
+      .bind(dish.id)
+      .first()
+    
+    const transformedDish = transformDish(dish)
+    
+    return c.json({
+      ...transformedDish,
+      recipe: recipe || null
+    })
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch dish' }, 500)
+  }
+})
+
+// Get popular dishes (frontend compatible)
+app.get('/dishes/popular', async (c) => {
+  const { DB } = c.env
+  const { limit = '10' } = c.req.query()
+  
+  try {
+    const { results } = await DB.prepare(`
+      SELECT d.* FROM dishes d
+      JOIN popular_dishes pd ON d.id = pd.dish_id
+      ORDER BY pd.view_count DESC, pd.last_viewed DESC
+      LIMIT ?
+    `).bind(parseInt(limit)).all()
+    
+    return c.json(results.map(transformDish))
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch popular dishes' }, 500)
+  }
+})
+
+// Get dish pairings (frontend compatible)
+app.get('/dishes/:slug/pairings', async (c) => {
+  const { DB, CACHE } = c.env
+  const slug = c.req.param('slug')
+  const cacheKey = `pairings:${slug}`
+  
+  try {
+    // Check cache first
+    const cached = await CACHE.get(cacheKey, 'json')
+    if (cached) {
+      c.header('X-Cache', 'HIT')
+      return c.json(cached)
+    }
+    
+    // Get main dish
+    const mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slug)
+      .first()
+    
+    if (!mainDish) {
+      return c.json({ error: 'Main dish not found' }, 404)
+    }
+    
+    // Get pairings
+    const { results: pairings } = await DB.prepare(`
+      SELECT 
+        d.*,
+        p.match_score,
+        p.order_position,
+        r.ingredients,
+        r.instructions,
+        r.prep_time,
+        r.cook_time,
+        r.servings,
+        r.difficulty
+      FROM pairings p
+      JOIN dishes d ON p.side_dish_id = d.id
+      LEFT JOIN recipes r ON d.id = r.dish_id
+      WHERE p.main_dish_id = ?
+      ORDER BY p.order_position ASC
+      LIMIT 15
+    `).bind(mainDish.id).all()
+    
+    // Update view count
+    const existingPopular = await DB.prepare('SELECT id FROM popular_dishes WHERE dish_id = ?')
+      .bind(mainDish.id)
+      .first()
+    
+    if (existingPopular) {
+      await DB.prepare(`
+        UPDATE popular_dishes SET 
+          view_count = view_count + 1,
+          last_viewed = CURRENT_TIMESTAMP
+        WHERE dish_id = ?
+      `).bind(mainDish.id).run()
+    } else {
+      await DB.prepare(`
+        INSERT INTO popular_dishes (dish_id, view_count, last_viewed)
+        VALUES (?, 1, CURRENT_TIMESTAMP)
+      `).bind(mainDish.id).run()
+    }
+    
+    const response = {
+      mainDish: transformDish(mainDish),
+      sideDishes: pairings.map(p => {
+        const sideDish = transformDish({
+          id: p.id,
+          name: p.name,
+          slug: p.slug,
+          description: p.description,
+          image_url: p.image_url,
+          cuisine: p.cuisine,
+          dish_type: p.dish_type,
+          dietary_tags: p.dietary_tags || '[]'
+        })
+        
+        sideDish.matchScore = p.match_score
+        sideDish.orderPosition = p.order_position
+        
+        // Add recipe if exists
+        if (p.ingredients) {
+          try {
+            sideDish.recipe = {
+              ingredients: JSON.parse(p.ingredients),
+              instructions: JSON.parse(p.instructions),
+              prepTime: p.prep_time,
+              cookTime: p.cook_time,
+              servings: p.servings,
+              difficulty: p.difficulty
+            }
+          } catch (e) {
+            console.error('Error parsing recipe:', e)
+          }
+        }
+        
+        return sideDish
+      })
+    }
+    
+    // Cache for 1 hour
+    await CACHE.put(cacheKey, JSON.stringify(response), {
+      expirationTtl: 3600
+    })
+    
+    c.header('X-Cache', 'MISS')
+    return c.json(response)
+  } catch (error) {
+    console.error('Pairings error:', error)
+    return c.json({ error: 'Failed to fetch pairings' }, 500)
+  }
+})
+
+// Get categories (frontend compatible)
+app.get('/categories', async (c) => {
+  const { DB } = c.env
+  
+  try {
+    const { results } = await DB.prepare(`
+      SELECT DISTINCT dish_type as category FROM dishes 
+      WHERE dish_type IS NOT NULL 
+      ORDER BY dish_type
+    `).all()
+    
+    return c.json(results.map(r => r.category))
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch categories' }, 500)
+  }
+})
+
+// Search dishes (frontend compatible)
+app.get('/search', async (c) => {
+  const { DB } = c.env
+  const { q, page = '1', limit = '20' } = c.req.query()
+  
+  if (!q || q.length < 2) {
+    return c.json({ error: 'Query must be at least 2 characters' }, 400)
+  }
+  
+  try {
+    const offset = (parseInt(page) - 1) * parseInt(limit)
+    const { results } = await DB.prepare(`
+      SELECT * FROM dishes 
+      WHERE name LIKE ? OR description LIKE ?
+      LIMIT ? OFFSET ?
+    `).bind(`%${q}%`, `%${q}%`, parseInt(limit), offset).all()
+    
+    return c.json({
+      dishes: results.map(transformDish),
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total: results.length
+      }
+    })
+  } catch (error) {
+    return c.json({ error: 'Search failed' }, 500)
+  }
+})
+
 export default app
