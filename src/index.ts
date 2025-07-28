@@ -308,10 +308,9 @@ app.get('/what-to-serve-with/:slug', async (c) => {
   const { slug } = c.param()
   const { DB, CACHE } = c.env
   
-  // Remove duplicate "what-to-serve-with-" prefix if present
-  const cleanSlug = slug.replace(/^what-to-serve-with-/, '')
-  
-  const cacheKey = `pairings:${cleanSlug}`
+  // The slug parameter already contains the full slug from database
+  // No need to remove any prefix
+  const cacheKey = `pairings:${slug}`
   const cached = await CACHE.get(cacheKey)
   
   if (cached) {
@@ -320,10 +319,10 @@ app.get('/what-to-serve-with/:slug', async (c) => {
   }
   
   try {
-    // Get the main dish
+    // Get the main dish using the full slug as it appears in the database
     const mainDish = await DB.prepare(
       'SELECT * FROM dishes WHERE slug = ?'
-    ).bind(cleanSlug).first()
+    ).bind(slug).first()
     
     if (!mainDish) {
       return c.json({ error: 'Dish not found' }, 404)
@@ -341,7 +340,7 @@ app.get('/what-to-serve-with/:slug', async (c) => {
         r.cook_time,
         r.servings,
         r.difficulty
-      FROM dish_pairings p
+      FROM pairings p
       JOIN dishes d ON p.side_dish_id = d.id
       LEFT JOIN recipes r ON r.dish_id = d.id
       WHERE p.main_dish_id = ?
@@ -349,39 +348,36 @@ app.get('/what-to-serve-with/:slug', async (c) => {
     `).bind(mainDish.id).all()
     
     const response = {
-      success: true,
-      data: {
-        main_dish: transformDish(mainDish),
-        side_dishes: pairings.results.map(p => {
-          const sideDish = transformDish({
-            id: p.id,
-            name: p.name,
-            slug: p.slug,
-            description: p.description,
-            image_url: p.image_url,
-            cuisine: p.cuisine,
-            dish_type: p.dish_type,
-            dietary_tags: p.dietary_tags || '[]'
-          })
-          
-          sideDish.matchScore = p.match_score
-          sideDish.orderPosition = p.order_position
-          
-          // Add recipe if exists
-          if (p.ingredients) {
-            sideDish.recipe = {
-              ingredients: safeJsonParse(p.ingredients, []),
-              instructions: safeJsonParse(p.instructions, []),
-              prepTime: p.prep_time,
-              cookTime: p.cook_time,
-              servings: p.servings,
-              difficulty: p.difficulty
-            }
-          }
-          
-          return sideDish
+      mainDish: transformDish(mainDish),
+      sideDishes: pairings.results.map(p => {
+        const sideDish = transformDish({
+          id: p.id,
+          name: p.name,
+          slug: p.slug,
+          description: p.description,
+          image_url: p.image_url,
+          cuisine: p.cuisine,
+          dish_type: p.dish_type,
+          dietary_tags: p.dietary_tags || '[]'
         })
-      }
+        
+        sideDish.matchScore = p.match_score
+        sideDish.orderPosition = p.order_position
+        
+        // Add recipe if exists
+        if (p.ingredients) {
+          sideDish.recipe = {
+            ingredients: safeJsonParse(p.ingredients, []),
+            instructions: safeJsonParse(p.instructions, []),
+            prepTime: p.prep_time,
+            cookTime: p.cook_time,
+            servings: p.servings,
+            difficulty: p.difficulty
+          }
+        }
+        
+        return sideDish
+      })
     }
     
     // Cache for 1 hour
