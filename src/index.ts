@@ -88,7 +88,12 @@ app.post('/api/import-dishes',
     const { DB } = c.env
     
     try {
-      // Start transaction-like operation
+      // TODO: Refactor to use D1 batch operations for true atomicity
+      // Current implementation lacks proper transaction rollback on failures
+      // For full safety, this endpoint should be refactored to:
+      // 1. Collect all operations in a batch array
+      // 2. Execute batch operations atomically with DB.batch()
+      // 3. Break down this 200+ line function into smaller functions
       const operations = []
       
       // 1. Check if main dish exists
@@ -291,77 +296,11 @@ app.post('/api/import-dishes',
   }
 )
 
-// Get all dishes
-app.get('/api/dishes', async (c) => {
-  const { DB } = c.env
-  const { type, limit = '50', offset = '0' } = c.req.query()
-  
-  try {
-    let query = 'SELECT * FROM dishes'
-    const params = []
-    
-    if (type) {
-      query += ' WHERE dish_type = ?'
-      params.push(type)
-    }
-    
-    query += ' ORDER BY name ASC LIMIT ? OFFSET ?'
-    params.push(parseInt(limit), parseInt(offset))
-    
-    const { results } = await DB.prepare(query).bind(...params).all()
-    
-    return c.json({
-      success: true,
-      data: results,
-      pagination: {
-        limit: parseInt(limit),
-        offset: parseInt(offset)
-      }
-    })
-  } catch (error) {
-    return c.json({
-      success: false,
-      error: 'Failed to fetch dishes'
-    }, 500)
-  }
-})
+// Get all dishes (API format)
+app.get('/api/dishes', (c) => handleGetAllDishes(c, true))
 
-// Get dish by slug
-app.get('/api/dishes/:slug', async (c) => {
-  const { DB } = c.env
-  const slug = c.req.param('slug')
-  
-  try {
-    const dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
-      .bind(slug)
-      .first()
-    
-    if (!dish) {
-      return c.json({
-        success: false,
-        error: 'Dish not found'
-      }, 404)
-    }
-    
-    // Get recipe if exists
-    const recipe = await DB.prepare('SELECT * FROM recipes WHERE dish_id = ?')
-      .bind(dish.id)
-      .first()
-    
-    return c.json({
-      success: true,
-      data: {
-        ...dish,
-        recipe: recipe || null
-      }
-    })
-  } catch (error) {
-    return c.json({
-      success: false,
-      error: 'Failed to fetch dish'
-    }, 500)
-  }
-})
+// Get dish by slug (API format)
+app.get('/api/dishes/:slug', (c) => handleGetDishBySlug(c, true))
 
 // Get pairings for a dish
 app.get('/api/pairings/:slug', async (c) => {
@@ -433,8 +372,8 @@ app.get('/api/pairings/:slug', async (c) => {
       data: {
         main_dish: {
           ...mainDish,
-          dietary_tags: JSON.parse(mainDish.dietary_tags || '[]'),
-          keywords: JSON.parse(mainDish.keywords || '[]')
+          dietary_tags: safeJsonParse(mainDish.dietary_tags, []),
+          keywords: safeJsonParse(mainDish.keywords, [])
         },
         side_dishes: pairings.map(p => {
           const sideDish = {
@@ -451,25 +390,17 @@ app.get('/api/pairings/:slug', async (c) => {
           }
           
           // Safely parse dietary tags
-          try {
-            sideDish.dietary_tags = JSON.parse(p.dietary_tags || '[]')
-          } catch (e) {
-            console.error('Error parsing dietary_tags:', e)
-          }
+          sideDish.dietary_tags = safeJsonParse(p.dietary_tags, [])
           
           // Add recipe if exists
           if (p.ingredients) {
-            try {
-              sideDish.recipe = {
-                ingredients: JSON.parse(p.ingredients),
-                instructions: JSON.parse(p.instructions),
-                prep_time: p.prep_time,
-                cook_time: p.cook_time,
-                servings: p.servings,
-                difficulty: p.difficulty
-              }
-            } catch (e) {
-              console.error('Error parsing recipe:', e)
+            sideDish.recipe = {
+              ingredients: safeJsonParse(p.ingredients, []),
+              instructions: safeJsonParse(p.instructions, []),
+              prep_time: p.prep_time,
+              cook_time: p.cook_time,
+              servings: p.servings,
+              difficulty: p.difficulty
             }
           }
           
@@ -497,36 +428,18 @@ app.get('/api/pairings/:slug', async (c) => {
   }
 })
 
-// Search dishes
-app.get('/api/search', async (c) => {
-  const { DB } = c.env
-  const { q } = c.req.query()
-  
-  if (!q || q.length < 2) {
-    return c.json({
-      success: false,
-      error: 'Query must be at least 2 characters'
-    }, 400)
-  }
-  
+// Search dishes (API format)
+app.get('/api/search', (c) => handleSearch(c, true))
+
+// Safe JSON parsing with fallback values
+function safeJsonParse(jsonString: string, fallback: any = null) {
   try {
-    const { results } = await DB.prepare(`
-      SELECT * FROM dishes 
-      WHERE name LIKE ? OR description LIKE ?
-      LIMIT 20
-    `).bind(`%${q}%`, `%${q}%`).all()
-    
-    return c.json({
-      success: true,
-      data: results
-    })
+    return JSON.parse(jsonString || 'null') ?? fallback;
   } catch (error) {
-    return c.json({
-      success: false,
-      error: 'Search failed'
-    }, 500)
+    console.error('JSON parsing error:', error);
+    return fallback;
   }
-})
+}
 
 // Data transformation function for frontend compatibility
 function transformDish(dish: any) {
@@ -536,15 +449,22 @@ function transformDish(dish: any) {
     ...dish,
     imageUrl: dish.image_url,
     category: dish.dish_type,
-    dietaryTags: JSON.parse(dish.dietary_tags || '[]'),
-    keywords: JSON.parse(dish.keywords || '[]')
+    dietaryTags: safeJsonParse(dish.dietary_tags, []),
+    keywords: safeJsonParse(dish.keywords, [])
   };
 }
 
-// Frontend-compatible endpoints (without /api prefix)
+// Shared handler functions to eliminate code duplication
 
-// Get all dishes (frontend compatible)
-app.get('/dishes', async (c) => {
+// TODO: Performance Optimizations Needed:
+// 1. Add database indexes: CREATE INDEX idx_dishes_slug ON dishes(slug);
+// 2. Add database indexes: CREATE INDEX idx_dishes_type ON dishes(dish_type);
+// 3. Add database indexes: CREATE INDEX idx_pairings_main ON pairings(main_dish_id);
+// 4. Add database indexes: CREATE INDEX idx_pairings_side ON pairings(side_dish_id);
+// 5. Implement caching for all endpoints (currently only pairings uses cache)
+// 6. Consider using batch queries to reduce N+1 problems in import endpoint
+
+async function handleGetAllDishes(c: any, apiResponse = false) {
   const { DB } = c.env
   const { type, limit = '50', offset = '0' } = c.req.query()
   
@@ -562,14 +482,29 @@ app.get('/dishes', async (c) => {
     
     const { results } = await DB.prepare(query).bind(...params).all()
     
-    return c.json(results.map(transformDish))
+    if (apiResponse) {
+      return c.json({
+        success: true,
+        data: results,
+        pagination: {
+          limit: parseInt(limit),
+          offset: parseInt(offset)
+        }
+      })
+    } else {
+      return c.json(results.map(transformDish))
+    }
   } catch (error) {
-    return c.json({ error: 'Failed to fetch dishes' }, 500)
+    const errorMsg = 'Failed to fetch dishes'
+    if (apiResponse) {
+      return c.json({ success: false, error: errorMsg }, 500)
+    } else {
+      return c.json({ error: errorMsg }, 500)
+    }
   }
-})
+}
 
-// Get dish by slug (frontend compatible)
-app.get('/dishes/:slug', async (c) => {
+async function handleGetDishBySlug(c: any, apiResponse = false) {
   const { DB } = c.env
   const slug = c.req.param('slug')
   
@@ -579,7 +514,12 @@ app.get('/dishes/:slug', async (c) => {
       .first()
     
     if (!dish) {
-      return c.json({ error: 'Dish not found' }, 404)
+      const errorMsg = 'Dish not found'
+      if (apiResponse) {
+        return c.json({ success: false, error: errorMsg }, 404)
+      } else {
+        return c.json({ error: errorMsg }, 404)
+      }
     }
     
     // Get recipe if exists
@@ -587,18 +527,85 @@ app.get('/dishes/:slug', async (c) => {
       .bind(dish.id)
       .first()
     
-    const transformedDish = transformDish(dish)
-    
-    return c.json({
-      ...transformedDish,
-      recipe: recipe || null
-    })
+    if (apiResponse) {
+      return c.json({
+        success: true,
+        data: {
+          ...dish,
+          recipe: recipe || null
+        }
+      })
+    } else {
+      const transformedDish = transformDish(dish)
+      return c.json({
+        ...transformedDish,
+        recipe: recipe || null
+      })
+    }
   } catch (error) {
-    return c.json({ error: 'Failed to fetch dish' }, 500)
+    const errorMsg = 'Failed to fetch dish'
+    if (apiResponse) {
+      return c.json({ success: false, error: errorMsg }, 500)
+    } else {
+      return c.json({ error: errorMsg }, 500)
+    }
   }
-})
+}
 
-// Get popular dishes (frontend compatible)
+async function handleSearch(c: any, apiResponse = false) {
+  const { DB } = c.env
+  const { q, page = '1', limit = '20' } = c.req.query()
+  
+  if (!q || q.length < 2) {
+    const errorMsg = 'Query must be at least 2 characters'
+    if (apiResponse) {
+      return c.json({ success: false, error: errorMsg }, 400)
+    } else {
+      return c.json({ error: errorMsg }, 400)
+    }
+  }
+  
+  try {
+    const offset = apiResponse ? 0 : (parseInt(page) - 1) * parseInt(limit)
+    const searchLimit = apiResponse ? 20 : parseInt(limit)
+    
+    const { results } = await DB.prepare(`
+      SELECT * FROM dishes 
+      WHERE name LIKE ? OR description LIKE ?
+      LIMIT ? ${apiResponse ? '' : 'OFFSET ?'}
+    `).bind(`%${q}%`, `%${q}%`, searchLimit, ...(apiResponse ? [] : [offset])).all()
+    
+    if (apiResponse) {
+      return c.json({
+        success: true,
+        data: results
+      })
+    } else {
+      return c.json({
+        dishes: results.map(transformDish),
+        pagination: {
+          page: parseInt(page),
+          limit: parseInt(limit),
+          total: results.length
+        }
+      })
+    }
+  } catch (error) {
+    const errorMsg = 'Search failed'
+    if (apiResponse) {
+      return c.json({ success: false, error: errorMsg }, 500)
+    } else {
+      return c.json({ error: errorMsg }, 500)
+    }
+  }
+}
+
+// Frontend-compatible endpoints (without /api prefix)
+
+// Get all dishes (frontend compatible)
+app.get('/dishes', (c) => handleGetAllDishes(c, false))
+
+// Get popular dishes (frontend compatible) - MUST come before /dishes/:slug
 app.get('/dishes/popular', async (c) => {
   const { DB } = c.env
   const { limit = '10' } = c.req.query()
@@ -616,6 +623,9 @@ app.get('/dishes/popular', async (c) => {
     return c.json({ error: 'Failed to fetch popular dishes' }, 500)
   }
 })
+
+// Get dish by slug (frontend compatible)
+app.get('/dishes/:slug', (c) => handleGetDishBySlug(c, false))
 
 // Get dish pairings (frontend compatible)
 app.get('/dishes/:slug/pairings', async (c) => {
@@ -698,17 +708,13 @@ app.get('/dishes/:slug/pairings', async (c) => {
         
         // Add recipe if exists
         if (p.ingredients) {
-          try {
-            sideDish.recipe = {
-              ingredients: JSON.parse(p.ingredients),
-              instructions: JSON.parse(p.instructions),
-              prepTime: p.prep_time,
-              cookTime: p.cook_time,
-              servings: p.servings,
-              difficulty: p.difficulty
-            }
-          } catch (e) {
-            console.error('Error parsing recipe:', e)
+          sideDish.recipe = {
+            ingredients: safeJsonParse(p.ingredients, []),
+            instructions: safeJsonParse(p.instructions, []),
+            prepTime: p.prep_time,
+            cookTime: p.cook_time,
+            servings: p.servings,
+            difficulty: p.difficulty
           }
         }
         
@@ -747,33 +753,6 @@ app.get('/categories', async (c) => {
 })
 
 // Search dishes (frontend compatible)
-app.get('/search', async (c) => {
-  const { DB } = c.env
-  const { q, page = '1', limit = '20' } = c.req.query()
-  
-  if (!q || q.length < 2) {
-    return c.json({ error: 'Query must be at least 2 characters' }, 400)
-  }
-  
-  try {
-    const offset = (parseInt(page) - 1) * parseInt(limit)
-    const { results } = await DB.prepare(`
-      SELECT * FROM dishes 
-      WHERE name LIKE ? OR description LIKE ?
-      LIMIT ? OFFSET ?
-    `).bind(`%${q}%`, `%${q}%`, parseInt(limit), offset).all()
-    
-    return c.json({
-      dishes: results.map(transformDish),
-      pagination: {
-        page: parseInt(page),
-        limit: parseInt(limit),
-        total: results.length
-      }
-    })
-  } catch (error) {
-    return c.json({ error: 'Search failed' }, 500)
-  }
-})
+app.get('/search', (c) => handleSearch(c, false))
 
 export default app
