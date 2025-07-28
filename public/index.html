@@ -3,17 +3,35 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hello, World!</title>
+		<title>PairDish API</title>
+		<style>
+			body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; }
+			.endpoint { background: #f5f5f5; padding: 1rem; margin: 1rem 0; border-radius: 8px; }
+			code { background: #e5e5e5; padding: 0.25rem; border-radius: 4px; }
+		</style>
 	</head>
 	<body>
-		<h1 id="heading"></h1>
-		<script>
-			fetch('/message')
-				.then((resp) => resp.text())
-				.then((text) => {
-					const h1 = document.getElementById('heading');
-					h1.textContent = text;
-				});
-		</script>
+		<h1>PairDish API</h1>
+		<p>Welcome to the PairDish API. This service provides dish pairing recommendations and recipes.</p>
+		
+		<h2>Available Endpoints:</h2>
+		<div class="endpoint">
+			<strong>GET /api/dishes</strong><br>
+			Get all dishes with optional filtering
+		</div>
+		<div class="endpoint">
+			<strong>GET /api/dishes/:slug</strong><br>
+			Get details for a specific dish
+		</div>
+		<div class="endpoint">
+			<strong>GET /api/pairings/:slug</strong><br>
+			Get pairing recommendations for a dish
+		</div>
+		<div class="endpoint">
+			<strong>GET /api/search?q=query</strong><br>
+			Search for dishes
+		</div>
+		
+		<p>Frontend application is deployed separately.</p>
 	</body>
 </html>
