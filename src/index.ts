@@ -1071,92 +1071,93 @@ app.get('/search', async (c) => {
   }
 })
 
+
 // Handle frontend's what-to-serve-with URLs - serve a server-rendered page
-app.get('/what-to-serve-with/:slug', async (c) => {
-  const { DB } = c.env
-  let slug = sanitizeSlug(c.req.param('slug'))
-  
-  try {
-    // Try multiple slug variations to handle different formats
-    let dish = null as RawDish | null
-    let foundSlug = ''
+app.all('*', async (c, next) => {
+  if (c.req.path.startsWith('/what-to-serve-with-') && c.req.method === 'GET') {
+    const { DB } = c.env
+    const dishIdentifier = c.req.path.replace('/what-to-serve-with-', '')
+    let slug = sanitizeSlug(dishIdentifier)
     
-    // Try exact slug first
-    dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
-      .bind(slug)
-      .first() as RawDish | null
+    try {
+      // Try multiple slug variations to handle different formats
+      let dish = null as RawDish | null
       
-    // If not found, try without "a-" prefix if it exists
-    if (!dish && slug.startsWith('a-')) {
-      const slugWithoutA = slug.substring(2)
+      // Try exact slug first
       dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
-        .bind(slugWithoutA)
+        .bind(slug)
         .first() as RawDish | null
-    }
-    
-    // If not found, try with "what-to-serve-with-" prefix
-    if (!dish) {
-      const slugWithPrefix = `what-to-serve-with-${slug}`
-      dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
-        .bind(slugWithPrefix)
-        .first() as RawDish | null
-    }
-    
-    // If still not found, try to find by partial match
-    if (!dish) {
-      // Remove common articles and try to find similar dishes
-      const cleanSlug = slug.replace(/^(a|an|the)-/, '')
-      dish = await DB.prepare('SELECT * FROM dishes WHERE slug LIKE ?')
-        .bind(`%${cleanSlug}%`)
-        .first() as RawDish | null
-    }
-    
-    if (!dish) {
-      // Try to find a similar dish and suggest it
-      const searchTerm = slug.replace(/-/g, ' ').replace(/^(a|an|the) /, '')
-      const similarDish = await DB.prepare(
-        'SELECT slug, name FROM dishes WHERE name LIKE ? LIMIT 1'
-      ).bind(`%${searchTerm}%`).first() as {slug: string, name: string} | null
-      
-      if (similarDish) {
-        // Redirect to the correct URL
-        return c.redirect(`/what-to-serve-with/${similarDish.slug}`, 301)
+        
+      // If not found, try without "a-" prefix if it exists
+      if (!dish && slug.startsWith('a-')) {
+        const slugWithoutA = slug.substring(2)
+        dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+          .bind(slugWithoutA)
+          .first() as RawDish | null
       }
       
-      return c.notFound()
-    }
-    
-    // If we found the dish with a different slug variation, redirect to canonical URL
-    if (dish.slug !== slug) {
-      return c.redirect(`/what-to-serve-with/${dish.slug}`, 301)
-    }
-    
-    // Get the pairings
-    
-    const result = await safeQuery(
-      DB.prepare(`
-        SELECT 
-          d.*,
-          p.match_score,
-          p.order_position
-        FROM pairings p
-        JOIN dishes d ON p.side_dish_id = d.id
-        WHERE p.main_dish_id = ?
-        ORDER BY p.order_position ASC
-        LIMIT 15
-      `).bind(dish.id)
-    )
-    
-    if (!result.success) {
-      throw new Error('Failed to fetch pairings')
-    }
-    
-    // Parse dietary tags and keywords
-    const dietaryTags = safeJsonParse(dish.dietary_tags, [])
-    const keywords = safeJsonParse(dish.keywords, [])
-    
-    // Generate a simple server-rendered page with proper HTML escaping
-    const html = `
+      // If not found, try with "what-to-serve-with-" prefix
+      if (!dish) {
+        const slugWithPrefix = `what-to-serve-with-${slug}`
+        dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+          .bind(slugWithPrefix)
+          .first() as RawDish | null
+      }
+      
+      // If still not found, try to find by partial match
+      if (!dish) {
+        // Remove common articles and try to find similar dishes
+        const cleanSlug = slug.replace(/^(a|an|the)-/, '')
+        dish = await DB.prepare('SELECT * FROM dishes WHERE slug LIKE ?')
+          .bind(`%${cleanSlug}%`)
+          .first() as RawDish | null
+      }
+      
+      if (!dish) {
+        // Try to find a similar dish and suggest it
+        const searchTerm = slug.replace(/-/g, ' ').replace(/^(a|an|the) /, '')
+        const similarDish = await DB.prepare(
+          'SELECT slug, name FROM dishes WHERE name LIKE ? LIMIT 1'
+        ).bind(`%${searchTerm}%`).first() as {slug: string, name: string} | null
+        
+        if (similarDish) {
+          // Redirect to the correct URL
+          return c.redirect(`/what-to-serve-with-${similarDish.slug}`, 301)
+        }
+        
+        return c.notFound()
+      }
+      
+      // If we found the dish with a different slug variation, redirect to canonical URL
+      if (dish.slug !== slug) {
+        return c.redirect(`/what-to-serve-with-${dish.slug}`, 301)
+      }
+      
+      // Get the pairings
+      const result = await safeQuery(
+        DB.prepare(`
+          SELECT 
+            d.*,
+            p.match_score,
+            p.order_position
+          FROM pairings p
+          JOIN dishes d ON p.side_dish_id = d.id
+          WHERE p.main_dish_id = ?
+          ORDER BY p.order_position ASC
+          LIMIT 15
+        `).bind(dish.id)
+      )
+      
+      if (!result.success) {
+        throw new Error('Failed to fetch pairings')
+      }
+      
+      // Parse dietary tags and keywords
+      const dietaryTags = safeJsonParse(dish.dietary_tags, [])
+      const keywords = safeJsonParse(dish.keywords, [])
+      
+      // Generate a simple server-rendered page with proper HTML escaping
+      const html = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1250,12 +1251,15 @@ app.get('/what-to-serve-with/:slug', async (c) => {
     </div>
 </body>
 </html>
-    `
-    
-    return c.html(html)
-  } catch (error) {
-    return c.notFound()
+      `
+      
+      return c.html(html)
+    } catch (error) {
+      console.error('What-to-serve-with error:', error)
+      return c.notFound()
+    }
   }
+  await next()
 })
 
 // Serve static assets and frontend

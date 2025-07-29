@@ -78,7 +78,7 @@ describe('PairDish API', () => {
       })
 
       // Fetch the server-rendered page
-      const resp = await worker.fetch('/what-to-serve-with/xss-test')
+      const resp = await worker.fetch('/what-to-serve-with-xss-test')
       const html = await resp.text()
       
       // Check that HTML is properly escaped
