@@ -303,21 +303,138 @@ app.get('/api/dishes', (c) => handleGetAllDishes(c, true))
 // Get dish by slug (API format)
 app.get('/api/dishes/:slug', (c) => handleGetDishBySlug(c, true))
 
-// Handle frontend's what-to-serve-with URLs - serve the React app
+// Handle frontend's what-to-serve-with URLs - serve a server-rendered page
 app.get('/what-to-serve-with/:slug', async (c) => {
+  const { DB } = c.env
+  const slug = c.req.param('slug')
+  
   try {
-    // For client-side routing, serve the index.html
-    const indexResponse = await c.env.ASSETS.fetch(new Request(new URL('/index.html', c.req.url)))
-    if (indexResponse.ok) {
-      return new Response(indexResponse.body, {
-        headers: {
-          'content-type': 'text/html; charset=utf-8',
-        },
-      })
+    // Get the dish data
+    const dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slug)
+      .first()
+    
+    if (!dish) {
+      return c.notFound()
     }
-    return c.notFound()
+    
+    // Get the pairings
+    const { results: pairings } = await DB.prepare(`
+      SELECT 
+        d.*,
+        p.match_score,
+        p.order_position
+      FROM pairings p
+      JOIN dishes d ON p.side_dish_id = d.id
+      WHERE p.main_dish_id = ?
+      ORDER BY p.order_position ASC
+      LIMIT 15
+    `).bind(dish.id).all()
+    
+    // Parse dietary tags and keywords
+    const dietaryTags = safeJsonParse(dish.dietary_tags, [])
+    const keywords = safeJsonParse(dish.keywords, [])
+    
+    // Generate a simple server-rendered page
+    const html = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to Serve with ${dish.name} - PairDish</title>
+    <meta name="description" content="${dish.seo_description || `Discover the perfect side dishes and pairings for ${dish.name}. Expert-curated recommendations for a complete meal.`}">
+    <link rel="stylesheet" href="/assets/index-v8ikjrLU.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-br from-cream via-white to-primary-50">
+      <!-- Header -->
+      <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-primary-100">
+        <div class="container-custom">
+          <div class="flex items-center justify-between py-4">
+            <a href="/" class="flex items-center space-x-2 group">
+              <div class="p-2 bg-primary-500 rounded-full group-hover:bg-primary-600 transition-colors">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+                </svg>
+              </div>
+              <span class="text-2xl font-display font-bold text-primary-800">PairDish</span>
+            </a>
+            <nav class="flex items-center space-x-6">
+              <a href="/" class="text-gray-700 hover:text-primary-600 transition-colors">Home</a>
+              <a href="/search" class="text-gray-700 hover:text-primary-600 transition-colors">Browse</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="container-custom py-8">
+        <div class="max-w-6xl mx-auto">
+          <!-- Dish Header -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+            <div class="md:flex">
+              ${dish.image_url ? `
+              <div class="md:w-2/5">
+                <img src="${dish.image_url}" alt="${dish.name}" class="w-full h-full object-cover">
+              </div>
+              ` : ''}
+              <div class="p-8 ${dish.image_url ? 'md:w-3/5' : ''}">
+                <h1 class="text-4xl font-display font-bold text-gray-800 mb-4">What to Serve with ${dish.name}</h1>
+                ${dish.description ? `<p class="text-lg text-gray-600 mb-6">${dish.description}</p>` : ''}
+                <div class="flex flex-wrap gap-2 mb-6">
+                  ${dish.dish_type ? `<span class="badge-category bg-primary-100 text-primary-800">${dish.dish_type}</span>` : ''}
+                  ${dish.cuisine ? `<span class="badge-category bg-secondary-100 text-secondary-800">${dish.cuisine}</span>` : ''}
+                  ${dietaryTags.map(tag => `<span class="badge-category bg-gray-100 text-gray-700">${tag}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pairings -->
+          <div>
+            <h2 class="text-2xl font-display font-semibold text-gray-800 mb-6">Perfect Pairings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${pairings.map(pairing => {
+                const pairingTags = safeJsonParse(pairing.dietary_tags, [])
+                return `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                  ${pairing.image_url ? `
+                  <div class="h-48 overflow-hidden">
+                    <img src="${pairing.image_url}" alt="${pairing.name}" class="w-full h-full object-cover">
+                  </div>
+                  ` : ''}
+                  <div class="p-4">
+                    <h3 class="text-lg font-display font-semibold text-gray-800 mb-2">${pairing.name}</h3>
+                    ${pairing.description ? `<p class="text-sm text-gray-600 mb-3">${pairing.description}</p>` : ''}
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs text-gray-500">${pairing.dish_type || 'Side Dish'}</span>
+                      ${pairing.match_score ? `<span class="text-xs text-primary-600 font-semibold">${pairing.match_score}% Match</span>` : ''}
+                    </div>
+                  </div>
+                </div>
+                `
+              }).join('')}
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-white mt-16 py-8">
+        <div class="container-custom text-center">
+          <p>&copy; 2024 PairDish. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+</body>
+</html>
+    `
+    
+    return c.html(html)
   } catch (error) {
-    console.error('Error serving index.html:', error)
+    console.error('Error serving dish page:', error)
     return c.notFound()
   }
 })
