@@ -325,8 +325,14 @@ app.get('/what-to-serve-with/:slug', async (c) => {
 // Get pairings for a dish
 app.get('/api/pairings/:slug', async (c) => {
   const { DB, CACHE } = c.env
-  const slug = c.req.param('slug')
-  const cacheKey = `pairings:${slug}`
+  let slug = c.req.param('slug')
+  
+  // Handle both old format (with prefix) and new format (without prefix)
+  // This ensures backward compatibility during migration
+  const originalSlug = slug
+  const slugWithoutPrefix = slug.replace('what-to-serve-with-', '')
+  
+  const cacheKey = `pairings:${originalSlug}`
   
   try {
     // Check cache first
@@ -336,10 +342,17 @@ app.get('/api/pairings/:slug', async (c) => {
       return c.json(cached)
     }
     
-    // Get main dish
-    const mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
-      .bind(slug)
+    // Get main dish - try both with and without prefix for backward compatibility
+    let mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slugWithoutPrefix)
       .first()
+    
+    // If not found, try with the original slug (might have prefix)
+    if (!mainDish && originalSlug !== slugWithoutPrefix) {
+      mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+        .bind(originalSlug)
+        .first()
+    }
     
     if (!mainDish) {
       return c.json({
@@ -465,8 +478,15 @@ function safeJsonParse(jsonString: string, fallback: any = null) {
 function transformDish(dish: any) {
   if (!dish) return dish;
   
+  // Remove "what-to-serve-with-" prefix from slug if it exists
+  let cleanSlug = dish.slug;
+  if (cleanSlug && cleanSlug.startsWith('what-to-serve-with-')) {
+    cleanSlug = cleanSlug.replace('what-to-serve-with-', '');
+  }
+  
   return {
     ...dish,
+    slug: cleanSlug,
     imageUrl: dish.image_url,
     category: dish.dish_type,
     dietaryTags: safeJsonParse(dish.dietary_tags, []),
@@ -526,12 +546,24 @@ async function handleGetAllDishes(c: any, apiResponse = false) {
 
 async function handleGetDishBySlug(c: any, apiResponse = false) {
   const { DB } = c.env
-  const slug = c.req.param('slug')
+  let slug = c.req.param('slug')
+  
+  // Handle both old format (with prefix) and new format (without prefix)
+  const originalSlug = slug
+  const slugWithoutPrefix = slug.replace('what-to-serve-with-', '')
   
   try {
-    const dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
-      .bind(slug)
+    // Try without prefix first
+    let dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slugWithoutPrefix)
       .first()
+    
+    // If not found, try with the original slug (might have prefix)
+    if (!dish && originalSlug !== slugWithoutPrefix) {
+      dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+        .bind(originalSlug)
+        .first()
+    }
     
     if (!dish) {
       const errorMsg = 'Dish not found'
@@ -650,8 +682,13 @@ app.get('/dishes/:slug', (c) => handleGetDishBySlug(c, false))
 // Get dish pairings (frontend compatible)
 app.get('/dishes/:slug/pairings', async (c) => {
   const { DB, CACHE } = c.env
-  const slug = c.req.param('slug')
-  const cacheKey = `pairings:${slug}`
+  let slug = c.req.param('slug')
+  
+  // Handle both old format (with prefix) and new format (without prefix)
+  const originalSlug = slug
+  const slugWithoutPrefix = slug.replace('what-to-serve-with-', '')
+  
+  const cacheKey = `pairings:${originalSlug}`
   
   try {
     // Check cache first
@@ -661,10 +698,17 @@ app.get('/dishes/:slug/pairings', async (c) => {
       return c.json(cached)
     }
     
-    // Get main dish
-    const mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
-      .bind(slug)
+    // Get main dish - try both with and without prefix for backward compatibility
+    let mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+      .bind(slugWithoutPrefix)
       .first()
+    
+    // If not found, try with the original slug (might have prefix)
+    if (!mainDish && originalSlug !== slugWithoutPrefix) {
+      mainDish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+        .bind(originalSlug)
+        .first()
+    }
     
     if (!mainDish) {
       return c.json({ error: 'Main dish not found' }, 404)
