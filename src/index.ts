@@ -70,7 +70,7 @@ const pairingDataSchema = z.object({
 app.get('/api', (c) => {
   return c.json({
     name: 'PairDish API',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: {
       'GET /api': 'API information',
       'POST /api/import-dishes': 'Import dish pairings',
