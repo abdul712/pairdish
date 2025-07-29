@@ -16,7 +16,27 @@ export function sanitizeInput(input: string | undefined | null, maxLength: numbe
   
   // Remove any potential SQL injection attempts
   // This is a defense in depth measure - we still use parameterized queries
-  sanitized = sanitized.replace(/[';\-\-]/g, '')
+  // Only remove SQL comment sequences (--) and single quotes/semicolons, not single hyphens
+  sanitized = sanitized.replace(/[';\-]{2,}/g, '').replace(/'/g, '')
+  
+  return sanitized
+}
+
+/**
+ * Sanitize URL slug - more permissive than general input sanitization
+ * @param slug - Raw slug string
+ * @param maxLength - Maximum allowed length (default: 255)
+ * @returns Sanitized slug string
+ */
+export function sanitizeSlug(slug: string | undefined | null, maxLength: number = 255): string {
+  if (!slug) return ''
+  
+  // Trim whitespace and limit length
+  let sanitized = slug.trim().substring(0, maxLength)
+  
+  // For slugs, we only need to remove dangerous SQL patterns, but keep hyphens
+  // Only remove SQL comment sequences (--) and single quotes/semicolons
+  sanitized = sanitized.replace(/\-{2,}/g, '').replace(/[';\(\)\[\]]/g, '')
   
   return sanitized
 }

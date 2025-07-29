@@ -17,6 +17,7 @@ import type {
 // Import utilities
 import { 
   sanitizeInput, 
+  sanitizeSlug,
   escapeHtml, 
   sanitizeForHtml,
   sanitizeUrl,
@@ -312,6 +313,29 @@ app.post('/api/import-dishes',
   }
 )
 
+// Debug endpoint to list first 20 dishes with their slugs
+app.get('/api/debug/dishes', async (c) => {
+  const { DB } = c.env
+  
+  try {
+    const dishes = await DB.prepare('SELECT id, name, slug, dish_type FROM dishes ORDER BY id ASC LIMIT 20').all()
+    
+    return c.json({
+      success: true,
+      total: dishes.results?.length || 0,
+      dishes: dishes.results || [],
+      message: 'Debug endpoint - showing first 20 dishes'
+    })
+  } catch (error) {
+    return c.json({
+      success: false,
+      error: 'Failed to fetch dishes',
+      details: error instanceof Error ? error.message : String(error)
+    }, 500)
+  }
+})
+
+
 // Get all dishes
 app.get('/api/dishes', async (c) => {
   const { DB } = c.env
@@ -327,8 +351,8 @@ app.get('/api/dishes', async (c) => {
   const cacheKey = `dishes:${type || 'all'}:${pagination.page}:${pagination.limit}`
   
   try {
-    // Check cache
-    const cached = await cache.get<ApiResponse<RawDish[]>>(cacheKey)
+    // Check cache - store in debug format for frontend compatibility
+    const cached = await cache.get<any>(cacheKey)
     if (cached) {
       c.header('X-Cache', 'HIT')
       return c.json(cached)
@@ -353,9 +377,15 @@ app.get('/api/dishes', async (c) => {
       throw new Error('Database query failed')
     }
     
-    const response: ApiResponse<RawDish[]> = {
+    // Transform dishes for frontend compatibility
+    const transformedDishes = result.results.map(transformDish)
+    
+    // Return format compatible with frontend expectations (like debug endpoint)
+    const response = {
       success: true,
-      data: result.results
+      total: result.results.length,
+      dishes: transformedDishes,
+      message: `Found ${result.results.length} dishes`
     }
     
     // Cache for 15 minutes
@@ -364,10 +394,12 @@ app.get('/api/dishes', async (c) => {
     c.header('X-Cache', 'MISS')
     return c.json(response)
   } catch (error) {
-    const response: ApiResponse<any> = {
+    const response = {
       success: false,
       error: sanitizeErrorMessage(error, isDevelopment()),
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      dishes: [],
+      total: 0
     }
     return c.json(response, 500)
   }
@@ -377,7 +409,7 @@ app.get('/api/dishes', async (c) => {
 app.get('/api/dishes/:slug', async (c) => {
   const { DB } = c.env
   const cache = getCacheService(c)
-  let slug = sanitizeInput(c.req.param('slug'))
+  let slug = sanitizeSlug(c.req.param('slug'))
   
   // Handle both old format (with prefix) and new format (without prefix)
   const originalSlug = slug
@@ -387,7 +419,7 @@ app.get('/api/dishes/:slug', async (c) => {
   
   try {
     // Check cache
-    const cached = await cache.get<ApiResponse<RawDish>>(cacheKey)
+    const cached = await cache.get<ApiResponse<any>>(cacheKey)
     if (cached) {
       c.header('X-Cache', 'HIT')
       return c.json(cached)
@@ -418,10 +450,13 @@ app.get('/api/dishes/:slug', async (c) => {
       .bind(dish.id)
       .first() as Recipe | null
     
+    // Transform the dish for consistency
+    const transformedDish = transformDish(dish)
+    
     const response: ApiResponse<any> = {
       success: true,
       data: {
-        ...dish,
+        ...transformedDish,
         recipe: recipe || null
       }
     }
@@ -445,7 +480,7 @@ app.get('/api/dishes/:slug', async (c) => {
 app.get('/api/pairings/:slug', async (c) => {
   const { DB, CACHE } = c.env
   const cache = getCacheService(c)
-  let slug = sanitizeInput(c.req.param('slug'))
+  let slug = sanitizeSlug(c.req.param('slug'))
   
   // Handle both old format (with prefix) and new format (without prefix)
   const originalSlug = slug
@@ -481,6 +516,7 @@ app.get('/api/pairings/:slug', async (c) => {
     }
     
     // Get pairings with parameterized query
+    
     const result = await safeQuery(
       DB.prepare(`
         SELECT 
@@ -758,7 +794,7 @@ app.get('/dishes/popular', async (c) => {
 app.get('/dishes/:slug', async (c) => {
   const { DB } = c.env
   const cache = getCacheService(c)
-  let slug = sanitizeInput(c.req.param('slug'))
+  let slug = sanitizeSlug(c.req.param('slug'))
   
   const originalSlug = slug
   const slugWithoutPrefix = slug.replace('what-to-serve-with-', '')
@@ -810,7 +846,7 @@ app.get('/dishes/:slug', async (c) => {
 app.get('/dishes/:slug/pairings', async (c) => {
   const { DB } = c.env
   const cache = getCacheService(c)
-  let slug = sanitizeInput(c.req.param('slug'))
+  let slug = sanitizeSlug(c.req.param('slug'))
   
   const originalSlug = slug
   const slugWithoutPrefix = slug.replace('what-to-serve-with-', '')
@@ -1038,19 +1074,65 @@ app.get('/search', async (c) => {
 // Handle frontend's what-to-serve-with URLs - serve a server-rendered page
 app.get('/what-to-serve-with/:slug', async (c) => {
   const { DB } = c.env
-  const slug = sanitizeInput(c.req.param('slug'))
+  let slug = sanitizeSlug(c.req.param('slug'))
   
   try {
-    // Get the dish data
-    const dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+    // Try multiple slug variations to handle different formats
+    let dish = null as RawDish | null
+    let foundSlug = ''
+    
+    // Try exact slug first
+    dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
       .bind(slug)
       .first() as RawDish | null
+      
+    // If not found, try without "a-" prefix if it exists
+    if (!dish && slug.startsWith('a-')) {
+      const slugWithoutA = slug.substring(2)
+      dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+        .bind(slugWithoutA)
+        .first() as RawDish | null
+    }
+    
+    // If not found, try with "what-to-serve-with-" prefix
+    if (!dish) {
+      const slugWithPrefix = `what-to-serve-with-${slug}`
+      dish = await DB.prepare('SELECT * FROM dishes WHERE slug = ?')
+        .bind(slugWithPrefix)
+        .first() as RawDish | null
+    }
+    
+    // If still not found, try to find by partial match
+    if (!dish) {
+      // Remove common articles and try to find similar dishes
+      const cleanSlug = slug.replace(/^(a|an|the)-/, '')
+      dish = await DB.prepare('SELECT * FROM dishes WHERE slug LIKE ?')
+        .bind(`%${cleanSlug}%`)
+        .first() as RawDish | null
+    }
     
     if (!dish) {
+      // Try to find a similar dish and suggest it
+      const searchTerm = slug.replace(/-/g, ' ').replace(/^(a|an|the) /, '')
+      const similarDish = await DB.prepare(
+        'SELECT slug, name FROM dishes WHERE name LIKE ? LIMIT 1'
+      ).bind(`%${searchTerm}%`).first() as {slug: string, name: string} | null
+      
+      if (similarDish) {
+        // Redirect to the correct URL
+        return c.redirect(`/what-to-serve-with/${similarDish.slug}`, 301)
+      }
+      
       return c.notFound()
     }
     
+    // If we found the dish with a different slug variation, redirect to canonical URL
+    if (dish.slug !== slug) {
+      return c.redirect(`/what-to-serve-with/${dish.slug}`, 301)
+    }
+    
     // Get the pairings
+    
     const result = await safeQuery(
       DB.prepare(`
         SELECT 
@@ -1172,7 +1254,6 @@ app.get('/what-to-serve-with/:slug', async (c) => {
     
     return c.html(html)
   } catch (error) {
-    console.error('Error serving dish page:', error)
     return c.notFound()
   }
 })
