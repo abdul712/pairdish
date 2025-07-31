@@ -229,8 +229,8 @@ CREATE TABLE pairings (
   - Difficulty level
   - Preparation time
   - Cooking time
-  - Ingredients (future)
-  - Instructions (future)
+  - Ingredients
+  - Instructions
 
 ---
 
