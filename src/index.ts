@@ -36,7 +36,7 @@ import { apiKeyMiddleware, requireAdmin } from './middleware/auth'
 const app = new Hono<{ Bindings: Bindings }>()
 
 // Apply CORS middleware
-const isDevelopment = () => app.env?.ENVIRONMENT === 'development'
+const isDevelopment = () => false // Will be determined per request
 app.use('/*', getCorsConfig(isDevelopment()))
 
 // Apply global error handling middleware
@@ -573,7 +573,7 @@ app.get('/api/pairings/:slug', async (c) => {
           keywords: safeJsonParse(mainDish.keywords, [])
         },
         side_dishes: result.results.map(p => {
-          const sideDish = {
+          const sideDish: any = {
             id: p.id,
             name: p.name,
             slug: p.slug,
@@ -942,8 +942,8 @@ app.get('/dishes/:slug/pairings', async (c) => {
           sideDish.recipe = {
             ingredients: safeJsonParse(p.ingredients, []),
             instructions: safeJsonParse(p.instructions, []),
-            prepTime: p.prep_time,
-            cookTime: p.cook_time,
+            prep_time: p.prep_time,
+            cook_time: p.cook_time,
             servings: p.servings,
             difficulty: p.difficulty
           }
@@ -1207,7 +1207,7 @@ app.all('*', async (c, next) => {
                 <div class="flex flex-wrap gap-2 mb-6">
                   ${dish.dish_type ? `<span class="badge-category bg-primary-100 text-primary-800">${escapeHtml(dish.dish_type)}</span>` : ''}
                   ${dish.cuisine ? `<span class="badge-category bg-secondary-100 text-secondary-800">${escapeHtml(dish.cuisine)}</span>` : ''}
-                  ${dietaryTags.map(tag => `<span class="badge-category bg-gray-100 text-gray-700">${escapeHtml(tag)}</span>`).join('')}
+                  ${dietaryTags.map((tag: string) => `<span class="badge-category bg-gray-100 text-gray-700">${escapeHtml(tag)}</span>`).join('')}
                 </div>
               </div>
             </div>

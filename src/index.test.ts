@@ -1,9 +1,9 @@
-import { describe, it, expect, beforeAll } from 'vitest'
+import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import { unstable_dev } from 'wrangler'
-import type { UnstableDevWorker } from 'wrangler'
+import type { Unstable_DevWorker } from 'wrangler'
 
 describe('PairDish API', () => {
-  let worker: UnstableDevWorker
+  let worker: Unstable_DevWorker
 
   beforeAll(async () => {
     worker = await unstable_dev('src/index.ts', {
@@ -35,7 +35,7 @@ describe('PairDish API', () => {
         })
       })
       expect(resp.status).toBe(401)
-      const json = await resp.json()
+      const json = await resp.json() as any
       expect(json.error).toBe('Unauthorized')
     })
 
@@ -92,7 +92,7 @@ describe('PairDish API', () => {
       const resp = await worker.fetch('/api/search?q=%27%3B%20DROP%20TABLE%20dishes%3B%20--')
       expect(resp.status).toBe(200)
       // The query should be sanitized and not cause SQL injection
-      const json = await resp.json()
+      const json = await resp.json() as any
       expect(json.success).toBe(true)
     })
   })
@@ -134,7 +134,7 @@ describe('PairDish API', () => {
         body: 'invalid json'
       })
       
-      const json = await resp.json()
+      const json = await resp.json() as any
       expect(json.error).toBeDefined()
       expect(json.timestamp).toBeDefined()
       // In development mode, it might include stack trace
@@ -146,7 +146,7 @@ describe('PairDish API', () => {
     it('should validate pagination parameters', async () => {
       const resp = await worker.fetch('/api/dishes?page=-1&limit=1000')
       expect(resp.status).toBe(200)
-      const json = await resp.json()
+      const json = await resp.json() as any
       // Pagination should be validated to safe values
       expect(json.pagination.page).toBe(1)
       expect(json.pagination.limit).toBeLessThanOrEqual(100)

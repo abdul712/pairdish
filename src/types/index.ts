@@ -31,6 +31,9 @@ export interface TransformedDish {
   keywords: string[]
   createdAt?: string
   updatedAt?: string
+  matchScore?: number
+  orderPosition?: number
+  recipe?: Recipe
 }
 
 export interface Recipe {
