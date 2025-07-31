@@ -27,6 +27,8 @@ import {
 } from './utils/security'
 import { CacheService } from './utils/cache'
 import { executeBatch, safeQuery, createIndexes } from './utils/database'
+import { parseCSV } from './utils/csv-parser'
+import { generateRecipe } from './utils/recipe-generator'
 
 // Import middleware
 import { getCorsConfig } from './middleware/cors'
@@ -1290,6 +1292,599 @@ app.get('*', async (c) => {
   } catch (error) {
     console.error('Asset serving error:', error)
     return c.notFound()
+  }
+})
+
+// TEMPORARY: Populate test data endpoint (REMOVE IN PRODUCTION)
+app.get('/api/populate-test-data-emergency', async (c) => {
+  const { DB } = c.env
+  
+  try {
+    // Clear existing pairings
+    await DB.prepare('DELETE FROM pairings').run()
+    
+    // Add side dishes if they don't exist
+    const sideDishes = [
+      { name: 'Cornbread', slug: 'cornbread', description: 'Sweet and crumbly cornbread', dish_type: 'side' },
+      { name: 'Garden Salad', slug: 'garden-salad', description: 'Fresh mixed greens with vegetables', dish_type: 'side' },
+      { name: 'Garlic Bread', slug: 'garlic-bread', description: 'Crispy garlic bread', dish_type: 'side' },
+      { name: 'Caesar Salad', slug: 'caesar-salad', description: 'Classic Caesar salad', dish_type: 'side' },
+      { name: 'French Fries', slug: 'french-fries', description: 'Golden crispy fries', dish_type: 'side' },
+      { name: 'Coleslaw', slug: 'coleslaw', description: 'Creamy cabbage slaw', dish_type: 'side' },
+      { name: 'Mashed Potatoes', slug: 'mashed-potatoes', description: 'Creamy mashed potatoes', dish_type: 'side' },
+      { name: 'Rice Pilaf', slug: 'rice-pilaf', description: 'Fluffy seasoned rice', dish_type: 'side' },
+      { name: 'Roasted Vegetables', slug: 'roasted-vegetables', description: 'Seasonal roasted veggies', dish_type: 'side' },
+      { name: 'Biscuits', slug: 'biscuits', description: 'Fluffy buttermilk biscuits', dish_type: 'side' },
+      { name: 'Mac and Cheese', slug: 'mac-and-cheese', description: 'Creamy mac and cheese', dish_type: 'side' },
+      { name: 'Green Beans', slug: 'green-beans', description: 'Seasoned green beans', dish_type: 'side' },
+      { name: 'Potato Salad', slug: 'potato-salad', description: 'Classic potato salad', dish_type: 'side' },
+      { name: 'Dinner Rolls', slug: 'dinner-rolls', description: 'Soft dinner rolls', dish_type: 'side' },
+      { name: 'Steamed Broccoli', slug: 'steamed-broccoli', description: 'Healthy steamed broccoli', dish_type: 'side' }
+    ]
+    
+    // Insert side dishes
+    for (const dish of sideDishes) {
+      await DB.prepare(
+        'INSERT OR IGNORE INTO dishes (name, slug, description, dish_type, cuisine, dietary_tags) VALUES (?, ?, ?, ?, ?, ?)'
+      ).bind(
+        dish.name,
+        dish.slug,
+        dish.description,
+        dish.dish_type,
+        'American',
+        '["vegetarian"]'
+      ).run()
+    }
+    
+    // Get all side dish IDs
+    const sideDishResults = await DB.prepare('SELECT id, slug FROM dishes WHERE dish_type = "side"').all()
+    const sideDishMap = new Map(sideDishResults.results.map((d: any) => [d.slug, d.id]))
+    
+    // Define pairings for each main dish
+    const pairings = [
+      // 15 Bean Soup (ID: 1)
+      { main: 1, sides: ['cornbread', 'garden-salad', 'garlic-bread', 'caesar-salad', 'dinner-rolls'] },
+      // Baked Potato Bar (ID: 3)
+      { main: 3, sides: ['garden-salad', 'caesar-salad', 'coleslaw', 'garlic-bread', 'steamed-broccoli'] },
+      // BLT Sandwich (ID: 4)
+      { main: 4, sides: ['french-fries', 'coleslaw', 'potato-salad', 'garden-salad', 'mac-and-cheese'] },
+      // Breakfast Casserole (ID: 5)
+      { main: 5, sides: ['biscuits', 'garden-salad', 'roasted-vegetables', 'dinner-rolls', 'caesar-salad'] },
+      // Casserole (ID: 6)
+      { main: 6, sides: ['garden-salad', 'garlic-bread', 'green-beans', 'dinner-rolls', 'caesar-salad'] },
+      // Charcuterie Board Dinner (ID: 8)
+      { main: 8, sides: ['garlic-bread', 'caesar-salad', 'roasted-vegetables', 'dinner-rolls', 'garden-salad'] },
+      // Cheese Souffle (ID: 10)
+      { main: 10, sides: ['garden-salad', 'roasted-vegetables', 'caesar-salad', 'green-beans', 'steamed-broccoli'] }
+    ]
+    
+    // Insert pairings
+    for (const pairing of pairings) {
+      let position = 1
+      for (const sideDishSlug of pairing.sides) {
+        const sideDishId = sideDishMap.get(sideDishSlug)
+        if (sideDishId) {
+          await DB.prepare(
+            'INSERT INTO pairings (main_dish_id, side_dish_id, match_score, pairing_reason, order_position) VALUES (?, ?, ?, ?, ?)'
+          ).bind(
+            pairing.main,
+            sideDishId,
+            90 - (position * 5), // Score from 90 down to 70
+            `Perfect pairing for a complete meal`,
+            position
+          ).run()
+          position++
+        }
+      }
+      
+      // Add more side dishes to reach 15 per main dish
+      const additionalSides = Array.from(sideDishMap.entries())
+        .filter(([slug]) => !pairing.sides.includes(slug))
+        .slice(0, 15 - pairing.sides.length)
+      
+      for (const [slug, id] of additionalSides) {
+        await DB.prepare(
+          'INSERT INTO pairings (main_dish_id, side_dish_id, match_score, pairing_reason, order_position) VALUES (?, ?, ?, ?, ?)'
+        ).bind(
+          pairing.main,
+          id,
+          65 - (position * 2), // Lower scores for additional pairings
+          `Good alternative pairing option`,
+          position
+        ).run()
+        position++
+      }
+    }
+    
+    return c.json({ 
+      success: true, 
+      message: 'Test data populated successfully',
+      sideDishesAdded: sideDishes.length,
+      pairingsCreated: pairings.length * 15
+    })
+    
+  } catch (error: any) {
+    return c.json({ 
+      success: false, 
+      error: error.message 
+    }, 500)
+  }
+})
+
+// Temporary test import endpoint (REMOVE IN PRODUCTION)
+app.post('/api/import-csv-test', async (c) => {
+  const { DB } = c.env
+  
+  try {
+    // Get CSV content from request
+    const body = await c.req.json()
+    const { csvContent } = body
+    
+    if (!csvContent) {
+      return c.json({ error: 'CSV content is required' }, 400)
+    }
+    
+    console.log('Parsing CSV data...')
+    const csvRows = parseCSV(csvContent)
+    console.log(`Found ${csvRows.length} rows to import`)
+    
+    // Track unique dishes to avoid duplicates
+    const uniqueSideDishes = new Map<string, number>()
+    const mainDishIds = new Map<string, number>()
+    
+    let totalPairings = 0
+    let recipesGenerated = 0
+    
+    // Process each row
+    for (const row of csvRows) {
+      console.log(`Processing: ${row.mainDish}`)
+      
+      // Create main dish
+      const mainSlug = row.mainDish.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+      const mainResult = await DB.prepare(`
+        INSERT INTO dishes (name, slug, description, cuisine, dish_type, image_url)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ON CONFLICT(slug) DO UPDATE SET name = excluded.name
+        RETURNING id
+      `).bind(
+        row.mainDish,
+        mainSlug,
+        `Delicious ${row.mainDish} - a classic dish that pairs well with many sides`,
+        'American',
+        'main',
+        `/images/${mainSlug}.jpg`
+      ).first()
+      
+      const mainDishId = mainResult?.id as number
+      if (!mainDishId) {
+        console.error(`Failed to create main dish: ${row.mainDish}`)
+        continue
+      }
+      
+      mainDishIds.set(row.mainDish, mainDishId)
+      
+      // Generate recipe for main dish
+      const mainRecipe = generateRecipe(row.mainDish, 'main')
+      if (mainRecipe) {
+        // Check if recipe exists
+        const existingRecipe = await DB.prepare(
+          'SELECT id FROM recipes WHERE dish_id = ?'
+        ).bind(mainDishId).first()
+        
+        if (existingRecipe) {
+          // Update existing recipe
+          await DB.prepare(`
+            UPDATE recipes SET 
+              ingredients = ?,
+              instructions = ?,
+              prep_time = ?,
+              cook_time = ?,
+              servings = ?,
+              difficulty = ?
+            WHERE dish_id = ?
+          `).bind(
+            JSON.stringify(mainRecipe.ingredients),
+            JSON.stringify(mainRecipe.instructions),
+            mainRecipe.prep_time,
+            mainRecipe.cook_time,
+            mainRecipe.servings,
+            mainRecipe.difficulty,
+            mainDishId
+          ).run()
+        } else {
+          // Insert new recipe
+          await DB.prepare(`
+            INSERT INTO recipes (dish_id, ingredients, instructions, prep_time, cook_time, servings, difficulty)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+          `).bind(
+            mainDishId,
+            JSON.stringify(mainRecipe.ingredients),
+            JSON.stringify(mainRecipe.instructions),
+            mainRecipe.prep_time,
+            mainRecipe.cook_time,
+            mainRecipe.servings,
+            mainRecipe.difficulty
+          ).run()
+        }
+        recipesGenerated++
+      }
+      
+      // Process side dishes
+      for (let i = 0; i < row.sideDishes.length; i++) {
+        const sideDish = row.sideDishes[i]
+        if (!sideDish) continue
+        
+        let sideDishId = uniqueSideDishes.get(sideDish)
+        
+        // Create side dish if it doesn't exist
+        if (!sideDishId) {
+          const sideSlug = sideDish.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+          const sideResult = await DB.prepare(`
+            INSERT INTO dishes (name, slug, description, cuisine, dish_type, image_url)
+            VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(slug) DO UPDATE SET name = excluded.name
+            RETURNING id
+          `).bind(
+            sideDish,
+            sideSlug,
+            `Fresh and tasty ${sideDish} - perfect as a side dish`,
+            'American',
+            'side',
+            `/images/${sideSlug}.jpg`
+          ).first()
+          
+          sideDishId = sideResult?.id as number
+          if (sideDishId) {
+            uniqueSideDishes.set(sideDish, sideDishId)
+            
+            // Generate recipe for side dish
+            const sideRecipe = generateRecipe(sideDish, 'side')
+            if (sideRecipe) {
+              // Check if recipe exists
+              const existingRecipe = await DB.prepare(
+                'SELECT id FROM recipes WHERE dish_id = ?'
+              ).bind(sideDishId).first()
+              
+              if (existingRecipe) {
+                // Update existing recipe
+                await DB.prepare(`
+                  UPDATE recipes SET 
+                    ingredients = ?,
+                    instructions = ?,
+                    prep_time = ?,
+                    cook_time = ?,
+                    servings = ?,
+                    difficulty = ?
+                  WHERE dish_id = ?
+                `).bind(
+                  JSON.stringify(sideRecipe.ingredients),
+                  JSON.stringify(sideRecipe.instructions),
+                  sideRecipe.prep_time,
+                  sideRecipe.cook_time,
+                  sideRecipe.servings,
+                  sideRecipe.difficulty,
+                  sideDishId
+                ).run()
+              } else {
+                // Insert new recipe
+                await DB.prepare(`
+                  INSERT INTO recipes (dish_id, ingredients, instructions, prep_time, cook_time, servings, difficulty)
+                  VALUES (?, ?, ?, ?, ?, ?, ?)
+                `).bind(
+                  sideDishId,
+                  JSON.stringify(sideRecipe.ingredients),
+                  JSON.stringify(sideRecipe.instructions),
+                  sideRecipe.prep_time,
+                  sideRecipe.cook_time,
+                  sideRecipe.servings,
+                  sideRecipe.difficulty
+                ).run()
+              }
+              recipesGenerated++
+            }
+          }
+        }
+        
+        // Create pairing
+        if (sideDishId) {
+          const matchScore = 95 - (i * 3) // Higher score for earlier items
+          await DB.prepare(`
+            INSERT INTO pairings (main_dish_id, side_dish_id, match_score, pairing_reason)
+            VALUES (?, ?, ?, ?)
+            ON CONFLICT(main_dish_id, side_dish_id) DO UPDATE SET
+              match_score = excluded.match_score,
+              pairing_reason = excluded.pairing_reason
+          `).bind(
+            mainDishId,
+            sideDishId,
+            matchScore,
+            `${sideDish} complements ${row.mainDish} perfectly`
+          ).run()
+          totalPairings++
+        }
+      }
+    }
+    
+    console.log('Import completed successfully!')
+    console.log(`Main dishes: ${mainDishIds.size}`)
+    console.log(`Unique side dishes: ${uniqueSideDishes.size}`)
+    console.log(`Total pairings: ${totalPairings}`)
+    console.log(`Recipes generated: ${recipesGenerated}`)
+    
+    return c.json({
+      success: true,
+      message: 'CSV data imported successfully',
+      stats: {
+        mainDishes: mainDishIds.size,
+        uniqueSideDishes: uniqueSideDishes.size,
+        totalPairings,
+        recipesGenerated
+      }
+    })
+    
+  } catch (error: any) {
+    console.error('Import error:', error)
+    return c.json({ 
+      error: 'Failed to import CSV data',
+      details: error.message 
+    }, 500)
+  }
+})
+
+// CSV Import endpoint for admin use
+app.post('/api/import-csv', requireAdmin, async (c) => {
+  const { DB } = c.env
+  
+  try {
+    // Get CSV content from request
+    const body = await c.req.json()
+    const { csvContent } = body
+    
+    if (!csvContent) {
+      return c.json({ error: 'CSV content is required' }, 400)
+    }
+    
+    console.log('Parsing CSV data...')
+    const csvRows = parseCSV(csvContent)
+    console.log(`Found ${csvRows.length} rows to import`)
+    
+    // Track unique dishes to avoid duplicates
+    const uniqueSideDishes = new Map<string, number>()
+    const mainDishIds = new Map<string, number>()
+    
+    let totalPairings = 0
+    let recipesGenerated = 0
+    
+    // Process each row
+    for (const row of csvRows) {
+      console.log(`Processing: ${row.mainDish}`)
+      
+      // Create main dish
+      const mainSlug = row.mainDish.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+      const mainResult = await DB.prepare(`
+        INSERT INTO dishes (name, slug, description, cuisine, dish_type, image_url)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ON CONFLICT(slug) DO UPDATE SET name = excluded.name
+        RETURNING id
+      `).bind(
+        row.mainDish,
+        mainSlug,
+        `Delicious ${row.mainDish} - a classic dish that pairs well with many sides`,
+        'American',
+        'main',
+        `/images/${mainSlug}.jpg`
+      ).first()
+      
+      const mainDishId = mainResult?.id as number
+      if (!mainDishId) {
+        console.error(`Failed to create main dish: ${row.mainDish}`)
+        continue
+      }
+      
+      mainDishIds.set(row.mainDish, mainDishId)
+      
+      // Generate recipe for main dish
+      const mainRecipe = generateRecipe(row.mainDish, 'main')
+      if (mainRecipe) {
+        // Check if recipe exists
+        const existingRecipe = await DB.prepare(
+          'SELECT id FROM recipes WHERE dish_id = ?'
+        ).bind(mainDishId).first()
+        
+        if (existingRecipe) {
+          // Update existing recipe
+          await DB.prepare(`
+            UPDATE recipes SET 
+              ingredients = ?,
+              instructions = ?,
+              prep_time = ?,
+              cook_time = ?,
+              servings = ?,
+              difficulty = ?
+            WHERE dish_id = ?
+          `).bind(
+            JSON.stringify(mainRecipe.ingredients),
+            JSON.stringify(mainRecipe.instructions),
+            mainRecipe.prep_time,
+            mainRecipe.cook_time,
+            mainRecipe.servings,
+            mainRecipe.difficulty,
+            mainDishId
+          ).run()
+        } else {
+          // Insert new recipe
+          await DB.prepare(`
+            INSERT INTO recipes (dish_id, ingredients, instructions, prep_time, cook_time, servings, difficulty)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+          `).bind(
+            mainDishId,
+            JSON.stringify(mainRecipe.ingredients),
+            JSON.stringify(mainRecipe.instructions),
+            mainRecipe.prep_time,
+            mainRecipe.cook_time,
+            mainRecipe.servings,
+            mainRecipe.difficulty
+          ).run()
+        }
+        recipesGenerated++
+      }
+      
+      // Process side dishes
+      for (let i = 0; i < row.sideDishes.length; i++) {
+        const sideDish = row.sideDishes[i]
+        if (!sideDish) continue
+        
+        let sideDishId = uniqueSideDishes.get(sideDish)
+        
+        // Create side dish if it doesn't exist
+        if (!sideDishId) {
+          const sideSlug = sideDish.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+          const sideResult = await DB.prepare(`
+            INSERT INTO dishes (name, slug, description, cuisine, dish_type, image_url)
+            VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(slug) DO UPDATE SET name = excluded.name
+            RETURNING id
+          `).bind(
+            sideDish,
+            sideSlug,
+            `Fresh and tasty ${sideDish} - perfect as a side dish`,
+            'American',
+            'side',
+            `/images/${sideSlug}.jpg`
+          ).first()
+          
+          sideDishId = sideResult?.id as number
+          if (sideDishId) {
+            uniqueSideDishes.set(sideDish, sideDishId)
+            
+            // Generate recipe for side dish
+            const sideRecipe = generateRecipe(sideDish, 'side')
+            if (sideRecipe) {
+              // Check if recipe exists
+              const existingRecipe = await DB.prepare(
+                'SELECT id FROM recipes WHERE dish_id = ?'
+              ).bind(sideDishId).first()
+              
+              if (existingRecipe) {
+                // Update existing recipe
+                await DB.prepare(`
+                  UPDATE recipes SET 
+                    ingredients = ?,
+                    instructions = ?,
+                    prep_time = ?,
+                    cook_time = ?,
+                    servings = ?,
+                    difficulty = ?
+                  WHERE dish_id = ?
+                `).bind(
+                  JSON.stringify(sideRecipe.ingredients),
+                  JSON.stringify(sideRecipe.instructions),
+                  sideRecipe.prep_time,
+                  sideRecipe.cook_time,
+                  sideRecipe.servings,
+                  sideRecipe.difficulty,
+                  sideDishId
+                ).run()
+              } else {
+                // Insert new recipe
+                await DB.prepare(`
+                  INSERT INTO recipes (dish_id, ingredients, instructions, prep_time, cook_time, servings, difficulty)
+                  VALUES (?, ?, ?, ?, ?, ?, ?)
+                `).bind(
+                  sideDishId,
+                  JSON.stringify(sideRecipe.ingredients),
+                  JSON.stringify(sideRecipe.instructions),
+                  sideRecipe.prep_time,
+                  sideRecipe.cook_time,
+                  sideRecipe.servings,
+                  sideRecipe.difficulty
+                ).run()
+              }
+              recipesGenerated++
+            }
+          }
+        }
+        
+        // Create pairing
+        if (sideDishId) {
+          const matchScore = 95 - (i * 3) // Higher score for earlier items
+          await DB.prepare(`
+            INSERT INTO pairings (main_dish_id, side_dish_id, match_score, pairing_reason)
+            VALUES (?, ?, ?, ?)
+            ON CONFLICT(main_dish_id, side_dish_id) DO UPDATE SET
+              match_score = excluded.match_score,
+              pairing_reason = excluded.pairing_reason
+          `).bind(
+            mainDishId,
+            sideDishId,
+            matchScore,
+            `${sideDish} complements ${row.mainDish} perfectly`
+          ).run()
+          totalPairings++
+        }
+      }
+    }
+    
+    console.log('Import completed successfully!')
+    console.log(`Main dishes: ${mainDishIds.size}`)
+    console.log(`Unique side dishes: ${uniqueSideDishes.size}`)
+    console.log(`Total pairings: ${totalPairings}`)
+    console.log(`Recipes generated: ${recipesGenerated}`)
+    
+    return c.json({
+      success: true,
+      message: 'CSV data imported successfully',
+      stats: {
+        mainDishes: mainDishIds.size,
+        uniqueSideDishes: uniqueSideDishes.size,
+        totalPairings,
+        recipesGenerated
+      }
+    })
+    
+  } catch (error: any) {
+    console.error('Import error:', error)
+    return c.json({ 
+      error: 'Failed to import CSV data',
+      details: error.message 
+    }, 500)
+  }
+})
+
+// Simple dishes array endpoint for React frontend compatibility
+app.get('/api/dishes-array', async (c) => {
+  const { DB } = c.env
+  const { limit = '8' } = c.req.query()
+  
+  try {
+    const result = await DB.prepare(`
+      SELECT * FROM dishes 
+      WHERE dish_type = 'main'
+      ORDER BY name ASC 
+      LIMIT ?
+    `).bind(parseInt(limit)).all()
+    
+    if (result.results) {
+      // Return plain array of dishes
+      return c.json(result.results.map(dish => ({
+        id: dish.id,
+        name: dish.name,
+        slug: dish.slug,
+        description: dish.description,
+        image_url: dish.image_url,
+        imageUrl: dish.image_url, // Include both formats
+        cuisine: dish.cuisine,
+        dish_type: dish.dish_type,
+        category: dish.dish_type, // Include both formats
+        dietary_tags: dish.dietary_tags ? JSON.parse(dish.dietary_tags as string) : [],
+        dietaryTags: dish.dietary_tags ? JSON.parse(dish.dietary_tags as string) : []
+      })))
+    }
+    
+    return c.json([])
+  } catch (error) {
+    console.error('Error fetching dishes array:', error)
+    return c.json([])
   }
 })
 
