@@ -1073,6 +1073,132 @@ app.get('/search', async (c) => {
   }
 })
 
+// Get all recipes (API endpoint for frontend)
+app.get('/api/recipes', async (c) => {
+  const { DB } = c.env
+  const cache = getCacheService(c)
+  const { limit = '10' } = c.req.query()
+  
+  const limitNum = Math.min(50, Math.max(1, parseInt(limit as string) || 10))
+  const cacheKey = `recipes:${limitNum}`
+  
+  try {
+    // Check cache
+    const cached = await cache.get<Recipe[]>(cacheKey)
+    if (cached) {
+      c.header('X-Cache', 'HIT')
+      return c.json(cached)
+    }
+    
+    // For now, return sample recipes based on existing dishes
+    const result = await safeQuery<RawDish>(
+      DB.prepare(`
+        SELECT * FROM dishes 
+        WHERE slug IN ('15-bean-soup', 'blt-sandwich', 'charcuterie-board', 'grilled-cheese', 'baked-potato', 'chicken-noodle-soup')
+        LIMIT ?
+      `).bind(limitNum)
+    )
+    
+    if (!result.success) {
+      throw new Error('Failed to fetch recipes')
+    }
+    
+    // Transform dishes into recipe format
+    const recipes = result.results.map(dish => ({
+      id: dish.id,
+      slug: dish.slug,
+      title: `${dish.name} Recipe`,
+      description: dish.description || `Learn how to make delicious ${dish.name}`,
+      image_url: dish.image_url,
+      prep_time: 15,
+      cook_time: 30,
+      servings: 4,
+      difficulty: 'medium' as RecipeDifficulty,
+      ingredients: [
+        'Main ingredient 1',
+        'Main ingredient 2', 
+        'Seasoning',
+        'Additional ingredients as needed'
+      ],
+      instructions: [
+        'Prepare your ingredients',
+        'Follow the cooking method',
+        'Season to taste',
+        'Serve and enjoy'
+      ]
+    }))
+    
+    // Cache for 1 hour
+    await cache.set(cacheKey, recipes, 3600)
+    
+    c.header('X-Cache', 'MISS')
+    return c.json(recipes)
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch recipes' }, 500)
+  }
+})
+
+// Get featured recipes (API endpoint for frontend)
+app.get('/api/recipes/featured', async (c) => {
+  const { DB } = c.env
+  const cache = getCacheService(c)
+  const cacheKey = 'featured-recipes'
+  
+  try {
+    // Check cache
+    const cached = await cache.get<Recipe[]>(cacheKey)
+    if (cached) {
+      c.header('X-Cache', 'HIT')
+      return c.json(cached)
+    }
+    
+    // Get featured dishes and transform to recipes
+    const result = await safeQuery<RawDish>(
+      DB.prepare(`
+        SELECT * FROM dishes 
+        WHERE slug IN ('15-bean-soup', 'blt-sandwich', 'charcuterie-board')
+        LIMIT 3
+      `)
+    )
+    
+    if (!result.success) {
+      throw new Error('Failed to fetch featured recipes')
+    }
+    
+    const featuredRecipes = result.results.map(dish => ({
+      id: dish.id,
+      slug: dish.slug,
+      title: `Featured: ${dish.name} Recipe`,
+      description: dish.description || `Our featured recipe for ${dish.name}`,
+      image_url: dish.image_url,
+      prep_time: 20,
+      cook_time: 45,
+      servings: 6,
+      difficulty: 'easy' as RecipeDifficulty,
+      ingredients: [
+        'Premium ingredients',
+        'Special seasonings',
+        'Fresh herbs',
+        'Quality base ingredients'
+      ],
+      instructions: [
+        'Start with quality ingredients',
+        'Follow our special technique',
+        'Add signature seasonings',
+        'Present beautifully'
+      ]
+    }))
+    
+    // Cache for 2 hours
+    await cache.set(cacheKey, featuredRecipes, 7200)
+    
+    c.header('X-Cache', 'MISS')
+    return c.json(featuredRecipes)
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch featured recipes' }, 500)
+  }
+})
+
 
 // Handle frontend's what-to-serve-with URLs - serve a server-rendered page
 app.all('*', async (c, next) => {

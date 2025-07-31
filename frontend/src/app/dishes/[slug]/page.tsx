@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: DishPageProps): Promise<Metad
       openGraph: {
         ...seoMetadata.openGraph,
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/dishes/${params.slug}`,
-        image: dish.imageUrl,
+        image: dish.image_url,
       },
     });
   } catch (error) {

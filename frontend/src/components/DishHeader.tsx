@@ -18,8 +18,8 @@ export default function DishHeader({ dish }: DishHeaderProps) {
             <nav className="text-sm text-gray-500 mb-4">
               <a href="/" className="hover:text-primary-600">Home</a>
               <span className="mx-2">/</span>
-              <a href={`/search?category=${encodeURIComponent(dish.category)}`} className="hover:text-primary-600">
-                {dish.category}
+              <a href={`/search?category=${encodeURIComponent(dish.category || dish.dish_type || 'main')}`} className="hover:text-primary-600">
+                {dish.category || dish.dish_type}
               </a>
               <span className="mx-2">/</span>
               <span className="text-gray-900">{dish.name}</span>

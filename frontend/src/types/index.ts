@@ -11,6 +11,7 @@ export interface Recipe {
   servings?: number;
   difficulty?: 'easy' | 'medium' | 'hard';
   imageUrl?: string;
+  image_url?: string;
   tags?: string[];
   createdAt?: string;
   updatedAt?: string;
@@ -21,9 +22,12 @@ export interface Dish {
   slug: string;
   name: string;
   description: string;
-  category: string;
+  dish_type: string;
+  category?: string;
   cuisine?: string;
+  image_url?: string;
   imageUrl?: string;
+  dietary_tags?: string[];
   dietaryTags?: string[];
   keywords?: string[];
   pairings?: Pairing[];
@@ -34,11 +38,14 @@ export interface Pairing {
   name: string;
   slug: string;
   description?: string;
+  image_url?: string;
   imageUrl?: string;
   cuisine?: string;
-  category: string;
+  dish_type: string;
+  category?: string;
   matchScore?: number;
   orderPosition?: number;
+  dietary_tags?: string[];
   dietaryTags?: string[];
   recipe?: Recipe;
 }

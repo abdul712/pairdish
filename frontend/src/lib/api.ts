@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Dish, Recipe, SearchResult, Pairing, DishPairingsResponse } from '@/types';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8787';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8787');
 
 const api = axios.create({
   baseURL: API_URL,
