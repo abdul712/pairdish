@@ -1,19 +1,180 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PairDish - Perfect Food Pairings & Recipes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" crossorigin href="/assets/index-v8ikjrLU.css">
-    <script src="/api-patch.js"></script>
-    <script type="module" crossorigin src="/assets/index-BgOvLKJ9.js"></script>
-  </head>
+    <link rel="stylesheet" href="/assets/index-v8ikjrLU.css">
+    <style>
+        .loading { text-align: center; padding: 2rem; color: #666; }
+        .error { text-align: center; padding: 2rem; color: #e53e3e; }
+        .dish-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="min-h-screen bg-gradient-to-br from-cream via-white to-primary-50">
+            <!-- Header -->
+            <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-primary-100">
+                <div class="container-custom">
+                    <div class="flex items-center justify-between py-4">
+                        <a href="/" class="flex items-center space-x-2 group">
+                            <div class="p-2 bg-primary-500 rounded-full group-hover:bg-primary-600 transition-colors">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+                                </svg>
+                            </div>
+                            <span class="text-2xl font-display font-bold text-primary-800">PairDish</span>
+                        </a>
+                        <nav class="hidden md:flex items-center space-x-8">
+                            <a href="/" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">Home</a>
+                            <a href="/search" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">Browse</a>
+                            <a href="/recipe/featured" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">Recipes</a>
+                        </nav>
+                    </div>
+                </div>
+            </header>
 
-  <body>
-    <div id="root"></div>
-  </body>
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-b from-primary-50 to-white py-12 md:py-16">
+                <div class="container">
+                    <div class="text-center max-w-4xl mx-auto px-4">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight font-display">
+                            Find the Perfect Side Dish for Any Meal
+                        </h1>
+                        <p class="text-lg sm:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
+                            Discover delicious pairings, side dishes, and recipes that complement your favorite meals perfectly.
+                        </p>
+                        <form action="/search" method="get" class="max-w-2xl mx-auto">
+                            <div class="relative">
+                                <input
+                                    type="text"
+                                    name="q"
+                                    placeholder="Search for a dish..."
+                                    class="w-full px-6 py-4 pr-12 text-lg rounded-full border-2 border-primary-200 focus:border-primary-500 focus:outline-none"
+                                />
+                                <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-3 bg-primary-500 text-white rounded-full hover:bg-primary-600">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Dishes Section -->
+            <section class="py-12 md:py-16">
+                <div class="container">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 md:mb-8 text-center sm:text-left font-display">
+                        Popular Dishes
+                    </h2>
+                    <p class="text-gray-600 mb-8 text-center sm:text-left">Explore our most searched meal pairings</p>
+                    <div id="popular-dishes" class="dish-grid">
+                        <div class="loading">Loading popular dishes...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Recipes Section -->
+            <section class="py-12 md:py-16 bg-gray-50">
+                <div class="container">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 md:mb-8 text-center sm:text-left font-display">
+                        Featured Recipes
+                    </h2>
+                    <p class="text-gray-600 mb-8 text-center sm:text-left">Try our hand-picked recipe recommendations</p>
+                    <div id="featured-recipes" class="dish-grid">
+                        <div class="loading">Loading featured recipes...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="bg-gray-900 text-white py-8 mt-16">
+                <div class="container">
+                    <div class="text-center">
+                        <p>&copy; 2025 PairDish. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Load popular dishes
+        async function loadPopularDishes() {
+            const container = document.getElementById('popular-dishes');
+            try {
+                const response = await fetch('/api/dishes?limit=8');
+                const data = await response.json();
+                const dishes = data.dishes || data;
+                
+                if (dishes.length === 0) {
+                    container.innerHTML = '<div class="error">No dishes found</div>';
+                    return;
+                }
+                
+                container.innerHTML = dishes.map(dish => `
+                    <a href="/what-to-serve-with-${dish.slug}" class="card hover:shadow-lg transition-shadow">
+                        <div class="aspect-w-16 aspect-h-9 mb-4">
+                            <img src="${dish.image_url || '/placeholder.jpg'}" alt="${dish.name}" class="w-full h-48 object-cover rounded-t-lg" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">${dish.name}</h3>
+                            <p class="text-gray-600 text-sm mb-2">${dish.description || ''}</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span>${dish.cuisine || 'International'}</span>
+                                <span class="capitalize">${dish.dish_type || dish.category || 'main'}</span>
+                            </div>
+                        </div>
+                    </a>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading popular dishes:', error);
+                container.innerHTML = '<div class="error">Failed to load popular dishes</div>';
+            }
+        }
+
+        // Load featured recipes
+        async function loadFeaturedRecipes() {
+            const container = document.getElementById('featured-recipes');
+            try {
+                const response = await fetch('/api/recipes/featured');
+                const recipes = await response.json();
+                
+                if (recipes.length === 0) {
+                    container.innerHTML = '<div class="error">No recipes found</div>';
+                    return;
+                }
+                
+                container.innerHTML = recipes.map(recipe => `
+                    <a href="/recipe/${recipe.slug}" class="card hover:shadow-lg transition-shadow">
+                        <div class="aspect-w-16 aspect-h-9 mb-4">
+                            <img src="${recipe.image_url || '/placeholder.jpg'}" alt="${recipe.title}" class="w-full h-48 object-cover rounded-t-lg" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">${recipe.title}</h3>
+                            <p class="text-gray-600 text-sm mb-2">${recipe.description || ''}</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span>${recipe.difficulty || 'medium'}</span>
+                                <span>${recipe.prep_time + recipe.cook_time || 45} mins</span>
+                            </div>
+                        </div>
+                    </a>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading featured recipes:', error);
+                container.innerHTML = '<div class="error">Failed to load featured recipes</div>';
+            }
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPopularDishes();
+            loadFeaturedRecipes();
+        });
+    </script>
+</body>
 </html>
