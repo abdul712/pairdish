@@ -1,0 +1,259 @@
+---
+/**
+ * Coffee & Dessert Pairing Guide Tool Page
+ *
+ * Match coffee roasts with desserts and pastries.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import CoffeePairing from '../../components/tools/CoffeePairing';
+---
+
+<BaseLayout
+  title="Coffee & Dessert Pairing Guide"
+  description="Find the perfect dessert for your coffee. Match espresso, cappuccino, cold brew, and different roast levels with pastries, cakes, cookies, and chocolate."
+  keywords={['coffee pairing', 'coffee and dessert', 'espresso dessert', 'coffee cake pairing', 'what dessert with coffee', 'coffee and chocolate', 'coffee roast pairing']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Coffee Pairing</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Coffee & Dessert <span class="text-accent text-[var(--color-wine)]">Pairing Guide</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Discover the perfect dessert to complement your coffee. From light roasts with fruit tarts
+          to espresso with tiramisu, find your ideal pairing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <CoffeePairing client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          The Art of Coffee & Dessert Pairing
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Match the Roast
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Light roasts with delicate, fruity desserts. Medium roasts with caramel and nut
+              flavors. Dark roasts with rich chocolate. The roast level guides the pairing.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Coffee & Chocolate
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Coffee and chocolate share over 300 flavor compounds, making them natural
+              partners. The darker the chocolate, the darker the roast you can pair it with.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Classic Pairings by Coffee Type
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-stone-100 rounded-lg">
+            <span class="block font-bold text-stone-700 text-sm">Espresso</span>
+            <span class="block text-xs text-stone-600 mt-1">Biscotti, Tiramisu, Dark Chocolate</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block font-bold text-orange-700 text-sm">Cappuccino</span>
+            <span class="block text-xs text-orange-600 mt-1">Croissants, Muffins, Scones</span>
+          </div>
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block font-bold text-amber-700 text-sm">Cold Brew</span>
+            <span class="block text-xs text-amber-600 mt-1">Brownies, Cheesecake, Ice Cream</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What dessert goes best with espresso?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Espresso pairs wonderfully with Italian classics like biscotti, cannoli, and
+              tiramisu. Dark chocolate desserts also complement espresso's intense flavor.
+              For a special treat, try an affogato—espresso poured over vanilla gelato.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Does light roast coffee pair with chocolate?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Light roasts have bright, fruity notes that can be overwhelmed by dark chocolate.
+              Instead, pair light roasts with white chocolate or milk chocolate. For chocolate
+              desserts with a light roast, opt for milk chocolate truffles or white chocolate
+              fruit tarts.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best dessert for cold brew coffee?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Cold brew's smooth, naturally sweet character pairs well with rich chocolate
+              desserts like brownies and chocolate mousse. Ice cream and frozen desserts
+              are also excellent—the cold temperatures complement each other perfectly.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Should I match or contrast coffee and dessert flavors?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Both work! Complementary pairings (chocolate coffee with chocolate cake)
+              amplify similar flavors. Contrasting pairings (dark roast with sweet caramel
+              dessert) create balance. The key is matching intensity—don't pair a delicate
+              dessert with an overpowering coffee or vice versa.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Pairing Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/chocolate-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-stone-100 flex items-center justify-center text-stone-700">
+            🍫
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Chocolate Pairing</h4>
+            <p class="text-sm text-[var(--text-muted)]">Chocolate & wine combos</p>
+          </div>
+        </a>
+
+        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+            🍷
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Wine & Food Matcher</h4>
+            <p class="text-sm text-[var(--text-muted)]">Find wine for any dish</p>
+          </div>
+        </a>
+
+        <a href="/tools/flavor-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-pink-100 flex items-center justify-center text-pink-700">
+            ✨
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Flavor Pairing Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Discover flavor combos</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What dessert goes best with espresso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Espresso pairs wonderfully with Italian classics like biscotti, cannoli, and tiramisu. Dark chocolate desserts also complement espresso's intense flavor. Try an affogato—espresso poured over vanilla gelato."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does light roast coffee pair with chocolate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Light roasts have bright, fruity notes that can be overwhelmed by dark chocolate. Pair light roasts with white chocolate or milk chocolate instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best dessert for cold brew coffee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cold brew's smooth, naturally sweet character pairs well with rich chocolate desserts like brownies and chocolate mousse. Ice cream and frozen desserts are also excellent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I match or contrast coffee and dessert flavors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both work! Complementary pairings amplify similar flavors, while contrasting pairings create balance. The key is matching intensity—don't pair a delicate dessert with an overpowering coffee."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
