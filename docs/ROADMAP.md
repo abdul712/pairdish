@@ -966,9 +966,22 @@ interface ConversionResult {
 - Diet information guide
 
 ### Tool 7.2: Protein Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 5 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/protein-calculator
+
+#### Features Implemented
+- Weight input with kg/lbs toggle
+- 5 activity levels from sedentary to athlete
+- 5 fitness goals: Maintain, Build Muscle, Lose Weight, Athletic, Healthy Aging
+- Personalized protein target calculation (min/max/recommended)
+- 25+ protein sources across meat, seafood, dairy, plant-based, supplements
+- Interactive food tracker with serving counts
+- Visual progress bar toward daily goal
+- Category filtering for food sources
+- Protein distribution tips
 
 ### Tool 7.3: Macro Balance Calculator
 **Status**: 🔴 Not Started
@@ -1125,8 +1138,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 31 | 40+ |
-| **Live Tools** | 31 | - |
+| **Tools Completed** | 32 | 40+ |
+| **Live Tools** | 32 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1204,6 +1217,7 @@ Each tool page must include:
 | Herb & Spice Matrix | `/tools/herb-spice-matrix` | Specialty Pairing |
 | Chocolate Pairing Guide | `/tools/chocolate-pairing` | Specialty Pairing |
 | Dietary Restriction Meal Finder | `/tools/dietary-finder` | Health & Dietary |
+| Protein Calculator | `/tools/protein-calculator` | Health & Dietary |
 
 ### Phase 6 Progress (Specialty Pairing Tools)
 
@@ -1220,7 +1234,7 @@ Each tool page must include:
 | Tool | Status | Dev | Test | Deploy |
 |------|--------|-----|------|--------|
 | Dietary Restriction Meal Finder | 🟢 | ✅ | ✅ | ✅ |
-| Protein Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Protein Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Macro Balance Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Glycemic Index Pairer | 🔴 | ⬜ | ⬜ | ⬜ |
 
