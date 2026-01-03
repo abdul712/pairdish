@@ -266,9 +266,11 @@ interface ScaledIngredient {
 ---
 
 ### Tool 1.4: Party Food Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P0 - Critical
 **Estimated Dev Time**: 8 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/party-calculator
 
 #### Description
 Calculate exactly how much food to prepare for any gathering based on guest count, event type, and duration.
@@ -827,8 +829,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 5 | 40+ |
-| **Live Tools** | 5 | - |
+| **Tools Completed** | 6 | 40+ |
+| **Live Tools** | 6 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -838,7 +840,7 @@ Each tool page must include:
 | Food & Flavor Pairing Finder | 🟢 | ✅ | ✅ | ✅ |
 | Wine & Food Pairing Matcher | 🟢 | ✅ | ✅ | ✅ |
 | Recipe Scaling Calculator | 🟢 | ✅ | ✅ | ✅ |
-| Party Food Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Party Food Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Drink/Cocktail Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 
 ### Phase 3 Progress (Party & Event Tools)
@@ -860,6 +862,7 @@ Each tool page must include:
 | Recipe Scaler | `/tools/recipe-scaler` | Kitchen Calculators |
 | Wine Bottle Calculator | `/tools/wine-calculator` | Party Planning |
 | Potluck Coordinator | `/tools/potluck-coordinator` | Party Planning |
+| Party Food Calculator | `/tools/party-calculator` | Party Planning |
 
 ### Legend
 - 🔴 Not Started
