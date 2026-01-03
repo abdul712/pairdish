@@ -1222,8 +1222,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 38 | 40+ |
-| **Live Tools** | 38 | - |
+| **Tools Completed** | 39 | 40+ |
+| **Live Tools** | 39 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1265,6 +1265,7 @@ Each tool page must include:
 | Sugar Substitution Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Yeast Conversion Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Sourdough Hydration Calculator | 🟢 | ✅ | ✅ | ✅ |
+| Bread Proofing Calculator | 🟢 | ✅ | ✅ | ✅ |
 
 ### Live Tools Summary
 
@@ -1293,6 +1294,7 @@ Each tool page must include:
 | Pan Size Converter | `/tools/pan-size-converter` | Baking Calculators |
 | Yeast Conversion Calculator | `/tools/yeast-converter` | Baking Calculators |
 | Sourdough Hydration Calculator | `/tools/sourdough-calculator` | Baking Calculators |
+| Bread Proofing Calculator | `/tools/bread-proofing` | Baking Calculators |
 | Flour Substitution Calculator | `/tools/flour-substitution` | Baking Calculators |
 | Sugar Substitution Calculator | `/tools/sugar-substitution` | Baking Calculators |
 | Cheese & Accompaniment Matcher | `/tools/cheese-pairing` | Specialty Pairing |

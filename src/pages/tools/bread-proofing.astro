@@ -1,0 +1,262 @@
+---
+/**
+ * Bread Proofing Calculator Page
+ *
+ * Estimate dough rise times based on temperature and conditions.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import BreadProofingCalculator from '../../components/tools/BreadProofingCalculator';
+---
+
+<BaseLayout
+  title="Bread Proofing Calculator | Estimate Dough Rise Times"
+  description="Calculate accurate bread proofing times based on room temperature, yeast type, and dough conditions. Get precise bulk fermentation and final proof estimates."
+  keywords={['bread proofing calculator', 'dough rise time', 'bulk fermentation', 'bread making', 'yeast bread', 'proofing time']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Bread Proofing Calculator</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Bread <span class="text-accent text-[var(--color-wine)]">Proofing Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Never over-proof or under-proof again! Get accurate rise time estimates based on your room
+          temperature, yeast type, and dough conditions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <BreadProofingCalculator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Bread Proofing
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div class="p-5 bg-amber-50 rounded-xl border border-amber-200">
+            <h3 class="font-display text-lg font-semibold text-amber-800 mb-2">
+              Bulk Fermentation
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)]">
+              The first rise after mixing, when the dough develops flavor and structure.
+              During this stage, gluten develops and yeast produces CO2 and flavor compounds.
+              The dough should roughly double in size.
+            </p>
+          </div>
+
+          <div class="p-5 bg-green-50 rounded-xl border border-green-200">
+            <h3 class="font-display text-lg font-semibold text-green-800 mb-2">
+              Final Proof
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)]">
+              The second rise after shaping, right before baking. This stage allows the
+              shaped dough to relax and fill with gas for a light, airy crumb.
+              Under-proofing leads to dense bread; over-proofing causes collapse.
+            </p>
+          </div>
+
+          <div class="p-5 bg-blue-50 rounded-xl border border-blue-200">
+            <h3 class="font-display text-lg font-semibold text-blue-800 mb-2">
+              Temperature Matters
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Yeast activity doubles for every 15°F (8°C) increase in temperature.
+              Warmer = faster rise but less flavor development.
+              Cooler = slower rise but more complex flavors.
+            </p>
+          </div>
+
+          <div class="p-5 bg-purple-50 rounded-xl border border-purple-200">
+            <h3 class="font-display text-lg font-semibold text-purple-800 mb-2">
+              Visual Cues Over Time
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Always use visual cues over strict timing. Dough is ready when it has
+              doubled in size, shows bubbles on the surface, and passes the poke test.
+              Environmental factors can vary widely.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I know if my dough is over-proofed?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Over-proofed dough will be very slack and may deflate when touched. When you poke it,
+              the indent won't spring back at all. The dough may have a slightly sour smell.
+              The final bread will be flat with a dense, gummy texture.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I proof bread in the refrigerator?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! Cold proofing (retarding) in the refrigerator slows yeast activity dramatically,
+              allowing for overnight or multi-day proofs. This develops more flavor and fits bread
+              making into a busy schedule. Expect 8-24 hours for bulk fermentation in the fridge.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Why does enriched dough take longer to rise?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Butter, eggs, and sugar in enriched doughs (like brioche or challah) slow down yeast
+              activity. Fat coats the yeast cells and gluten strands, while sugar competes for
+              water. These doughs need more patience but result in tender, flavorful bread.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best temperature for proofing bread?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For most breads, 70-78°F (21-26°C) is ideal. This range balances reasonable
+              proofing times with good flavor development. Sourdough often benefits from
+              cooler temperatures (65-72°F) for more complex flavors.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Baking Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/sourdough-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-2xl">
+            🍞
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Sourdough Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Hydration & percentages</p>
+          </div>
+        </a>
+
+        <a href="/tools/yeast-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-2xl">
+            🧫
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Yeast Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Convert yeast types</p>
+          </div>
+        </a>
+
+        <a href="/tools/oven-temperature" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-2xl">
+            🌡️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Oven Temperature</h4>
+            <p class="text-sm text-[var(--text-muted)]">Temperature converter</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my dough is over-proofed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Over-proofed dough will be very slack and may deflate when touched. When you poke it, the indent won't spring back at all. The final bread will be flat with a dense, gummy texture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I proof bread in the refrigerator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Cold proofing in the refrigerator slows yeast activity, allowing for overnight proofs. This develops more flavor. Expect 8-24 hours for bulk fermentation in the fridge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does enriched dough take longer to rise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Butter, eggs, and sugar in enriched doughs slow down yeast activity. Fat coats the yeast cells while sugar competes for water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best temperature for proofing bread?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most breads, 70-78°F (21-26°C) is ideal. This range balances reasonable proofing times with good flavor development."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
