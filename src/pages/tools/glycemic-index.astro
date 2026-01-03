@@ -1,0 +1,270 @@
+---
+/**
+ * Glycemic Index Guide Tool Page
+ *
+ * Find low-GI food alternatives and pairings.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import GlycemicIndexGuide from '../../components/tools/GlycemicIndexGuide';
+---
+
+<BaseLayout
+  title="Glycemic Index Guide"
+  description="Find low-GI food alternatives to manage blood sugar. Browse 60+ foods with GI values, glycemic load, and smart swaps for healthier eating."
+  keywords={['glycemic index', 'low GI foods', 'blood sugar', 'GI chart', 'glycemic load', 'diabetes diet', 'low glycemic recipes']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Glycemic Index Guide</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Glycemic Index <span class="text-accent text-[var(--color-wine)]">Guide</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Discover the glycemic index of common foods and find smart, lower-GI alternatives.
+          Make informed choices for better blood sugar management.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <GlycemicIndexGuide client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Glycemic Index
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              GI vs. GL
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              <strong>Glycemic Index (GI)</strong> measures how quickly a food raises blood sugar on a
+              scale of 0-100. <strong>Glycemic Load (GL)</strong> accounts for serving size, giving a
+              more realistic picture of blood sugar impact.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Why It Matters
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Low-GI diets can help manage diabetes, reduce heart disease risk, maintain healthy weight,
+              and provide sustained energy. High-GI foods cause rapid spikes and crashes.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          GI Categories
+        </h3>
+
+        <div class="grid grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <span class="block font-bold text-green-700 text-lg">Low</span>
+            <span class="block text-sm text-green-600">0-55</span>
+            <span class="block text-xs text-green-500 mt-1">Best choice</span>
+          </div>
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block font-bold text-amber-700 text-lg">Medium</span>
+            <span class="block text-sm text-amber-600">56-69</span>
+            <span class="block text-xs text-amber-500 mt-1">Moderate</span>
+          </div>
+          <div class="text-center p-4 bg-red-50 rounded-lg">
+            <span class="block font-bold text-red-700 text-lg">High</span>
+            <span class="block text-sm text-red-600">70+</span>
+            <span class="block text-xs text-red-500 mt-1">Limit intake</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What is a good glycemic index to aim for?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Aim for foods with a GI of 55 or below for most meals. These "low-GI" foods cause a
+              gradual rise in blood sugar. Medium-GI foods (56-69) can be eaten in moderation, while
+              high-GI foods (70+) should be limited or paired with protein and fat to reduce their impact.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How can I lower the GI of a meal?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Combine high-GI foods with protein, healthy fats, or fiber. For example, have bread with
+              eggs, or pasta with olive oil and vegetables. Cook pasta al dente, choose whole grains,
+              and add acidic ingredients like lemon or vinegar which can lower GI.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Is glycemic load more important than glycemic index?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Glycemic load (GL) is often more useful because it considers portion size. Watermelon has
+              a high GI (76) but low GL (8) because it's mostly water. Use both: GI to compare similar
+              foods, GL to understand actual blood sugar impact of typical servings.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Do low-GI foods help with weight loss?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Low-GI foods can support weight management by keeping you fuller longer and preventing
+              energy crashes that lead to overeating. They provide sustained energy without the
+              spike-and-crash cycle. However, calories still matter - focus on overall diet quality.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Health Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/macro-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+              <path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Macro Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Balance your macros</p>
+          </div>
+        </a>
+
+        <a href="/tools/nutrition-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.27 21.7s9.87-3.5 12.73-6.36a4.5 4.5 0 0 0-6.36-6.37C5.77 11.84 2.27 21.7 2.27 21.7z"/>
+              <path d="M22 9s-1.33-2-3.5-2C16.86 7 15 9 15 9s1.33 2 3.5 2S22 9 22 9z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Nutrition Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Full nutritional breakdown</p>
+          </div>
+        </a>
+
+        <a href="/tools/dietary-finder" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center text-teal-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Dietary Meal Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Meals for your diet</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a good glycemic index to aim for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aim for foods with a GI of 55 or below for most meals. These 'low-GI' foods cause a gradual rise in blood sugar. Medium-GI foods (56-69) can be eaten in moderation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I lower the GI of a meal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Combine high-GI foods with protein, healthy fats, or fiber. Cook pasta al dente, choose whole grains, and add acidic ingredients like lemon or vinegar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is glycemic load more important than glycemic index?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Glycemic load (GL) is often more useful because it considers portion size. Use both: GI to compare similar foods, GL to understand actual blood sugar impact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do low-GI foods help with weight loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Low-GI foods can support weight management by keeping you fuller longer and preventing energy crashes that lead to overeating."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
