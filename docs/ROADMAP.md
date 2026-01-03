@@ -519,9 +519,27 @@ interface ConversionResult {
 ## 6. Phase 3: Party & Event Tools
 
 ### Tool 3.1: Cheese Board Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/cheese-board-calculator
+
+#### Features Implemented
+- Guest count slider (2-50 guests)
+- Event type selection (appetizer, main event, wine party, casual)
+- Cheese variety selector with 16 cheeses across 5 categories:
+  - Soft (Brie, Camembert, Goat, Burrata)
+  - Semi-soft (Havarti, Fontina, Muenster)
+  - Firm (Cheddar, Gruyère, Gouda, Manchego)
+  - Hard (Parmesan, Pecorino)
+  - Blue (Gorgonzola, Roquefort, Stilton)
+- Charcuterie toggle (prosciutto, salami)
+- Per-variety quantity calculations in oz and lbs
+- Accompaniment shopping list (crackers, fruit, nuts, honey, olives, etc.)
+- Three-tier budget estimates (budget, recommended, premium)
+- Print shopping list functionality
+- Board building tips and serving recommendations
 
 ### Tool 3.2: Wine Bottle Calculator
 **Status**: 🟢 Completed (v1)
@@ -822,8 +840,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 12 | 40+ |
-| **Live Tools** | 12 | - |
+| **Tools Completed** | 13 | 40+ |
+| **Live Tools** | 13 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -840,7 +858,7 @@ Each tool page must include:
 
 | Tool | Status | Dev | Test | Deploy |
 |------|--------|-----|------|--------|
-| Cheese Board Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Cheese Board Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Wine Bottle Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Appetizer Quantity Planner | 🔴 | ⬜ | ⬜ | ⬜ |
 | Buffet Menu Planner | 🔴 | ⬜ | ⬜ | ⬜ |
@@ -862,6 +880,7 @@ Each tool page must include:
 | Cooking Time Calculator | `/tools/cooking-time` | Kitchen Calculators |
 | Substitution Finder | `/tools/substitution-finder` | Kitchen Calculators |
 | Nutrition Calculator | `/tools/nutrition-calculator` | Kitchen Calculators |
+| Cheese Board Calculator | `/tools/cheese-board-calculator` | Party Planning |
 
 ### Legend
 - 🔴 Not Started
