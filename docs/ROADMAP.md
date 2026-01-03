@@ -772,9 +772,21 @@ interface ConversionResult {
 **Estimated Dev Time**: 4 hours
 
 ### Tool 5.4: Yeast Conversion Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 3 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/yeast-converter
+
+#### Features Implemented
+- 4 yeast types: Active Dry, Instant, Fresh, Sourdough Starter
+- Multiple input units (tsp, tbsp, packet, oz, g)
+- Accurate conversion ratios between all yeast types
+- Multi-format output (tsp, tbsp, packets, grams)
+- Yeast type information cards with storage and activation tips
+- Quick reference conversion chart
+- Swap functionality for bidirectional conversion
+- Detailed tips for each yeast type
 
 ### Tool 5.5: Sourdough Hydration Calculator
 **Status**: 🔴 Not Started
@@ -979,8 +991,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 21 | 40+ |
-| **Live Tools** | 21 | - |
+| **Tools Completed** | 22 | 40+ |
+| **Live Tools** | 22 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1020,7 +1032,7 @@ Each tool page must include:
 | Pan Size Converter | 🟢 | ✅ | ✅ | ✅ |
 | Flour Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Sugar Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
-| Yeast Conversion Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Yeast Conversion Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Sourdough Hydration Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 
 ### Live Tools Summary
@@ -1048,6 +1060,7 @@ Each tool page must include:
 | Pantry Pairing Helper | `/tools/pantry-helper` | Meal Planning |
 | Grocery List Generator | `/tools/grocery-list` | Meal Planning |
 | Pan Size Converter | `/tools/pan-size-converter` | Baking Calculators |
+| Yeast Conversion Calculator | `/tools/yeast-converter` | Baking Calculators |
 
 ### Legend
 - 🔴 Not Started

@@ -1,0 +1,262 @@
+---
+/**
+ * Yeast Conversion Calculator Tool Page
+ *
+ * Convert between different types of yeast for baking.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import YeastConverter from '../../components/tools/YeastConverter';
+---
+
+<BaseLayout
+  title="Yeast Conversion Calculator"
+  description="Convert between active dry yeast, instant yeast, fresh yeast, and sourdough starter. Accurate ratios and helpful tips for perfect bread every time."
+  keywords={['yeast conversion', 'yeast substitute', 'active dry to instant yeast', 'fresh yeast conversion', 'baking yeast calculator']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Yeast Converter</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Yeast <span class="text-accent text-[var(--color-wine)]">Conversion Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Recipe calls for one yeast type but you have another? Convert between active dry,
+          instant, fresh yeast, and sourdough starter with accurate ratios.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <YeastConverter client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Yeast Types
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Active Dry vs Instant
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Active dry yeast needs proofing in warm water before use. Instant yeast has
+              smaller granules and can be mixed directly with flour. Instant rises faster
+              but both produce similar results.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Fresh Yeast Benefits
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Fresh yeast (also called cake yeast) is perishable but offers slightly
+              better flavor and faster activation. Many professional bakers prefer it
+              for artisan breads.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Quick Conversion Chart
+        </h3>
+
+        <div class="grid grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block text-2xl mb-1">🟡</span>
+            <span class="block font-bold text-amber-700">1 tsp</span>
+            <span class="block text-xs text-amber-600">Active Dry</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block text-2xl mb-1">🟠</span>
+            <span class="block font-bold text-orange-700">¾ tsp</span>
+            <span class="block text-xs text-orange-600">Instant</span>
+          </div>
+          <div class="text-center p-4 bg-yellow-50 rounded-lg">
+            <span class="block text-2xl mb-1">🧈</span>
+            <span class="block font-bold text-yellow-700">14g</span>
+            <span class="block text-xs text-yellow-600">Fresh</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I substitute instant yeast for active dry yeast?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! Use about 25% less instant yeast than active dry. For 1 teaspoon active
+              dry, use ¾ teaspoon instant. You can also skip the proofing step and add
+              instant yeast directly to the flour.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I know if my yeast is still active?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Proof test it: dissolve yeast in ¼ cup warm water (105-110°F) with a pinch
+              of sugar. Wait 10 minutes. If it becomes foamy and doubles in volume, it's
+              active. If nothing happens, the yeast is dead and should be discarded.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What temperature water should I use for yeast?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For active dry yeast: 105-110°F (40-43°C) - warm to the touch but not hot.
+              For instant yeast mixed with flour: up to 120°F. For fresh yeast: 95°F (35°C).
+              Water above 130°F will kill the yeast.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I use sourdough starter instead of commercial yeast?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes, but with adjustments. Replace 1 packet of yeast with about ½ cup (120g)
+              active sourdough starter. Reduce flour and water in the recipe by about 60g
+              each to compensate. Expect longer rise times (2-4x longer).
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Baking Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/pan-size-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
+            🍰
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Pan Size Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Convert between pan sizes</p>
+          </div>
+        </a>
+
+        <a href="/tools/unit-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Unit Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Cups, grams, ounces</p>
+          </div>
+        </a>
+
+        <a href="/tools/oven-temperature" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-red-700">
+            🌡️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Oven Temperature</h4>
+            <p class="text-sm text-[var(--text-muted)]">F/C/Gas Mark converter</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I substitute instant yeast for active dry yeast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Use about 25% less instant yeast than active dry. For 1 teaspoon active dry, use ¾ teaspoon instant. You can skip the proofing step with instant yeast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my yeast is still active?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Proof test it: dissolve yeast in ¼ cup warm water (105-110°F) with a pinch of sugar. Wait 10 minutes. If it becomes foamy and doubles in volume, it's active."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What temperature water should I use for yeast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For active dry yeast: 105-110°F (40-43°C). For instant yeast mixed with flour: up to 120°F. For fresh yeast: 95°F (35°C). Water above 130°F will kill the yeast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use sourdough starter instead of commercial yeast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, replace 1 packet of yeast with about ½ cup (120g) active sourdough starter. Reduce flour and water by about 60g each. Expect 2-4x longer rise times."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
