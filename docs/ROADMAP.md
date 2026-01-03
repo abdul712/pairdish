@@ -149,9 +149,11 @@ interface FlavorPairingResult {
 ---
 
 ### Tool 1.2: Wine & Food Pairing Matcher
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P0 - Critical
 **Estimated Dev Time**: 10 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/wine-pairing
 
 #### Description
 Bidirectional pairing tool: enter a dish to get wine recommendations, or enter a wine to get food suggestions.
@@ -823,8 +825,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 3 | 40+ |
-| **Live Tools** | 3 | - |
+| **Tools Completed** | 4 | 40+ |
+| **Live Tools** | 4 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -832,7 +834,7 @@ Each tool page must include:
 | Tool | Status | Dev | Test | Deploy |
 |------|--------|-----|------|--------|
 | Food & Flavor Pairing Finder | 🟢 | ✅ | ✅ | ✅ |
-| Wine & Food Pairing Matcher | 🔴 | ⬜ | ⬜ | ⬜ |
+| Wine & Food Pairing Matcher | 🟢 | ✅ | ✅ | ✅ |
 | Recipe Scaling Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Party Food Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Drink/Cocktail Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
@@ -852,6 +854,7 @@ Each tool page must include:
 | Tool | URL | Category |
 |------|-----|----------|
 | Flavor Pairing Finder | `/tools/flavor-pairing` | Pairing Tools |
+| Wine & Food Pairing | `/tools/wine-pairing` | Pairing Tools |
 | Wine Bottle Calculator | `/tools/wine-calculator` | Party Planning |
 | Potluck Coordinator | `/tools/potluck-coordinator` | Party Planning |
 
