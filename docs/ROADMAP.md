@@ -558,9 +558,30 @@ interface ConversionResult {
 - Contextual wine selection tips
 
 ### Tool 3.3: Appetizer Quantity Planner
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 4 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/appetizer-planner
+
+#### Features Implemented
+- Guest count slider (5-100 guests)
+- Event type selection with per-person calculations:
+  - Cocktail Party (8-12 pieces/person)
+  - Pre-Dinner (4-6 pieces/person)
+  - Reception (6-10 pieces/person)
+  - All-Evening Party (10-15 pieces/person)
+  - Casual Gathering (5-8 pieces/person)
+- Serving style options (passed, stationed, mixed)
+- 24+ appetizer options across 4 categories:
+  - Hot appetizers (meatballs, stuffed mushrooms, spring rolls, etc.)
+  - Cold appetizers (deviled eggs, shrimp cocktail, caprese, etc.)
+  - Dips & spreads (spinach dip, guacamole, hummus, etc.)
+  - Finger foods (nuts, olives, pickles, chips)
+- Dietary tags for each item (vegetarian, vegan, gluten-free)
+- Per-appetizer quantity calculations
+- Category balance checker
+- Prep notes and timing guidelines
 
 ### Tool 3.4: Buffet Menu Planner
 **Status**: 🔴 Not Started
@@ -840,8 +861,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 13 | 40+ |
-| **Live Tools** | 13 | - |
+| **Tools Completed** | 14 | 40+ |
+| **Live Tools** | 14 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -860,7 +881,7 @@ Each tool page must include:
 |------|--------|-----|------|--------|
 | Cheese Board Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Wine Bottle Calculator | 🟢 | ✅ | ✅ | ✅ |
-| Appetizer Quantity Planner | 🔴 | ⬜ | ⬜ | ⬜ |
+| Appetizer Quantity Planner | 🟢 | ✅ | ✅ | ✅ |
 | Buffet Menu Planner | 🔴 | ⬜ | ⬜ | ⬜ |
 | Potluck Coordinator | 🟢 | ✅ | ✅ | ✅ |
 
@@ -881,6 +902,7 @@ Each tool page must include:
 | Substitution Finder | `/tools/substitution-finder` | Kitchen Calculators |
 | Nutrition Calculator | `/tools/nutrition-calculator` | Kitchen Calculators |
 | Cheese Board Calculator | `/tools/cheese-board-calculator` | Party Planning |
+| Appetizer Planner | `/tools/appetizer-planner` | Party Planning |
 
 ### Legend
 - 🔴 Not Started
