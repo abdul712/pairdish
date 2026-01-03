@@ -1,0 +1,277 @@
+---
+/**
+ * Buffet Menu Planner Tool Page
+ *
+ * Interactive tool for planning buffet quantities and menu balance.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import BuffetPlanner from '../../components/tools/BuffetPlanner';
+---
+
+<BaseLayout
+  title="Buffet Menu Planner"
+  description="Plan the perfect buffet with calculated quantities per guest. Get dish recommendations, category balance tips, and serving amounts for brunch, lunch, dinner, or holiday meals."
+  keywords={['buffet planner', 'buffet quantities per person', 'how much food for buffet', 'buffet menu planning', 'catering calculator']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Buffet Planner</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Buffet <span class="text-accent text-[var(--color-wine)]">Menu Planner</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Calculate exact quantities for your buffet spread. Build a balanced menu with
+          the right mix of mains, sides, and accompaniments for any occasion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <BuffetPlanner client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Buffet Planning Essentials
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              The Golden Rule of Quantities
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Plan for 1 to 1.5 pounds of food per person total. This breaks down to roughly
+              6 oz of protein, 4-5 oz of starches, 4 oz of vegetables/salads, and 2-3 oz of bread.
+              Always add 10-15% buffer for hungry guests.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Menu Balance
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              A well-balanced buffet includes 2-3 proteins, 2-3 starches, 2-3 vegetables or salads,
+              bread, and dessert. Mix hot and cold items, and always include at least one
+              vegetarian main option.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Food Quantities Per Person by Category
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+          <div class="text-center p-4 bg-red-50 rounded-lg">
+            <span class="block text-2xl font-bold text-red-700">6 oz</span>
+            <span class="block text-sm text-red-600">Protein/Main</span>
+          </div>
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block text-2xl font-bold text-amber-700">4-5 oz</span>
+            <span class="block text-sm text-amber-600">Starches</span>
+          </div>
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <span class="block text-2xl font-bold text-green-700">4 oz</span>
+            <span class="block text-sm text-green-600">Vegetables</span>
+          </div>
+          <div class="text-center p-4 bg-yellow-50 rounded-lg">
+            <span class="block text-2xl font-bold text-yellow-700">2-3 oz</span>
+            <span class="block text-sm text-yellow-600">Bread</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How many dishes should a buffet have?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For 20 guests: 6-8 dishes total. For 50 guests: 8-10 dishes. For 100+ guests: 10-12 dishes.
+              The key is variety without overwhelming—guests should be able to sample everything
+              without their plate overflowing.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best buffet layout?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Start with plates, then salads and cold items, followed by hot sides, then proteins
+              (most expensive items last reduces waste), then bread and condiments. Place utensils
+              and napkins at the end so guests have hands free while serving.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I keep buffet food at safe temperatures?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Hot foods must stay above 140°F—use chafing dishes with sterno fuel. Cold foods
+              must stay below 40°F—nest serving bowls in ice. The "2-hour rule" applies:
+              discard any food left in the danger zone (40-140°F) for more than 2 hours.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Should I adjust quantities for different meal times?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! Brunch portions are typically 75-80% of dinner portions. Lunch is about 80-85%.
+              Dinner and holiday meals use full portions. Late-night buffets (after 9pm) can
+              reduce quantities by 25% as guests typically eat less.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I handle dietary restrictions?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Include at least one protein and one starch that's naturally vegetarian and gluten-free.
+              Label all dishes clearly with common allergens. Place vegetarian/vegan options at
+              the beginning of the buffet line so they don't get cross-contaminated by serving utensils.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/party-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🎉
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Party Food Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Complete party food planning</p>
+          </div>
+        </a>
+
+        <a href="/tools/appetizer-planner" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+            🍢
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Appetizer Planner</h4>
+            <p class="text-sm text-[var(--text-muted)]">Calculate appetizer quantities</p>
+          </div>
+        </a>
+
+        <a href="/tools/drink-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            🍹
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Drink Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Calculate beverages needed</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much food do I need per person for a buffet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan for 1 to 1.5 pounds of food per person total. This includes about 6 oz of protein, 4-5 oz of starches, 4 oz of vegetables/salads, and 2-3 oz of bread."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many dishes should a buffet have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 20 guests: 6-8 dishes. For 50 guests: 8-10 dishes. For 100+ guests: 10-12 dishes. Include a mix of proteins, starches, vegetables, and bread."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best buffet layout order?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with plates, then salads, hot sides, proteins (most expensive items last), then bread and condiments. Place utensils and napkins at the end."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I keep buffet food at safe temperatures?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hot foods must stay above 140°F using chafing dishes. Cold foods must stay below 40°F using ice. Discard food left in the danger zone (40-140°F) for more than 2 hours."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

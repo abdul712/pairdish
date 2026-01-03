@@ -584,9 +584,27 @@ interface ConversionResult {
 - Prep notes and timing guidelines
 
 ### Tool 3.4: Buffet Menu Planner
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/buffet-planner
+
+#### Features Implemented
+- Guest count slider (10-150 guests)
+- Meal type selection (brunch, lunch, dinner, holiday)
+- 35+ dish options across 6 categories:
+  - Mains (beef, chicken, salmon, ham, turkey, vegetarian options)
+  - Sides (green beans, glazed carrots, roasted vegetables, etc.)
+  - Salads (garden, Caesar, coleslaw, pasta salad, etc.)
+  - Starches (mashed potatoes, rice pilaf, roasted potatoes, mac & cheese)
+  - Breads (dinner rolls, cornbread, biscuits, garlic bread)
+  - Desserts (brownies, cookies, pie slices, cake slices)
+- Dietary tags for each dish (vegetarian, vegan, gluten-free)
+- Category balance checker with visual progress bars
+- Per-dish quantity calculations (lbs and oz)
+- Setup tips and timing guidelines
+- Meal-type specific recommendations
 
 ### Tool 3.5: Potluck Coordinator
 **Status**: 🟢 Completed (v1)
@@ -861,8 +879,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 14 | 40+ |
-| **Live Tools** | 14 | - |
+| **Tools Completed** | 15 | 40+ |
+| **Live Tools** | 15 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -882,7 +900,7 @@ Each tool page must include:
 | Cheese Board Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Wine Bottle Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Appetizer Quantity Planner | 🟢 | ✅ | ✅ | ✅ |
-| Buffet Menu Planner | 🔴 | ⬜ | ⬜ | ⬜ |
+| Buffet Menu Planner | 🟢 | ✅ | ✅ | ✅ |
 | Potluck Coordinator | 🟢 | ✅ | ✅ | ✅ |
 
 ### Live Tools Summary
@@ -903,6 +921,7 @@ Each tool page must include:
 | Nutrition Calculator | `/tools/nutrition-calculator` | Kitchen Calculators |
 | Cheese Board Calculator | `/tools/cheese-board-calculator` | Party Planning |
 | Appetizer Planner | `/tools/appetizer-planner` | Party Planning |
+| Buffet Menu Planner | `/tools/buffet-planner` | Party Planning |
 
 ### Legend
 - 🔴 Not Started
