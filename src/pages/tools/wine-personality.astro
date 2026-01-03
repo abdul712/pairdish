@@ -1,0 +1,256 @@
+---
+/**
+ * Wine Personality Quiz Tool Page
+ *
+ * Fun quiz to discover your wine personality type.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import WinePersonalityQuiz from '../../components/tools/WinePersonalityQuiz';
+---
+
+<BaseLayout
+  title="What Wine Are You? | Wine Personality Quiz"
+  description="Discover your wine personality! Take our fun quiz to find out if you're a Bold Adventurer, Elegant Classic, Social Sparkler, or another wine personality type."
+  keywords={['wine personality quiz', 'what wine am I', 'wine quiz', 'wine personality test', 'wine type quiz', 'fun wine quiz']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Wine Personality Quiz</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          What Wine <span class="text-accent text-[var(--color-wine)]">Are You?</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Take our fun personality quiz to discover your wine identity!
+          Find out which wine best represents your personality and get personalized recommendations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <WinePersonalityQuiz client:load />
+    </div>
+  </section>
+
+  <!-- About the Quiz -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          About the Wine Personality Types
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div class="p-5 bg-[var(--color-wine-glow)] rounded-xl border border-[var(--color-wine)]/20">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🦁</span>
+              <h3 class="font-display text-lg font-semibold text-[var(--color-wine)]">The Bold Adventurer</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Powerful, intense wines like Cabernet Sauvignon and Barolo. You make a statement.
+            </p>
+          </div>
+
+          <div class="p-5 bg-purple-50 rounded-xl border border-purple-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">👑</span>
+              <h3 class="font-display text-lg font-semibold text-purple-700">The Elegant Classic</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Refined wines like Burgundy and Champagne. Timeless sophistication.
+            </p>
+          </div>
+
+          <div class="p-5 bg-pink-50 rounded-xl border border-pink-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">✨</span>
+              <h3 class="font-display text-lg font-semibold text-pink-600">The Social Sparkler</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Bubbly wines like Prosecco and sparkling rosé. Life of the party.
+            </p>
+          </div>
+
+          <div class="p-5 bg-green-50 rounded-xl border border-green-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🌿</span>
+              <h3 class="font-display text-lg font-semibold text-green-700">The Laid-Back Sipper</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Easy-drinking wines like Sauvignon Blanc. Relaxed and genuine.
+            </p>
+          </div>
+
+          <div class="p-5 bg-orange-50 rounded-xl border border-orange-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🧭</span>
+              <h3 class="font-display text-lg font-semibold text-orange-600">The Curious Explorer</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Unique wines like orange wine and natural wines. Always discovering.
+            </p>
+          </div>
+
+          <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🌹</span>
+              <h3 class="font-display text-lg font-semibold text-red-600">The Romantic Dreamer</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Soulful wines like Pinot Noir and Riesling. Emotional and imaginative.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How accurate is this wine personality quiz?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              This quiz is designed for fun and to help you explore different wine styles! While it's based on
+              general personality traits and wine characteristics, the best way to find wines you love is to taste
+              and explore. Use your results as a starting point for discovery.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I be more than one wine personality?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Absolutely! Most people have a blend of wine personalities. The quiz shows your primary type and
+              a secondary type that also resonates with you. Wine preferences, like personalities, are complex
+              and multifaceted.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What if I don't like my recommended wines?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              That's okay! Personal taste is unique. Try the recommendations as a starting point, but feel free
+              to explore wines from other personality types. The joy of wine is in the discovery. You might also
+              want to retake the quiz and see your secondary personality recommendations.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Quizzes -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        More Fun Quizzes
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/cooking-style-quiz" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-2xl">
+            👨‍🍳
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Cooking Style Quiz</h4>
+            <p class="text-sm text-[var(--text-muted)]">Discover your cooking personality</p>
+          </div>
+        </a>
+
+        <a href="/tools/cheese-board-builder" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-2xl">
+            🧀
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Board Builder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Create your perfect board</p>
+          </div>
+        </a>
+
+        <a href="/tools/recipe-generator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-2xl">
+            🎲
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">What Should I Cook?</h4>
+            <p class="text-sm text-[var(--text-muted)]">Get inspired for dinner</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is this wine personality quiz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This quiz is designed for fun and to help you explore different wine styles! Use your results as a starting point for wine discovery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I be more than one wine personality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Most people have a blend of wine personalities. The quiz shows your primary type and a secondary type that also resonates with you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I don't like my recommended wines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Personal taste is unique. Try the recommendations as a starting point, but feel free to explore wines from other personality types."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
