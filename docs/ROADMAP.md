@@ -789,9 +789,22 @@ interface ConversionResult {
 - Detailed tips for each yeast type
 
 ### Tool 5.5: Sourdough Hydration Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 4 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/sourdough-calculator
+
+#### Features Implemented
+- Recipe input: flour, water, starter, starter hydration, salt
+- True hydration calculation accounting for starter flour/water
+- Baker's percentages display (starter %, salt %)
+- Total dough weight calculation
+- Common bread hydration presets (Sandwich 60%, Country 70%, Artisan 75%, Ciabatta 80%, Focaccia 85%)
+- Target hydration adjustment with auto-calculated water
+- Recipe scaling to target dough weight
+- Hydration guide with difficulty levels and bread types
+- Detailed sourdough tips
 
 ---
 
@@ -991,8 +1004,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 22 | 40+ |
-| **Live Tools** | 22 | - |
+| **Tools Completed** | 23 | 40+ |
+| **Live Tools** | 23 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1033,7 +1046,7 @@ Each tool page must include:
 | Flour Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Sugar Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Yeast Conversion Calculator | 🟢 | ✅ | ✅ | ✅ |
-| Sourdough Hydration Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Sourdough Hydration Calculator | 🟢 | ✅ | ✅ | ✅ |
 
 ### Live Tools Summary
 
@@ -1061,6 +1074,7 @@ Each tool page must include:
 | Grocery List Generator | `/tools/grocery-list` | Meal Planning |
 | Pan Size Converter | `/tools/pan-size-converter` | Baking Calculators |
 | Yeast Conversion Calculator | `/tools/yeast-converter` | Baking Calculators |
+| Sourdough Hydration Calculator | `/tools/sourdough-calculator` | Baking Calculators |
 
 ### Legend
 - 🔴 Not Started
