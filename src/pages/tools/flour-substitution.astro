@@ -1,0 +1,259 @@
+---
+/**
+ * Flour Substitution Calculator Tool Page
+ *
+ * Convert between different flour types with proper ratios.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import FlourSubstitution from '../../components/tools/FlourSubstitution';
+---
+
+<BaseLayout
+  title="Flour Substitution Calculator"
+  description="Convert between all-purpose, bread, cake, pastry, whole wheat, and specialty flours. Get exact ratios and additional ingredients needed for perfect results."
+  keywords={['flour substitution', 'flour conversion', 'cake flour substitute', 'bread flour substitute', 'flour types', 'baking flour calculator']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Flour Substitution</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Flour <span class="text-accent text-[var(--color-wine)]">Substitution Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Recipe calls for cake flour but you only have all-purpose? Get the exact
+          ratios and additions needed to substitute between flour types.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <FlourSubstitution client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Flour Types
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              It's All About Protein
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              The main difference between flour types is protein content. Higher protein
+              means more gluten when mixed with water. Bread flour (12-14%) makes chewy
+              bread; cake flour (7-9%) makes tender cake.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Why Substitution Works
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              By adjusting ratios and adding starches (which reduce gluten development),
+              you can approximate one flour with another. Results may differ slightly,
+              but substitutions work for most home baking.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Common Substitutions
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-pink-50 rounded-lg">
+            <span class="block font-bold text-pink-700 text-sm">Cake Flour</span>
+            <span class="block text-xs text-pink-600 mt-1">⅞ cup AP + 2 tbsp cornstarch</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block font-bold text-orange-700 text-sm">Bread Flour</span>
+            <span class="block text-xs text-orange-600 mt-1">AP + vital wheat gluten</span>
+          </div>
+          <div class="text-center p-4 bg-blue-50 rounded-lg">
+            <span class="block font-bold text-blue-700 text-sm">Self-Rising</span>
+            <span class="block text-xs text-blue-600 mt-1">AP + baking powder + salt</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I use all-purpose flour for everything?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes, for most recipes! All-purpose flour is the jack-of-all-trades.
+              Cakes will be slightly less tender, bread slightly less chewy, but results
+              will still be good. It's why it's called "all-purpose."
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I make cake flour from all-purpose?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Remove 2 tablespoons from 1 cup of all-purpose flour and replace with
+              2 tablespoons of cornstarch. Sift together 5-6 times to distribute evenly.
+              This lowers the protein content to approximate cake flour.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the difference between bread and all-purpose flour?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Bread flour has 12-14% protein vs all-purpose's 10-12%. This extra protein
+              creates more gluten, giving bread its chewy texture and better structure.
+              For most bread recipes, you can substitute 1:1 with slightly less chew.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I substitute whole wheat for all-purpose?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Start with a 50/50 blend. 100% whole wheat makes dense, heavy baked goods
+              because the bran cuts gluten strands. The blend gives you nutrition benefits
+              while maintaining good texture. Increase the ratio as you get comfortable.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Baking Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/yeast-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🟡
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Yeast Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Convert between yeast types</p>
+          </div>
+        </a>
+
+        <a href="/tools/sourdough-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🫙
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Sourdough Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Calculate dough hydration</p>
+          </div>
+        </a>
+
+        <a href="/tools/unit-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Unit Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Cups, grams, ounces</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use all-purpose flour for everything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for most recipes! All-purpose flour is versatile. Cakes will be slightly less tender, bread slightly less chewy, but results will still be good."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make cake flour from all-purpose?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Remove 2 tablespoons from 1 cup of all-purpose flour and replace with 2 tablespoons of cornstarch. Sift together 5-6 times to distribute evenly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between bread and all-purpose flour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bread flour has 12-14% protein vs all-purpose's 10-12%. This extra protein creates more gluten, giving bread its chewy texture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I substitute whole wheat for all-purpose?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with a 50/50 blend. 100% whole wheat makes dense, heavy baked goods. The blend gives nutrition benefits while maintaining good texture."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

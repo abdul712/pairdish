@@ -762,9 +762,22 @@ interface ConversionResult {
 - Baking tips for different pan types
 
 ### Tool 5.2: Flour Substitution Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 4 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/flour-substitution
+
+#### Features Implemented
+- 8 flour types: All-Purpose, Bread, Cake, Pastry, Whole Wheat, Self-Rising, Almond, Coconut
+- 18 substitution recipes with exact ratios
+- Additional ingredients needed (cornstarch, vital wheat gluten, etc.)
+- Quality ratings (excellent, good, acceptable) for each substitution
+- Detailed notes on texture and flavor changes
+- Visual amount display with additions
+- Direct and reverse substitution lookups
+- Educational content on protein content and gluten development
+- Flour type information cards
 
 ### Tool 5.3: Sugar Substitution Calculator
 **Status**: 🔴 Not Started
@@ -1004,8 +1017,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 23 | 40+ |
-| **Live Tools** | 23 | - |
+| **Tools Completed** | 24 | 40+ |
+| **Live Tools** | 24 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1043,7 +1056,7 @@ Each tool page must include:
 | Tool | Status | Dev | Test | Deploy |
 |------|--------|-----|------|--------|
 | Pan Size Converter | 🟢 | ✅ | ✅ | ✅ |
-| Flour Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Flour Substitution Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Sugar Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Yeast Conversion Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Sourdough Hydration Calculator | 🟢 | ✅ | ✅ | ✅ |
@@ -1075,6 +1088,7 @@ Each tool page must include:
 | Pan Size Converter | `/tools/pan-size-converter` | Baking Calculators |
 | Yeast Conversion Calculator | `/tools/yeast-converter` | Baking Calculators |
 | Sourdough Hydration Calculator | `/tools/sourdough-calculator` | Baking Calculators |
+| Flour Substitution Calculator | `/tools/flour-substitution` | Baking Calculators |
 
 ### Legend
 - 🔴 Not Started
