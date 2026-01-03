@@ -1222,8 +1222,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 39 | 40+ |
-| **Live Tools** | 39 | - |
+| **Tools Completed** | 40 | 40+ |
+| **Live Tools** | 40 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1306,6 +1306,7 @@ Each tool page must include:
 | Protein Calculator | `/tools/protein-calculator` | Health & Dietary |
 | Macro Balance Calculator | `/tools/macro-calculator` | Health & Dietary |
 | Glycemic Index Guide | `/tools/glycemic-index` | Health & Dietary |
+| Caffeine Calculator | `/tools/caffeine-calculator` | Health & Dietary |
 | "What Wine Are You?" Quiz | `/tools/wine-personality` | Interactive Quizzes |
 | "What's Your Cooking Style?" Quiz | `/tools/cooking-style-quiz` | Interactive Quizzes |
 | "Build Your Cheese Board" Interactive | `/tools/cheese-board-builder` | Interactive Quizzes |
@@ -1329,6 +1330,7 @@ Each tool page must include:
 | Protein Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Macro Balance Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Glycemic Index Guide | 🟢 | ✅ | ✅ | ✅ |
+| Caffeine Calculator | 🟢 | ✅ | ✅ | ✅ |
 
 ### Phase 8 Progress (Interactive Quizzes)
 

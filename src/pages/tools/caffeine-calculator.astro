@@ -1,0 +1,266 @@
+---
+/**
+ * Caffeine Calculator Page
+ *
+ * Track daily caffeine intake and understand caffeine content.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import CaffeineCalculator from '../../components/tools/CaffeineCalculator';
+---
+
+<BaseLayout
+  title="Caffeine Calculator | Track Your Daily Intake"
+  description="Track your daily caffeine consumption and stay within healthy limits. See caffeine content in coffee, tea, energy drinks, soda, and more."
+  keywords={['caffeine calculator', 'caffeine tracker', 'caffeine content', 'coffee caffeine', 'daily caffeine limit', 'caffeine in drinks']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Caffeine Calculator</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Caffeine <span class="text-accent text-[var(--color-wine)]">Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Track your daily caffeine intake and stay within healthy limits. See how much caffeine
+          is in your favorite beverages and understand its effects on your body.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <CaffeineCalculator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Caffeine
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div class="p-5 bg-green-50 rounded-xl border border-green-200">
+            <h3 class="font-display text-lg font-semibold text-green-800 mb-2">
+              Benefits (in moderation)
+            </h3>
+            <ul class="text-sm text-[var(--text-secondary)] space-y-1 list-disc list-inside">
+              <li>Increased alertness and focus</li>
+              <li>Improved physical performance</li>
+              <li>Enhanced mood and cognitive function</li>
+              <li>May reduce risk of certain diseases</li>
+            </ul>
+          </div>
+
+          <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+            <h3 class="font-display text-lg font-semibold text-red-800 mb-2">
+              Side Effects (excess)
+            </h3>
+            <ul class="text-sm text-[var(--text-secondary)] space-y-1 list-disc list-inside">
+              <li>Anxiety and restlessness</li>
+              <li>Sleep disruption and insomnia</li>
+              <li>Increased heart rate</li>
+              <li>Digestive issues</li>
+            </ul>
+          </div>
+
+          <div class="p-5 bg-amber-50 rounded-xl border border-amber-200">
+            <h3 class="font-display text-lg font-semibold text-amber-800 mb-2">
+              Daily Limits
+            </h3>
+            <ul class="text-sm text-[var(--text-secondary)] space-y-1">
+              <li><strong>Adults:</strong> Up to 400mg/day (FDA)</li>
+              <li><strong>Pregnant:</strong> 200mg or less</li>
+              <li><strong>Teens:</strong> 100mg or less</li>
+              <li><strong>Children:</strong> Avoid caffeine</li>
+            </ul>
+          </div>
+
+          <div class="p-5 bg-blue-50 rounded-xl border border-blue-200">
+            <h3 class="font-display text-lg font-semibold text-blue-800 mb-2">
+              Sleep Tips
+            </h3>
+            <ul class="text-sm text-[var(--text-secondary)] space-y-1 list-disc list-inside">
+              <li>Stop caffeine 6-8 hours before bed</li>
+              <li>Avoid afternoon coffee if sensitive</li>
+              <li>Consider switching to decaf after noon</li>
+              <li>Watch hidden sources (chocolate, some meds)</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How much caffeine is too much?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              The FDA considers 400mg per day safe for most healthy adults - about 4 cups of coffee.
+              However, sensitivity varies greatly. If you experience jitters, anxiety, or sleep issues,
+              you may want to reduce your intake. Pregnant women should limit to 200mg.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Does decaf coffee have caffeine?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! "Decaf" isn't caffeine-free. A typical cup of decaf coffee contains about 2-15mg
+              of caffeine (compared to 95mg in regular). This adds up if you drink multiple cups,
+              so very caffeine-sensitive people should be aware.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Why does caffeine affect people differently?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Genetics play a major role! Some people metabolize caffeine quickly (fast metabolizers)
+              while others process it slowly. Age, liver function, medications, and regular caffeine
+              consumption also affect how your body handles caffeine.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can you become addicted to caffeine?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Caffeine is physically addictive, but it's considered mild compared to other substances.
+              Regular users can experience withdrawal symptoms (headaches, fatigue, irritability)
+              when stopping suddenly. Tapering off gradually over a week or two helps minimize these effects.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Health Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/protein-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-2xl">
+            🥩
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Protein Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Daily protein needs</p>
+          </div>
+        </a>
+
+        <a href="/tools/macro-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-2xl">
+            📊
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Macro Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Balance your macros</p>
+          </div>
+        </a>
+
+        <a href="/tools/coffee-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-2xl">
+            ☕
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Coffee & Dessert Pairing</h4>
+            <p class="text-sm text-[var(--text-muted)]">Perfect pairings</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much caffeine is too much?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The FDA considers 400mg per day safe for most healthy adults - about 4 cups of coffee. Pregnant women should limit to 200mg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does decaf coffee have caffeine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! A typical cup of decaf coffee contains about 2-15mg of caffeine compared to 95mg in regular coffee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does caffeine affect people differently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Genetics play a major role. Some people metabolize caffeine quickly while others process it slowly. Age, medications, and regular consumption also affect caffeine sensitivity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you become addicted to caffeine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Caffeine is physically addictive but mild. Regular users can experience withdrawal symptoms when stopping suddenly. Tapering off gradually helps minimize these effects."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
