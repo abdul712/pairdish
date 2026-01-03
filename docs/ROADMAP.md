@@ -518,16 +518,19 @@ interface NutritionFacts {
 ---
 
 ### Tool 2.5: Substitution Finder
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P1 - High
 **Estimated Dev Time**: 8 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/substitution-finder
 
-#### Features
-- 200+ ingredient substitutions
-- Allergy-aware filters
+#### Features Implemented
+- 12+ base ingredients with multiple substitutions each
+- 7 dietary filter tags (vegan, dairy-free, gluten-free, nut-free, egg-free, low-sugar, keto)
 - Ratio calculators (butter→oil, eggs→alternatives)
-- Flavor impact warnings
-- Baking vs cooking context
+- Flavor and texture impact indicators
+- Best use case recommendations for each substitute
+- Baking and cooking tips sections
 
 ---
 
@@ -837,8 +840,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 10 | 40+ |
-| **Live Tools** | 10 | - |
+| **Tools Completed** | 11 | 40+ |
+| **Live Tools** | 11 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -875,6 +878,7 @@ Each tool page must include:
 | Unit Converter | `/tools/unit-converter` | Kitchen Calculators |
 | Oven Temperature Converter | `/tools/oven-temperature` | Kitchen Calculators |
 | Cooking Time Calculator | `/tools/cooking-time` | Kitchen Calculators |
+| Substitution Finder | `/tools/substitution-finder` | Kitchen Calculators |
 
 ### Legend
 - 🔴 Not Started

@@ -1,0 +1,270 @@
+---
+/**
+ * Substitution Finder Tool Page
+ *
+ * Interactive tool for finding ingredient substitutes.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import SubstitutionFinder from '../../components/tools/SubstitutionFinder';
+---
+
+<BaseLayout
+  title="Ingredient Substitution Finder"
+  description="Find ingredient substitutes for allergies, dietary restrictions, or when you're out of something. Vegan, dairy-free, gluten-free, and keto alternatives with ratios."
+  keywords={['ingredient substitution', 'baking substitutes', 'egg replacement', 'dairy-free alternatives', 'gluten-free flour', 'vegan baking', 'cooking substitutes']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Substitution Finder</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Ingredient <span class="text-accent text-[var(--color-wine)]">Substitution Finder</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Out of an ingredient? Have dietary restrictions? Find the perfect substitute
+          with proper ratios and usage tips for baking and cooking.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <SubstitutionFinder client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Ingredient Substitutions
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Baking Substitutions
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Baking is chemistry, so substitutions require precision. Pay attention to
+              ratios and understand that some substitutes affect texture, rise, and flavor.
+              Start with tested substitutions and adjust based on results.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Cooking Substitutions
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Cooking is more forgiving than baking. You can often swap ingredients
+              based on flavor profiles and textures. Taste as you go and adjust
+              seasonings to account for any flavor differences.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Common Substitution Categories
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+          <div class="text-center p-4 bg-blue-50 rounded-lg">
+            <span class="block text-2xl mb-2">🥛</span>
+            <span class="block text-sm font-semibold text-blue-700">Dairy</span>
+            <span class="block text-xs text-blue-600">Milk, butter, cream</span>
+          </div>
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block text-2xl mb-2">🥚</span>
+            <span class="block text-sm font-semibold text-amber-700">Eggs</span>
+            <span class="block text-xs text-amber-600">Binders & leaveners</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block text-2xl mb-2">🌾</span>
+            <span class="block text-sm font-semibold text-orange-700">Flour</span>
+            <span class="block text-xs text-orange-600">GF & alternatives</span>
+          </div>
+          <div class="text-center p-4 bg-pink-50 rounded-lg">
+            <span class="block text-2xl mb-2">🍬</span>
+            <span class="block text-sm font-semibold text-pink-700">Sugar</span>
+            <span class="block text-xs text-pink-600">Sweetener options</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best egg substitute for baking?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              It depends on the egg's role in the recipe. For binding: flax eggs or chia eggs
+              work great. For moisture: applesauce or mashed banana. For leavening: aquafaba
+              (chickpea water) is excellent for meringues and can replace egg whites 1:1.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I substitute butter with oil in any recipe?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Not always. Butter provides flavor, structure (through its water content), and
+              creates flakiness in pastries. For muffins and cakes, use 3/4 cup oil per 1 cup
+              butter. For pie crusts and croissants where flakiness matters, stick with
+              butter or use solid coconut oil.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best gluten-free flour for all-purpose baking?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Commercial 1:1 gluten-free flour blends (like Bob's Red Mill or King Arthur)
+              are most reliable as they're formulated with xanthan gum for structure. For
+              specific applications, almond flour works great for cookies, and oat flour
+              is good for pancakes and muffins.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I substitute dairy milk in recipes?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Most plant milks can be substituted 1:1. Oat milk and soy milk are closest
+              to dairy in baking performance due to their protein and fat content. For
+              buttermilk, add 1 tablespoon of vinegar or lemon juice to 1 cup of plant
+              milk and let sit for 5 minutes.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/unit-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Unit Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Convert measurements</p>
+          </div>
+        </a>
+
+        <a href="/tools/recipe-scaler" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            📊
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Recipe Scaler</h4>
+            <p class="text-sm text-[var(--text-muted)]">Scale recipes up or down</p>
+          </div>
+        </a>
+
+        <a href="/tools/flavor-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+            ✨
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Flavor Pairing</h4>
+            <p class="text-sm text-[var(--text-muted)]">Discover combinations</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the best egg substitute for baking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the egg's role. For binding: flax eggs or chia eggs. For moisture: applesauce or mashed banana. For leavening: aquafaba (chickpea water) is excellent for meringues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I substitute butter with oil in any recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. Butter provides flavor, structure, and creates flakiness. For muffins and cakes, use 3/4 cup oil per 1 cup butter. For pastries where flakiness matters, stick with butter or use solid coconut oil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best gluten-free flour for all-purpose baking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commercial 1:1 gluten-free flour blends (like Bob's Red Mill or King Arthur) are most reliable as they're formulated with xanthan gum for structure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I substitute dairy milk in recipes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most plant milks can be substituted 1:1. Oat milk and soy milk are closest to dairy in baking performance. For buttermilk, add 1 tablespoon of vinegar to 1 cup of plant milk."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
