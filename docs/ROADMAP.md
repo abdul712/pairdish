@@ -901,9 +901,24 @@ interface ConversionResult {
 - Coffee pairing principles guide
 
 ### Tool 6.4: Herb & Spice Matrix
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/herb-spice-matrix
+
+#### Features Implemented
+- 21 herbs, spices, and blends across 3 categories (herbs, spices, blends)
+- Comprehensive information for each item:
+  - Flavor profile description
+  - Intensity rating (1-5)
+  - Cuisine associations
+  - Best pairing combinations
+  - Foods it pairs well with
+- Search and category filtering
+- Interactive selection with detailed view panel
+- Pairing tips and usage recommendations
+- Quick pairing tips section
 
 ### Tool 6.5: Chocolate Pairing Guide
 **Status**: 🔴 Not Started
@@ -1079,8 +1094,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 28 | 40+ |
-| **Live Tools** | 28 | - |
+| **Tools Completed** | 29 | 40+ |
+| **Live Tools** | 29 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1155,6 +1170,17 @@ Each tool page must include:
 | Cheese & Accompaniment Matcher | `/tools/cheese-pairing` | Specialty Pairing |
 | Beer & Food Pairing Guide | `/tools/beer-pairing` | Specialty Pairing |
 | Coffee & Dessert Pairing | `/tools/coffee-pairing` | Specialty Pairing |
+| Herb & Spice Matrix | `/tools/herb-spice-matrix` | Specialty Pairing |
+
+### Phase 6 Progress (Specialty Pairing Tools)
+
+| Tool | Status | Dev | Test | Deploy |
+|------|--------|-----|------|--------|
+| Cheese & Accompaniment Matcher | 🟢 | ✅ | ✅ | ✅ |
+| Beer & Food Pairing Guide | 🟢 | ✅ | ✅ | ✅ |
+| Coffee & Dessert Pairing | 🟢 | ✅ | ✅ | ✅ |
+| Herb & Spice Matrix | 🟢 | ✅ | ✅ | ✅ |
+| Chocolate Pairing Guide | 🔴 | ⬜ | ⬜ | ⬜ |
 
 ### Legend
 - 🔴 Not Started
