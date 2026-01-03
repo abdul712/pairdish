@@ -1,0 +1,241 @@
+---
+/**
+ * Cheese Board Builder Tool Page
+ *
+ * Interactive step-by-step cheese board builder.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
+---
+
+<BaseLayout
+  title="Build Your Perfect Cheese Board | Interactive Builder"
+  description="Create the perfect cheese board step-by-step! Choose cheeses, accompaniments, and get quantity recommendations for your guests with our interactive builder."
+  keywords={['cheese board builder', 'cheese platter', 'cheese board ideas', 'charcuterie board', 'cheese pairing', 'cheese board for party']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Cheese Board Builder</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Build Your Perfect <span class="text-accent text-[var(--color-wine)]">Cheese Board</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Create a stunning cheese board in 4 easy steps. Choose your style, select cheeses,
+          add accompaniments, and get quantity recommendations for your guests.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Builder Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <CheeseBoardBuilder client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Cheese Board Essentials
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div class="p-5 bg-[var(--color-cream)] rounded-xl">
+            <h3 class="font-display text-lg font-semibold text-[var(--text-primary)] mb-2">
+              The Rule of 3-5
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)]">
+              For most gatherings, 3-5 cheeses provide enough variety without overwhelming guests.
+              Include different milk types (cow, goat, sheep) and textures (soft, firm, hard).
+            </p>
+          </div>
+
+          <div class="p-5 bg-[var(--color-cream)] rounded-xl">
+            <h3 class="font-display text-lg font-semibold text-[var(--text-primary)] mb-2">
+              The 2oz Per Person Rule
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Plan for about 2 ounces of cheese per person if serving as an appetizer.
+              For a cheese-centric event, increase to 4-5 ounces per guest.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How far in advance can I make a cheese board?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              You can arrange the cheese and dry items (nuts, crackers) up to 2 hours ahead.
+              Add fresh fruit and slice cheeses just before serving. Cover with plastic wrap
+              and refrigerate, but bring to room temperature 30-60 minutes before serving.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best board or platter to use?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Wood boards, slate, marble, or even a large cutting board all work beautifully.
+              The board should be at least 12 inches for a small gathering and 18+ inches for larger groups.
+              Line with parchment paper for easy cleanup if desired.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Should I label the cheeses?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! Small labels help guests know what they're eating and make conversation starters.
+              Use small food picks with paper flags, slate markers, or handwritten place cards.
+              Include the cheese name and type of milk.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I arrange items for best visual appeal?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Start by placing cheeses first, spread around the board. Add bowls for wet items (olives, honey).
+              Fill gaps with crackers, meats, and fruits. Tuck in nuts and dried fruit last.
+              Vary heights and create visual clusters. Cut a few slices to invite guests to start.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/cheese-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-2xl">
+            🧀
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Pairing Guide</h4>
+            <p class="text-sm text-[var(--text-muted)]">Deep dive into pairings</p>
+          </div>
+        </a>
+
+        <a href="/tools/cheese-board-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 11 18-5v12L3 14v-3z"/>
+              <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Board Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Quantities for any event</p>
+          </div>
+        </a>
+
+        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-[var(--color-wine-glow)] flex items-center justify-center text-2xl">
+            🍷
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Wine Pairing</h4>
+            <p class="text-sm text-[var(--text-muted)]">Wines for your board</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How far in advance can I make a cheese board?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can arrange the cheese and dry items up to 2 hours ahead. Add fresh fruit just before serving. Bring to room temperature 30-60 minutes before serving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best board or platter to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wood boards, slate, marble, or a large cutting board all work beautifully. The board should be at least 12 inches for small gatherings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I label the cheeses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Small labels help guests know what they're eating. Use food picks with paper flags or slate markers with the cheese name and milk type."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I arrange items for best visual appeal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Place cheeses first, add bowls for wet items, fill gaps with crackers and meats, then tuck in nuts last. Vary heights and create visual clusters."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
