@@ -1,7 +1,7 @@
 # PairingPlates.com - Tools & Utilities Roadmap
 
 > **Comprehensive development roadmap for 40+ interactive food pairing tools and kitchen utilities**
-> *Version 1.0 | Last Updated: January 2026*
+> *Version 1.1 | Last Updated: January 3, 2026*
 
 ---
 
@@ -101,9 +101,11 @@ src/
 ## 4. Phase 1: Core Pairing Tools
 
 ### Tool 1.1: Food & Flavor Pairing Finder
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P0 - Critical
 **Estimated Dev Time**: 8 hours
+**Completed**: January 2026
+**Live URL**: /tools/flavor-pairing
 
 #### Description
 Interactive tool that takes an ingredient and returns scientifically-backed flavor pairings based on shared aromatic compounds.
@@ -523,9 +525,20 @@ interface NutritionFacts {
 **Estimated Dev Time**: 6 hours
 
 ### Tool 3.2: Wine Bottle Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 3 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/wine-calculator
+
+#### Features Implemented
+- Guest count and event duration inputs
+- Event type selection (dinner, reception, cocktail)
+- Serving style options (with meal, cocktail hour, all evening)
+- Wine ratio sliders (red/white/sparkling)
+- Real-time bottle calculations with breakdown
+- Three-tier budget estimates (budget, recommended, premium)
+- Contextual wine selection tips
 
 ### Tool 3.3: Appetizer Quantity Planner
 **Status**: 🔴 Not Started
@@ -538,9 +551,21 @@ interface NutritionFacts {
 **Estimated Dev Time**: 6 hours
 
 ### Tool 3.5: Potluck Coordinator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 8 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/potluck-coordinator
+
+#### Features Implemented
+- Guest count slider with dynamic recommendations
+- 5 dish categories (Appetizers, Mains, Sides, Desserts, Drinks)
+- Balance checker with visual progress bars
+- Dietary tag system (vegetarian, vegan, gluten-free, dairy-free, nut-free)
+- Contributor tracking for each dish
+- Automatic serving quantity recommendations
+- Dietary coverage dashboard
+- Print and share functionality (native share API + clipboard)
 
 ---
 
@@ -794,15 +819,41 @@ Each tool page must include:
 
 ## Development Status Tracker
 
-### Phase 1 Progress (Target: Week 1-2)
+### Overall Progress
+
+| Metric | Current | Target |
+|--------|---------|--------|
+| **Tools Completed** | 3 | 40+ |
+| **Live Tools** | 3 | - |
+| **In Progress** | 0 | - |
+
+### Phase 1 Progress (Core Pairing Tools)
 
 | Tool | Status | Dev | Test | Deploy |
 |------|--------|-----|------|--------|
-| Food & Flavor Pairing Finder | 🔴 | ⬜ | ⬜ | ⬜ |
+| Food & Flavor Pairing Finder | 🟢 | ✅ | ✅ | ✅ |
 | Wine & Food Pairing Matcher | 🔴 | ⬜ | ⬜ | ⬜ |
 | Recipe Scaling Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Party Food Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Drink/Cocktail Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+
+### Phase 3 Progress (Party & Event Tools)
+
+| Tool | Status | Dev | Test | Deploy |
+|------|--------|-----|------|--------|
+| Cheese Board Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Wine Bottle Calculator | 🟢 | ✅ | ✅ | ✅ |
+| Appetizer Quantity Planner | 🔴 | ⬜ | ⬜ | ⬜ |
+| Buffet Menu Planner | 🔴 | ⬜ | ⬜ | ⬜ |
+| Potluck Coordinator | 🟢 | ✅ | ✅ | ✅ |
+
+### Live Tools Summary
+
+| Tool | URL | Category |
+|------|-----|----------|
+| Flavor Pairing Finder | `/tools/flavor-pairing` | Pairing Tools |
+| Wine Bottle Calculator | `/tools/wine-calculator` | Party Planning |
+| Potluck Coordinator | `/tools/potluck-coordinator` | Party Planning |
 
 ### Legend
 - 🔴 Not Started
@@ -814,3 +865,4 @@ Each tool page must include:
 ---
 
 *This roadmap is a living document. Update status as tools are completed.*
+*Last updated: January 3, 2026*

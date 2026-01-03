@@ -1,0 +1,263 @@
+---
+/**
+ * Wine Bottle Calculator Tool Page
+ *
+ * Interactive tool for calculating wine quantities for events.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import WineBottleCalculator from '../../components/tools/WineBottleCalculator';
+---
+
+<BaseLayout
+  title="Wine Bottle Calculator"
+  description="Calculate exactly how many wine bottles you need for your event. Factor in guest count, duration, and wine preferences for the perfect party."
+  keywords={['wine calculator', 'wine bottles for party', 'how much wine for event', 'wine quantity calculator', 'party wine planning']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Wine Calculator</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Wine Bottle <span class="text-accent text-[var(--color-wine)]">Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Calculate the perfect amount of wine for your event. Input your guest count,
+          event duration, and preferences to get personalized bottle recommendations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <WineBottleCalculator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Planning Wine for Your Event
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              The Standard Rule
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              A standard 750ml wine bottle contains about 5 glasses. Most guests will drink
+              1-2 glasses per hour at a casual event, or about half a bottle for a 2-3 hour
+              dinner party. These estimates help you plan appropriately.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Event Type Matters
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Standing receptions typically see higher wine consumption than seated dinners.
+              Cocktail hours are usually the peak consumption time. Our calculator adjusts
+              for these factors to give you accurate estimates.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Wine Selection Guide
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+          <div class="text-center p-4 bg-[var(--color-wine-glow)] rounded-lg">
+            <span class="block text-3xl mb-2">🍷</span>
+            <span class="text-sm font-medium text-[var(--color-wine)]">Red Wine</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Pair with red meats, pasta, aged cheeses</p>
+          </div>
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block text-3xl mb-2">🥂</span>
+            <span class="text-sm font-medium text-amber-700">White Wine</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Pair with seafood, chicken, light dishes</p>
+          </div>
+          <div class="text-center p-4 bg-yellow-50 rounded-lg">
+            <span class="block text-3xl mb-2">🍾</span>
+            <span class="text-sm font-medium text-yellow-700">Sparkling</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Perfect for toasts, appetizers, celebrations</p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How many glasses are in a bottle of wine?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              A standard 750ml wine bottle contains approximately 5 glasses of wine, based on a
+              5-ounce (150ml) pour. Champagne and sparkling wines are often served in smaller
+              4-ounce pours, giving you about 6 glasses per bottle.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What ratio of red to white wine should I buy?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              A common split is 40% red, 40% white, and 20% sparkling, but this varies by
+              season and menu. Summer events often favor more white wine (50-60%), while
+              winter gatherings may lean toward red (50-60%). Consider your menu pairing
+              recommendations too.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Should I buy more wine than calculated?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes, we recommend buying 10-20% extra. Most wine shops accept returns of unopened
+              bottles, and it's always better to have extra than to run out. Leftover wine also
+              makes great host gifts or can be saved for future occasions.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              When should I serve sparkling wine?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Sparkling wine is perfect for cocktail hours, toasts, and celebrations. It's also
+              excellent with appetizers, oysters, and lighter fare. Consider offering sparkling
+              as guests arrive and for any toasts during the event.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+            🍷
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Wine Pairing</h4>
+            <p class="text-sm text-[var(--text-muted)]">Food + wine matches</p>
+          </div>
+        </a>
+
+        <a href="/tools/party-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🎉
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Party Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Food quantities</p>
+          </div>
+        </a>
+
+        <a href="/tools/cheese-board-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-700">
+            🧀
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Board</h4>
+            <p class="text-sm text-[var(--text-muted)]">Build the perfect board</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many glasses are in a bottle of wine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard 750ml wine bottle contains approximately 5 glasses of wine, based on a 5-ounce (150ml) pour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What ratio of red to white wine should I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A common split is 40% red, 40% white, and 20% sparkling, but this varies by season and menu. Summer events often favor more white wine, while winter gatherings may lean toward red."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I buy more wine than calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we recommend buying 10-20% extra. Most wine shops accept returns of unopened bottles, and it's always better to have extra than to run out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I serve sparkling wine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sparkling wine is perfect for cocktail hours, toasts, and celebrations. It's also excellent with appetizers and lighter fare."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

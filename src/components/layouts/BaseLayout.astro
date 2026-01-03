@@ -1,0 +1,257 @@
+---
+/**
+ * BaseLayout - Primary layout for PairingPlates.com
+ * Editorial luxury aesthetic with warm, appetizing design
+ */
+
+import '../../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string[];
+  ogImage?: string;
+  canonical?: string;
+}
+
+const { 
+  title, 
+  description, 
+  keywords = [
+    'food pairing',
+    'wine pairing',
+    'recipe calculator',
+    'cooking tools',
+    'kitchen utilities'
+  ], 
+  ogImage = '/images/og-default.png',
+  canonical
+} = Astro.props;
+
+const siteUrl = import.meta.env.SITE || 'https://pairingplates.com';
+const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const fullTitle = title === 'Home' 
+  ? 'PairingPlates - Perfect Pairings, Every Plate' 
+  : `${title} | PairingPlates`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, siteUrl).href} />
+    <meta property="og:site_name" content="PairingPlates" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, siteUrl).href} />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#722F37" />
+    
+    <!-- Preconnect to font server -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  
+  <body class="bg-cream texture-paper">
+    <!-- Skip Link for Accessibility -->
+    <a 
+      href="#main-content" 
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 btn btn-primary"
+    >
+      Skip to main content
+    </a>
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-cream/80 backdrop-blur-md border-b border-cream-dark/30">
+      <div class="container">
+        <nav class="flex items-center justify-between h-16 md:h-20">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-full bg-wine flex-center text-cream font-display text-xl font-semibold transition-transform group-hover:scale-105">
+              P
+            </div>
+            <div class="hidden sm:block">
+              <span class="text-display text-xl font-semibold text-wine tracking-tight">
+                PairingPlates
+              </span>
+              <span class="block text-xs text-muted -mt-0.5 tracking-wide">
+                Perfect Pairings, Every Plate
+              </span>
+            </div>
+          </a>
+          
+          <!-- Navigation -->
+          <div class="flex items-center gap-6">
+            <a href="/tools" class="text-sm font-medium hover:text-wine transition-colors link-underline">
+              All Tools
+            </a>
+            <a href="/tools/flavor-pairing" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
+              Flavor Pairing
+            </a>
+            <a href="/tools/wine-pairing" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
+              Wine Pairing
+            </a>
+            <a href="/about" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden lg:block">
+              About
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-charcoal text-light py-16 mt-20">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <!-- Brand Column -->
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full bg-wine flex-center text-cream font-display text-xl font-semibold">
+                P
+              </div>
+              <span class="text-display text-xl font-semibold tracking-tight">
+                PairingPlates
+              </span>
+            </div>
+            <p class="text-light-muted max-w-md mb-6 text-sm leading-relaxed">
+              Discover the art of perfect pairings. From wine and food matching to recipe scaling, 
+              we provide the tools to elevate your culinary experience.
+            </p>
+            <p class="text-xs text-light-muted opacity-60">
+              © {new Date().getFullYear()} PairingPlates. All rights reserved.
+            </p>
+          </div>
+          
+          <!-- Tools Column -->
+          <div>
+            <h4 class="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
+              Popular Tools
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="/tools/flavor-pairing" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Flavor Pairing Finder
+                </a>
+              </li>
+              <li>
+                <a href="/tools/wine-pairing" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Wine & Food Matcher
+                </a>
+              </li>
+              <li>
+                <a href="/tools/recipe-scaler" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Recipe Scaler
+                </a>
+              </li>
+              <li>
+                <a href="/tools/party-calculator" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Party Food Calculator
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Company Column -->
+          <div>
+            <h4 class="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
+              Company
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="/about" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/contact" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a href="/privacy" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PairingPlates",
+      "url": siteUrl,
+      "description": "Discover the art of perfect food and wine pairings with our suite of interactive culinary tools and calculators.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${siteUrl}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+  </body>
+</html>
+
+<style>
+  /* Additional scoped styles */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .focus\:not-sr-only:focus {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 0.75rem 1.5rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+</style>

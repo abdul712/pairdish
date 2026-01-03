@@ -1,0 +1,337 @@
+---
+/**
+ * Tools Index Page
+ * 
+ * Overview of all available tools and utilities.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+
+// Tool definitions
+const toolCategories = [
+  {
+    name: 'Pairing Tools',
+    description: 'Discover perfect flavor combinations',
+    icon: '✨',
+    color: 'wine',
+    tools: [
+      {
+        name: 'Flavor Pairing Finder',
+        slug: 'flavor-pairing',
+        description: 'Discover ingredient combinations based on shared aromatic compounds.',
+        status: 'live',
+      },
+      {
+        name: 'Wine & Food Matcher',
+        slug: 'wine-pairing',
+        description: 'Find the perfect wine for any dish, or foods for your wine.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Cheese & Accompaniment Guide',
+        slug: 'cheese-pairing',
+        description: 'Build the perfect cheese board with matched accompaniments.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Beer & Food Pairing',
+        slug: 'beer-pairing',
+        description: 'Match beer styles with complementary dishes.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Coffee & Dessert Pairing',
+        slug: 'coffee-pairing',
+        description: 'Match coffee roasts with desserts and pastries.',
+        status: 'coming-soon',
+      },
+    ],
+  },
+  {
+    name: 'Kitchen Calculators',
+    description: 'Essential cooking utilities',
+    icon: '🧮',
+    color: 'sage',
+    tools: [
+      {
+        name: 'Recipe Scaler',
+        slug: 'recipe-scaler',
+        description: 'Scale recipes up or down with smart fraction conversion.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Cooking Unit Converter',
+        slug: 'unit-converter',
+        description: 'Convert between cups, grams, ounces, and more.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Nutrition Calculator',
+        slug: 'nutrition-calculator',
+        description: 'Get full nutritional breakdown for any recipe.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Oven Temperature Converter',
+        slug: 'oven-temperature',
+        description: 'Convert between Fahrenheit, Celsius, and Gas Mark.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Cooking Time Calculator',
+        slug: 'cooking-time',
+        description: 'Calculate safe cooking times for meats by weight.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Substitution Finder',
+        slug: 'substitution-finder',
+        description: 'Find ingredient substitutes for allergies and preferences.',
+        status: 'coming-soon',
+      },
+    ],
+  },
+  {
+    name: 'Party & Event Planning',
+    description: 'Plan memorable gatherings',
+    icon: '🎉',
+    color: 'gold',
+    tools: [
+      {
+        name: 'Potluck Coordinator',
+        slug: 'potluck-coordinator',
+        description: 'Organize dishes, track contributors, and ensure balanced variety.',
+        status: 'live',
+      },
+      {
+        name: 'Party Food Calculator',
+        slug: 'party-calculator',
+        description: 'Calculate food quantities for any gathering size.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Drink Calculator',
+        slug: 'drink-calculator',
+        description: 'Calculate beverage needs for parties and events.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Cheese Board Calculator',
+        slug: 'cheese-board-calculator',
+        description: 'How much cheese and charcuterie for your guests.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Wine Bottle Calculator',
+        slug: 'wine-calculator',
+        description: 'How many bottles for your event.',
+        status: 'live',
+      },
+    ],
+  },
+  {
+    name: 'Baking Calculators',
+    description: 'Precision tools for bakers',
+    icon: '🥐',
+    color: 'copper',
+    tools: [
+      {
+        name: 'Pan Size Converter',
+        slug: 'pan-size-converter',
+        description: 'Convert recipes between different pan sizes.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Yeast Conversion Calculator',
+        slug: 'yeast-converter',
+        description: 'Convert between yeast types (active dry, instant, fresh).',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Bread Proofing Calculator',
+        slug: 'bread-proofing',
+        description: 'Estimate dough rise times based on conditions.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Flour Substitution Calculator',
+        slug: 'flour-substitution',
+        description: 'Convert between flour types with ratio adjustments.',
+        status: 'coming-soon',
+      },
+    ],
+  },
+  {
+    name: 'Specialty Guides',
+    description: 'Deep-dive pairing resources',
+    icon: '🌿',
+    color: 'sage',
+    tools: [
+      {
+        name: 'Herb & Spice Matrix',
+        slug: 'herb-spice-matrix',
+        description: 'Interactive guide to herb and spice combinations.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Seasonal Ingredient Guide',
+        slug: 'seasonal-guide',
+        description: "What's in season plus pairing suggestions.",
+        status: 'coming-soon',
+      },
+      {
+        name: 'Chocolate Pairing Guide',
+        slug: 'chocolate-pairing',
+        description: 'Pair chocolate types with wines, cheeses, and fruits.',
+        status: 'coming-soon',
+      },
+    ],
+  },
+];
+
+const getColorClasses = (color: string) => {
+  const colors: Record<string, { bg: string; text: string; border: string }> = {
+    wine: { bg: 'bg-[var(--color-wine-glow)]', text: 'text-[var(--color-wine)]', border: 'border-[var(--color-wine)]' },
+    sage: { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-600' },
+    gold: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-500' },
+    copper: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-500' },
+  };
+  return colors[color] || colors.wine;
+};
+---
+
+<BaseLayout 
+  title="All Tools"
+  description="Explore our complete collection of 40+ culinary tools and calculators. From flavor pairing to recipe scaling, party planning to baking utilities."
+  keywords={['cooking tools', 'recipe calculator', 'food pairing', 'kitchen utilities', 'cooking converter', 'party planner']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto">
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Culinary <span class="text-accent text-[var(--color-wine)]">Tools & Utilities</span>
+        </h1>
+        
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto mb-8">
+          Our comprehensive suite of interactive tools helps you discover perfect pairings, 
+          scale recipes with precision, and plan unforgettable gatherings.
+        </p>
+        
+        <!-- Quick Stats -->
+        <div class="flex items-center justify-center gap-8 text-sm">
+          <div class="text-center">
+            <span class="block text-2xl font-display font-semibold text-[var(--color-wine)]">40+</span>
+            <span class="text-[var(--text-muted)]">Total Tools</span>
+          </div>
+          <div class="w-px h-10 bg-[var(--color-cream-dark)]"></div>
+          <div class="text-center">
+            <span class="block text-2xl font-display font-semibold text-[var(--color-sage)]">5</span>
+            <span class="text-[var(--text-muted)]">Categories</span>
+          </div>
+          <div class="w-px h-10 bg-[var(--color-cream-dark)]"></div>
+          <div class="text-center">
+            <span class="block text-2xl font-display font-semibold text-[var(--color-gold)]">Free</span>
+            <span class="text-[var(--text-muted)]">Forever</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tools Grid by Category -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <div class="space-y-16">
+        {toolCategories.map((category) => {
+          const colorClasses = getColorClasses(category.color);
+          
+          return (
+            <div>
+              {/* Category Header */}
+              <div class="flex items-center gap-4 mb-6">
+                <span class="text-3xl">{category.icon}</span>
+                <div>
+                  <h2 class="font-display text-2xl font-semibold text-[var(--text-primary)]">
+                    {category.name}
+                  </h2>
+                  <p class="text-[var(--text-muted)]">{category.description}</p>
+                </div>
+              </div>
+              
+              {/* Tools Grid */}
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {category.tools.map((tool) => (
+                  <a 
+                    href={tool.status === 'live' ? `/tools/${tool.slug}` : '#'}
+                    class:list={[
+                      "card bg-white border hover:shadow-[var(--shadow-medium)] transition-all group",
+                      tool.status === 'live' && `hover:${colorClasses.border}`,
+                      tool.status !== 'live' && "opacity-75 cursor-not-allowed"
+                    ]}
+                  >
+                    <div class="flex items-start justify-between mb-3">
+                      <h3 class:list={[
+                        "font-display text-lg font-semibold",
+                        tool.status === 'live' 
+                          ? "text-[var(--text-primary)] group-hover:text-[var(--color-wine)]" 
+                          : "text-[var(--text-muted)]"
+                      ]}>
+                        {tool.name}
+                      </h3>
+                      {tool.status === 'coming-soon' && (
+                        <span class="badge badge-gold text-xs">Soon</span>
+                      )}
+                      {tool.status === 'live' && (
+                        <span class:list={["badge text-xs", colorClasses.bg, colorClasses.text]}>
+                          Live
+                        </span>
+                      )}
+                    </div>
+                    <p class="text-sm text-[var(--text-secondary)]">
+                      {tool.description}
+                    </p>
+                    {tool.status === 'live' && (
+                      <span class:list={[
+                        "mt-4 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all",
+                        colorClasses.text
+                      ]}>
+                        Try Now
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14"/>
+                          <path d="m12 5 7 7-7 7"/>
+                        </svg>
+                      </span>
+                    )}
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Newsletter / Updates CTA -->
+  <section class="py-16 bg-[var(--color-charcoal)] text-white">
+    <div class="container text-center max-w-2xl mx-auto">
+      <h2 class="text-display text-2xl font-semibold mb-4">
+        More Tools Coming Soon
+      </h2>
+      <p class="text-[var(--text-light-muted)] mb-8">
+        We're actively building new tools every week. Bookmark this page and check back often 
+        for the latest additions to our culinary toolkit.
+      </p>
+      <a href="/tools/flavor-pairing" class="btn bg-[var(--color-wine)] text-white hover:bg-[var(--color-wine-deep)]">
+        Start with Flavor Pairing
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
