@@ -1,0 +1,289 @@
+---
+/**
+ * Drink/Cocktail Calculator Tool Page
+ *
+ * Interactive tool for calculating beverage quantities for parties and events.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import DrinkCalculator from '../../components/tools/DrinkCalculator';
+---
+
+<BaseLayout
+  title="Drink & Cocktail Calculator"
+  description="Calculate exactly how much beer, wine, spirits, and mixers you need for your party. Plus batch cocktail scaling for easy entertaining."
+  keywords={['drink calculator', 'party drink calculator', 'how much alcohol for party', 'cocktail calculator', 'batch cocktail recipe', 'bar calculator']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Drink Calculator</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Drink & <span class="text-accent text-[var(--color-wine)]">Cocktail Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Never run out of drinks at your party. Calculate beer, wine, spirits, and mixer
+          quantities, plus scale up your favorite cocktail recipes for batch mixing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <DrinkCalculator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          How to Plan Drinks for Any Event
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              The Basic Formula
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Plan for 1-2 drinks per person per hour. A typical 4-hour party needs about
+              6-8 drinks per guest. Our calculator adjusts based on your event type—casual
+              BBQs trend higher, formal dinners trend lower.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              The Right Mix
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              A typical party bar splits roughly: 40% beer, 30% wine, 20% spirits, 10%
+              non-alcoholic. Adjust based on your crowd—wine lovers, beer enthusiasts,
+              or cocktail connoisseurs will shift these ratios.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Drink Serving Guidelines
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block text-3xl mb-2">🍺</span>
+            <span class="text-sm font-medium text-amber-800">Beer</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">1 bottle = 1 serving</p>
+          </div>
+          <div class="text-center p-4 bg-[var(--color-wine-glow)] rounded-lg">
+            <span class="block text-3xl mb-2">🍷</span>
+            <span class="text-sm font-medium text-[var(--color-wine)]">Wine</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">1 bottle = 5 glasses</p>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block text-3xl mb-2">🥃</span>
+            <span class="text-sm font-medium text-orange-800">Spirits</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">1 bottle = 17 cocktails</p>
+          </div>
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <span class="block text-3xl mb-2">🧊</span>
+            <span class="text-sm font-medium text-green-800">Ice</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">1 lb per guest</p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How much alcohol do I need for a wedding?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For a 5-hour wedding reception with 100 guests, plan for approximately 500 drinks total.
+              A typical split: 150 beer, 150 wine, 100 cocktails, and 100 non-alcoholic drinks.
+              Always add 10-15% buffer for late arrivals and heavy drinkers.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Should I offer a full bar or signature cocktails?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Signature cocktails are easier and more cost-effective. Choose 2-3 batch cocktails
+              (one spirit-forward, one light/refreshing, one crowd-pleaser) and pre-mix them.
+              This reduces bar wait times and ingredient waste significantly.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How much ice do I really need?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Plan for 1 pound of ice per guest as a baseline. Outdoor summer events need 1.5-2 lbs
+              per person. Don't forget you need ice for both chilling drinks AND serving in glasses.
+              It's one of the most common things to run out of—always buy extra!
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What mixers should I have on hand?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Essential mixers: club soda, tonic water, ginger beer, cranberry juice, orange juice,
+              and cola. For every bottle of spirits, plan for 3-4 liters of mixers. Fresh citrus
+              (lemons, limes) is a must for garnishes and fresh juice.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I scale batch cocktails?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Multiply each ingredient by the number of servings you need. Pro tip: reduce citrus
+              juice by about 10% when scaling up—it can become overpowering. Always add carbonated
+              ingredients (soda, sparkling wine) just before serving to keep the fizz.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/wine-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+            🍷
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Wine Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Wine bottles only</p>
+          </div>
+        </a>
+
+        <a href="/tools/party-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🎉
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Party Food Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Food quantities</p>
+          </div>
+        </a>
+
+        <a href="/tools/potluck-coordinator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            🥘
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Potluck Coordinator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Organize dishes</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much alcohol do I need for a wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a 5-hour wedding reception with 100 guests, plan for approximately 500 drinks total. A typical split: 150 beer, 150 wine, 100 cocktails, and 100 non-alcoholic drinks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I offer a full bar or signature cocktails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Signature cocktails are easier and more cost-effective. Choose 2-3 batch cocktails and pre-mix them to reduce bar wait times and ingredient waste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much ice do I really need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan for 1 pound of ice per guest as a baseline. Outdoor summer events need 1.5-2 lbs per person. Always buy extra!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What mixers should I have on hand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Essential mixers: club soda, tonic water, ginger beer, cranberry juice, orange juice, and cola. For every bottle of spirits, plan for 3-4 liters of mixers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I scale batch cocktails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply each ingredient by the number of servings. Reduce citrus juice by 10% when scaling up. Add carbonated ingredients just before serving."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -330,9 +330,11 @@ interface PartyFoodResult {
 ---
 
 ### Tool 1.5: Drink/Cocktail Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P0 - Critical
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/drink-calculator
 
 #### Description
 Calculate alcohol and mixer quantities for parties, plus batch cocktail scaling.
@@ -829,8 +831,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 6 | 40+ |
-| **Live Tools** | 6 | - |
+| **Tools Completed** | 7 | 40+ |
+| **Live Tools** | 7 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -841,7 +843,7 @@ Each tool page must include:
 | Wine & Food Pairing Matcher | 🟢 | ✅ | ✅ | ✅ |
 | Recipe Scaling Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Party Food Calculator | 🟢 | ✅ | ✅ | ✅ |
-| Drink/Cocktail Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Drink/Cocktail Calculator | 🟢 | ✅ | ✅ | ✅ |
 
 ### Phase 3 Progress (Party & Event Tools)
 
@@ -863,6 +865,7 @@ Each tool page must include:
 | Wine Bottle Calculator | `/tools/wine-calculator` | Party Planning |
 | Potluck Coordinator | `/tools/potluck-coordinator` | Party Planning |
 | Party Food Calculator | `/tools/party-calculator` | Party Planning |
+| Drink Calculator | `/tools/drink-calculator` | Party Planning |
 
 ### Legend
 - 🔴 Not Started
