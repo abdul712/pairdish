@@ -402,9 +402,11 @@ interface DrinkCalculatorResult {
 ## 5. Phase 2: Kitchen Calculators
 
 ### Tool 2.1: Cooking Unit Converter
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P1 - High
 **Estimated Dev Time**: 5 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/unit-converter
 
 #### Description
 Convert between all common cooking measurements with ingredient-specific density conversions.
@@ -831,8 +833,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 7 | 40+ |
-| **Live Tools** | 7 | - |
+| **Tools Completed** | 8 | 40+ |
+| **Live Tools** | 8 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -866,6 +868,7 @@ Each tool page must include:
 | Potluck Coordinator | `/tools/potluck-coordinator` | Party Planning |
 | Party Food Calculator | `/tools/party-calculator` | Party Planning |
 | Drink Calculator | `/tools/drink-calculator` | Party Planning |
+| Unit Converter | `/tools/unit-converter` | Kitchen Calculators |
 
 ### Legend
 - 🔴 Not Started

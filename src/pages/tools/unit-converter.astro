@@ -1,0 +1,263 @@
+---
+/**
+ * Cooking Unit Converter Tool Page
+ *
+ * Interactive tool for converting between cooking measurements.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import UnitConverter from '../../components/tools/UnitConverter';
+---
+
+<BaseLayout
+  title="Cooking Unit Converter"
+  description="Convert between cups, tablespoons, grams, ounces, and more. Includes ingredient-specific volume-to-weight conversions for accurate baking."
+  keywords={['cooking converter', 'cups to grams', 'tablespoon to ml', 'kitchen converter', 'baking measurements', 'cooking unit calculator']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Unit Converter</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Cooking <span class="text-accent text-[var(--color-wine)]">Unit Converter</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Convert between US and metric measurements instantly. Our converter includes
+          ingredient-specific densities for accurate volume-to-weight conversions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <UnitConverter client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Cooking Measurements
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Volume vs. Weight
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Professional bakers prefer weight measurements because they're more accurate.
+              1 cup of flour can vary from 120g to 150g depending on how it's scooped.
+              Weighing ingredients eliminates this inconsistency.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              US vs. Metric
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Most of the world uses metric (grams, milliliters) while the US uses
+              cups and ounces. Our converter bridges both systems, making international
+              recipes accessible to everyone.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Quick Reference
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div class="text-center p-4 bg-[var(--color-cream)] rounded-lg">
+            <span class="block text-2xl mb-2">1 cup</span>
+            <span class="text-sm text-[var(--text-muted)]">= 16 tablespoons</span>
+          </div>
+          <div class="text-center p-4 bg-[var(--color-wine-glow)] rounded-lg">
+            <span class="block text-2xl mb-2">1 tbsp</span>
+            <span class="text-sm text-[var(--text-muted)]">= 3 teaspoons</span>
+          </div>
+          <div class="text-center p-4 bg-[var(--color-cream)] rounded-lg">
+            <span class="block text-2xl mb-2">1 oz</span>
+            <span class="text-sm text-[var(--text-muted)]">= 28.35 grams</span>
+          </div>
+          <div class="text-center p-4 bg-[var(--color-cream)] rounded-lg">
+            <span class="block text-2xl mb-2">1 cup</span>
+            <span class="text-sm text-[var(--text-muted)]">= 237 ml</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Why does 1 cup of flour weigh different amounts in different recipes?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Flour settles and compacts over time. Scooping directly from the bag packs more
+              flour than the "spoon and level" method. Professional recipes specify weight
+              (usually 125g for all-purpose flour) to ensure consistency.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the difference between fluid ounces and ounces?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Fluid ounces (fl oz) measure volume, while ounces (oz) measure weight.
+              8 fl oz of water weighs about 8 oz, but 8 fl oz of honey weighs about 12 oz
+              because honey is denser than water.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I measure a "stick" of butter?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              In the US, 1 stick of butter = ½ cup = 8 tablespoons = 4 ounces = 113 grams.
+              A standard US butter package has 4 sticks (1 pound total). Each stick usually
+              has tablespoon markings on the wrapper for easy measuring.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Are UK and US cups the same size?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              No! A US cup is 237 ml, while an Imperial (UK) cup is 284 ml—about 20% larger.
+              Australian cups are 250 ml. Always check where a recipe originates to use
+              the correct cup size, or convert to weight for accuracy.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/recipe-scaler" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            📏
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Recipe Scaler</h4>
+            <p class="text-sm text-[var(--text-muted)]">Scale recipes up or down</p>
+          </div>
+        </a>
+
+        <a href="/tools/oven-temperature" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
+            🌡️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Oven Temperature</h4>
+            <p class="text-sm text-[var(--text-muted)]">F, C, and Gas Mark</p>
+          </div>
+        </a>
+
+        <a href="/tools/substitution-finder" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            🔄
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Substitution Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Ingredient swaps</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does 1 cup of flour weigh different amounts in different recipes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flour settles and compacts over time. Scooping directly from the bag packs more flour than the 'spoon and level' method. Professional recipes specify weight (usually 125g) for consistency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between fluid ounces and ounces?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fluid ounces (fl oz) measure volume, while ounces (oz) measure weight. 8 fl oz of water weighs about 8 oz, but 8 fl oz of honey weighs about 12 oz because honey is denser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I measure a stick of butter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 stick of butter = ½ cup = 8 tablespoons = 4 ounces = 113 grams. A standard US butter package has 4 sticks (1 pound total)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are UK and US cups the same size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No! A US cup is 237 ml, while an Imperial (UK) cup is 284 ml—about 20% larger. Australian cups are 250 ml."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
