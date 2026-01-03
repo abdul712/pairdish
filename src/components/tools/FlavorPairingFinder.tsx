@@ -1,6 +1,6 @@
 /**
- * PairingPlates - Flavor Pairing Finder
- * 
+ * PairDish - Flavor Pairing Finder
+ *
  * Interactive React component for discovering food flavor pairings.
  * Editorial luxury aesthetic with warm, appetizing design.
  */

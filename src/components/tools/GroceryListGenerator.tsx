@@ -51,8 +51,8 @@ const INGREDIENT_SECTIONS: Record<string, StoreSection> = {
   kale: 'produce',
   broccoli: 'produce',
   cauliflower: 'produce',
-  bell pepper: 'produce',
-  bell peppers: 'produce',
+  'bell pepper': 'produce',
+  'bell peppers': 'produce',
   peppers: 'produce',
   cucumber: 'produce',
   cucumbers: 'produce',
@@ -81,7 +81,7 @@ const INGREDIENT_SECTIONS: Record<string, StoreSection> = {
   mint: 'produce',
   rosemary: 'produce',
   thyme: 'produce',
-  green onions: 'produce',
+  'green onions': 'produce',
   scallions: 'produce',
   jalapeño: 'produce',
   asparagus: 'produce',
@@ -90,7 +90,7 @@ const INGREDIENT_SECTIONS: Record<string, StoreSection> = {
   eggplant: 'produce',
   squash: 'produce',
   peas: 'produce',
-  green beans: 'produce',
+  'green beans': 'produce',
 
   // Meat & Seafood
   chicken: 'meat',

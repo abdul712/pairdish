@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-PairingPlates is a culinary tool web application for discovering food flavor pairings, built with Astro and React. The app uses Tailwind CSS for styling and is deployed on Cloudflare Workers.
+PairDish is a culinary tool web application for discovering food flavor pairings, built with Astro and React. The app uses Tailwind CSS for styling and is deployed on Cloudflare Workers.
 
 ## Development Commands
 
@@ -20,7 +20,7 @@ PairingPlates is a culinary tool web application for discovering food flavor pai
 - **Frontend**: React 19 with TypeScript
 - **Styling**: Tailwind CSS v4 (latest)
 - **Deployment**: Cloudflare Workers with adapter
-- **Domain**: pairingplates.com
+- **Domain**: pairdish.com
 
 ### Key Configuration Notes
 - SSR mode enabled for Cloudflare Workers

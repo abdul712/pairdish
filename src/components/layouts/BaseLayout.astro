@@ -1,6 +1,6 @@
 ---
 /**
- * BaseLayout - Primary layout for PairingPlates.com
+ * BaseLayout - Primary layout for PairDish.com
  * Editorial luxury aesthetic with warm, appetizing design
  */
 
@@ -14,25 +14,25 @@ interface Props {
   canonical?: string;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   keywords = [
     'food pairing',
     'wine pairing',
     'recipe calculator',
     'cooking tools',
     'kitchen utilities'
-  ], 
+  ],
   ogImage = '/images/og-default.png',
   canonical
 } = Astro.props;
 
-const siteUrl = import.meta.env.SITE || 'https://pairingplates.com';
+const siteUrl = import.meta.env.SITE || 'https://pairdish.com';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
-const fullTitle = title === 'Home' 
-  ? 'PairingPlates - Perfect Pairings, Every Plate' 
-  : `${title} | PairingPlates`;
+const fullTitle = title === 'Home'
+  ? 'PairDish - Perfect Pairings, Every Plate'
+  : `${title} | PairDish`;
 ---
 
 <!DOCTYPE html>
@@ -41,52 +41,52 @@ const fullTitle = title === 'Home'
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Primary Meta Tags -->
     <title>{fullTitle}</title>
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
-    
+
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, siteUrl).href} />
-    <meta property="og:site_name" content="PairingPlates" />
-    
+    <meta property="og:site_name" content="PairDish" />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, siteUrl).href} />
-    
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#722F37" />
-    
+
     <!-- Preconnect to font server -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  
+
   <body class="bg-cream texture-paper">
     <!-- Skip Link for Accessibility -->
-    <a 
-      href="#main-content" 
+    <a
+      href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 btn btn-primary"
     >
       Skip to main content
     </a>
-    
+
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-cream/80 backdrop-blur-md border-b border-cream-dark/30">
       <div class="container">
@@ -98,14 +98,14 @@ const fullTitle = title === 'Home'
             </div>
             <div class="hidden sm:block">
               <span class="text-display text-xl font-semibold text-wine tracking-tight">
-                PairingPlates
+                PairDish
               </span>
               <span class="block text-xs text-muted -mt-0.5 tracking-wide">
                 Perfect Pairings, Every Plate
               </span>
             </div>
           </a>
-          
+
           <!-- Navigation -->
           <div class="flex items-center gap-6">
             <a href="/tools" class="text-sm font-medium hover:text-wine transition-colors link-underline">
@@ -124,12 +124,12 @@ const fullTitle = title === 'Home'
         </nav>
       </div>
     </header>
-    
+
     <!-- Main Content -->
     <main id="main-content">
       <slot />
     </main>
-    
+
     <!-- Footer -->
     <footer class="bg-charcoal text-light py-16 mt-20">
       <div class="container">
@@ -141,18 +141,18 @@ const fullTitle = title === 'Home'
                 P
               </div>
               <span class="text-display text-xl font-semibold tracking-tight">
-                PairingPlates
+                PairDish
               </span>
             </div>
             <p class="text-light-muted max-w-md mb-6 text-sm leading-relaxed">
-              Discover the art of perfect pairings. From wine and food matching to recipe scaling, 
+              Discover the art of perfect pairings. From wine and food matching to recipe scaling,
               we provide the tools to elevate your culinary experience.
             </p>
             <p class="text-xs text-light-muted opacity-60">
-              © {new Date().getFullYear()} PairingPlates. All rights reserved.
+              © {new Date().getFullYear()} PairDish. All rights reserved.
             </p>
           </div>
-          
+
           <!-- Tools Column -->
           <div>
             <h4 class="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
@@ -181,7 +181,7 @@ const fullTitle = title === 'Home'
               </li>
             </ul>
           </div>
-          
+
           <!-- Company Column -->
           <div>
             <h4 class="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
@@ -213,12 +213,12 @@ const fullTitle = title === 'Home'
         </div>
       </div>
     </footer>
-    
+
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "PairingPlates",
+      "name": "PairDish",
       "url": siteUrl,
       "description": "Discover the art of perfect food and wine pairings with our suite of interactive culinary tools and calculators.",
       "potentialAction": {
@@ -243,7 +243,7 @@ const fullTitle = title === 'Home'
     white-space: nowrap;
     border-width: 0;
   }
-  
+
   .focus\:not-sr-only:focus {
     position: absolute;
     width: auto;

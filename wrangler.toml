@@ -1,5 +1,5 @@
-# PairingPlates.com - Cloudflare Worker Configuration
-name = "pairing-plates"
+# PairDish.com - Cloudflare Worker Configuration
+name = "pairdish"
 
 # Entry point (Astro generates this)
 main = "./dist/_worker.js/index.js"
@@ -15,14 +15,14 @@ binding = "ASSETS"
 
 # Primary domain routes
 [[routes]]
-pattern = "pairingplates.com"
+pattern = "pairdish.com"
 custom_domain = true
-zone_name = "pairingplates.com"
+zone_name = "pairdish.com"
 
 [[routes]]
-pattern = "www.pairingplates.com"
+pattern = "www.pairdish.com"
 custom_domain = true
-zone_name = "pairingplates.com"
+zone_name = "pairdish.com"
 
 # Environment variables
 [vars]

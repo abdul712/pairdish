@@ -1,4 +1,4 @@
-# PairingPlates.com - Tools & Utilities Roadmap
+# PairDish.com - Tools & Utilities Roadmap
 
 > **Comprehensive development roadmap for 40+ interactive food pairing tools and kitchen utilities**
 > *Version 1.1 | Last Updated: January 3, 2026*
@@ -30,7 +30,7 @@
 Build the most comprehensive suite of food pairing tools and kitchen utilities on the web, helping home cooks, food enthusiasts, and party planners make better culinary decisions.
 
 ### Brand Identity
-- **Domain**: pairingplates.com
+- **Domain**: pairdish.com
 - **Tagline**: "Perfect Pairings, Every Plate"
 - **Target Audience**: Home cooks, wine enthusiasts, party planners, meal preppers
 - **Design Aesthetic**: Warm, appetizing, premium feel with rich colors (deep burgundy, forest green, warm gold accents)

@@ -4,7 +4,7 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   PairingPlates.com - Global Design System
+   PairDish.com - Global Design System
    ═══════════════════════════════════════════════════════════════════════════
    Aesthetic Direction: Editorial Luxury meets Vintage Wine Label
    Typography: Cormorant Garamond (display) + DM Sans (body)
@@ -12,7 +12,7 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Design Tokens - The PairingPlates Palette
+   Design Tokens - The PairDish Palette
    ───────────────────────────────────────────────────────────────────────────── */
 :root {
   /* Primary - Wine & Warmth */

@@ -1,5 +1,5 @@
 /**
- * PairingPlates - Wine Pairings Data
+ * PairDish - Wine Pairings Data
  *
  * Comprehensive database of wines with profiles and food pairings.
  */

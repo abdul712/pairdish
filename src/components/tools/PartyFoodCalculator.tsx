@@ -1,5 +1,5 @@
 /**
- * PairingPlates - Party Food Calculator
+ * PairDish - Party Food Calculator
  *
  * Calculate exactly how much food to prepare for any gathering
  * based on guest count, event type, and duration.

@@ -1,6 +1,6 @@
 {
 	"main": "dist/_worker.js/index.js",
-	"name": "pairing-plates",
+	"name": "pairdish",
   "compatibility_date": "2026-01-03",
   "compatibility_flags": [
     "nodejs_compat",

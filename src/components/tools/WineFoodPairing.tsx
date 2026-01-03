@@ -1,5 +1,5 @@
 /**
- * PairingPlates - Wine & Food Pairing Matcher
+ * PairDish - Wine & Food Pairing Matcher
  *
  * Interactive React component for finding wine and food pairings.
  * Bidirectional: enter a dish to get wine recommendations, or enter a wine to get food suggestions.

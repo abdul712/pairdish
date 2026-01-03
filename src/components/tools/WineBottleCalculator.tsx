@@ -1,5 +1,5 @@
 /**
- * PairingPlates - Wine Bottle Calculator
+ * PairDish - Wine Bottle Calculator
  *
  * Interactive React component for calculating wine quantities for events.
  * Editorial luxury aesthetic with warm, appetizing design.

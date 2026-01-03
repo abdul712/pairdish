@@ -1,5 +1,5 @@
 /**
- * PairingPlates - Potluck Coordinator
+ * PairDish - Potluck Coordinator
  *
  * Interactive React component for organizing potluck gatherings.
  * Editorial luxury aesthetic with warm, appetizing design.

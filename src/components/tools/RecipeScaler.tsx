@@ -1,5 +1,5 @@
 /**
- * PairingPlates - Recipe Scaling Calculator
+ * PairDish - Recipe Scaling Calculator
  *
  * Universal recipe scaler that adjusts ingredient quantities intelligently
  * with smart fraction display and scaling tips.

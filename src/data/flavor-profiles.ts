@@ -1,6 +1,6 @@
 /**
- * PairingPlates - Flavor Profiles Data
- * 
+ * PairDish - Flavor Profiles Data
+ *
  * Comprehensive database of ingredients with flavor profiles,
  * aromatic compounds, and pairing suggestions.
  */

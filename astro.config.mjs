@@ -10,7 +10,7 @@ export default defineConfig({
   output: 'server',
   
   // Production domain
-  site: 'https://pairingplates.com',
+  site: 'https://pairdish.com',
   
   // Integrations
   integrations: [react()],
