@@ -1,0 +1,262 @@
+---
+/**
+ * Weekly Meal Prep Calculator Tool Page
+ *
+ * Interactive tool for planning weekly meal prep.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import MealPrepCalculator from '../../components/tools/MealPrepCalculator';
+---
+
+<BaseLayout
+  title="Weekly Meal Prep Calculator"
+  description="Plan your weekly meal prep with our interactive calculator. Organize meals, generate shopping lists, and calculate total prep time for efficient batch cooking."
+  keywords={['meal prep calculator', 'weekly meal planning', 'batch cooking planner', 'meal prep schedule', 'food prep organization']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Meal Prep Calculator</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Weekly <span class="text-accent text-[var(--color-wine)]">Meal Prep</span> Calculator
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Plan your entire week of meals, calculate total prep time, and generate a
+          complete shopping list. Spend one day prepping, eat well all week.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <MealPrepCalculator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          The Art of Meal Prepping
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Why Meal Prep?
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Meal prepping saves an average of $100-150 per month compared to eating out.
+              It also saves 4-6 hours of cooking time weekly, helps with portion control,
+              and reduces food waste by planning exactly what you need.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              The 2-Hour Sunday Prep
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              With efficient planning, you can prep an entire week's meals in just 2 hours.
+              The key is batching similar tasks: cook all proteins together, prep all vegetables
+              at once, and make grains in large batches.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How long does meal prepped food last?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Most meal prepped food lasts 3-4 days in the refrigerator. For the second half
+              of the week, freeze portions and thaw overnight. Properly stored, frozen meals
+              last 2-3 months. Always use airtight containers and let food cool before storing.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What containers work best for meal prep?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Glass containers are best for reheating—they're microwave-safe and don't retain
+              odors or stains. BPA-free plastic works for cold storage. Compartment containers
+              keep foods separate until eating. Mason jars are perfect for salads and overnight oats.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I avoid getting bored with meal prep?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Prep components, not just complete meals. Cook base proteins and grains, then
+              vary sauces and toppings throughout the week. For example, chicken can become
+              tacos Monday, stir fry Wednesday, and salad topping Friday. Keep condiments
+              and fresh herbs on hand to transform dishes.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best day to meal prep?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Sunday is most popular because food stays fresh through Friday. Some people
+              prefer splitting: Sunday for Monday-Wednesday, Wednesday evening for Thursday-Saturday.
+              Pick whatever works with your schedule and stick to it consistently.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Should I prep breakfasts too?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Absolutely! Prepped breakfasts save crucial morning time. Overnight oats take
+              5 minutes to assemble for a week. Egg muffins freeze well and reheat in 30 seconds.
+              Smoothie packs (frozen fruit + greens in bags) blend in 2 minutes. These are
+              often the highest-impact meals to prep.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/leftover-matcher" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center text-teal-700">
+            🥗
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Leftover Recipe Matcher</h4>
+            <p class="text-sm text-[var(--text-muted)]">Use up ingredients you have</p>
+          </div>
+        </a>
+
+        <a href="/tools/recipe-scaler" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            📐
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Recipe Scaler</h4>
+            <p class="text-sm text-[var(--text-muted)]">Scale recipes for batch cooking</p>
+          </div>
+        </a>
+
+        <a href="/tools/nutrition-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            📊
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Nutrition Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Track your meal nutrition</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does meal prepped food last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most meal prepped food lasts 3-4 days in the refrigerator. For the second half of the week, freeze portions and thaw overnight. Properly stored, frozen meals last 2-3 months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What containers work best for meal prep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Glass containers are best for reheating. BPA-free plastic works for cold storage. Compartment containers keep foods separate. Mason jars are perfect for salads and overnight oats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I avoid getting bored with meal prep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prep components, not just complete meals. Cook base proteins and grains, then vary sauces and toppings throughout the week. Keep condiments and fresh herbs on hand to transform dishes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best day to meal prep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sunday is most popular because food stays fresh through Friday. Some people prefer splitting: Sunday for Monday-Wednesday, Wednesday evening for Thursday-Saturday."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+</style>

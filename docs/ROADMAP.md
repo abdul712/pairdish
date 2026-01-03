@@ -649,9 +649,26 @@ interface ConversionResult {
 - Tips section for using common leftovers
 
 ### Tool 4.2: Weekly Meal Prep Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 8 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/meal-prep
+
+#### Features Implemented
+- Interactive weekly calendar grid (7 days x 4 meal types)
+- 20+ meal templates across breakfast, lunch, dinner, snack
+- Click-to-add meal selection for each slot
+- Servings per meal adjustment (1-8)
+- Real-time total prep time calculation
+- Batch cooking recommendations (number of batches needed)
+- Automatic shopping list generation from selected meals
+- Freezability indicators for each meal
+- Shelf life information for food safety
+- Dietary tags (vegetarian, vegan, gluten-free, dairy-free, low-carb)
+- Print functionality for prep schedule and shopping list
+- Clear all and individual slot removal
+- Prep tips section
 
 ### Tool 4.3: Seasonal Ingredient Guide
 **Status**: 🔴 Not Started
@@ -895,8 +912,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 16 | 40+ |
-| **Live Tools** | 16 | - |
+| **Tools Completed** | 17 | 40+ |
+| **Live Tools** | 17 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -924,7 +941,7 @@ Each tool page must include:
 | Tool | Status | Dev | Test | Deploy |
 |------|--------|-----|------|--------|
 | Leftover Recipe Matcher | 🟢 | ✅ | ✅ | ✅ |
-| Weekly Meal Prep Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Weekly Meal Prep Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Seasonal Ingredient Guide | 🔴 | ⬜ | ⬜ | ⬜ |
 | Pantry Pairing Helper | 🔴 | ⬜ | ⬜ | ⬜ |
 | Grocery List Generator | 🔴 | ⬜ | ⬜ | ⬜ |
@@ -949,6 +966,7 @@ Each tool page must include:
 | Appetizer Planner | `/tools/appetizer-planner` | Party Planning |
 | Buffet Menu Planner | `/tools/buffet-planner` | Party Planning |
 | Leftover Recipe Matcher | `/tools/leftover-matcher` | Meal Planning |
+| Weekly Meal Prep Calculator | `/tools/meal-prep` | Meal Planning |
 
 ### Legend
 - 🔴 Not Started
