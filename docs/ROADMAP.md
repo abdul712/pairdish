@@ -628,9 +628,25 @@ interface ConversionResult {
 ## 7. Phase 4: Meal Planning Utilities
 
 ### Tool 4.1: Leftover Ingredient Recipe Matcher
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 10 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/leftover-matcher
+
+#### Features Implemented
+- 50+ ingredient database across 7 categories (proteins, vegetables, fruits, dairy, grains, pantry, condiments)
+- 20+ recipe database with full instructions
+- Smart recipe matching by ingredient overlap percentage
+- Visual match indicator (green/amber based on match %)
+- Ingredient checklist with selected items shown/hidden
+- Meal type filter (breakfast, lunch, dinner, snack)
+- Cuisine filter (American, Italian, Mexican, Asian, Mediterranean)
+- Missing ingredient indicators for each recipe
+- Expandable recipe cards with full instructions
+- Dietary tags (vegetarian, vegan, gluten-free, dairy-free)
+- Prep time, cook time, difficulty, and servings info
+- Tips section for using common leftovers
 
 ### Tool 4.2: Weekly Meal Prep Calculator
 **Status**: 🔴 Not Started
@@ -879,8 +895,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 15 | 40+ |
-| **Live Tools** | 15 | - |
+| **Tools Completed** | 16 | 40+ |
+| **Live Tools** | 16 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -903,6 +919,16 @@ Each tool page must include:
 | Buffet Menu Planner | 🟢 | ✅ | ✅ | ✅ |
 | Potluck Coordinator | 🟢 | ✅ | ✅ | ✅ |
 
+### Phase 4 Progress (Meal Planning Utilities)
+
+| Tool | Status | Dev | Test | Deploy |
+|------|--------|-----|------|--------|
+| Leftover Recipe Matcher | 🟢 | ✅ | ✅ | ✅ |
+| Weekly Meal Prep Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Seasonal Ingredient Guide | 🔴 | ⬜ | ⬜ | ⬜ |
+| Pantry Pairing Helper | 🔴 | ⬜ | ⬜ | ⬜ |
+| Grocery List Generator | 🔴 | ⬜ | ⬜ | ⬜ |
+
 ### Live Tools Summary
 
 | Tool | URL | Category |
@@ -922,6 +948,7 @@ Each tool page must include:
 | Cheese Board Calculator | `/tools/cheese-board-calculator` | Party Planning |
 | Appetizer Planner | `/tools/appetizer-planner` | Party Planning |
 | Buffet Menu Planner | `/tools/buffet-planner` | Party Planning |
+| Leftover Recipe Matcher | `/tools/leftover-matcher` | Meal Planning |
 
 ### Legend
 - 🔴 Not Started

@@ -174,6 +174,44 @@ const toolCategories = [
     ],
   },
   {
+    name: 'Meal Planning',
+    description: 'Plan and organize your meals',
+    icon: '🥗',
+    color: 'teal',
+    tools: [
+      {
+        name: 'Leftover Recipe Matcher',
+        slug: 'leftover-matcher',
+        description: 'Find recipes based on ingredients you already have.',
+        status: 'live',
+      },
+      {
+        name: 'Weekly Meal Prep Calculator',
+        slug: 'meal-prep',
+        description: 'Plan and batch cook meals for the week ahead.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Seasonal Ingredient Guide',
+        slug: 'seasonal-guide',
+        description: "What's in season plus pairing suggestions.",
+        status: 'coming-soon',
+      },
+      {
+        name: 'Pantry Pairing Helper',
+        slug: 'pantry-helper',
+        description: 'Build meals from your pantry staples.',
+        status: 'coming-soon',
+      },
+      {
+        name: 'Grocery List Generator',
+        slug: 'grocery-list',
+        description: 'Generate organized shopping lists from recipes.',
+        status: 'coming-soon',
+      },
+    ],
+  },
+  {
     name: 'Specialty Guides',
     description: 'Deep-dive pairing resources',
     icon: '🌿',
@@ -183,12 +221,6 @@ const toolCategories = [
         name: 'Herb & Spice Matrix',
         slug: 'herb-spice-matrix',
         description: 'Interactive guide to herb and spice combinations.',
-        status: 'coming-soon',
-      },
-      {
-        name: 'Seasonal Ingredient Guide',
-        slug: 'seasonal-guide',
-        description: "What's in season plus pairing suggestions.",
         status: 'coming-soon',
       },
       {
@@ -207,6 +239,7 @@ const getColorClasses = (color: string) => {
     sage: { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-600' },
     gold: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-500' },
     copper: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-500' },
+    teal: { bg: 'bg-teal-50', text: 'text-teal-700', border: 'border-teal-500' },
   };
   return colors[color] || colors.wine;
 };
@@ -240,7 +273,7 @@ const getColorClasses = (color: string) => {
           </div>
           <div class="w-px h-10 bg-[var(--color-cream-dark)]"></div>
           <div class="text-center">
-            <span class="block text-2xl font-display font-semibold text-[var(--color-sage)]">5</span>
+            <span class="block text-2xl font-display font-semibold text-[var(--color-sage)]">6</span>
             <span class="text-[var(--text-muted)]">Categories</span>
           </div>
           <div class="w-px h-10 bg-[var(--color-cream-dark)]"></div>
