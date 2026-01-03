@@ -1,0 +1,262 @@
+---
+/**
+ * Sugar Substitution Calculator Tool Page
+ *
+ * Convert between different sweeteners with proper ratios.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import SugarSubstitution from '../../components/tools/SugarSubstitution';
+---
+
+<BaseLayout
+  title="Sugar Substitution Calculator"
+  description="Convert between sugar, honey, maple syrup, stevia, monk fruit, and other sweeteners. Get exact ratios, liquid adjustments, and baking tips for perfect results."
+  keywords={['sugar substitute', 'honey substitute', 'sweetener conversion', 'sugar replacement', 'maple syrup substitute', 'stevia conversion', 'baking with sugar alternatives']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Sugar Substitution</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Sugar <span class="text-accent text-[var(--color-wine)]">Substitution Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Swap sugars and sweeteners with confidence. Get the right ratios, liquid adjustments,
+          and baking tips for honey, maple syrup, stevia, and more.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <SugarSubstitution client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Sweetener Substitutions
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Why Ratios Vary
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Sweeteners differ in sweetness intensity. Honey is about 25% sweeter than sugar,
+              while stevia is 200-300 times sweeter. Always adjust amounts based on relative
+              sweetness to avoid overly sweet or bland results.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Liquid Adjustments
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Liquid sweeteners (honey, maple syrup, agave) add moisture to recipes.
+              When substituting for granulated sugar, reduce other liquids by about
+              3 tablespoons per cup of liquid sweetener used.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Common Substitution Ratios
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block font-bold text-amber-700 text-sm">Honey for Sugar</span>
+            <span class="block text-xs text-amber-600 mt-1">¾ cup honey = 1 cup sugar</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block font-bold text-orange-700 text-sm">Maple Syrup</span>
+            <span class="block text-xs text-orange-600 mt-1">¾ cup syrup = 1 cup sugar</span>
+          </div>
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <span class="block font-bold text-green-700 text-sm">Stevia</span>
+            <span class="block text-xs text-green-600 mt-1">1 tsp = 1 cup sugar</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I substitute honey for sugar in any recipe?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For most recipes, yes! Use ¾ cup honey for each cup of sugar, reduce other liquids
+              by 3 tablespoons, and lower oven temperature by 25°F. Honey works especially well
+              in quick breads, muffins, and cookies. Avoid honey in recipes requiring caramelization
+              or candy making.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best sugar substitute for diabetics?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Stevia, monk fruit, and erythritol have zero glycemic index and won't spike blood sugar.
+              Xylitol has a very low GI of 7. Always consult with your healthcare provider about
+              sweetener choices if you have diabetes or other health conditions.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Why do my baked goods turn out different with sugar substitutes?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Sugar does more than sweeten—it provides structure, browning, moisture retention, and
+              tenderness. Zero-calorie sweeteners lack bulk and don't caramelize. For best results,
+              use "baking blends" designed for baking, or combine sweeteners with ingredients that
+              provide bulk and structure.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Is coconut sugar healthier than regular sugar?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Coconut sugar has a lower glycemic index (35 vs 65) and contains trace minerals like
+              iron, zinc, and potassium. However, it has similar calories to regular sugar. It's
+              a marginally better choice but should still be consumed in moderation. It substitutes
+              1:1 for regular sugar with a pleasant caramel flavor.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Baking Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/flour-substitution" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🌾
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Flour Substitution</h4>
+            <p class="text-sm text-[var(--text-muted)]">Convert between flour types</p>
+          </div>
+        </a>
+
+        <a href="/tools/recipe-scaler" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            📏
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Recipe Scaler</h4>
+            <p class="text-sm text-[var(--text-muted)]">Scale recipes up or down</p>
+          </div>
+        </a>
+
+        <a href="/tools/unit-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Unit Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Cups, grams, ounces</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I substitute honey for sugar in any recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most recipes, yes! Use ¾ cup honey for each cup of sugar, reduce other liquids by 3 tablespoons, and lower oven temperature by 25°F."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best sugar substitute for diabetics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stevia, monk fruit, and erythritol have zero glycemic index and won't spike blood sugar. Xylitol has a very low GI of 7."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do my baked goods turn out different with sugar substitutes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sugar provides structure, browning, moisture retention, and tenderness. Zero-calorie sweeteners lack bulk and don't caramelize. Use baking blends designed for baking for best results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is coconut sugar healthier than regular sugar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coconut sugar has a lower glycemic index (35 vs 65) and contains trace minerals. However, it has similar calories to regular sugar and should still be consumed in moderation."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
