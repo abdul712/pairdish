@@ -984,9 +984,22 @@ interface ConversionResult {
 - Protein distribution tips
 
 ### Tool 7.3: Macro Balance Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/macro-calculator
+
+#### Features Implemented
+- BMR calculation using Mifflin-St Jeor equation
+- TDEE calculation with 5 activity levels
+- 8 macro presets: Balanced, Keto, Low-Carb, High-Protein, Zone, Mediterranean, Low-Fat, Custom
+- Custom macro slider with auto-balancing (always totals 100%)
+- Calorie goal modifiers (lose 500cal, maintain, gain 500cal)
+- Visual macro breakdown with colored bars and cards
+- Per-meal macro breakdown reference (3-6 meals)
+- Unit toggle (kg/lbs, cm/in)
+- Gram calculations for each macro
 
 ### Tool 7.4: Glycemic Index Pairer
 **Status**: 🔴 Not Started
@@ -1138,8 +1151,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 32 | 40+ |
-| **Live Tools** | 32 | - |
+| **Tools Completed** | 33 | 40+ |
+| **Live Tools** | 33 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1218,6 +1231,7 @@ Each tool page must include:
 | Chocolate Pairing Guide | `/tools/chocolate-pairing` | Specialty Pairing |
 | Dietary Restriction Meal Finder | `/tools/dietary-finder` | Health & Dietary |
 | Protein Calculator | `/tools/protein-calculator` | Health & Dietary |
+| Macro Balance Calculator | `/tools/macro-calculator` | Health & Dietary |
 
 ### Phase 6 Progress (Specialty Pairing Tools)
 
@@ -1235,7 +1249,7 @@ Each tool page must include:
 |------|--------|-----|------|--------|
 | Dietary Restriction Meal Finder | 🟢 | ✅ | ✅ | ✅ |
 | Protein Calculator | 🟢 | ✅ | ✅ | ✅ |
-| Macro Balance Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Macro Balance Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Glycemic Index Pairer | 🔴 | ⬜ | ⬜ | ⬜ |
 
 ### Legend

@@ -1,0 +1,273 @@
+---
+/**
+ * Macro Balance Calculator Tool Page
+ *
+ * Calculate ideal macronutrient ratios for various goals.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import MacroCalculator from '../../components/tools/MacroCalculator';
+---
+
+<BaseLayout
+  title="Macro Balance Calculator"
+  description="Calculate your ideal macronutrient ratios based on your goals. Get personalized protein, carbs, and fat targets for keto, low-carb, high-protein, and balanced diets."
+  keywords={['macro calculator', 'macronutrient calculator', 'keto macros', 'IIFYM', 'flexible dieting', 'carb calculator', 'protein fat carbs']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Macro Calculator</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Macro Balance <span class="text-accent text-[var(--color-wine)]">Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Calculate your ideal macronutrient ratios based on your body stats and fitness goals.
+          Choose from popular diet presets or customize your own ratio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <MacroCalculator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Macronutrients
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              TDEE Explained
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Total Daily Energy Expenditure (TDEE) is how many calories you burn daily including
+              exercise. Eat below TDEE to lose weight, above to gain. We calculate using the
+              Mifflin-St Jeor equation.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Flexible Dieting (IIFYM)
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              "If It Fits Your Macros" is a flexible approach where any food is allowed as long
+              as it fits your daily macro targets. It promotes sustainability over restriction.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Popular Macro Splits
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-blue-50 rounded-lg">
+            <span class="block font-bold text-blue-700 text-sm">Balanced</span>
+            <span class="block text-xs text-blue-600 mt-1">25/50/25 (P/C/F)</span>
+          </div>
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <span class="block font-bold text-green-700 text-sm">Keto</span>
+            <span class="block text-xs text-green-600 mt-1">20/5/75 (P/C/F)</span>
+          </div>
+          <div class="text-center p-4 bg-red-50 rounded-lg">
+            <span class="block font-bold text-red-700 text-sm">High Protein</span>
+            <span class="block text-xs text-red-600 mt-1">40/35/25 (P/C/F)</span>
+          </div>
+          <div class="text-center p-4 bg-purple-50 rounded-lg">
+            <span class="block font-bold text-purple-700 text-sm">Zone Diet</span>
+            <span class="block text-xs text-purple-600 mt-1">30/40/30 (P/C/F)</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block font-bold text-orange-700 text-sm">Low Carb</span>
+            <span class="block text-xs text-orange-600 mt-1">30/30/40 (P/C/F)</span>
+          </div>
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block font-bold text-amber-700 text-sm">Mediterranean</span>
+            <span class="block text-xs text-amber-600 mt-1">20/45/35 (P/C/F)</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best macro ratio for weight loss?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For weight loss, prioritize protein (25-35%) to preserve muscle and stay full.
+              A moderate approach is 30/35/35 (protein/carbs/fat). Lower carb options like
+              25/25/50 can also work well. The best ratio is one you can stick to long-term.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I calculate my macros for muscle building?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For muscle building, use a caloric surplus (+250-500 calories) with high protein
+              (30-40%). A typical bodybuilding split is 35/40/25 (protein/carbs/fat). Carbs
+              fuel workouts and recovery, while protein builds muscle.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What are macros in keto?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Keto requires very low carbs (5-10%), moderate protein (15-25%), and high fat
+              (70-80%). Typically under 20-50g of net carbs daily. This puts your body in
+              ketosis, burning fat for fuel instead of carbohydrates.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How accurate is the BMR calculator?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              We use the Mifflin-St Jeor equation, considered the most accurate for estimating
+              BMR. However, individual metabolism varies. Use this as a starting point and
+              adjust based on actual results over 2-4 weeks.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Health Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/protein-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-red-700">
+            💪
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Protein Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Track protein intake</p>
+          </div>
+        </a>
+
+        <a href="/tools/nutrition-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.27 21.7s9.87-3.5 12.73-6.36a4.5 4.5 0 0 0-6.36-6.37C5.77 11.84 2.27 21.7 2.27 21.7z"/>
+              <path d="M22 9s-1.33-2-3.5-2C16.86 7 15 9 15 9s1.33 2 3.5 2S22 9 22 9z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Nutrition Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Full nutritional breakdown</p>
+          </div>
+        </a>
+
+        <a href="/tools/dietary-finder" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center text-teal-700">
+            🥗
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Dietary Meal Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Meals for your diet</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the best macro ratio for weight loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For weight loss, prioritize protein (25-35%) to preserve muscle and stay full. A moderate approach is 30/35/35 (protein/carbs/fat). The best ratio is one you can stick to long-term."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my macros for muscle building?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For muscle building, use a caloric surplus (+250-500 calories) with high protein (30-40%). A typical bodybuilding split is 35/40/25 (protein/carbs/fat)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are macros in keto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keto requires very low carbs (5-10%), moderate protein (15-25%), and high fat (70-80%). Typically under 20-50g of net carbs daily to achieve ketosis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the BMR calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We use the Mifflin-St Jeor equation, considered the most accurate for estimating BMR. Use this as a starting point and adjust based on actual results over 2-4 weeks."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
