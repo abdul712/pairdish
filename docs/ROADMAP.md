@@ -213,9 +213,11 @@ interface WinePairing {
 ---
 
 ### Tool 1.3: Recipe Scaling Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P0 - Critical
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/recipe-scaler
 
 #### Description
 Universal recipe scaler that adjusts ingredient quantities intelligently with smart fraction display.
@@ -825,8 +827,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 4 | 40+ |
-| **Live Tools** | 4 | - |
+| **Tools Completed** | 5 | 40+ |
+| **Live Tools** | 5 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -835,7 +837,7 @@ Each tool page must include:
 |------|--------|-----|------|--------|
 | Food & Flavor Pairing Finder | 🟢 | ✅ | ✅ | ✅ |
 | Wine & Food Pairing Matcher | 🟢 | ✅ | ✅ | ✅ |
-| Recipe Scaling Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Recipe Scaling Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Party Food Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 | Drink/Cocktail Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
 
@@ -855,6 +857,7 @@ Each tool page must include:
 |------|-----|----------|
 | Flavor Pairing Finder | `/tools/flavor-pairing` | Pairing Tools |
 | Wine & Food Pairing | `/tools/wine-pairing` | Pairing Tools |
+| Recipe Scaler | `/tools/recipe-scaler` | Kitchen Calculators |
 | Wine Bottle Calculator | `/tools/wine-calculator` | Party Planning |
 | Potluck Coordinator | `/tools/potluck-coordinator` | Party Planning |
 

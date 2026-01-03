@@ -1,0 +1,262 @@
+---
+/**
+ * Recipe Scaling Calculator Tool Page
+ *
+ * Interactive tool for scaling recipes up or down.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import RecipeScaler from '../../components/tools/RecipeScaler';
+---
+
+<BaseLayout
+  title="Recipe Scaling Calculator"
+  description="Easily scale any recipe up or down. Our smart calculator adjusts ingredient quantities with beautiful fraction display and baking tips for perfect results every time."
+  keywords={['recipe scaler', 'recipe calculator', 'scale recipe', 'double recipe', 'halve recipe', 'recipe converter']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Recipe Scaler</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Recipe <span class="text-accent text-[var(--color-wine)]">Scaling Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Double your grandma's cookie recipe or halve a restaurant-sized batch.
+          Our smart calculator handles the math with proper fraction display.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <RecipeScaler client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          How to Scale Recipes Like a Pro
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              The Basics
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Recipe scaling is simple math: divide your desired servings by the original servings
+              to get the scale factor, then multiply each ingredient. Our calculator does this
+              automatically and displays results in easy-to-measure fractions.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              When It Gets Tricky
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Some ingredients don't scale linearly. Eggs can't be fractioned, leavening agents
+              can become too strong, and spices can overpower. Our calculator warns you about
+              these special cases and suggests adjustments.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Common Scaling Scenarios
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+          <div class="text-center p-4 bg-[var(--color-cream)] rounded-lg">
+            <span class="block text-3xl mb-2">½×</span>
+            <span class="text-sm font-medium text-[var(--text-primary)]">Halving</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">For smaller households or testing new recipes</p>
+          </div>
+          <div class="text-center p-4 bg-[var(--color-wine-glow)] rounded-lg">
+            <span class="block text-3xl mb-2">2×</span>
+            <span class="text-sm font-medium text-[var(--color-wine)]">Doubling</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Most common scaling for dinner parties</p>
+          </div>
+          <div class="text-center p-4 bg-[var(--color-cream)] rounded-lg">
+            <span class="block text-3xl mb-2">4×</span>
+            <span class="text-sm font-medium text-[var(--text-primary)]">Big Batch</span>
+            <p class="text-xs text-[var(--text-muted)] mt-1">For meal prep or larger gatherings</p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I handle eggs when scaling recipes?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Eggs are tricky because they can't be perfectly divided. For small fractions (like
+              half an egg), beat the whole egg and measure out half. Alternatively, adjust your
+              batch size to use whole eggs - this often works better in baking.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Do I need to adjust cooking time when scaling?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For stovetop cooking, larger batches may need slightly longer cooking times. For baking,
+              if using a larger pan, you may need to increase time by 10-15%. If making multiple
+              batches in the same size pan, time usually stays the same.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Why do my scaled recipes sometimes taste different?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Strong flavors like salt, spices, garlic, and vanilla don't always scale linearly.
+              When doubling or more, start with 75-80% of the calculated amount and adjust to taste.
+              Leavening agents should also be slightly reduced in larger batches.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the maximum I should scale a recipe?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Most recipes scale well up to 4× their original size. Beyond that, you may encounter
+              issues with mixing, cooking evenly, or chemical reactions in baking. For very large
+              batches, consider making multiple normal-sized batches instead.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/unit-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Unit Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Cups to grams & more</p>
+          </div>
+        </a>
+
+        <a href="/tools/party-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🎉
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Party Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Food for any gathering</p>
+          </div>
+        </a>
+
+        <a href="/tools/substitution-finder" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            🔄
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Substitutions</h4>
+            <p class="text-sm text-[var(--text-muted)]">Ingredient swaps</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I handle eggs when scaling recipes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eggs can't be perfectly divided. For small fractions, beat the whole egg and measure out half. Alternatively, adjust your batch size to use whole eggs - this often works better in baking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to adjust cooking time when scaling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For stovetop cooking, larger batches may need slightly longer cooking times. For baking with larger pans, increase time by 10-15%. Multiple batches in the same size pan usually need the same time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do my scaled recipes sometimes taste different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strong flavors like salt, spices, garlic, and vanilla don't always scale linearly. When doubling or more, start with 75-80% of the calculated amount and adjust to taste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the maximum I should scale a recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most recipes scale well up to 4× their original size. Beyond that, consider making multiple normal-sized batches for best results."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
