@@ -1,0 +1,269 @@
+---
+/**
+ * Seasonal Ingredient Guide Tool Page
+ *
+ * Interactive guide showing what produce is in season.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import SeasonalGuide from '../../components/tools/SeasonalGuide';
+---
+
+<BaseLayout
+  title="Seasonal Ingredient Guide"
+  description="Discover what fruits and vegetables are in season each month. Get peak season dates, storage tips, and perfect pairing suggestions for fresh produce."
+  keywords={['seasonal produce guide', 'whats in season', 'seasonal fruits vegetables', 'peak season produce', 'seasonal cooking']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Seasonal Guide</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Seasonal <span class="text-accent text-[var(--color-wine)]">Ingredient Guide</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Eat with the seasons for better flavor, lower prices, and peak nutrition.
+          Explore what's at its best each month with storage tips and pairing ideas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <SeasonalGuide client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Why Eat Seasonally?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Better Flavor
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Produce picked at peak ripeness has dramatically better flavor than items
+              harvested early and shipped across the world. A summer tomato vs. a winter
+              supermarket tomato is barely the same vegetable.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Lower Cost
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              When produce is in season locally, supply is abundant and prices drop.
+              Farmers' markets during peak season offer the best deals. Stock up and
+              preserve for off-season eating.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Seasonal Highlights by Quarter
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <span class="block text-2xl mb-1">🌷</span>
+            <span class="block font-bold text-green-700">Spring</span>
+            <span class="block text-xs text-green-600">Asparagus, Peas, Artichokes</span>
+          </div>
+          <div class="text-center p-4 bg-yellow-50 rounded-lg">
+            <span class="block text-2xl mb-1">☀️</span>
+            <span class="block font-bold text-yellow-700">Summer</span>
+            <span class="block text-xs text-yellow-600">Tomatoes, Berries, Corn</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block text-2xl mb-1">🍂</span>
+            <span class="block font-bold text-orange-700">Fall</span>
+            <span class="block text-xs text-orange-600">Apples, Squash, Pumpkin</span>
+          </div>
+          <div class="text-center p-4 bg-blue-50 rounded-lg">
+            <span class="block text-2xl mb-1">❄️</span>
+            <span class="block font-bold text-blue-700">Winter</span>
+            <span class="block text-xs text-blue-600">Citrus, Root Veggies, Kale</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Does "in season" vary by location?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Absolutely! Our guide is based on general Northern Hemisphere seasons. Southern states
+              have earlier springs; northern areas have shorter growing seasons. California and
+              Florida produce year-round. Your local farmers' market is the best guide to what's
+              truly in season in your area.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How can I preserve seasonal produce for later?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Freezing is easiest—berries, stone fruits, and many vegetables freeze well. Canning
+              preserves tomatoes, pickles, and jams for a year or more. Dehydrating works great
+              for herbs, apples, and tomatoes. Root vegetables store for months in cool, dark cellars.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Is seasonal produce more nutritious?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! Produce loses nutrients after harvest—the longer it travels and sits in storage,
+              the more vitamins degrade. Locally grown, in-season produce is typically harvested
+              at peak ripeness and eaten within days, preserving more nutrients than imported items.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What about greenhouse and hydroponic produce?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Modern growing methods extend availability but flavor still varies. Greenhouse
+              tomatoes are better than imported, but not as good as summer garden tomatoes.
+              Herbs thrive year-round indoors. For produce where freshness matters most (berries,
+              stone fruits), seasonal is still best.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/flavor-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-[var(--color-wine-glow)] flex items-center justify-center text-[var(--color-wine)]">
+            ✨
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Flavor Pairing Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Discover flavor combinations</p>
+          </div>
+        </a>
+
+        <a href="/tools/leftover-matcher" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center text-teal-700">
+            🥗
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Leftover Recipe Matcher</h4>
+            <p class="text-sm text-[var(--text-muted)]">Find recipes for your ingredients</p>
+          </div>
+        </a>
+
+        <a href="/tools/meal-prep" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center text-teal-700">
+            📅
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Meal Prep Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Plan your weekly meals</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does 'in season' vary by location?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, seasonal produce varies by location. Southern states have earlier springs; northern areas have shorter growing seasons. Your local farmers' market is the best guide to what's truly in season in your area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I preserve seasonal produce for later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Freezing is easiest for berries and vegetables. Canning preserves tomatoes and jams for a year or more. Dehydrating works for herbs and fruits. Root vegetables store for months in cool, dark places."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is seasonal produce more nutritious?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Produce loses nutrients after harvest. Locally grown, in-season produce is harvested at peak ripeness and eaten within days, preserving more nutrients than imported items."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about greenhouse and hydroponic produce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modern growing methods extend availability but flavor still varies. Greenhouse produce is better than imported but not as good as truly seasonal items. For produce where freshness matters most, seasonal is still best."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

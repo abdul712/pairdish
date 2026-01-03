@@ -671,9 +671,26 @@ interface ConversionResult {
 - Prep tips section
 
 ### Tool 4.3: Seasonal Ingredient Guide
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/seasonal-guide
+
+#### Features Implemented
+- 25+ seasonal produce items across vegetables, fruits, and herbs
+- Interactive 12-month selector showing current month by default
+- Season indicators (spring, summer, fall, winter)
+- Peak vs. available month differentiation
+- Visual availability chart per produce item
+- Category filtering (vegetables, fruits, herbs)
+- Search by produce name or pairings
+- Detailed view panel with:
+  - Description and selection tips
+  - Peak and available months chart
+  - Perfect pairings list
+  - Storage recommendations
+  - Pro tips for cooking/preparation
 
 ### Tool 4.4: Pantry Pairing Helper
 **Status**: 🔴 Not Started
@@ -912,8 +929,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 17 | 40+ |
-| **Live Tools** | 17 | - |
+| **Tools Completed** | 18 | 40+ |
+| **Live Tools** | 18 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -942,7 +959,7 @@ Each tool page must include:
 |------|--------|-----|------|--------|
 | Leftover Recipe Matcher | 🟢 | ✅ | ✅ | ✅ |
 | Weekly Meal Prep Calculator | 🟢 | ✅ | ✅ | ✅ |
-| Seasonal Ingredient Guide | 🔴 | ⬜ | ⬜ | ⬜ |
+| Seasonal Ingredient Guide | 🟢 | ✅ | ✅ | ✅ |
 | Pantry Pairing Helper | 🔴 | ⬜ | ⬜ | ⬜ |
 | Grocery List Generator | 🔴 | ⬜ | ⬜ | ⬜ |
 
@@ -967,6 +984,7 @@ Each tool page must include:
 | Buffet Menu Planner | `/tools/buffet-planner` | Party Planning |
 | Leftover Recipe Matcher | `/tools/leftover-matcher` | Meal Planning |
 | Weekly Meal Prep Calculator | `/tools/meal-prep` | Meal Planning |
+| Seasonal Ingredient Guide | `/tools/seasonal-guide` | Meal Planning |
 
 ### Legend
 - 🔴 Not Started
