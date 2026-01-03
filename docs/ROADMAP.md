@@ -715,9 +715,28 @@ interface ConversionResult {
 - Prep time estimates
 
 ### Tool 4.5: Grocery List Generator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/grocery-list
+
+#### Features Implemented
+- 5 sample recipes to demonstrate functionality
+- Automatic ingredient consolidation from multiple recipes
+- Smart store section categorization (10 sections):
+  - Produce, Meat & Seafood, Dairy & Eggs, Bakery
+  - Frozen, Pantry & Dry Goods, Spices & Seasonings
+  - Canned & Jarred, Beverages, Other
+- 100+ ingredient-to-section mappings
+- Manual item addition with auto-categorization
+- Interactive checklist with progress tracking
+- Check/uncheck and remove individual items
+- "Clear Checked" bulk action
+- Print-friendly list generation
+- Progress bar showing completion status
+- Recipe source tracking for each item
+- Quantity and unit display
 
 ---
 
@@ -946,8 +965,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 19 | 40+ |
-| **Live Tools** | 19 | - |
+| **Tools Completed** | 20 | 40+ |
+| **Live Tools** | 20 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -978,7 +997,7 @@ Each tool page must include:
 | Weekly Meal Prep Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Seasonal Ingredient Guide | 🟢 | ✅ | ✅ | ✅ |
 | Pantry Pairing Helper | 🟢 | ✅ | ✅ | ✅ |
-| Grocery List Generator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Grocery List Generator | 🟢 | ✅ | ✅ | ✅ |
 
 ### Live Tools Summary
 
@@ -1003,6 +1022,7 @@ Each tool page must include:
 | Weekly Meal Prep Calculator | `/tools/meal-prep` | Meal Planning |
 | Seasonal Ingredient Guide | `/tools/seasonal-guide` | Meal Planning |
 | Pantry Pairing Helper | `/tools/pantry-helper` | Meal Planning |
+| Grocery List Generator | `/tools/grocery-list` | Meal Planning |
 
 ### Legend
 - 🔴 Not Started
