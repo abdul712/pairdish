@@ -1,0 +1,262 @@
+---
+/**
+ * Pan Size Converter Tool Page
+ *
+ * Convert recipes between different pan sizes and shapes.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import PanSizeConverter from '../../components/tools/PanSizeConverter';
+---
+
+<BaseLayout
+  title="Pan Size Converter"
+  description="Convert baking recipes between different pan sizes and shapes. Calculate scaling factors for round, square, rectangle, bundt, loaf, and springform pans."
+  keywords={['pan size converter', 'baking pan calculator', 'cake pan substitution', 'recipe pan conversion', 'baking calculator']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Pan Size Converter</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Pan Size <span class="text-accent text-[var(--color-wine)]">Converter</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Don't have the right pan? No problem. Convert any baking recipe between
+          different pan sizes and shapes with precise scaling calculations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <PanSizeConverter client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Pan Size Conversions
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Area vs. Volume
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Pan conversions are based on baking area (for thin batters like brownies)
+              or volume (for thicker batters like cake). Our calculator uses area for
+              the most accurate results with typical recipes.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Baking Time Adjustments
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              When changing pan sizes, baking time changes too. Larger pans with thinner
+              batter cook faster. Smaller pans with deeper batter need more time. Always
+              test with a toothpick!
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Common Pan Equivalents
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-amber-50 rounded-lg">
+            <span class="block text-2xl mb-1">⭕</span>
+            <span class="block font-bold text-amber-700">9" Round</span>
+            <span class="block text-xs text-amber-600">≈ 8" Square</span>
+          </div>
+          <div class="text-center p-4 bg-orange-50 rounded-lg">
+            <span class="block text-2xl mb-1">⬜</span>
+            <span class="block font-bold text-orange-700">9x13" Rectangle</span>
+            <span class="block text-xs text-orange-600">≈ Two 9" Rounds</span>
+          </div>
+          <div class="text-center p-4 bg-rose-50 rounded-lg">
+            <span class="block text-2xl mb-1">🍩</span>
+            <span class="block font-bold text-rose-700">10" Bundt</span>
+            <span class="block text-xs text-rose-600">≈ 9x13" Pan</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I substitute a round pan for a square pan?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! An 8" square pan and a 9" round pan have nearly identical baking areas
+              (64 sq in vs 63.6 sq in). They can be used interchangeably for most recipes
+              without adjusting ingredients.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I adjust baking time for different pan sizes?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              As a general rule, adjust baking time by 5-10 minutes per inch of size
+              difference. Larger pans with thinner batter cook faster. Start checking
+              10-15 minutes before the estimated time, using a toothpick to test doneness.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can I use two smaller pans instead of one large pan?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Yes! Two 9" round pans equal approximately one 9x13" rectangular pan.
+              Divide the batter evenly and reduce baking time by 10-15 minutes since
+              the layers will be thinner.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How full should I fill my pan?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For most cakes, fill pans 1/2 to 2/3 full to allow room for rising.
+              Cheesecakes and dense cakes can go higher. Never fill more than 3/4 full
+              or the batter may overflow. If you have extra batter, make cupcakes!
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Baking Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/recipe-scaler" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            📊
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Recipe Scaler</h4>
+            <p class="text-sm text-[var(--text-muted)]">Scale recipes up or down</p>
+          </div>
+        </a>
+
+        <a href="/tools/oven-temperature" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
+            🌡️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Oven Temperature</h4>
+            <p class="text-sm text-[var(--text-muted)]">F/C/Gas Mark converter</p>
+          </div>
+        </a>
+
+        <a href="/tools/unit-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Unit Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Cups, grams, ounces</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I substitute a round pan for a square pan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! An 8\" square pan and a 9\" round pan have nearly identical baking areas (64 sq in vs 63.6 sq in). They can be used interchangeably for most recipes without adjusting ingredients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I adjust baking time for different pan sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a general rule, adjust baking time by 5-10 minutes per inch of size difference. Larger pans with thinner batter cook faster. Start checking 10-15 minutes before the estimated time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use two smaller pans instead of one large pan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Two 9\" round pans equal approximately one 9x13\" rectangular pan. Divide the batter evenly and reduce baking time by 10-15 minutes since the layers will be thinner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How full should I fill my pan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most cakes, fill pans 1/2 to 2/3 full to allow room for rising. Never fill more than 3/4 full or the batter may overflow."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

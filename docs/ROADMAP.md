@@ -743,9 +743,23 @@ interface ConversionResult {
 ## 8. Phase 5: Baking Calculators
 
 ### Tool 5.1: Pan Size Converter
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P2 - Medium
 **Estimated Dev Time**: 5 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/pan-size-converter
+
+#### Features Implemented
+- 20 pan sizes across 6 shapes (round, square, rectangle, bundt, loaf, springform)
+- Shape-based filtering
+- Visual pan comparison with area and volume
+- Automatic scale factor calculation
+- Percentage size change display
+- Recipe batch adjustment calculator
+- Baking time adjustment recommendations
+- Complete pan reference table
+- Swap pans functionality
+- Baking tips for different pan types
 
 ### Tool 5.2: Flour Substitution Calculator
 **Status**: 🔴 Not Started
@@ -965,8 +979,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 20 | 40+ |
-| **Live Tools** | 20 | - |
+| **Tools Completed** | 21 | 40+ |
+| **Live Tools** | 21 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -999,6 +1013,16 @@ Each tool page must include:
 | Pantry Pairing Helper | 🟢 | ✅ | ✅ | ✅ |
 | Grocery List Generator | 🟢 | ✅ | ✅ | ✅ |
 
+### Phase 5 Progress (Baking Calculators)
+
+| Tool | Status | Dev | Test | Deploy |
+|------|--------|-----|------|--------|
+| Pan Size Converter | 🟢 | ✅ | ✅ | ✅ |
+| Flour Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Sugar Substitution Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Yeast Conversion Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+| Sourdough Hydration Calculator | 🔴 | ⬜ | ⬜ | ⬜ |
+
 ### Live Tools Summary
 
 | Tool | URL | Category |
@@ -1023,6 +1047,7 @@ Each tool page must include:
 | Seasonal Ingredient Guide | `/tools/seasonal-guide` | Meal Planning |
 | Pantry Pairing Helper | `/tools/pantry-helper` | Meal Planning |
 | Grocery List Generator | `/tools/grocery-list` | Meal Planning |
+| Pan Size Converter | `/tools/pan-size-converter` | Baking Calculators |
 
 ### Legend
 - 🔴 Not Started
