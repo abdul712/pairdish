@@ -1079,9 +1079,27 @@ interface ConversionResult {
 - Visual progress indicator
 
 ### Tool 8.4: "What Should I Cook?" Generator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P1 - High
 **Estimated Dev Time**: 8 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/recipe-generator
+
+#### Features Implemented
+- 5-step preference flow (mood, time, cuisine, dietary, effort)
+- 25+ curated recipes across multiple cuisines
+- 6 mood options (cozy, energetic, romantic, adventurous, lazy, healthy)
+- Time filters (quick, medium, leisurely, any)
+- 6 cuisine options (Italian, Asian, Mexican, Mediterranean, American, Surprise)
+- 6 dietary filters (none, vegetarian, vegan, gluten-free, dairy-free, low-carb)
+- 3 effort levels (easy, medium, any)
+- Smart recipe matching algorithm
+- Top 3 recommendations with shuffle feature
+- Detailed recipe cards with ingredients and tips
+- Wine/beverage pairing suggestions
+- Difficulty and time indicators
+- Pro tips for each recipe
+- Start over functionality
 
 ---
 
@@ -1204,8 +1222,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 37 | 40+ |
-| **Live Tools** | 37 | - |
+| **Tools Completed** | 38 | 40+ |
+| **Live Tools** | 38 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -1289,6 +1307,7 @@ Each tool page must include:
 | "What Wine Are You?" Quiz | `/tools/wine-personality` | Interactive Quizzes |
 | "What's Your Cooking Style?" Quiz | `/tools/cooking-style-quiz` | Interactive Quizzes |
 | "Build Your Cheese Board" Interactive | `/tools/cheese-board-builder` | Interactive Quizzes |
+| "What Should I Cook?" Generator | `/tools/recipe-generator` | Interactive Quizzes |
 
 ### Phase 6 Progress (Specialty Pairing Tools)
 
@@ -1308,6 +1327,15 @@ Each tool page must include:
 | Protein Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Macro Balance Calculator | 🟢 | ✅ | ✅ | ✅ |
 | Glycemic Index Guide | 🟢 | ✅ | ✅ | ✅ |
+
+### Phase 8 Progress (Interactive Quizzes)
+
+| Tool | Status | Dev | Test | Deploy |
+|------|--------|-----|------|--------|
+| "What Wine Are You?" Quiz | 🟢 | ✅ | ✅ | ✅ |
+| "What's Your Cooking Style?" Quiz | 🟢 | ✅ | ✅ | ✅ |
+| "Build Your Cheese Board" Interactive | 🟢 | ✅ | ✅ | ✅ |
+| "What Should I Cook?" Generator | 🟢 | ✅ | ✅ | ✅ |
 
 ### Legend
 - 🔴 Not Started
