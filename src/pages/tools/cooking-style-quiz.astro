@@ -1,0 +1,256 @@
+---
+/**
+ * Cooking Style Quiz Tool Page
+ *
+ * Discover your cooking personality type.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import CookingStyleQuiz from '../../components/tools/CookingStyleQuiz';
+---
+
+<BaseLayout
+  title="What's Your Cooking Style? | Cooking Personality Quiz"
+  description="Discover your unique cooking personality! Take our fun quiz to find out if you're an Adventurous Chef, Comfort Cook, Wellness Warrior, or one of our other cooking styles."
+  keywords={['cooking style quiz', 'cooking personality', 'what kind of cook am I', 'home chef quiz', 'cooking quiz', 'kitchen personality test']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Cooking Style Quiz</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          What's Your <span class="text-accent text-[var(--color-wine)]">Cooking Style?</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Every home cook has a unique style! Take our personality quiz to discover your cooking identity
+          and get personalized recommendations for recipes, tools, and cookbooks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <CookingStyleQuiz client:load />
+    </div>
+  </section>
+
+  <!-- About the Quiz -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          The Cooking Style Types
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div class="p-5 bg-orange-50 rounded-xl border border-orange-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🚀</span>
+              <h3 class="font-display text-lg font-semibold text-orange-600">The Adventurous Chef</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Creative, experimental, and always trying new cuisines and techniques.
+            </p>
+          </div>
+
+          <div class="p-5 bg-amber-50 rounded-xl border border-amber-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🏠</span>
+              <h3 class="font-display text-lg font-semibold text-amber-600">The Comfort Cook</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Master of hearty, soul-warming dishes that bring people together.
+            </p>
+          </div>
+
+          <div class="p-5 bg-green-50 rounded-xl border border-green-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🥗</span>
+              <h3 class="font-display text-lg font-semibold text-green-600">The Wellness Warrior</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Nutrition-focused, creating delicious food that nourishes body and mind.
+            </p>
+          </div>
+
+          <div class="p-5 bg-blue-50 rounded-xl border border-blue-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">⚡</span>
+              <h3 class="font-display text-lg font-semibold text-blue-600">The Efficient Minimalist</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Master of quick, practical meals that maximize flavor with minimum fuss.
+            </p>
+          </div>
+
+          <div class="p-5 bg-purple-50 rounded-xl border border-purple-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">📐</span>
+              <h3 class="font-display text-lg font-semibold text-purple-600">The Precision Artist</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Detail-oriented with a love for baking and consistent, beautiful results.
+            </p>
+          </div>
+
+          <div class="p-5 bg-pink-50 rounded-xl border border-pink-200">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🎉</span>
+              <h3 class="font-display text-lg font-semibold text-pink-600">The Social Entertainer</h3>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)]">
+              Born to host, creating memorable food experiences for friends and family.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How was this quiz developed?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              We identified common cooking personality archetypes based on how home cooks approach recipes,
+              what they prioritize in the kitchen, and their cooking philosophy. The questions are designed
+              to reveal your natural tendencies and preferences.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can my cooking style change over time?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Absolutely! Your cooking style can evolve based on life circumstances, new interests, or
+              developing skills. A busy parent might become an Efficient Minimalist, while that same person
+              might become a Social Entertainer when kids leave home. Retake the quiz anytime!
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Is one cooking style better than another?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Not at all! Each cooking style has its own strengths and brings unique value to the kitchen.
+              The best cooking style is one that brings you joy and fits your lifestyle. Understanding your
+              style helps you lean into your strengths while exploring new territory.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Quizzes -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        More Fun Quizzes
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/wine-personality" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-[var(--color-wine-glow)] flex items-center justify-center text-2xl">
+            🍷
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Wine Personality Quiz</h4>
+            <p class="text-sm text-[var(--text-muted)]">What wine are you?</p>
+          </div>
+        </a>
+
+        <a href="/tools/cheese-board-builder" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-2xl">
+            🧀
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Board Builder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Create your perfect board</p>
+          </div>
+        </a>
+
+        <a href="/tools/recipe-generator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-2xl">
+            🎲
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">What Should I Cook?</h4>
+            <p class="text-sm text-[var(--text-muted)]">Get inspired for dinner</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How was this quiz developed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We identified common cooking personality archetypes based on how home cooks approach recipes, what they prioritize in the kitchen, and their cooking philosophy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my cooking style change over time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Your cooking style can evolve based on life circumstances, new interests, or developing skills."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is one cooking style better than another?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at all! Each cooking style has its own strengths and brings unique value to the kitchen. The best cooking style is one that brings you joy."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
