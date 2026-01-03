@@ -443,45 +443,27 @@ interface ConversionResult {
 ---
 
 ### Tool 2.2: Nutrition Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P1 - High
 **Estimated Dev Time**: 10 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/nutrition-calculator
 
-#### Description
-Paste recipe ingredients, get complete nutritional breakdown.
-
-#### Technical Specification
-```typescript
-interface NutritionInput {
-  ingredients: string; // Free text or structured
-  servings: number;
-}
-
-interface NutritionResult {
-  perServing: NutritionFacts;
-  total: NutritionFacts;
-  ingredientBreakdown: Array<{
-    ingredient: string;
-    parsed: {
-      amount: number;
-      unit: string;
-      food: string;
-    };
-    nutrition: NutritionFacts;
-  }>;
-  dietaryLabels: string[]; // "Low-Carb", "High-Protein", etc.
-}
-
-interface NutritionFacts {
-  calories: number;
-  fat: { total: number; saturated: number; trans: number };
-  cholesterol: number;
-  sodium: number;
-  carbohydrates: { total: number; fiber: number; sugar: number };
-  protein: number;
-  vitamins: Record<string, number>; // % daily value
-}
-```
+#### Features Implemented
+- Paste recipe ingredients (one per line) to calculate nutrition
+- Smart ingredient parsing (handles amounts, units, fractions)
+- USDA-based nutrition database with 45+ common foods:
+  - Proteins (chicken, beef, salmon, eggs, tofu, bacon)
+  - Dairy (milk, butter, cheese, cream, yogurt)
+  - Grains (rice, pasta, bread, flour, oats)
+  - Vegetables (broccoli, spinach, onion, garlic, potato, carrot)
+  - Fruits, oils, sweeteners, nuts, condiments
+- Complete nutrition facts display (calories, fat, carbs, protein, fiber, sugar, sodium, cholesterol)
+- Visual macro breakdown with color-coded bar chart
+- Per-serving and total recipe calculations
+- Adjustable serving count
+- Dietary labels (High-Protein, Low-Carb, Low-Fat, High-Fiber, Low-Sodium)
+- Ingredient matching status with warnings for unrecognized items
 
 ---
 
@@ -840,8 +822,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 11 | 40+ |
-| **Live Tools** | 11 | - |
+| **Tools Completed** | 12 | 40+ |
+| **Live Tools** | 12 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -879,6 +861,7 @@ Each tool page must include:
 | Oven Temperature Converter | `/tools/oven-temperature` | Kitchen Calculators |
 | Cooking Time Calculator | `/tools/cooking-time` | Kitchen Calculators |
 | Substitution Finder | `/tools/substitution-finder` | Kitchen Calculators |
+| Nutrition Calculator | `/tools/nutrition-calculator` | Kitchen Calculators |
 
 ### Legend
 - 🔴 Not Started
