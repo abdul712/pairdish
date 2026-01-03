@@ -486,9 +486,11 @@ interface NutritionFacts {
 ---
 
 ### Tool 2.3: Oven Temperature Converter
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P1 - High
 **Estimated Dev Time**: 3 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/oven-temperature
 
 #### Features
 - Fahrenheit ↔ Celsius ↔ Gas Mark
@@ -833,8 +835,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 8 | 40+ |
-| **Live Tools** | 8 | - |
+| **Tools Completed** | 9 | 40+ |
+| **Live Tools** | 9 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -869,6 +871,7 @@ Each tool page must include:
 | Party Food Calculator | `/tools/party-calculator` | Party Planning |
 | Drink Calculator | `/tools/drink-calculator` | Party Planning |
 | Unit Converter | `/tools/unit-converter` | Kitchen Calculators |
+| Oven Temperature Converter | `/tools/oven-temperature` | Kitchen Calculators |
 
 ### Legend
 - 🔴 Not Started
