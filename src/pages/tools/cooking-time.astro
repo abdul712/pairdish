@@ -1,0 +1,271 @@
+---
+/**
+ * Cooking Time Calculator Tool Page
+ *
+ * Interactive tool for calculating safe cooking times for meats.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import CookingTimeCalculator from '../../components/tools/CookingTimeCalculator';
+---
+
+<BaseLayout
+  title="Cooking Time Calculator"
+  description="Calculate safe cooking times for beef, pork, poultry, lamb, and fish. Includes USDA safe temperatures, doneness levels, and rest times."
+  keywords={['cooking time calculator', 'meat cooking times', 'roasting time', 'internal temperature chart', 'how long to cook', 'USDA safe temperature']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Cooking Time</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Cooking <span class="text-accent text-[var(--color-wine)]">Time Calculator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Calculate safe cooking times for any cut of meat. Get internal temperature targets,
+          doneness guides, and rest time recommendations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <CookingTimeCalculator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          Understanding Meat Cooking Times
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Why Cooking Time Varies
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Cooking time depends on the cut's thickness, starting temperature, cooking method,
+              and desired doneness. A thermometer is always more reliable than time alone.
+              These times are estimates—use internal temperature as your final guide.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Carryover Cooking
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Meat continues cooking after you remove it from heat. Large roasts can rise
+              5-15°F during rest. Pull your meat slightly before it reaches target temperature
+              to account for this "carryover."
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Doneness Guide for Beef & Lamb
+        </h3>
+
+        <div class="grid grid-cols-5 gap-2 mb-10">
+          <div class="text-center p-3 bg-red-100 rounded-lg">
+            <span class="block text-xs font-semibold text-red-700">Rare</span>
+            <span class="block text-lg font-bold text-red-600">125°F</span>
+          </div>
+          <div class="text-center p-3 bg-red-50 rounded-lg">
+            <span class="block text-xs font-semibold text-red-600">Med-Rare</span>
+            <span class="block text-lg font-bold text-red-500">130°F</span>
+          </div>
+          <div class="text-center p-3 bg-orange-100 rounded-lg">
+            <span class="block text-xs font-semibold text-orange-700">Medium</span>
+            <span class="block text-lg font-bold text-orange-600">140°F</span>
+          </div>
+          <div class="text-center p-3 bg-orange-50 rounded-lg">
+            <span class="block text-xs font-semibold text-orange-600">Med-Well</span>
+            <span class="block text-lg font-bold text-orange-500">150°F</span>
+          </div>
+          <div class="text-center p-3 bg-amber-50 rounded-lg">
+            <span class="block text-xs font-semibold text-amber-700">Well</span>
+            <span class="block text-lg font-bold text-amber-600">160°F</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              How do I know when my meat is done without a thermometer?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              While a thermometer is most reliable, you can use the touch test for steaks:
+              compare firmness to the base of your thumb. Rare = relaxed hand, medium =
+              thumb touching middle finger, well = thumb touching pinky. For roasts,
+              juices should run clear for poultry and pork.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Why is my calculated time different from the recipe?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Cooking times vary based on oven temperature, meat starting temperature
+              (room temp vs. fridge cold), bone-in vs. boneless, and oven accuracy.
+              Our calculator provides a baseline estimate. Always use a thermometer
+              to confirm doneness rather than relying solely on time.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Should I bring meat to room temperature before cooking?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              For thick cuts like roasts and steaks, letting meat sit at room temperature
+              for 30-60 minutes promotes more even cooking. For food safety, don't leave
+              meat out for more than 2 hours. Smaller cuts and poultry can go straight
+              from fridge to pan with adjusted timing.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What's the best way to rest meat?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Transfer meat to a cutting board and tent loosely with foil. Don't wrap
+              tightly or you'll steam the crust. Rest small steaks 5 minutes, roasts
+              10-20 minutes, and large turkeys up to 30 minutes. The meat will stay
+              warm and the juices will redistribute.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/oven-temperature" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
+            🌡️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Oven Temperature</h4>
+            <p class="text-sm text-[var(--text-muted)]">F, C, and Gas Mark</p>
+          </div>
+        </a>
+
+        <a href="/tools/unit-converter" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Unit Converter</h4>
+            <p class="text-sm text-[var(--text-muted)]">Weights & measures</p>
+          </div>
+        </a>
+
+        <a href="/tools/party-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🎉
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Party Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Food quantities</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know when my meat is done without a thermometer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While a thermometer is most reliable, you can use the touch test for steaks. Compare the firmness to the base of your thumb when touching different fingers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my calculated time different from the recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cooking times vary based on oven temperature, meat starting temperature, bone-in vs. boneless, and oven accuracy. Always use a thermometer to confirm doneness."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I bring meat to room temperature before cooking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For thick cuts like roasts and steaks, letting meat sit at room temperature for 30-60 minutes promotes more even cooking. Don't leave meat out for more than 2 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best way to rest meat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transfer meat to a cutting board and tent loosely with foil. Rest small steaks 5 minutes, roasts 10-20 minutes, and large turkeys up to 30 minutes."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

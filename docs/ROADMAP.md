@@ -501,9 +501,11 @@ interface NutritionFacts {
 ---
 
 ### Tool 2.4: Cooking Time Calculator
-**Status**: 🔴 Not Started
+**Status**: 🟢 Completed (v1)
 **Priority**: P1 - High
 **Estimated Dev Time**: 6 hours
+**Completed**: January 3, 2026
+**Live URL**: /tools/cooking-time
 
 #### Features
 - Meat type selector (beef, pork, poultry, fish)
@@ -835,8 +837,8 @@ Each tool page must include:
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Tools Completed** | 9 | 40+ |
-| **Live Tools** | 9 | - |
+| **Tools Completed** | 10 | 40+ |
+| **Live Tools** | 10 | - |
 | **In Progress** | 0 | - |
 
 ### Phase 1 Progress (Core Pairing Tools)
@@ -872,6 +874,7 @@ Each tool page must include:
 | Drink Calculator | `/tools/drink-calculator` | Party Planning |
 | Unit Converter | `/tools/unit-converter` | Kitchen Calculators |
 | Oven Temperature Converter | `/tools/oven-temperature` | Kitchen Calculators |
+| Cooking Time Calculator | `/tools/cooking-time` | Kitchen Calculators |
 
 ### Legend
 - 🔴 Not Started
