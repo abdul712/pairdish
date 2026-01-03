@@ -1,0 +1,286 @@
+---
+/**
+ * Chocolate Pairing Guide Tool Page
+ *
+ * Pair chocolate types with wines, cheeses, fruits, and beverages.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import ChocolatePairing from '../../components/tools/ChocolatePairing';
+---
+
+<BaseLayout
+  title="Chocolate Pairing Guide"
+  description="Discover perfect pairings for dark, milk, white, and specialty chocolates. Match chocolate with wines, cheeses, fruits, nuts, and beverages."
+  keywords={['chocolate pairing', 'chocolate and wine', 'dark chocolate pairing', 'what goes with chocolate', 'chocolate cheese pairing', 'chocolate tasting']}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Chocolate Pairing</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Chocolate <span class="text-accent text-[var(--color-wine)]">Pairing Guide</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          From intense dark chocolate to delicate white chocolate, discover the perfect wines,
+          cheeses, fruits, and beverages to complement every type.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <ChocolatePairing client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          The Art of Chocolate Pairing
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              Understanding Cocoa Percentage
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Higher cocoa percentage means more intense, bitter chocolate. 60-70% is balanced,
+              80%+ is intensely bitter. The percentage determines which pairings will harmonize.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              The Wine Rule
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Always choose wine sweeter than your chocolate. Dry wines taste bitter against
+              chocolate. Port, Sherry, and late harvest wines are classic chocolate partners.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Classic Chocolate Pairings
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+          <div class="text-center p-4 bg-stone-800 rounded-lg text-white">
+            <span class="block font-bold text-sm">Dark + Port</span>
+            <span class="block text-xs mt-1 text-stone-300">The iconic pairing</span>
+          </div>
+          <div class="text-center p-4 bg-amber-700 rounded-lg text-white">
+            <span class="block font-bold text-sm">Milk + Champagne</span>
+            <span class="block text-xs mt-1 text-amber-100">Elegant contrast</span>
+          </div>
+          <div class="text-center p-4 bg-amber-100 rounded-lg text-amber-900">
+            <span class="block font-bold text-sm">White + Berries</span>
+            <span class="block text-xs mt-1 text-amber-700">Fresh & fruity</span>
+          </div>
+          <div class="text-center p-4 bg-stone-700 rounded-lg text-white">
+            <span class="block font-bold text-sm">Dark + Espresso</span>
+            <span class="block text-xs mt-1 text-stone-300">Intensely satisfying</span>
+          </div>
+          <div class="text-center p-4 bg-blue-900 rounded-lg text-white">
+            <span class="block font-bold text-sm">Dark + Blue Cheese</span>
+            <span class="block text-xs mt-1 text-blue-200">Sophisticated umami</span>
+          </div>
+          <div class="text-center p-4 bg-pink-300 rounded-lg text-pink-900">
+            <span class="block font-bold text-sm">Ruby + Rosé</span>
+            <span class="block text-xs mt-1 text-pink-700">Playful & fruity</span>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Frequently Asked Questions
+        </h3>
+
+        <div class="space-y-4">
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What wine pairs best with dark chocolate?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Ruby Port, Late Harvest Zinfandel, and Pedro Ximénez Sherry are excellent choices.
+              The wine should always be sweeter than the chocolate. For very dark chocolate (80%+),
+              the sweetest fortified wines work best to balance the bitterness.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              Can you pair cheese with chocolate?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Absolutely! Blue cheese pairs wonderfully with dark chocolate—the salty, tangy
+              cheese balances chocolate's bitterness. Aged Gouda, Manchego, and sharp Cheddar
+              also work well. For milk chocolate, try milder cheeses like Brie or Mascarpone.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What fruits go with chocolate?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Berries (raspberries, strawberries, cherries) are classic with dark chocolate.
+              Citrus (especially orange) creates wonderful contrast. For milk chocolate, try
+              bananas, pears, or caramelized fruits. White chocolate loves tropical fruits
+              like passion fruit and mango.
+            </p>
+          </details>
+
+          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
+              What is ruby chocolate?
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-[var(--text-secondary)]">
+              Ruby chocolate is the fourth type of chocolate (after dark, milk, and white),
+              introduced in 2017. Made from specially processed ruby cocoa beans, it has a
+              natural pink color and fruity, berry-like flavor with a slight tang. It pairs
+              beautifully with fresh berries, rosé wine, and citrus flavors.
+            </p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Pairing Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/coffee-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+              <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+              <line x1="6" x2="6" y1="2" y2="4"/>
+              <line x1="10" x2="10" y1="2" y2="4"/>
+              <line x1="14" x2="14" y1="2" y2="4"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Coffee & Dessert Pairing</h4>
+            <p class="text-sm text-[var(--text-muted)]">Coffee with sweets</p>
+          </div>
+        </a>
+
+        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 22h8"/>
+              <path d="M7 10h10"/>
+              <path d="M12 15v7"/>
+              <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Wine & Food Matcher</h4>
+            <p class="text-sm text-[var(--text-muted)]">Find wine for any dish</p>
+          </div>
+        </a>
+
+        <a href="/tools/cheese-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.4.7-.4 1.1v12.8c0 .4.1.8.4 1.1.3.3.7.5 1.1.5h9.8c.4 0 .8-.2 1.1-.5.3-.3.4-.7.4-1.1V6.5L15.5 2z"/>
+              <path d="M3 7.6v12.8c0 .4.1.8.4 1.1.3.3.7.5 1.1.5h9.8"/>
+              <path d="M15 2v5h5"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Pairing Guide</h4>
+            <p class="text-sm text-[var(--text-muted)]">Build perfect boards</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What wine pairs best with dark chocolate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ruby Port, Late Harvest Zinfandel, and Pedro Ximénez Sherry are excellent choices. The wine should always be sweeter than the chocolate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you pair cheese with chocolate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Blue cheese pairs wonderfully with dark chocolate. Aged Gouda, Manchego, and sharp Cheddar also work well. For milk chocolate, try milder cheeses like Brie or Mascarpone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What fruits go with chocolate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Berries (raspberries, strawberries, cherries) are classic with dark chocolate. Citrus creates wonderful contrast. White chocolate loves tropical fruits like passion fruit and mango."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ruby chocolate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ruby chocolate is the fourth type of chocolate, introduced in 2017. Made from ruby cocoa beans, it has a natural pink color and fruity, berry-like flavor with a slight tang."
+      }
+    }
+  ]
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
