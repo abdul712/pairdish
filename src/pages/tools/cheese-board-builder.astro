@@ -13,6 +13,11 @@ import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
   title="Build Your Perfect Cheese Board | Interactive Builder"
   description="Create the perfect cheese board step-by-step! Choose cheeses, accompaniments, and get quantity recommendations for your guests with our interactive builder."
   keywords={['cheese board builder', 'cheese platter', 'cheese board ideas', 'charcuterie board', 'cheese pairing', 'cheese board for party']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Cheese Board Builder', url: '/tools/cheese-board-builder' }
+  ]}
 >
   <!-- Hero Section -->
   <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
@@ -176,13 +181,13 @@ import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
           </div>
         </a>
 
-        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
-          <div class="w-12 h-12 rounded-lg bg-[var(--color-wine-glow)] flex items-center justify-center text-2xl">
-            🍷
+        <a href="/tools/cheese-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-2xl">
+            🧀
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Wine Pairing</h4>
-            <p class="text-sm text-[var(--text-muted)]">Wines for your board</p>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Pairing Guide</h4>
+            <p class="text-sm text-[var(--text-muted)]">Perfect accompaniments</p>
           </div>
         </a>
       </div>

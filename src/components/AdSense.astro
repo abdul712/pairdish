@@ -1,0 +1,69 @@
+---
+/**
+ * AdSense Component
+ * Reusable Google AdSense ad unit component with responsive layouts
+ *
+ * Usage:
+ * <AdSense slot="1234567890" format="auto" />
+ * <AdSense slot="1234567890" format="horizontal" />
+ * <AdSense slot="1234567890" format="vertical" />
+ */
+
+interface Props {
+  slot: string;
+  format?: 'auto' | 'horizontal' | 'vertical' | 'rectangle';
+  className?: string;
+  fullWidthResponsive?: boolean;
+}
+
+const {
+  slot,
+  format = 'auto',
+  className = '',
+  fullWidthResponsive = true
+} = Astro.props;
+
+// Map format to AdSense styles
+const formatStyles: Record<string, string> = {
+  auto: 'display:block',
+  horizontal: 'display:inline-block;width:728px;height:90px',
+  vertical: 'display:inline-block;width:160px;height:600px',
+  rectangle: 'display:inline-block;width:300px;height:250px'
+};
+
+const adStyle = formatStyles[format] || formatStyles.auto;
+---
+
+<div class={`adsense-container ${className}`}>
+  <ins
+    class="adsbygoogle"
+    style={adStyle}
+    data-ad-client="ca-pub-7937348697646043"
+    data-ad-slot={slot}
+    data-ad-format={format}
+    data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
+  ></ins>
+</div>
+
+<script>
+  // Push ads after component mounts
+  if (typeof window !== 'undefined') {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }
+</script>
+
+<style>
+  .adsense-container {
+    margin: 2rem auto;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Ensure ads don't break layout on mobile */
+  @media (max-width: 768px) {
+    .adsense-container ins {
+      max-width: 100%;
+    }
+  }
+</style>

@@ -13,6 +13,11 @@ import PartyFoodCalculator from '../../components/tools/PartyFoodCalculator';
   title="Party Food Calculator"
   description="Calculate exactly how much food you need for your party or event. Our smart calculator accounts for guest count, event type, duration, and dietary restrictions."
   keywords={['party food calculator', 'how much food for party', 'event food planning', 'catering calculator', 'food quantity calculator']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Party Food Calculator', url: '/tools/party-calculator' }
+  ]}
 >
   <!-- Hero Section -->
   <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
@@ -191,13 +196,13 @@ import PartyFoodCalculator from '../../components/tools/PartyFoodCalculator';
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-        <a href="/tools/wine-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
-          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
-            🍷
+        <a href="/tools/drink-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
+            🥤
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Wine Calculator</h4>
-            <p class="text-sm text-[var(--text-muted)]">How many bottles?</p>
+            <h4 class="font-medium text-[var(--text-primary)]">Drink Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Beverages for events</p>
           </div>
         </a>
 

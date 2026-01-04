@@ -13,6 +13,11 @@ import ChocolatePairing from '../../components/tools/ChocolatePairing';
   title="Chocolate Pairing Guide"
   description="Discover perfect pairings for dark, milk, white, and specialty chocolates. Match chocolate with wines, cheeses, fruits, nuts, and beverages."
   keywords={['chocolate pairing', 'chocolate and wine', 'dark chocolate pairing', 'what goes with chocolate', 'chocolate cheese pairing', 'chocolate tasting']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Chocolate Pairing Guide', url: '/tools/chocolate-pairing' }
+  ]}
 >
   <!-- Hero Section -->
   <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
@@ -202,18 +207,15 @@ import ChocolatePairing from '../../components/tools/ChocolatePairing';
           </div>
         </a>
 
-        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
-          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+        <a href="/tools/flavor-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-[var(--color-wine-glow)] flex items-center justify-center text-[var(--color-wine)]">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 22h8"/>
-              <path d="M7 10h10"/>
-              <path d="M12 15v7"/>
-              <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/>
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
             </svg>
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Wine & Food Matcher</h4>
-            <p class="text-sm text-[var(--text-muted)]">Find wine for any dish</p>
+            <h4 class="font-medium text-[var(--text-primary)]">Flavor Pairing Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Discover combinations</p>
           </div>
         </a>
 

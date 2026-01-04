@@ -1,0 +1,221 @@
+---
+/**
+ * PairDish.com - About Us
+ *
+ * Learn about PairDish and our mission to elevate culinary experiences.
+ */
+
+import BaseLayout from '../components/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Us"
+  description="Learn about PairDish - our mission to help home cooks and food enthusiasts create perfect flavor pairings and elevate their culinary experiences."
+>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-cream)] via-[var(--color-parchment)] to-[var(--color-cream-dark)] opacity-50"></div>
+
+    <div class="container relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="badge badge-wine mb-4">About Us</span>
+        <h1 class="text-display text-4xl md:text-5xl font-semibold text-[var(--text-primary)] mb-6">
+          The Art & Science of <span class="text-accent text-[var(--color-wine)]">Perfect Pairings</span>
+        </h1>
+        <p class="text-xl text-[var(--text-secondary)] leading-relaxed">
+          PairDish was born from a simple belief: everyone deserves access to the culinary knowledge
+          that transforms good meals into extraordinary experiences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="py-16 bg-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <span class="badge badge-sage mb-4">Our Story</span>
+            <h2 class="text-display text-3xl font-semibold text-[var(--text-primary)] mb-6">
+              From Kitchen Curiosity to Culinary Tools
+            </h2>
+            <p class="text-[var(--text-secondary)] mb-4">
+              PairDish started with a question that every home cook has asked: "What goes well with this?"
+              We found ourselves constantly searching through cookbooks, websites, and asking experienced
+              chefs for advice on flavor combinations.
+            </p>
+            <p class="text-[var(--text-secondary)]">
+              We realized that while professional chefs spend years learning the science of flavor pairing,
+              home cooks deserved accessible tools to unlock the same knowledge. That's when PairDish was born.
+            </p>
+          </div>
+          <div class="bg-[var(--color-cream)] rounded-2xl p-8 text-center">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[var(--color-wine)] to-[var(--color-wine-deep)] flex items-center justify-center mx-auto mb-6 shadow-[var(--shadow-glow-wine)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-[var(--text-primary)] mb-2">40+</h3>
+            <p class="text-[var(--text-secondary)]">Interactive Culinary Tools</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="badge badge-wine mb-4">Our Mission</span>
+        <h2 class="text-display text-3xl font-semibold text-[var(--text-primary)] mb-6">
+          Empowering Home Cooks Everywhere
+        </h2>
+        <p class="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-12">
+          We believe that understanding flavor science shouldn't require a culinary degree.
+          Our mission is to democratize culinary knowledge through intuitive, beautiful tools.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card bg-white text-center">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--color-wine)] to-[var(--color-wine-deep)] flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold mb-2">Accessible</h3>
+            <p class="text-[var(--text-secondary)] text-sm">
+              Free tools available to everyone, no account required
+            </p>
+          </div>
+
+          <div class="card bg-white text-center">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--color-sage)] to-green-700 flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold mb-2">Science-Based</h3>
+            <p class="text-[var(--text-secondary)] text-sm">
+              Built on food science research and culinary traditions
+            </p>
+          </div>
+
+          <div class="card bg-white text-center">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--color-gold)] to-amber-600 flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold mb-2">Made with Love</h3>
+            <p class="text-[var(--text-secondary)] text-sm">
+              Crafted by food lovers, for food lovers
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer Section -->
+  <section class="py-16 bg-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="badge badge-sage mb-4">What We Offer</span>
+          <h2 class="text-display text-3xl font-semibold text-[var(--text-primary)] mb-4">
+            A Complete Culinary Toolkit
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex gap-4 p-6 bg-[var(--color-cream)] rounded-xl">
+            <div class="w-12 h-12 rounded-lg bg-[var(--color-wine)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--text-primary)] mb-1">Flavor Pairing Tools</h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                Discover perfect ingredient combinations based on shared aromatic compounds
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-[var(--color-cream)] rounded-xl">
+            <div class="w-12 h-12 rounded-lg bg-purple-600 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20"/>
+                <path d="M2 12h20"/>
+                <path d="m4.93 4.93 14.14 14.14"/>
+                <path d="m19.07 4.93-14.14 14.14"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--text-primary)] mb-1">Ingredient Substitutions</h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                Find the perfect substitute for any ingredient in your recipes
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-[var(--color-cream)] rounded-xl">
+            <div class="w-12 h-12 rounded-lg bg-[var(--color-sage)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"/>
+                <path d="M3 9h18"/>
+                <path d="M9 21V9"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--text-primary)] mb-1">Recipe & Cooking Calculators</h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                Scale recipes, convert units, and calculate cooking times with precision
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-[var(--color-cream)] rounded-xl">
+            <div class="w-12 h-12 rounded-lg bg-[var(--color-gold)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--text-primary)] mb-1">Party & Event Planning</h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                Calculate food quantities, plan potlucks, and organize gatherings effortlessly
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-[var(--color-charcoal)] text-white">
+    <div class="container text-center">
+      <h2 class="text-display text-3xl font-semibold mb-6">
+        Ready to Elevate Your Cooking?
+      </h2>
+      <p class="text-xl text-[var(--text-light-muted)] max-w-2xl mx-auto mb-8">
+        Explore our collection of free culinary tools and start creating memorable meals today.
+      </p>
+      <a href="/tools" class="btn bg-[var(--color-gold)] text-[var(--color-charcoal)] text-lg px-8 py-4 hover:bg-[var(--color-gold-muted)]">
+        Explore All Tools
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

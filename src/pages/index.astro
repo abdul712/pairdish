@@ -6,11 +6,12 @@
  */
 
 import BaseLayout from '../components/layouts/BaseLayout.astro';
+import AdSense from '../components/AdSense.astro';
 ---
 
 <BaseLayout 
   title="Home"
-  description="Discover the art of perfect food and wine pairings. Interactive tools and calculators to elevate your culinary experience."
+  description="Discover the art of perfect food pairings. Interactive tools and calculators to elevate your culinary experience."
 >
   <!-- Hero Section -->
   <section class="relative py-20 md:py-32 overflow-hidden">
@@ -60,7 +61,10 @@ import BaseLayout from '../components/layouts/BaseLayout.astro';
     <div class="absolute bottom-10 right-10 w-32 h-32 border-2 border-[var(--color-wine)] opacity-10 rounded-full animate-pulse-soft hidden lg:block"></div>
     <div class="absolute top-20 right-40 w-20 h-20 bg-[var(--color-gold)] opacity-10 rounded-full hidden lg:block"></div>
   </section>
-  
+
+  <!-- Ad Unit 1 -->
+  <AdSense slot="0000000001" format="auto" className="my-8" />
+
   <!-- Featured Tools Section -->
   <section class="py-20 bg-white">
     <div class="container">
@@ -100,31 +104,6 @@ import BaseLayout from '../components/layouts/BaseLayout.astro';
         </a>
         
         <!-- Tool Card 2 -->
-        <a href="/tools/wine-pairing" class="group card card-elevated hover:border-[var(--color-wine)] border-2 border-transparent">
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 22h8"/>
-              <path d="M7 10h10"/>
-              <path d="M12 15v7"/>
-              <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl font-semibold text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-wine)] transition-colors">
-            Wine & Food Matcher
-          </h3>
-          <p class="text-[var(--text-secondary)] mb-4">
-            Find the perfect wine for any dish, or discover foods that complement your favorite bottle.
-          </p>
-          <span class="text-sm font-medium text-[var(--color-wine)] flex items-center gap-2 group-hover:gap-3 transition-all">
-            Find Pairings
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"/>
-              <path d="m12 5 7 7-7 7"/>
-            </svg>
-          </span>
-        </a>
-        
-        <!-- Tool Card 3 -->
         <a href="/tools/recipe-scaler" class="group card card-elevated hover:border-[var(--color-wine)] border-2 border-transparent">
           <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--color-sage)] to-green-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -207,7 +186,7 @@ import BaseLayout from '../components/layouts/BaseLayout.astro';
             </svg>
           </div>
           <h3 class="font-display text-xl font-semibold text-[var(--color-wine)] mb-2">
-            View All 40+ Tools
+            View All 35+ Tools
           </h3>
           <p class="text-[var(--text-muted)]">
             Explore our complete collection
@@ -216,7 +195,10 @@ import BaseLayout from '../components/layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
-  
+
+  <!-- Ad Unit 2 -->
+  <AdSense slot="0000000002" format="auto" className="my-8" />
+
   <!-- How It Works Section -->
   <section class="py-20 bg-[var(--color-cream)]">
     <div class="container">
@@ -266,7 +248,10 @@ import BaseLayout from '../components/layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
-  
+
+  <!-- Ad Unit 3 -->
+  <AdSense slot="0000000003" format="auto" className="my-8" />
+
   <!-- CTA Section -->
   <section class="py-20 bg-[var(--color-charcoal)] text-white relative overflow-hidden">
     <!-- Decorative -->

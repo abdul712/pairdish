@@ -1,18 +1,24 @@
 ---
 /**
  * Flavor Pairing Finder Tool Page
- * 
+ *
  * Interactive tool for discovering food flavor pairings.
  */
 
 import BaseLayout from '../../components/layouts/BaseLayout.astro';
 import FlavorPairingFinder from '../../components/tools/FlavorPairingFinder';
+import AdSense from '../../components/AdSense.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Flavor Pairing Finder"
   description="Discover scientifically-backed flavor combinations. Enter any ingredient to explore perfect pairings based on shared aromatic compounds."
   keywords={['flavor pairing', 'food pairing', 'ingredient matcher', 'what goes with', 'cooking combinations', 'recipe ideas']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Flavor Pairing Finder', url: '/tools/flavor-pairing' }
+  ]}
 >
   <!-- Hero Section -->
   <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
@@ -41,14 +47,20 @@ import FlavorPairingFinder from '../../components/tools/FlavorPairingFinder';
       </div>
     </div>
   </section>
-  
+
+  <!-- Ad Unit -->
+  <AdSense slot="0000000004" format="auto" className="my-8" />
+
   <!-- Tool Section -->
   <section class="py-12 md:py-16">
     <div class="container">
       <FlavorPairingFinder client:load />
     </div>
   </section>
-  
+
+  <!-- Ad Unit -->
+  <AdSense slot="0000000005" format="auto" className="my-8" />
+
   <!-- Educational Content for SEO -->
   <section class="py-16 bg-white">
     <div class="container max-w-4xl">
@@ -158,7 +170,10 @@ import FlavorPairingFinder from '../../components/tools/FlavorPairingFinder';
       </article>
     </div>
   </section>
-  
+
+  <!-- Ad Unit -->
+  <AdSense slot="0000000006" format="auto" className="my-8" />
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
@@ -167,13 +182,13 @@ import FlavorPairingFinder from '../../components/tools/FlavorPairingFinder';
       </h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+        <a href="/tools/substitution-finder" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
           <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
-            🍷
+            🔄
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Wine Pairing</h4>
-            <p class="text-sm text-[var(--text-muted)]">Food + wine matches</p>
+            <h4 class="font-medium text-[var(--text-primary)]">Substitution Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Ingredient alternatives</p>
           </div>
         </a>
         

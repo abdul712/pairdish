@@ -5,8 +5,18 @@
  * based on guest count, event type, and duration.
  */
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { cn, pluralize } from '../../lib/utils';
+import {
+    generateShareableUrl,
+    parseSharedData,
+    shareContent,
+    generatePrintableHTML,
+    printContent,
+    downloadAsHTML,
+    copyToClipboard,
+    BRAND,
+} from '../../lib/export-utils';
 
 // Icons as inline SVGs
 const UsersIcon = () => (
@@ -47,7 +57,48 @@ const CheckIcon = () => (
     </svg>
 );
 
+const DownloadIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" x2="12" y1="15" y2="3" />
+    </svg>
+);
+
+const LinkIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+);
+
+const XIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+    </svg>
+);
+
+const MailIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+);
+
 type EventType = 'casual' | 'formal' | 'cocktail' | 'bbq' | 'buffet' | 'dinner';
+
+// Shared data interface for URL-based sharing
+interface SharedPartyData {
+    eventName: string;
+    guestCount: number;
+    childCount: number;
+    eventType: EventType;
+    mealTime: MealTime;
+    duration: number;
+    heavyEaters: number;
+    dietary: DietaryCount;
+}
 type MealTime = 'lunch' | 'dinner' | 'appetizers';
 
 interface FoodCategory {
@@ -137,6 +188,7 @@ const FOOD_CATEGORIES: FoodCategory[] = [
 ];
 
 export default function PartyFoodCalculator() {
+    const [eventName, setEventName] = useState('My Party');
     const [guestCount, setGuestCount] = useState(20);
     const [childCount, setChildCount] = useState(0);
     const [eventType, setEventType] = useState<EventType>('casual');
@@ -148,6 +200,28 @@ export default function PartyFoodCalculator() {
         vegan: 0,
         glutenFree: 0,
     });
+
+    // Share/export state
+    const [showShareModal, setShowShareModal] = useState(false);
+    const [shareUrl, setShareUrl] = useState('');
+    const [linkCopied, setLinkCopied] = useState(false);
+    const [isLoadedFromShare, setIsLoadedFromShare] = useState(false);
+
+    // Load shared data from URL on mount
+    useEffect(() => {
+        const sharedData = parseSharedData<SharedPartyData | null>(null);
+        if (sharedData) {
+            if (sharedData.eventName) setEventName(sharedData.eventName);
+            if (sharedData.guestCount) setGuestCount(sharedData.guestCount);
+            if (sharedData.childCount !== undefined) setChildCount(sharedData.childCount);
+            if (sharedData.eventType) setEventType(sharedData.eventType);
+            if (sharedData.mealTime) setMealTime(sharedData.mealTime);
+            if (sharedData.duration) setDuration(sharedData.duration);
+            if (sharedData.heavyEaters !== undefined) setHeavyEaters(sharedData.heavyEaters);
+            if (sharedData.dietary) setDietary(sharedData.dietary);
+            setIsLoadedFromShare(true);
+        }
+    }, []);
 
     // Get event multiplier
     const eventMultiplier = useMemo(() => {
@@ -223,11 +297,11 @@ export default function PartyFoodCalculator() {
         };
     }, [guestCount, eventMultiplier]);
 
-    // Generate shopping list
+    // Generate shopping list text
     const generateShoppingList = useCallback(() => {
         let list = `PARTY FOOD SHOPPING LIST\n`;
         list += `========================\n\n`;
-        list += `Event: ${EVENT_TYPES.find(e => e.value === eventType)?.label}\n`;
+        list += `Event: ${eventName} (${EVENT_TYPES.find(e => e.value === eventType)?.label})\n`;
         list += `Guests: ${guestCount} (${guestCount - childCount} adults, ${childCount} children)\n`;
         list += `Duration: ${duration} hours\n\n`;
 
@@ -253,38 +327,211 @@ export default function PartyFoodCalculator() {
         }
 
         list += `\nESTIMATED BUDGET: $${budgetEstimate.moderate}\n`;
+        list += `\n---\nCalculated with ${BRAND.name} | ${BRAND.url}`;
 
         return list;
-    }, [foodQuantities, guestCount, childCount, eventType, duration, dietary, budgetEstimate]);
+    }, [foodQuantities, eventName, guestCount, childCount, eventType, duration, dietary, budgetEstimate]);
 
+    // Generate branded HTML for print/download
+    const generatePartyHTML = useCallback(() => {
+        const eventLabel = EVENT_TYPES.find(e => e.value === eventType)?.label || eventType;
+        const mealLabel = mealTime === 'lunch' ? 'Lunch' : mealTime === 'dinner' ? 'Dinner' : 'Appetizers Only';
+
+        let content = `
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-value">${guestCount}</div>
+                    <div class="stat-label">${pluralize('Guest', guestCount)}</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">${duration}h</div>
+                    <div class="stat-label">Duration</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">$${budgetEstimate.moderate}</div>
+                    <div class="stat-label">Est. Budget</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Event Details</h3>
+                <div class="item">
+                    <span class="item-name">Event Type:</span>
+                    <span class="item-detail">${eventLabel}</span>
+                </div>
+                <div class="item">
+                    <span class="item-name">Meal Time:</span>
+                    <span class="item-detail">${mealLabel}</span>
+                </div>
+                ${childCount > 0 ? `
+                <div class="item">
+                    <span class="item-name">Children (under 12):</span>
+                    <span class="item-detail">${childCount}</span>
+                </div>` : ''}
+                ${heavyEaters > 0 ? `
+                <div class="item">
+                    <span class="item-name">Heavy Eaters:</span>
+                    <span class="item-detail">${heavyEaters}</span>
+                </div>` : ''}
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Food Quantities</h3>
+                ${foodQuantities.map(item => `
+                    <div class="item">
+                        <span class="item-name">${item.icon} ${item.name}</span>
+                        <span class="item-detail" style="font-weight: 600; color: ${BRAND.colors.wine};">
+                            ${item.totalPounds
+                                ? `${item.totalPounds} lbs`
+                                : item.totalPieces
+                                    ? `${item.totalPieces} ${item.unit}`
+                                    : `${item.totalOz} oz`}
+                        </span>
+                        <div class="item-detail" style="font-size: 11px; margin-top: 2px;">
+                            ${item.perPerson} per person
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            ${(dietary.vegetarian > 0 || dietary.vegan > 0 || dietary.glutenFree > 0) ? `
+            <div class="section">
+                <h3 class="section-title">Dietary Requirements</h3>
+                ${dietary.vegetarian > 0 ? `
+                <div class="item">
+                    <span class="item-detail">Vegetarian options for ${dietary.vegetarian} ${pluralize('guest', dietary.vegetarian)}</span>
+                </div>` : ''}
+                ${dietary.vegan > 0 ? `
+                <div class="item">
+                    <span class="item-detail">Vegan options for ${dietary.vegan} ${pluralize('guest', dietary.vegan)}</span>
+                </div>` : ''}
+                ${dietary.glutenFree > 0 ? `
+                <div class="item">
+                    <span class="item-detail">Gluten-free options for ${dietary.glutenFree} ${pluralize('guest', dietary.glutenFree)}</span>
+                </div>` : ''}
+            </div>` : ''}
+
+            <div class="section">
+                <h3 class="section-title">Budget Estimates</h3>
+                <div class="item">
+                    <span class="item-name">Budget-Friendly:</span>
+                    <span class="item-detail">$${budgetEstimate.budget}</span>
+                </div>
+                <div class="item">
+                    <span class="item-name">Moderate (Recommended):</span>
+                    <span class="item-detail" style="font-weight: 600; color: ${BRAND.colors.wine};">$${budgetEstimate.moderate}</span>
+                </div>
+                <div class="item">
+                    <span class="item-name">Premium:</span>
+                    <span class="item-detail">$${budgetEstimate.premium}</span>
+                </div>
+            </div>
+        `;
+
+        return generatePrintableHTML({
+            title: eventName,
+            subtitle: `${eventLabel} for ${guestCount} guests | ${duration} hours`,
+            content,
+        });
+    }, [eventName, eventType, mealTime, guestCount, childCount, duration, heavyEaters, dietary, foodQuantities, budgetEstimate]);
+
+    // Print with branded layout
     const handlePrint = useCallback(() => {
-        window.print();
-    }, []);
+        const html = generatePartyHTML();
+        printContent(html);
+    }, [generatePartyHTML]);
 
-    const handleShare = useCallback(async () => {
-        const summary = generateShoppingList();
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: 'Party Food Calculator',
-                    text: summary,
-                });
-            } catch {
-                // User cancelled
-            }
-        } else {
-            await navigator.clipboard.writeText(summary);
-            alert('Shopping list copied to clipboard!');
+    // Download as HTML file
+    const handleDownload = useCallback(() => {
+        const filename = `${eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-party-food-${new Date().toISOString().split('T')[0]}.html`;
+        downloadAsHTML({
+            title: eventName,
+            subtitle: `${EVENT_TYPES.find(e => e.value === eventType)?.label} for ${guestCount} guests`,
+            content: generatePartyHTML().split('<div class="content">')[1]?.split('</div>')[0] || '',
+            filename,
+        });
+    }, [eventName, eventType, guestCount, generatePartyHTML]);
+
+    // Generate shareable URL
+    const handleShare = useCallback(() => {
+        const data: SharedPartyData = {
+            eventName,
+            guestCount,
+            childCount,
+            eventType,
+            mealTime,
+            duration,
+            heavyEaters,
+            dietary,
+        };
+        const url = generateShareableUrl('/tools/party-food-calculator', data);
+        setShareUrl(url);
+        setShowShareModal(true);
+        setLinkCopied(false);
+    }, [eventName, guestCount, childCount, eventType, mealTime, duration, heavyEaters, dietary]);
+
+    // Copy link to clipboard
+    const handleCopyLink = useCallback(async () => {
+        const success = await copyToClipboard(shareUrl);
+        if (success) {
+            setLinkCopied(true);
+            setTimeout(() => setLinkCopied(false), 2000);
         }
+    }, [shareUrl]);
+
+    // Native share API
+    const handleNativeShare = useCallback(async () => {
+        await shareContent({
+            title: `${eventName} - Party Food Calculator`,
+            text: `Check out my party food calculations for ${guestCount} guests!`,
+            url: shareUrl,
+        });
+    }, [eventName, guestCount, shareUrl]);
+
+    // Copy text list to clipboard
+    const handleCopyText = useCallback(async () => {
+        const text = generateShoppingList();
+        await copyToClipboard(text);
     }, [generateShoppingList]);
 
     return (
         <div className="w-full max-w-5xl mx-auto">
+            {/* Shared Content Banner */}
+            {isLoadedFromShare && (
+                <div className="mb-6 p-4 bg-gradient-to-r from-[var(--color-wine-glow)] to-amber-50 rounded-xl border border-[var(--color-wine)]/20">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-[var(--color-wine)] flex items-center justify-center text-white">
+                            <ShareIcon />
+                        </div>
+                        <div>
+                            <h3 className="font-semibold text-[var(--text-primary)]">Shared Party Plan</h3>
+                            <p className="text-sm text-[var(--text-secondary)]">
+                                You're viewing a shared party food calculation. Modify the values below to customize for your needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Input Section */}
             <div className="bg-white rounded-2xl border border-[var(--color-cream-dark)] p-6 shadow-[var(--shadow-soft)] mb-8">
                 <h2 className="font-display text-xl font-semibold text-[var(--text-primary)] mb-6">
                     Event Details
                 </h2>
+
+                {/* Event Name */}
+                <div className="mb-6">
+                    <label className="text-sm font-medium text-[var(--text-secondary)] mb-2 block">
+                        Event Name
+                    </label>
+                    <input
+                        type="text"
+                        value={eventName}
+                        onChange={(e) => setEventName(e.target.value)}
+                        placeholder="e.g., Sarah's Birthday Party"
+                        className="w-full md:w-1/2 px-4 py-2 border border-[var(--color-cream-dark)] rounded-lg focus:border-[var(--color-wine)] focus:outline-none focus:ring-2 focus:ring-[var(--color-wine)]/20"
+                    />
+                </div>
 
                 {/* Guest Count Section */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
@@ -600,22 +847,133 @@ export default function PartyFoodCalculator() {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
+                <button
+                    onClick={handleCopyText}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-white border border-[var(--color-cream-dark)] rounded-lg font-medium text-[var(--text-secondary)] hover:border-[var(--color-wine)] hover:text-[var(--color-wine)] transition-colors"
+                >
+                    <LinkIcon />
+                    Copy List
+                </button>
+                <button
+                    onClick={handleDownload}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-white border border-[var(--color-cream-dark)] rounded-lg font-medium text-[var(--text-secondary)] hover:border-[var(--color-wine)] hover:text-[var(--color-wine)] transition-colors"
+                >
+                    <DownloadIcon />
+                    Download
+                </button>
                 <button
                     onClick={handlePrint}
-                    className="flex items-center gap-2 px-6 py-3 bg-white border border-[var(--color-cream-dark)] rounded-lg font-medium text-[var(--text-secondary)] hover:border-[var(--color-wine)] hover:text-[var(--color-wine)] transition-colors"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-white border border-[var(--color-cream-dark)] rounded-lg font-medium text-[var(--text-secondary)] hover:border-[var(--color-wine)] hover:text-[var(--color-wine)] transition-colors"
                 >
                     <PrinterIcon />
-                    Print List
+                    Print
                 </button>
                 <button
                     onClick={handleShare}
-                    className="flex items-center gap-2 px-6 py-3 bg-[var(--color-wine)] text-white rounded-lg font-medium hover:bg-[var(--color-wine-deep)] transition-colors"
+                    className="flex items-center gap-2 px-6 py-2.5 bg-[var(--color-wine)] text-white rounded-lg font-medium hover:bg-[var(--color-wine-deep)] transition-colors"
                 >
                     <ShareIcon />
-                    Share / Copy
+                    Share
                 </button>
             </div>
+
+            {/* Share Modal */}
+            {showShareModal && (
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 relative animate-in fade-in zoom-in duration-200">
+                        <button
+                            onClick={() => setShowShareModal(false)}
+                            className="absolute top-4 right-4 p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] rounded-full hover:bg-[var(--color-cream)] transition-colors"
+                        >
+                            <XIcon />
+                        </button>
+
+                        <div className="text-center mb-6">
+                            <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[var(--color-wine-glow)] flex items-center justify-center text-[var(--color-wine)]">
+                                <ShareIcon />
+                            </div>
+                            <h3 className="font-display text-xl font-semibold text-[var(--text-primary)]">
+                                Share Party Plan
+                            </h3>
+                            <p className="text-sm text-[var(--text-secondary)] mt-1">
+                                Share your food calculations with others
+                            </p>
+                        </div>
+
+                        {/* Copy Link */}
+                        <div className="mb-4">
+                            <label className="text-sm font-medium text-[var(--text-secondary)] mb-2 block">
+                                Shareable Link
+                            </label>
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    readOnly
+                                    value={shareUrl}
+                                    className="flex-1 px-3 py-2 text-sm bg-[var(--color-cream)] border border-[var(--color-cream-dark)] rounded-lg truncate"
+                                />
+                                <button
+                                    onClick={handleCopyLink}
+                                    className={cn(
+                                        "px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2",
+                                        linkCopied
+                                            ? "bg-green-500 text-white"
+                                            : "bg-[var(--color-wine)] text-white hover:bg-[var(--color-wine-deep)]"
+                                    )}
+                                >
+                                    {linkCopied ? (
+                                        <>
+                                            <CheckIcon />
+                                            Copied!
+                                        </>
+                                    ) : (
+                                        <>
+                                            <LinkIcon />
+                                            Copy
+                                        </>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Share Options */}
+                        <div className="grid grid-cols-2 gap-3 mb-4">
+                            <button
+                                onClick={handleNativeShare}
+                                className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--color-cream)] rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--color-cream-dark)] transition-colors"
+                            >
+                                <ShareIcon />
+                                Share
+                            </button>
+                            <a
+                                href={`mailto:?subject=${encodeURIComponent(`${eventName} - Party Food Plan`)}&body=${encodeURIComponent(`Check out my party food calculations!\n\n${shareUrl}`)}`}
+                                className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--color-cream)] rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--color-cream-dark)] transition-colors"
+                            >
+                                <MailIcon />
+                                Email
+                            </a>
+                        </div>
+
+                        {/* WhatsApp Share */}
+                        <a
+                            href={`https://wa.me/?text=${encodeURIComponent(`${eventName} - Party Food Plan\n\n${shareUrl}`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-green-500 text-white rounded-lg text-sm font-medium hover:bg-green-600 transition-colors"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Share via WhatsApp
+                        </a>
+
+                        <p className="text-xs text-[var(--text-muted)] text-center mt-4">
+                            Recipients can view and customize the calculations for their needs
+                        </p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

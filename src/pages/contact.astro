@@ -1,0 +1,176 @@
+---
+/**
+ * PairDish.com - Contact Us
+ *
+ * Get in touch with the PairDish team.
+ */
+
+import BaseLayout from '../components/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with the PairDish team. We'd love to hear your feedback, suggestions, or answer any questions about our culinary tools."
+>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-cream)] via-[var(--color-parchment)] to-[var(--color-cream-dark)] opacity-50"></div>
+
+    <div class="container relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="badge badge-wine mb-4">Contact Us</span>
+        <h1 class="text-display text-4xl md:text-5xl font-semibold text-[var(--text-primary)] mb-6">
+          We'd Love to <span class="text-accent text-[var(--color-wine)]">Hear From You</span>
+        </h1>
+        <p class="text-xl text-[var(--text-secondary)] leading-relaxed">
+          Have a question, suggestion, or just want to say hello?
+          We're always excited to connect with fellow food enthusiasts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Options Section -->
+  <section class="py-16 bg-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Email Card -->
+          <div class="card card-elevated text-center p-8">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-wine)] to-[var(--color-wine-deep)] flex items-center justify-center mx-auto mb-6 shadow-[var(--shadow-glow-wine)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-[var(--text-primary)] mb-3">
+              Email Us
+            </h3>
+            <p class="text-[var(--text-secondary)] mb-4">
+              For general inquiries, feedback, or support
+            </p>
+            <a href="mailto:hello@pairdish.com" class="text-[var(--color-wine)] font-semibold text-lg hover:underline">
+              hello@pairdish.com
+            </a>
+          </div>
+
+          <!-- Social Card -->
+          <div class="card card-elevated text-center p-8">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-sage)] to-green-700 flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect width="4" height="12" x="2" y="9"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-[var(--text-primary)] mb-3">
+              Follow Us
+            </h3>
+            <p class="text-[var(--text-secondary)] mb-4">
+              Stay updated with new tools and culinary tips
+            </p>
+            <div class="flex justify-center gap-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-[var(--color-cream)] flex items-center justify-center text-[var(--text-secondary)] hover:bg-[var(--color-wine)] hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-[var(--color-cream)] flex items-center justify-center text-[var(--text-secondary)] hover:bg-[var(--color-wine)] hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-[var(--color-cream)] flex items-center justify-center text-[var(--text-secondary)] hover:bg-[var(--color-wine)] hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-[var(--color-cream)] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-semibold text-[var(--text-primary)] mb-6 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div class="space-y-4 max-w-2xl mx-auto">
+            <details class="bg-white rounded-xl p-5 group">
+              <summary class="font-semibold text-[var(--text-primary)] cursor-pointer list-none flex items-center justify-between">
+                Are the tools free to use?
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <p class="mt-3 text-[var(--text-secondary)]">
+                Yes! All of our culinary tools are completely free to use. No account required, no hidden fees.
+              </p>
+            </details>
+
+            <details class="bg-white rounded-xl p-5 group">
+              <summary class="font-semibold text-[var(--text-primary)] cursor-pointer list-none flex items-center justify-between">
+                Can I suggest a new tool?
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <p class="mt-3 text-[var(--text-secondary)]">
+                Absolutely! We love hearing ideas from our users. Send us an email with your suggestion and we'll consider it for future development.
+              </p>
+            </details>
+
+            <details class="bg-white rounded-xl p-5 group">
+              <summary class="font-semibold text-[var(--text-primary)] cursor-pointer list-none flex items-center justify-between">
+                How accurate are the pairing suggestions?
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <p class="mt-3 text-[var(--text-secondary)]">
+                Our pairing suggestions are based on food science research, specifically the analysis of shared aromatic compounds between ingredients. While taste is subjective, these pairings are scientifically supported and widely accepted in culinary practice.
+              </p>
+            </details>
+
+            <details class="bg-white rounded-xl p-5 group">
+              <summary class="font-semibold text-[var(--text-primary)] cursor-pointer list-none flex items-center justify-between">
+                Do you offer an API for developers?
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <p class="mt-3 text-[var(--text-secondary)]">
+                Not currently, but it's something we're considering. If you're interested in API access, please reach out and let us know your use case.
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Response Time Section -->
+  <section class="py-12 bg-[var(--color-wine)] text-white">
+    <div class="container text-center">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+        <div class="flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span>Typical response time: <strong>24-48 hours</strong></span>
+        </div>
+        <div class="w-px h-6 bg-white/30 hidden md:block"></div>
+        <div class="flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span>We read and respond to every message</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

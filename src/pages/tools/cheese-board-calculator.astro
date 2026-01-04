@@ -13,6 +13,11 @@ import CheeseBoardCalculator from '../../components/tools/CheeseBoardCalculator'
   title="Cheese Board Calculator"
   description="Calculate how much cheese and charcuterie to buy for your party. Get quantities, variety recommendations, accompaniment lists, and budget estimates."
   keywords={['cheese board calculator', 'how much cheese per person', 'charcuterie board planner', 'cheese platter quantities', 'party cheese amounts']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Cheese Board Calculator', url: '/tools/cheese-board-calculator' }
+  ]}
 >
   <!-- Hero Section -->
   <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
@@ -187,23 +192,23 @@ import CheeseBoardCalculator from '../../components/tools/CheeseBoardCalculator'
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-        <a href="/tools/wine-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
-          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
-            🍷
+        <a href="/tools/cheese-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-700">
+            🧀
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Wine & Food Pairing</h4>
-            <p class="text-sm text-[var(--text-muted)]">Find the perfect wine</p>
+            <h4 class="font-medium text-[var(--text-primary)]">Cheese Pairing Guide</h4>
+            <p class="text-sm text-[var(--text-muted)]">Perfect accompaniments</p>
           </div>
         </a>
 
-        <a href="/tools/wine-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
-          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-red-700">
-            🍾
+        <a href="/tools/appetizer-planner" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
+            🍢
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Wine Bottle Calculator</h4>
-            <p class="text-sm text-[var(--text-muted)]">How many bottles to buy</p>
+            <h4 class="font-medium text-[var(--text-primary)]">Appetizer Planner</h4>
+            <p class="text-sm text-[var(--text-muted)]">Plan your starters</p>
           </div>
         </a>
 

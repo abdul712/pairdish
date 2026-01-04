@@ -6,12 +6,18 @@
 
 import '../../styles/global.css';
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description: string;
   keywords?: string[];
   ogImage?: string;
   canonical?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
@@ -19,13 +25,14 @@ const {
   description,
   keywords = [
     'food pairing',
-    'wine pairing',
+    'flavor pairing',
     'recipe calculator',
     'cooking tools',
     'kitchen utilities'
   ],
-  ogImage = '/images/og-default.png',
-  canonical
+  ogImage = '/images/og-default.svg',
+  canonical,
+  breadcrumbs
 } = Astro.props;
 
 const siteUrl = import.meta.env.SITE || 'https://pairdish.com';
@@ -76,6 +83,9 @@ const fullTitle = title === 'Home'
     <!-- Preconnect to font server -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7937348697646043" crossorigin="anonymous"></script>
   </head>
 
   <body class="bg-cream texture-paper">
@@ -114,8 +124,8 @@ const fullTitle = title === 'Home'
             <a href="/tools/flavor-pairing" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
               Flavor Pairing
             </a>
-            <a href="/tools/wine-pairing" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
-              Wine Pairing
+            <a href="/tools/recipe-scaler" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
+              Recipe Scaler
             </a>
             <a href="/about" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden lg:block">
               About
@@ -165,8 +175,8 @@ const fullTitle = title === 'Home'
                 </a>
               </li>
               <li>
-                <a href="/tools/wine-pairing" class="text-sm text-light-muted hover:text-cream transition-colors">
-                  Wine & Food Matcher
+                <a href="/tools/substitution-finder" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Substitution Finder
                 </a>
               </li>
               <li>
@@ -214,19 +224,49 @@ const fullTitle = title === 'Home'
       </div>
     </footer>
 
-    <!-- Structured Data -->
+    <!-- Structured Data: WebSite -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "PairDish",
       "url": siteUrl,
-      "description": "Discover the art of perfect food and wine pairings with our suite of interactive culinary tools and calculators.",
+      "description": "Discover the art of perfect food pairings with our suite of 35+ interactive culinary tools and calculators.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": `${siteUrl}/search?q={search_term_string}`,
         "query-input": "required name=search_term_string"
       }
     })} />
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PairDish",
+      "url": siteUrl,
+      "logo": `${siteUrl}/favicon.svg`,
+      "description": "Free culinary tools for discovering perfect flavor pairings, scaling recipes, and planning memorable gatherings.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@pairdish.com",
+        "contactType": "customer service"
+      }
+    })} />
+
+    {/* Structured Data: BreadcrumbList (if breadcrumbs provided) */}
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbs.map((crumb, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": crumb.name,
+          "item": crumb.url.startsWith('http') ? crumb.url : `${siteUrl}${crumb.url}`
+        }))
+      })} />
+    )}
   </body>
 </html>
 

@@ -22,21 +22,9 @@ const toolCategories = [
         status: 'live',
       },
       {
-        name: 'Wine & Food Matcher',
-        slug: 'wine-pairing',
-        description: 'Find the perfect wine for any dish, or foods for your wine.',
-        status: 'live',
-      },
-      {
         name: 'Cheese & Accompaniment Guide',
         slug: 'cheese-pairing',
         description: 'Build the perfect cheese board with matched accompaniments.',
-        status: 'live',
-      },
-      {
-        name: 'Beer & Food Pairing',
-        slug: 'beer-pairing',
-        description: 'Match beer styles with complementary dishes.',
         status: 'live',
       },
       {
@@ -119,12 +107,6 @@ const toolCategories = [
         name: 'Cheese Board Calculator',
         slug: 'cheese-board-calculator',
         description: 'How much cheese and charcuterie for your guests.',
-        status: 'live',
-      },
-      {
-        name: 'Wine Bottle Calculator',
-        slug: 'wine-calculator',
-        description: 'How many bottles for your event.',
         status: 'live',
       },
       {
@@ -238,7 +220,7 @@ const toolCategories = [
       {
         name: 'Chocolate Pairing Guide',
         slug: 'chocolate-pairing',
-        description: 'Pair chocolate types with wines, cheeses, and fruits.',
+        description: 'Pair chocolate types with cheeses, fruits, and desserts.',
         status: 'live',
       },
     ],
@@ -288,12 +270,6 @@ const toolCategories = [
     color: 'wine',
     tools: [
       {
-        name: '"What Wine Are You?" Quiz',
-        slug: 'wine-personality',
-        description: 'Discover your wine personality type with our fun quiz.',
-        status: 'live',
-      },
-      {
         name: '"What\'s Your Cooking Style?" Quiz',
         slug: 'cooking-style-quiz',
         description: 'Find out what kind of home cook you really are.',
@@ -327,10 +303,14 @@ const getColorClasses = (color: string) => {
 };
 ---
 
-<BaseLayout 
+<BaseLayout
   title="All Tools"
-  description="Explore our complete collection of 40+ culinary tools and calculators. From flavor pairing to recipe scaling, party planning to baking utilities."
+  description="Explore our complete collection of 35+ culinary tools and calculators. From flavor pairing to recipe scaling, party planning to baking utilities."
   keywords={['cooking tools', 'recipe calculator', 'food pairing', 'kitchen utilities', 'cooking converter', 'party planner']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'All Tools', url: '/tools' }
+  ]}
 >
   <!-- Hero Section -->
   <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
@@ -350,7 +330,7 @@ const getColorClasses = (color: string) => {
         <!-- Quick Stats -->
         <div class="flex items-center justify-center gap-8 text-sm">
           <div class="text-center">
-            <span class="block text-2xl font-display font-semibold text-[var(--color-wine)]">40+</span>
+            <span class="block text-2xl font-display font-semibold text-[var(--color-wine)]">35+</span>
             <span class="text-[var(--text-muted)]">Total Tools</span>
           </div>
           <div class="w-px h-10 bg-[var(--color-cream-dark)]"></div>

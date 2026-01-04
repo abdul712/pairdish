@@ -4,8 +4,70 @@
  * Interactive step-by-step cheese board builder.
  */
 
-import { useState, useMemo } from 'react';
-import { cn } from '../../lib/utils';
+import { useState, useMemo, useCallback, useEffect } from 'react';
+import { cn, pluralize } from '../../lib/utils';
+import {
+    generateShareableUrl,
+    parseSharedData,
+    shareContent,
+    generatePrintableHTML,
+    printContent,
+    downloadAsHTML,
+    copyToClipboard,
+    BRAND,
+} from '../../lib/export-utils';
+
+// Icons
+const ShareIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+        <polyline points="16 6 12 2 8 6" />
+        <line x1="12" x2="12" y1="2" y2="15" />
+    </svg>
+);
+
+const PrinterIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6 9 6 2 18 2 18 9" />
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+        <rect width="12" height="8" x="6" y="14" />
+    </svg>
+);
+
+const DownloadIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" x2="12" y1="15" y2="3" />
+    </svg>
+);
+
+const LinkIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+);
+
+const XIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+    </svg>
+);
+
+const CheckIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="20 6 9 17 4 12" />
+    </svg>
+);
+
+const MailIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+);
 
 // Types
 interface Cheese {
@@ -109,12 +171,45 @@ const boardStyles = [
   { id: 'abundant', name: 'Abundant Feast', description: 'Generous spread for larger parties', cheesesCount: 6, accompanimentCount: 12 },
 ];
 
+// Shared data interface for URL-based sharing
+interface SharedBoardData {
+    boardName: string;
+    boardStyle: string;
+    guestCount: number;
+    selectedCheeses: string[];
+    selectedAccompaniments: string[];
+}
+
 export default function CheeseBoardBuilder() {
   const [step, setStep] = useState(1);
+  const [boardName, setBoardName] = useState('My Cheese Board');
   const [boardStyle, setBoardStyle] = useState<string>('classic');
   const [selectedCheeses, setSelectedCheeses] = useState<string[]>([]);
   const [selectedAccompaniments, setSelectedAccompaniments] = useState<string[]>([]);
   const [guestCount, setGuestCount] = useState(6);
+
+  // Share/export state
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [shareUrl, setShareUrl] = useState('');
+  const [linkCopied, setLinkCopied] = useState(false);
+  const [isLoadedFromShare, setIsLoadedFromShare] = useState(false);
+
+  // Load shared data from URL on mount
+  useEffect(() => {
+    const sharedData = parseSharedData<SharedBoardData | null>(null);
+    if (sharedData) {
+      if (sharedData.boardName) setBoardName(sharedData.boardName);
+      if (sharedData.boardStyle) setBoardStyle(sharedData.boardStyle);
+      if (sharedData.guestCount) setGuestCount(sharedData.guestCount);
+      if (sharedData.selectedCheeses?.length) setSelectedCheeses(sharedData.selectedCheeses);
+      if (sharedData.selectedAccompaniments?.length) setSelectedAccompaniments(sharedData.selectedAccompaniments);
+      // Jump to final step if board is complete
+      if (sharedData.selectedCheeses?.length && sharedData.selectedAccompaniments?.length) {
+        setStep(4);
+      }
+      setIsLoadedFromShare(true);
+    }
+  }, []);
 
   const currentStyle = boardStyles.find((s) => s.id === boardStyle)!;
 
@@ -146,11 +241,181 @@ export default function CheeseBoardBuilder() {
 
   const handleRestart = () => {
     setStep(1);
+    setBoardName('My Cheese Board');
     setBoardStyle('classic');
     setSelectedCheeses([]);
     setSelectedAccompaniments([]);
     setGuestCount(6);
+    setIsLoadedFromShare(false);
   };
+
+  // Generate branded HTML for print/download
+  const generateBoardHTML = useCallback(() => {
+    const style = boardStyles.find((s) => s.id === boardStyle);
+    const quantities = {
+      cheeseOz: guestCount * 2,
+      meatOz: guestCount * 1,
+      crackers: guestCount * 5,
+      fruitServings: Math.ceil(guestCount * 0.5),
+    };
+
+    let content = `
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value">${guestCount}</div>
+          <div class="stat-label">${pluralize('Guest', guestCount)}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">${quantities.cheeseOz} oz</div>
+          <div class="stat-label">Total Cheese</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">${quantities.meatOz} oz</div>
+          <div class="stat-label">Charcuterie</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 class="section-title">Your Cheeses (${selectedCheeses.length})</h3>
+        ${selectedCheeses.map((id) => {
+          const cheese = cheeses.find((c) => c.id === id);
+          if (!cheese) return '';
+          return `
+            <div class="item">
+              <div class="item-name">${cheese.name}</div>
+              <div class="item-detail">${cheese.flavor}</div>
+              <div class="tags">
+                <span class="tag">${cheese.type}</span>
+                <span class="tag">${cheese.milk} milk</span>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+
+      <div class="section">
+        <h3 class="section-title">Accompaniments (${selectedAccompaniments.length})</h3>
+        ${['fruit', 'meat', 'cracker', 'nut', 'condiment', 'vegetable'].map((category) => {
+          const items = selectedAccompaniments
+            .map((id) => accompaniments.find((a) => a.id === id))
+            .filter((a) => a?.category === category);
+          if (items.length === 0) return '';
+          return `
+            <div style="margin-bottom: 12px;">
+              <strong style="text-transform: capitalize; color: ${BRAND.colors.wine};">${category}s:</strong>
+              <div style="margin-left: 16px;">
+                ${items.map((item) => `<div class="item-detail">${item?.name}${item?.tip ? ` - ${item.tip}` : ''}</div>`).join('')}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+
+      <div class="section">
+        <h3 class="section-title">Shopping List</h3>
+        <div class="item">
+          <span class="item-name">Total Cheese:</span>
+          <span class="item-detail">${quantities.cheeseOz} oz (about ${Math.ceil(quantities.cheeseOz / 16 * 10) / 10} lb)</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Charcuterie:</span>
+          <span class="item-detail">${quantities.meatOz} oz</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Crackers/Bread:</span>
+          <span class="item-detail">${quantities.crackers}+ pieces</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Fresh Fruit:</span>
+          <span class="item-detail">${quantities.fruitServings} cups</span>
+        </div>
+      </div>
+
+      <div class="section" style="background: ${BRAND.colors.cream}; padding: 16px; border-radius: 8px;">
+        <h3 class="section-title" style="border: none; margin-bottom: 8px;">Assembly Tips</h3>
+        <ul style="font-size: 13px; color: #666; padding-left: 20px; margin: 0;">
+          <li>Take cheese out 30-60 minutes before serving</li>
+          <li>Place soft cheeses away from edge to prevent mess</li>
+          <li>Cut a few slices to encourage guests to dig in</li>
+          <li>Add fresh herbs or edible flowers for color</li>
+        </ul>
+      </div>
+    `;
+
+    return generatePrintableHTML({
+      title: boardName,
+      subtitle: `${style?.name || 'Custom'} for ${guestCount} guests`,
+      content,
+    });
+  }, [boardName, boardStyle, guestCount, selectedCheeses, selectedAccompaniments]);
+
+  // Print with branded layout
+  const handlePrint = useCallback(() => {
+    const html = generateBoardHTML();
+    printContent(html);
+  }, [generateBoardHTML]);
+
+  // Download as HTML file
+  const handleDownload = useCallback(() => {
+    const filename = `${boardName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-cheese-board-${new Date().toISOString().split('T')[0]}.html`;
+    downloadAsHTML({
+      title: boardName,
+      subtitle: `${currentStyle.name} for ${guestCount} guests`,
+      content: generateBoardHTML().split('<div class="content">')[1]?.split('</div>')[0] || '',
+      filename,
+    });
+  }, [boardName, currentStyle, guestCount, generateBoardHTML]);
+
+  // Generate shareable URL
+  const handleShare = useCallback(() => {
+    const data: SharedBoardData = {
+      boardName,
+      boardStyle,
+      guestCount,
+      selectedCheeses,
+      selectedAccompaniments,
+    };
+    const url = generateShareableUrl('/tools/cheese-board-builder', data);
+    setShareUrl(url);
+    setShowShareModal(true);
+    setLinkCopied(false);
+  }, [boardName, boardStyle, guestCount, selectedCheeses, selectedAccompaniments]);
+
+  // Copy link to clipboard
+  const handleCopyLink = useCallback(async () => {
+    const success = await copyToClipboard(shareUrl);
+    if (success) {
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    }
+  }, [shareUrl]);
+
+  // Native share API
+  const handleNativeShare = useCallback(async () => {
+    await shareContent({
+      title: `${boardName} - Cheese Board`,
+      text: `Check out my cheese board for ${guestCount} guests!`,
+      url: shareUrl,
+    });
+  }, [boardName, guestCount, shareUrl]);
+
+  // Copy text summary to clipboard
+  const handleCopyText = useCallback(async () => {
+    let text = `${boardName}\n${'='.repeat(boardName.length)}\n\n`;
+    text += `${currentStyle.name} for ${guestCount} guests\n\n`;
+    text += `CHEESES:\n`;
+    selectedCheeses.forEach((id) => {
+      const cheese = cheeses.find((c) => c.id === id);
+      if (cheese) text += `- ${cheese.name} (${cheese.type})\n`;
+    });
+    text += `\nACCOMPANIMENTS:\n`;
+    selectedAccompaniments.forEach((id) => {
+      const acc = accompaniments.find((a) => a.id === id);
+      if (acc) text += `- ${acc.name}\n`;
+    });
+    text += `\n---\nCreated with ${BRAND.name} | ${BRAND.url}`;
+    await copyToClipboard(text);
+  }, [boardName, currentStyle, guestCount, selectedCheeses, selectedAccompaniments]);
 
   const getTypeColor = (type: string) => {
     const colors: Record<string, string> = {
@@ -189,6 +454,23 @@ export default function CheeseBoardBuilder() {
 
   return (
     <div className="max-w-4xl mx-auto">
+      {/* Shared Content Banner */}
+      {isLoadedFromShare && (
+        <div className="mb-6 p-4 bg-gradient-to-r from-[var(--color-wine-glow)] to-amber-50 rounded-xl border border-[var(--color-wine)]/20">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[var(--color-wine)] flex items-center justify-center text-white text-xl">
+              🧀
+            </div>
+            <div>
+              <h3 className="font-semibold text-[var(--text-primary)]">Shared Cheese Board</h3>
+              <p className="text-sm text-[var(--text-secondary)]">
+                You're viewing a shared cheese board. Modify or build your own!
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Progress Steps */}
       <div className="mb-8">
         <div className="flex items-center justify-between max-w-md mx-auto">
@@ -233,6 +515,20 @@ export default function CheeseBoardBuilder() {
             Choose Your Board Style
           </h2>
           <p className="text-[var(--text-muted)] mb-6">How grand should your cheese board be?</p>
+
+          {/* Board Name */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
+              Name Your Board
+            </label>
+            <input
+              type="text"
+              value={boardName}
+              onChange={(e) => setBoardName(e.target.value)}
+              placeholder="e.g., Holiday Party Board"
+              className="w-full md:w-1/2 px-4 py-2 border border-[var(--color-cream-dark)] rounded-lg focus:border-[var(--color-wine)] focus:outline-none focus:ring-2 focus:ring-[var(--color-wine)]/20"
+            />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {boardStyles.map((style) => (
@@ -452,7 +748,7 @@ export default function CheeseBoardBuilder() {
           <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-6">
             <div className="bg-[var(--color-wine)] text-white p-6 text-center">
               <span className="text-4xl mb-2 block">🧀</span>
-              <h2 className="font-display text-2xl font-semibold">Your Perfect Cheese Board</h2>
+              <h2 className="font-display text-2xl font-semibold">{boardName}</h2>
               <p className="text-white/80">{currentStyle.name} for {guestCount} guests</p>
             </div>
 
@@ -526,37 +822,141 @@ export default function CheeseBoardBuilder() {
           </div>
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-wrap justify-center gap-3 mb-4">
             <button
-              onClick={() => {
-                const boardDetails = `My Cheese Board for ${guestCount} guests:\n\nCheeses:\n${selectedCheeses.map((id) => '- ' + cheeses.find((c) => c.id === id)?.name).join('\n')}\n\nAccompaniments:\n${selectedAccompaniments.map((id) => '- ' + accompaniments.find((a) => a.id === id)?.name).join('\n')}`;
-
-                if (navigator.share) {
-                  navigator.share({
-                    title: 'My Perfect Cheese Board',
-                    text: boardDetails,
-                    url: window.location.href,
-                  });
-                } else {
-                  navigator.clipboard.writeText(boardDetails);
-                  alert('Board details copied to clipboard!');
-                }
-              }}
-              className="flex-1 py-3 rounded-lg font-medium bg-[var(--color-cream)] text-[var(--text-primary)] hover:bg-[var(--color-cream-dark)] transition-colors flex items-center justify-center gap-2"
+              onClick={handleCopyText}
+              className="flex items-center gap-2 px-5 py-2.5 bg-white border border-[var(--color-cream-dark)] rounded-lg font-medium text-[var(--text-secondary)] hover:border-[var(--color-wine)] hover:text-[var(--color-wine)] transition-colors"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                <polyline points="16 6 12 2 8 6"/>
-                <line x1="12" x2="12" y1="2" y2="15"/>
-              </svg>
-              Share Board
+              <LinkIcon />
+              Copy List
             </button>
             <button
+              onClick={handleDownload}
+              className="flex items-center gap-2 px-5 py-2.5 bg-white border border-[var(--color-cream-dark)] rounded-lg font-medium text-[var(--text-secondary)] hover:border-[var(--color-wine)] hover:text-[var(--color-wine)] transition-colors"
+            >
+              <DownloadIcon />
+              Download
+            </button>
+            <button
+              onClick={handlePrint}
+              className="flex items-center gap-2 px-5 py-2.5 bg-white border border-[var(--color-cream-dark)] rounded-lg font-medium text-[var(--text-secondary)] hover:border-[var(--color-wine)] hover:text-[var(--color-wine)] transition-colors"
+            >
+              <PrinterIcon />
+              Print
+            </button>
+            <button
+              onClick={handleShare}
+              className="flex items-center gap-2 px-6 py-2.5 bg-[var(--color-wine)] text-white rounded-lg font-medium hover:bg-[var(--color-wine-deep)] transition-colors"
+            >
+              <ShareIcon />
+              Share
+            </button>
+          </div>
+
+          <div className="flex justify-center">
+            <button
               onClick={handleRestart}
-              className="flex-1 py-3 rounded-lg font-medium bg-[var(--color-wine)] text-white hover:bg-[var(--color-wine-deep)] transition-colors"
+              className="px-6 py-3 rounded-lg font-medium bg-[var(--color-cream)] text-[var(--text-primary)] hover:bg-[var(--color-cream-dark)] transition-colors"
             >
               Build Another Board
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Share Modal */}
+      {showShareModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 relative animate-in fade-in zoom-in duration-200">
+            <button
+              onClick={() => setShowShareModal(false)}
+              className="absolute top-4 right-4 p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] rounded-full hover:bg-[var(--color-cream)] transition-colors"
+            >
+              <XIcon />
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[var(--color-wine-glow)] flex items-center justify-center text-2xl">
+                🧀
+              </div>
+              <h3 className="font-display text-xl font-semibold text-[var(--text-primary)]">
+                Share Cheese Board
+              </h3>
+              <p className="text-sm text-[var(--text-secondary)] mt-1">
+                Share your perfect cheese board with friends
+              </p>
+            </div>
+
+            {/* Copy Link */}
+            <div className="mb-4">
+              <label className="text-sm font-medium text-[var(--text-secondary)] mb-2 block">
+                Shareable Link
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  readOnly
+                  value={shareUrl}
+                  className="flex-1 px-3 py-2 text-sm bg-[var(--color-cream)] border border-[var(--color-cream-dark)] rounded-lg truncate"
+                />
+                <button
+                  onClick={handleCopyLink}
+                  className={cn(
+                    "px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2",
+                    linkCopied
+                      ? "bg-green-500 text-white"
+                      : "bg-[var(--color-wine)] text-white hover:bg-[var(--color-wine-deep)]"
+                  )}
+                >
+                  {linkCopied ? (
+                    <>
+                      <CheckIcon />
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <LinkIcon />
+                      Copy
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* Share Options */}
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <button
+                onClick={handleNativeShare}
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--color-cream)] rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--color-cream-dark)] transition-colors"
+              >
+                <ShareIcon />
+                Share
+              </button>
+              <a
+                href={`mailto:?subject=${encodeURIComponent(`${boardName} - Cheese Board`)}&body=${encodeURIComponent(`Check out my cheese board!\n\n${shareUrl}`)}`}
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--color-cream)] rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--color-cream-dark)] transition-colors"
+              >
+                <MailIcon />
+                Email
+              </a>
+            </div>
+
+            {/* WhatsApp Share */}
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(`${boardName} - Cheese Board\n\n${shareUrl}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-green-500 text-white rounded-lg text-sm font-medium hover:bg-green-600 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Share via WhatsApp
+            </a>
+
+            <p className="text-xs text-[var(--text-muted)] text-center mt-4">
+              Recipients can view and customize the board for their needs
+            </p>
           </div>
         </div>
       )}

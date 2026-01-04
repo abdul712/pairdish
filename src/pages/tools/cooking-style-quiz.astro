@@ -13,6 +13,11 @@ import CookingStyleQuiz from '../../components/tools/CookingStyleQuiz';
   title="What's Your Cooking Style? | Cooking Personality Quiz"
   description="Discover your unique cooking personality! Take our fun quiz to find out if you're an Adventurous Chef, Comfort Cook, Wellness Warrior, or one of our other cooking styles."
   keywords={['cooking style quiz', 'cooking personality', 'what kind of cook am I', 'home chef quiz', 'cooking quiz', 'kitchen personality test']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Cooking Style Quiz', url: '/tools/cooking-style-quiz' }
+  ]}
 >
   <!-- Hero Section -->
   <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
@@ -179,13 +184,13 @@ import CookingStyleQuiz from '../../components/tools/CookingStyleQuiz';
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-        <a href="/tools/wine-personality" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+        <a href="/tools/recipe-generator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
           <div class="w-12 h-12 rounded-lg bg-[var(--color-wine-glow)] flex items-center justify-center text-2xl">
-            🍷
+            🎲
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Wine Personality Quiz</h4>
-            <p class="text-sm text-[var(--text-muted)]">What wine are you?</p>
+            <h4 class="font-medium text-[var(--text-primary)]">What Should I Cook?</h4>
+            <p class="text-sm text-[var(--text-muted)]">Get dinner inspiration</p>
           </div>
         </a>
 
