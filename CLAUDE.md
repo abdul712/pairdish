@@ -4,87 +4,140 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-PairDish is a serverless web application for food pairing suggestions, built on Cloudflare Workers. It consists of:
-- **Backend API**: Hono framework on Cloudflare Workers with D1 database
-- **Frontend**: Vanilla JavaScript with server-side HTML rendering
-- **Static Assets**: Served via Cloudflare's ASSETS binding
+PairDish is a modern full-stack web application for food pairing suggestions. The project uses a client-server architecture with:
+- **Frontend**: React 19 + TypeScript + Vite + Tailwind CSS (in `/client` directory)
+- **Backend**: Node.js + TypeScript + Express (in `/server` directory)  
+- **Database**: SQLite with type-safe models (in `/database` directory)
+- **Shared Types**: Common TypeScript interfaces (in `/shared` directory)
+- **Containerized**: Docker setup with nginx reverse proxy
 
 ## Essential Commands
 
-### Development
+### Client Development (React Frontend)
 ```bash
-npm install        # Install dependencies
-npm run dev        # Start local development server (runs wrangler dev)
+cd client
+npm install                    # Install client dependencies
+npm run dev                   # Start Vite dev server (usually localhost:5174)
+npm run build                 # Build for production
+npm run preview               # Preview production build
+npm run lint                  # ESLint + Prettier
+npm run type-check            # TypeScript checking
 ```
 
-### Building & Deployment
+### Server Development (Node.js Backend)
 ```bash
-npm run build      # Type-check only (no actual build needed for Workers)
-npm run deploy     # Deploy to Cloudflare Workers (auto-deploy enabled via GitHub)
+cd server
+npm install                   # Install server dependencies  
+npm start                     # Start production server
+npm run dev                   # Start development server with hot reload
+npm run build                 # Compile TypeScript to JavaScript
+npm run test                  # Run server tests
 ```
 
-### Testing & Quality
+### Full Stack Development
 ```bash
-npm run test       # Run tests with Vitest
-npm run test:ui    # Run tests with UI
-npm run lint       # ESLint on src/**/*.ts
-npm run type-check # TypeScript type checking
-npm run check-all  # Run type-check, lint, and tests
+# Run both client and server concurrently
+docker-compose up             # Start full stack with Docker
 ```
 
-### Type Generation
-```bash
-npm run cf-typegen # Generate TypeScript types from Worker configuration
-```
+## Current Architecture
 
-## Architecture
+### Frontend Structure (`/client`)
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite for fast development and building  
+- **Styling**: Tailwind CSS with custom food-themed design system
+- **UI Components**: shadcn/ui component library
+- **Routing**: React Router for SPA navigation
+- **State Management**: React hooks (useState, useEffect)
+- **API Integration**: Custom `apiService` for backend communication
 
-### Backend Structure (`/src`)
-- **`index.ts`**: Main API entry point with all route definitions
-- **Database**: Cloudflare D1 (SQLite) with tables for `dishes`, `pairings`, `recipes`, and `popular_dishes`
-- **Caching**: Cloudflare KV namespace for API response caching
-- **Security**: Input sanitization, CORS, API key middleware for admin routes
+### Key Frontend Files
+- `src/pages/HomePage.tsx` - Main landing page with enhanced food visuals
+- `src/services/api.ts` - API service for backend communication
+- `src/services/imageService.ts` - Food image service with multiple API sources
+- `src/components/ui/` - Reusable UI components (shadcn/ui)
+- `src/index.css` - Custom CSS with food-themed gradients and animations
 
-### Frontend (`/public`)
-- **`index.html`**: Single-page vanilla JavaScript application
-- **API Integration**: Direct fetch calls to backend endpoints
-- **Styling**: Tailwind CSS with custom design system
+### Backend Structure (`/server`)
+- **Framework**: Express.js with TypeScript
+- **Database**: SQLite with custom models
+- **Controllers**: Separation of business logic
+- **Middleware**: CORS, validation, error handling
+- **Routes**: RESTful API design
 
-### Key API Endpoints
-- `GET /api/dishes?limit=N` - List dishes (returns `{success: true, dishes: [...]}`)
-- `GET /api/dishes/:id` - Get dish details
-- `GET /api/dishes/:id/pairings` - Get pairing suggestions
-- `GET /api/recipes/featured` - Get 3 featured recipes
-- `GET /search?q=query` - Search dishes (min 2 chars)
+### Key Backend Files
+- `src/index.ts` - Main server entry point
+- `src/controllers/` - Request handlers for dishes, pairings, search
+- `src/models/` - Database models (MainDish, SideDish, DishPairing)
+- `src/routes/` - API route definitions
+- `src/data/mockData.ts` - Sample data for development
 
 ### Database Schema
-- **dishes**: Main dish information with slug-based URLs
-- **pairings**: Many-to-many relationships with match scores
-- **recipes**: Detailed recipe data linked to dishes
-- **popular_dishes**: View tracking for popularity sorting
+- **main_dishes**: Primary dishes with cuisine, description, images
+- **side_dishes**: Side dish options with pairing compatibility  
+- **dish_pairings**: Many-to-many relationships with match scores
+- **popular_dishes**: View tracking for trending content
 
-### Deployment Configuration
-- **Worker Name**: `pairdish`
-- **Database**: D1 binding as `DB`
-- **Cache**: KV namespace binding as `CACHE`
-- **Assets**: Static files from `/public` directory
-- **Auto-deploy**: Enabled via GitHub integration
+### API Endpoints
+- `GET /api/dishes` - List main dishes with pagination
+- `GET /api/dishes/:id` - Get specific dish details
+- `GET /api/dishes/:id/pairings` - Get pairing suggestions for dish
+- `GET /api/search?q=query` - Search dishes by name/description
+- `GET /api/cuisines/:type` - Filter by cuisine type
 
-## Important Implementation Details
+## Visual Design System
 
-1. **API Response Format**: The `/api/dishes` endpoint returns data wrapped in `{success: true, dishes: [...]}`, not just the array.
+### Color Palette (Food-Focused)
+- **Primary**: Warm orange/red (#ff6b35) for appetite appeal
+- **Secondary**: Warm cream (#fef7ed) for elegant backgrounds  
+- **Accent**: Peach gradients for highlights
+- **Typography**: Inter for body text, Playfair Display for headings
 
-2. **URL Structure**: Dish detail pages use the pattern `/what-to-serve-with-{dish-slug}`
+### Image Strategy
+- **External APIs**: Unsplash, Foodish API for high-quality food photos
+- **Fallbacks**: Custom SVG placeholders with food gradients
+- **Lazy Loading**: Images load progressively for better performance
+- **Responsive**: Multiple sizes for different screen densities
 
-3. **Frontend Loading**: The homepage loads Popular Dishes and Featured Recipes via JavaScript after page load, showing "Loading..." initially.
+### UI Components
+- **Cards**: Enhanced hover effects with shadows and transforms
+- **Buttons**: Gradient backgrounds with smooth transitions
+- **Search**: Glassmorphism effects with backdrop blur
+- **Navigation**: Clean, minimal design focused on usability
 
-4. **Recipe Generation**: The `/api/recipes/featured` endpoint transforms dish data into recipe format on the fly (no separate recipe entries in DB currently).
+## Development Workflow
 
-5. **Search Requirements**: Search queries require minimum 2 characters, returning 400 error for shorter queries.
+1. **Frontend Changes**: Edit files in `/client/src`, Vite hot reloads automatically
+2. **Backend Changes**: Edit files in `/server/src`, restart server or use nodemon
+3. **Styling**: Tailwind classes in components, custom CSS in `index.css`
+4. **Images**: Use `ImageService.getFoodImage()` for consistent image loading
+5. **Testing**: Use Playwright for visual regression testing
 
-6. **Static Export**: The project uses vanilla JavaScript instead of a framework to avoid build complexities with Cloudflare Workers.
+## Deployment & Production
 
-## Known Issues
-- Featured Recipes page routing (`/recipe/featured`) returns 404
-- Initial content loading shows delay (3-5 seconds)
-- Search results return raw JSON instead of formatted UI
+- **Frontend**: Vite builds to `/client/dist` for static hosting
+- **Backend**: TypeScript compiles to `/server/dist` for Node.js
+- **Docker**: Full containerization with nginx reverse proxy
+- **Environment**: Separate configs for development/production
+
+## Known Issues & Improvements
+
+### Current Limitations
+- External image APIs may have CORS issues in development
+- Server build fails due to TypeScript path resolution issues
+- Mobile responsiveness needs testing across more devices
+
+### Recent Improvements  
+- ✅ Enhanced visual design with food-focused color palette
+- ✅ Added high-quality food images from multiple API sources
+- ✅ Improved typography with Google Fonts (Inter + Playfair Display)
+- ✅ Added hover animations and smooth transitions
+- ✅ Implemented glassmorphism effects in hero section
+- ✅ Created custom SVG placeholders for better fallbacks
+
+## Performance Considerations
+
+- **Image Optimization**: WebP format where possible, lazy loading
+- **Bundle Splitting**: Vite automatically splits vendor chunks
+- **Caching**: Service worker for offline functionality (future)
+- **CDN**: External assets served from fast CDNs

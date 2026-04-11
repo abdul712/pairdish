@@ -1,0 +1,32 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF7ED;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFEDD5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FED7AA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg-gradient)"/>
+  
+  <!-- Food elements -->
+  <!-- Plate -->
+  <circle cx="300" cy="200" r="80" fill="#F97316" opacity="0.1"/>
+  <circle cx="300" cy="200" r="70" fill="none" stroke="#F97316" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Fork -->
+  <path d="M250 150 L250 130 M255 150 L255 130 M260 150 L260 130 M250 130 L260 130" 
+        stroke="#EA580C" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Spoon -->
+  <path d="M340 150 C340 140 345 135 350 135 C355 135 360 140 360 150 L360 180" 
+        stroke="#EA580C" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Abstract food elements -->
+  <circle cx="900" cy="400" r="60" fill="#F97316" opacity="0.08"/>
+  <circle cx="950" cy="350" r="40" fill="#EA580C" opacity="0.08"/>
+  <circle cx="850" cy="450" r="30" fill="#DC2626" opacity="0.08"/>
+  
+  <!-- Decorative elements -->
+  <path d="M100 500 Q200 480 300 500 T500 500" stroke="#F97316" stroke-width="2" fill="none" opacity="0.2"/>
+  <path d="M700 100 Q800 80 900 100 T1100 100" stroke="#EA580C" stroke-width="2" fill="none" opacity="0.2"/>
+</svg>

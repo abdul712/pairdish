@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://pairdish.com/sitemap.xml
+
+# Disallow search result pagination to avoid duplicate content
+Disallow: /search?*page=
+
+# Allow important pages
+Allow: /what-to-serve-with-*
+Allow: /search
+Allow: /

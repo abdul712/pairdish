@@ -1,0 +1,23 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" rx="12" fill="#FFF7ED"/>
+  
+  <!-- Plate -->
+  <circle cx="150" cy="100" r="70" fill="#FFEDD5" stroke="#F97316" stroke-width="2"/>
+  <circle cx="150" cy="100" r="60" fill="none" stroke="#F97316" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Food -->
+  <ellipse cx="150" cy="95" rx="45" ry="25" fill="#EA580C" opacity="0.6"/>
+  <ellipse cx="140" cy="85" rx="20" ry="15" fill="#DC2626" opacity="0.4"/>
+  <ellipse cx="160" cy="90" rx="15" ry="10" fill="#B91C1C" opacity="0.4"/>
+  <ellipse cx="155" cy="105" rx="25" ry="12" fill="#DC2626" opacity="0.3"/>
+  
+  <!-- Garnish -->
+  <circle cx="135" cy="80" r="3" fill="#16A34A" opacity="0.8"/>
+  <circle cx="165" cy="85" r="2" fill="#16A34A" opacity="0.8"/>
+  <circle cx="150" cy="115" r="2" fill="#16A34A" opacity="0.8"/>
+  
+  <!-- Steam lines -->
+  <path d="M130 60 Q132 55 130 50 Q128 45 130 40" stroke="#F97316" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M150 55 Q152 50 150 45 Q148 40 150 35" stroke="#EA580C" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M170 60 Q172 55 170 50 Q168 45 170 40" stroke="#F97316" stroke-width="1.5" fill="none" opacity="0.4"/>
+</svg>

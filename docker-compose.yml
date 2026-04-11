@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: pairdish-postgres
+    environment:
+      POSTGRES_DB: pairdish
+      POSTGRES_USER: pairdish_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-secure_password_here}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - pairdish-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pairdish_user -d pairdish"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PairDish Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pairdish-app
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: pairdish
+      DB_USER: pairdish_user
+      DB_PASSWORD: ${DB_PASSWORD:-secure_password_here}
+      JWT_SECRET: ${JWT_SECRET:-your_super_secure_jwt_secret_key_here}
+      CLIENT_URL: ${CLIENT_URL:-http://localhost}
+    ports:
+      - "3001:3001"
+    networks:
+      - pairdish-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/api/health', (res) => process.exit(res.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Nginx (Optional - for production with custom domain)
+  nginx:
+    image: nginx:alpine
+    container_name: pairdish-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    networks:
+      - pairdish-network
+    depends_on:
+      - app
+    restart: unless-stopped
+    profiles:
+      - production
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  pairdish-network:
+    driver: bridge

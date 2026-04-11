@@ -1,190 +1,223 @@
-# PairDish React Migration
+# PairDish - Food Pairing Platform
 
-A modern React application built with Vite, shadcn/ui, and deployed on Cloudflare Workers.
+A modern web application for discovering perfect food pairings and side dish suggestions. Find the ideal side dishes for over 5,000 main dishes with expert-curated pairing recommendations.
 
 ## 🚀 Tech Stack
 
-- **React 19** - Modern UI library with latest features
-- **Vite** - Lightning-fast build tooling and development server
-- **TypeScript** - Type-safe development
-- **shadcn/ui** - Beautiful, accessible UI components
-- **Tailwind CSS v4** - Utility-first CSS framework
-- **Hono** - Ultralight, modern backend framework
-- **Cloudflare Workers** - Edge computing platform for global deployment
+### Frontend
+- **React 19** with **TypeScript**
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **shadcn/ui** component library
+- **React Router** for navigation
+- **React Helmet Async** for SEO meta tags
 
-## ✨ Features
+### Backend  
+- **Node.js** with **Express.js**
+- **TypeScript** for type safety
+- **PostgreSQL** database
+- **Helmet** for security headers
+- **Morgan** for logging
+- **CORS** middleware
 
-- 🔥 Hot Module Replacement (HMR) for rapid development
-- 📦 TypeScript support out of the box
-- 🛠️ ESLint configuration included
-- ⚡ Zero-config deployment to Cloudflare's global network
-- 🎯 API routes with Hono's elegant routing
-- 🌙 Dark/Light mode support with system preference detection
-- 🎨 Beautiful UI components with shadcn/ui
-- 📱 Responsive design
-- 🔄 Full-stack development setup
+### Infrastructure
+- **Docker** & **Docker Compose** for containerization
+- **Nginx** for production reverse proxy
+- **PostgreSQL 15** database
+- Ready for **Coolify** deployment
 
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```
-pairdish-react-migration/
-├── public/                 # Static assets
-├── src/
-│   ├── react-app/         # React application
-│   │   ├── components/    # React components
-│   │   │   └── ui/       # shadcn/ui components
-│   │   ├── lib/          # Utility functions
-│   │   ├── App.tsx       # Main React component
-│   │   ├── main.tsx      # React entry point
-│   │   └── index.css     # Global styles with Tailwind
-│   └── worker/           # Cloudflare Worker
-│       └── index.ts      # Worker entry point with Hono
-├── components.json       # shadcn/ui configuration
-├── package.json          # Dependencies and scripts
-├── tsconfig.json         # TypeScript configuration
-├── vite.config.ts        # Vite configuration
-└── wrangler.toml         # Cloudflare Workers configuration
+├── client/                 # React frontend application
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   ├── pages/         # Page components (Home, Search, Dish Detail)
+│   │   ├── services/      # API service layer
+│   │   └── types/         # TypeScript type definitions
+│   ├── public/            # Static assets
+│   └── package.json       # Frontend dependencies
+├── server/                # Express.js backend API
+│   ├── src/
+│   │   ├── controllers/   # API controllers
+│   │   ├── models/        # Database models
+│   │   ├── routes/        # API route definitions
+│   │   ├── middleware/    # Express middleware
+│   │   └── utils/         # Utility functions (sitemap, etc.)
+│   └── package.json       # Backend dependencies
+├── shared/                # Shared TypeScript types
+├── database/              # Database schema and migrations
+├── nginx/                 # Nginx configuration
+├── docker-compose.yml     # Docker services configuration
+├── Dockerfile             # Multi-stage build configuration
+└── .env.example           # Environment variables template
 ```
 
-## 🚀 Getting Started
+## 🛠️ Development Setup
 
 ### Prerequisites
-
 - Node.js 18+ 
-- npm or yarn
-- Cloudflare account (for deployment)
+- PostgreSQL 15+
+- Docker & Docker Compose (optional)
 
-### Installation
+### Local Development
 
-1. **Install dependencies:**
+1. **Clone the repository**
    ```bash
-   npm install
+   git clone <repository-url>
+   cd pair-dish
    ```
 
-2. **Start the development server:**
+2. **Set up environment variables**
    ```bash
-   npm run dev
+   cp .env.example .env
+   cp client/.env.example client/.env
+   # Edit .env files with your configuration
    ```
 
-   Your application will be available at [http://localhost:5173](http://localhost:5173/).
-
-### Development
-
-- **Development server:** `npm run dev`
-- **Type checking:** `npm run check`
-- **Linting:** `npm run lint`
-- **Generate Cloudflare types:** `npm run cf-typegen`
-
-### Production
-
-1. **Build for production:**
+3. **Install dependencies**
    ```bash
-   npm run build
+   # Install server dependencies
+   cd server && npm install
+   
+   # Install client dependencies  
+   cd ../client && npm install
    ```
 
-2. **Preview production build:**
+4. **Set up the database**
    ```bash
-   npm run preview
+   # Create PostgreSQL database
+   createdb pairdish
+   
+   # Import schema
+   psql -d pairdish -f database/schema.sql
    ```
 
-3. **Deploy to Cloudflare Workers:**
+5. **Start development servers**
    ```bash
-   npm run deploy
+   # Terminal 1 - Start backend (from server directory)
+   cd server && npm run dev
+   
+   # Terminal 2 - Start frontend (from client directory)
+   cd client && npm run dev
    ```
 
-## 🎨 Adding Components
+6. **Access the application**
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:3001
 
-This project uses shadcn/ui for components. To add new components:
+### Docker Development
 
 ```bash
-npx shadcn@latest add button
-npx shadcn@latest add card
-npx shadcn@latest add dialog
+# Start all services with Docker Compose
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
 ```
 
-## 🔧 Configuration
+## 🚀 Production Deployment
+
+### Docker Production Build
+
+```bash
+# Build and start production services
+docker-compose -f docker-compose.yml up -d
+
+# With Nginx (recommended)
+docker-compose --profile production up -d
+```
 
 ### Environment Variables
 
-Create a `.dev.vars` file for local development:
-
+**Server (.env)**
 ```bash
-# Example environment variables
-API_URL=https://api.example.com
-DATABASE_URL=your_database_url
+DB_HOST=postgres
+DB_PORT=5432
+DB_NAME=pairdish
+DB_USER=pairdish_user
+DB_PASSWORD=secure_password_here
+JWT_SECRET=your_super_secure_jwt_secret
+CLIENT_URL=https://yourdomain.com
+NODE_ENV=production
 ```
 
-### Cloudflare Bindings
-
-Add your Cloudflare bindings in `wrangler.toml`:
-
-```toml
-# Example bindings
-[[kv_namespaces]]
-binding = "MY_KV"
-id = "your_kv_namespace_id"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "your_database_name"
-database_id = "your_database_id"
+**Client (.env)**
+```bash
+VITE_API_URL=https://api.yourdomain.com
 ```
 
-## 📁 API Routes
+## 📊 Database Schema
 
-The Hono backend provides several API endpoints:
+The application uses PostgreSQL with the following main tables:
 
-- `GET /api/hello` - Health check endpoint
-- `GET /api/health` - Service health status
-- `GET /api/dishes` - Example dishes data
+- **main_dishes** - Primary dish information with SEO-friendly slugs
+- **side_dishes** - Side dish information and descriptions  
+- **dish_pairings** - Many-to-many relationships with match scores
+- **popular_dishes** - View tracking for popularity metrics
 
-## 🌙 Dark Mode
+See `database/schema.sql` for complete schema definition.
 
-The application includes a built-in theme system with:
+## 🔍 SEO Features
 
-- Light mode
-- Dark mode  
-- System preference detection
-- Persistent theme selection
+- Dynamic meta tags with React Helmet
+- Structured data (JSON-LD) for rich snippets
+- Sitemap.xml generation for all dish pages
+- Canonical URLs and Open Graph tags
+- SEO-optimized URL structure: `/what-to-serve-with-{dish-slug}`
 
-## 🚀 Deployment
+## 🎯 Key Features
 
-### Cloudflare Workers
+- **Search & Discovery** - Find dishes and pairings with intelligent search
+- **Expert Curation** - Match scores and detailed pairing explanations
+- **Responsive Design** - Works perfectly on desktop and mobile
+- **Performance Optimized** - Fast loading with Vite and modern React
+- **SEO Ready** - Structured for organic search visibility
 
-1. **Configure wrangler.toml** with your project settings
-2. **Run deployment:**
-   ```bash
-   npm run deploy
-   ```
+## 🧪 Available Scripts
 
-### Custom Domain
+### Frontend (client/)
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+```
 
-Add a custom domain in your Cloudflare dashboard under Workers & Pages.
+### Backend (server/)
+```bash
+npm run dev          # Start development server with nodemon
+npm run build        # Compile TypeScript
+npm run start        # Start production server
+```
 
-## 🛠️ Development Tools
+## 📝 API Endpoints
 
-- **TypeScript** - Full type safety
-- **ESLint** - Code linting
-- **Prettier** - Code formatting (add .prettierrc if needed)
-- **Vite** - Fast development and building
-
-## 📚 Additional Resources
-
-- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Documentation](https://react.dev/)
-- [shadcn/ui Documentation](https://ui.shadcn.com/)
-- [Hono Documentation](https://hono.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- `GET /api/dishes` - List main dishes with pagination
+- `GET /api/dishes/:slug` - Get specific dish details
+- `GET /api/dishes/:slug/pairings` - Get pairing suggestions
+- `GET /api/dishes/popular` - Get popular dishes
+- `GET /api/search` - Search dishes with query
+- `GET /sitemap.xml` - Dynamic sitemap generation
+- `GET /robots.txt` - SEO robots directives
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🔗 Related Documentation
+
+- [Product Requirements Document](./PRD.md)
+- [Claude Development Guide](./CLAUDE.md)
+- [Database Schema](./database/schema.sql)
