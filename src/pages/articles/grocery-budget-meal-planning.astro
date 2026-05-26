@@ -1,0 +1,8 @@
+---
+import ArticleTemplate from '../../components/articles/ArticleTemplate.astro';
+import { articles, getArticle } from '../../data/articles';
+
+const article = getArticle('grocery-budget-meal-planning');
+---
+
+<ArticleTemplate article={article} allArticles={articles} />

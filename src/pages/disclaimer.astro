@@ -1,0 +1,106 @@
+---
+/**
+ * PairDish.com - Nutrition & Food Safety Disclaimer
+ *
+ * Clear user-facing disclaimer for recipe nutrition, meal planning, allergy, and food safety content.
+ */
+
+import BaseLayout from '../components/layouts/BaseLayout.astro';
+
+const lastUpdated = "May 26, 2026";
+---
+
+<BaseLayout
+  title="Nutrition & Food Safety Disclaimer"
+  description="PairDish nutrition calculators, meal planning guides, and food tools are for general information only and are not medical, allergy, or professional food safety advice."
+  canonical="https://pairdish.com/disclaimer"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Disclaimer', url: '/disclaimer' }
+  ]}
+>
+  <section class="relative py-12 md:py-16 overflow-hidden bg-[var(--color-cream)]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <span class="badge badge-wine mb-4">Important Notice</span>
+        <h1 class="text-display text-4xl md:text-5xl font-semibold text-[var(--text-primary)] mb-4">
+          Nutrition & Food Safety Disclaimer
+        </h1>
+        <p class="text-[var(--text-secondary)]">
+          Last updated: {lastUpdated}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="container">
+      <div class="max-w-3xl mx-auto prose prose-lg">
+        <div class="bg-[var(--color-cream)] rounded-xl p-6 mb-8">
+          <p class="text-[var(--text-secondary)] m-0">
+            <strong class="text-[var(--text-primary)]">Summary:</strong> PairDish calculators and articles are general planning tools for home cooks. They do not replace medical nutrition advice, allergy guidance, food safety training, or personalized recommendations from a qualified professional.
+          </p>
+        </div>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
+          General information only
+        </h2>
+        <p class="text-[var(--text-secondary)] mb-4">
+          PairDish provides recipe nutrition estimates, macro planning ideas, grocery planning suggestions, flavor pairings, and kitchen calculators for educational and informational use. Results may vary based on ingredient brands, preparation methods, substitutions, serving sizes, cooking loss, and user-entered measurements.
+        </p>
+        <p class="text-[var(--text-secondary)] mb-4">
+          Nutrition numbers shown by PairDish should be treated as estimates for meal planning and recipe comparison, not as certified nutrition facts labels.
+        </p>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
+          Not medical or dietetic advice
+        </h2>
+        <p class="text-[var(--text-secondary)] mb-4">
+          PairDish content is not intended to diagnose, treat, prevent, or manage any disease or health condition. If you are managing diabetes, kidney disease, heart disease, pregnancy nutrition, eating disorder recovery, allergies, gastrointestinal conditions, or any other medical concern, consult a physician, registered dietitian, or qualified healthcare professional before relying on nutrition estimates or meal planning suggestions.
+        </p>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
+          Allergies and dietary restrictions
+        </h2>
+        <div class="bg-red-50 border border-red-200 rounded-xl p-6 mb-4">
+          <p class="text-red-800 m-0">
+            <strong>Allergy warning:</strong> PairDish cannot guarantee that generated pairings, recipes, substitutions, or meal ideas are free from allergens or cross-contact risk. Always verify labels, ingredients, preparation surfaces, and guest dietary needs yourself.
+          </p>
+        </div>
+        <p class="text-[var(--text-secondary)] mb-4">
+          Ingredient databases and user-entered recipes may omit allergens, processing aids, or brand-specific warnings. For severe allergies or medically necessary diets, use PairDish only as a starting point and verify every ingredient independently.
+        </p>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
+          Food safety responsibility
+        </h2>
+        <p class="text-[var(--text-secondary)] mb-4">
+          You are responsible for safe food handling, storage, cooking temperatures, cooling, reheating, sanitation, and expiration checks. PairDish tools do not inspect your ingredients, kitchen conditions, equipment, or local food safety requirements.
+        </p>
+        <ul class="list-disc list-inside text-[var(--text-secondary)] mb-4 space-y-2">
+          <li>Follow current food safety guidance from trusted public health sources.</li>
+          <li>Use a food thermometer where appropriate.</li>
+          <li>Store leftovers promptly and discard food that may be unsafe.</li>
+          <li>Use extra care for children, older adults, pregnant people, and immunocompromised guests.</li>
+        </ul>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
+          Use your judgment
+        </h2>
+        <p class="text-[var(--text-secondary)] mb-4">
+          PairDish aims to make meal planning easier, but cooking and nutrition decisions require context. Review all outputs carefully, adjust them for your household, and seek professional guidance when accuracy, safety, or medical suitability matters.
+        </p>
+
+        <div class="mt-10 rounded-xl bg-[var(--color-charcoal)] p-6 text-white">
+          <h2 class="text-display text-2xl font-semibold mb-3">Questions?</h2>
+          <p class="text-light-muted mb-4">
+            If you have questions about PairDish content or calculators, contact us through the site. For medical, allergy, or food safety decisions, contact a qualified professional.
+          </p>
+          <a href="/contact" class="btn bg-white text-[var(--color-charcoal)] hover:bg-[var(--color-cream)] px-5 py-3">
+            Contact PairDish
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

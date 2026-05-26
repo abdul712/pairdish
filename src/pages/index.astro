@@ -7,11 +7,12 @@
 
 import BaseLayout from '../components/layouts/BaseLayout.astro';
 import AdSense from '../components/AdSense.astro';
+import { articles } from '../data/articles';
 ---
 
 <BaseLayout 
   title="Home"
-  description="Discover the art of perfect food pairings. Interactive tools and calculators to elevate your culinary experience."
+  description="Discover food pairings, recipe nutrition calculators, macro meal planning tools, and practical kitchen guides for better everyday meals."
 >
   <!-- Hero Section -->
   <section class="relative py-20 md:py-32 overflow-hidden">
@@ -37,8 +38,8 @@ import AdSense from '../components/AdSense.astro';
         
         <!-- Subheadline -->
         <p class="text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed mb-10 max-w-2xl animate-fade-in-up stagger-2" style="opacity: 0;">
-          Discover scientifically-backed flavor combinations, scale recipes with precision, 
-          and plan unforgettable gatherings with our suite of culinary tools.
+          Discover scientifically-backed flavor combinations, calculate recipe nutrition,
+          and plan balanced meals with our suite of culinary tools and guides.
         </p>
         
         <!-- CTAs -->
@@ -50,8 +51,8 @@ import AdSense from '../components/AdSense.astro';
               <path d="m12 5 7 7-7 7"/>
             </svg>
           </a>
-          <a href="/tools/flavor-pairing" class="btn btn-secondary text-lg px-8 py-4">
-            Try Flavor Pairing
+          <a href="/articles" class="btn btn-secondary text-lg px-8 py-4">
+            Read Nutrition Guides
           </a>
         </div>
       </div>
@@ -198,6 +199,42 @@ import AdSense from '../components/AdSense.astro';
 
   <!-- Ad Unit 2 -->
   <AdSense slot="0000000002" format="auto" className="my-8" />
+
+  <!-- Recipe Nutrition Articles Section -->
+  <section class="py-20 bg-[var(--color-cream-soft)]">
+    <div class="container">
+      <div class="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-2xl">
+          <span class="badge badge-wine mb-4">New launch guides</span>
+          <h2 class="text-display text-[var(--text-primary)] mb-4">
+            Recipe nutrition and meal planning articles
+          </h2>
+          <p class="text-lg text-[var(--text-secondary)]">
+            Five focused guides connect PairDish calculators to search-friendly meal planning topics:
+            recipe nutrition, macros, pantry dinners, grocery budgets, and high-protein prep.
+          </p>
+        </div>
+        <a href="/articles" class="btn btn-primary px-6 py-3 self-start md:self-auto">
+          View All 5 Articles
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+        {articles.map((article) => (
+          <a href={`/articles/${article.slug}`} class="group rounded-2xl bg-white overflow-hidden shadow-[var(--shadow-soft)] border border-[var(--color-cream-dark)] hover:-translate-y-1 hover:shadow-[var(--shadow-heavy)] transition">
+            <img src={article.image} alt={article.imageAlt} width="1200" height="800" loading="lazy" class="h-36 w-full object-cover" />
+            <div class="p-5">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-wine)]">{article.category}</span>
+              <h3 class="font-display text-xl font-semibold text-[var(--text-primary)] mt-2 mb-2 group-hover:text-[var(--color-wine)] transition-colors">
+                {article.title}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)] line-clamp-3">{article.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- How It Works Section -->
   <section class="py-20 bg-[var(--color-cream)]">

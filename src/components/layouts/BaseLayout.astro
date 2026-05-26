@@ -17,6 +17,7 @@ interface Props {
   keywords?: string[];
   ogImage?: string;
   canonical?: string;
+  ogType?: 'website' | 'article';
   breadcrumbs?: BreadcrumbItem[];
 }
 
@@ -32,6 +33,7 @@ const {
   ],
   ogImage = '/images/og-default.svg',
   canonical,
+  ogType = 'website',
   breadcrumbs
 } = Astro.props;
 
@@ -63,7 +65,7 @@ const fullTitle = title === 'Home'
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -121,11 +123,14 @@ const fullTitle = title === 'Home'
             <a href="/tools" class="text-sm font-medium hover:text-wine transition-colors link-underline">
               All Tools
             </a>
+            <a href="/articles" class="text-sm font-medium hover:text-wine transition-colors link-underline">
+              Articles
+            </a>
             <a href="/tools/flavor-pairing" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
               Flavor Pairing
             </a>
-            <a href="/tools/recipe-scaler" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
-              Recipe Scaler
+            <a href="/tools/nutrition-calculator" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden md:block">
+              Nutrition Calculator
             </a>
             <a href="/about" class="text-sm font-medium hover:text-wine transition-colors link-underline hidden lg:block">
               About
@@ -155,8 +160,8 @@ const fullTitle = title === 'Home'
               </span>
             </div>
             <p class="text-light-muted max-w-md mb-6 text-sm leading-relaxed">
-              Discover the art of perfect pairings. From wine and food matching to recipe scaling,
-              we provide the tools to elevate your culinary experience.
+              Discover practical food pairing, recipe nutrition, macro planning, and kitchen calculators
+              that help turn everyday ingredients into better meals.
             </p>
             <p class="text-xs text-light-muted opacity-60">
               © {new Date().getFullYear()} PairDish. All rights reserved.
@@ -175,18 +180,23 @@ const fullTitle = title === 'Home'
                 </a>
               </li>
               <li>
-                <a href="/tools/substitution-finder" class="text-sm text-light-muted hover:text-cream transition-colors">
-                  Substitution Finder
+                <a href="/tools/nutrition-calculator" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Recipe Nutrition Calculator
                 </a>
               </li>
               <li>
-                <a href="/tools/recipe-scaler" class="text-sm text-light-muted hover:text-cream transition-colors">
-                  Recipe Scaler
+                <a href="/tools/meal-prep" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Meal Prep Calculator
                 </a>
               </li>
               <li>
-                <a href="/tools/party-calculator" class="text-sm text-light-muted hover:text-cream transition-colors">
-                  Party Food Calculator
+                <a href="/tools/macro-calculator" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Macro Calculator
+                </a>
+              </li>
+              <li>
+                <a href="/articles" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Nutrition Articles
                 </a>
               </li>
             </ul>
@@ -204,6 +214,11 @@ const fullTitle = title === 'Home'
                 </a>
               </li>
               <li>
+                <a href="/articles" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Articles
+                </a>
+              </li>
+              <li>
                 <a href="/contact" class="text-sm text-light-muted hover:text-cream transition-colors">
                   Contact
                 </a>
@@ -218,6 +233,11 @@ const fullTitle = title === 'Home'
                   Terms of Service
                 </a>
               </li>
+              <li>
+                <a href="/disclaimer" class="text-sm text-light-muted hover:text-cream transition-colors">
+                  Nutrition Disclaimer
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -230,7 +250,7 @@ const fullTitle = title === 'Home'
       "@type": "WebSite",
       "name": "PairDish",
       "url": siteUrl,
-      "description": "Discover the art of perfect food pairings with our suite of 35+ interactive culinary tools and calculators.",
+      "description": "Discover food pairing, recipe nutrition, macro planning, and meal prep tools with practical culinary guides.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": `${siteUrl}/search?q={search_term_string}`,
@@ -245,7 +265,7 @@ const fullTitle = title === 'Home'
       "name": "PairDish",
       "url": siteUrl,
       "logo": `${siteUrl}/favicon.svg`,
-      "description": "Free culinary tools for discovering perfect flavor pairings, scaling recipes, and planning memorable gatherings.",
+      "description": "Free culinary tools and guides for discovering perfect flavor pairings, calculating recipe nutrition, scaling recipes, and planning meals.",
       "sameAs": [],
       "contactPoint": {
         "@type": "ContactPoint",

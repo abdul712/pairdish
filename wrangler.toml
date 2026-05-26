@@ -14,14 +14,13 @@ directory = "./dist"
 binding = "ASSETS"
 
 # Primary domain routes
+# DNS records are proxied through Cloudflare so these routes serve the Worker on both hostnames.
 [[routes]]
-pattern = "pairdish.com"
-custom_domain = true
+pattern = "pairdish.com/*"
 zone_name = "pairdish.com"
 
 [[routes]]
-pattern = "www.pairdish.com"
-custom_domain = true
+pattern = "www.pairdish.com/*"
 zone_name = "pairdish.com"
 
 # Environment variables

@@ -1,0 +1,8 @@
+---
+import ArticleTemplate from '../../components/articles/ArticleTemplate.astro';
+import { articles, getArticle } from '../../data/articles';
+
+const article = getArticle('high-protein-meal-prep');
+---
+
+<ArticleTemplate article={article} allArticles={articles} />

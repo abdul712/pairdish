@@ -1,0 +1,8 @@
+---
+import ArticleTemplate from '../../components/articles/ArticleTemplate.astro';
+import { articles, getArticle } from '../../data/articles';
+
+const article = getArticle('recipe-nutrition-calculator-guide');
+---
+
+<ArticleTemplate article={article} allArticles={articles} />

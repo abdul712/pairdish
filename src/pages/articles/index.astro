@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import { articles } from '../../data/articles';
+---
+
+<BaseLayout
+  title="Recipe Nutrition & Meal Planning Articles"
+  description="Five practical PairDish guides for recipe nutrition, macro meal planning, pantry dinners, grocery budgets, and high-protein meal prep."
+  keywords={['recipe nutrition articles', 'meal planning guides', 'macro meal planning', 'grocery budget meal plan', 'high protein meal prep']}
+  canonical="https://pairdish.com/articles"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Articles', url: '/articles' }
+  ]}
+>
+  <section class="relative overflow-hidden bg-gradient-to-br from-[var(--color-parchment)] via-[var(--color-cream)] to-white py-16 md:py-24">
+    <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-[var(--color-wine)] opacity-[0.06] blur-3xl"></div>
+    <div class="container relative z-10">
+      <div class="max-w-3xl">
+        <span class="badge badge-wine mb-5">PairDish Guides</span>
+        <h1 class="text-display mb-6 text-[var(--text-primary)]">
+          Recipe nutrition and meal planning guides
+        </h1>
+        <p class="text-xl leading-relaxed text-[var(--text-secondary)]">
+          A focused five-article launch library for calculating recipe nutrition, building macro-aware meal plans,
+          shopping smarter, and turning pantry staples into practical meals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="container">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <span class="badge badge-sage mb-3">Only 5 launch articles</span>
+          <h2 class="text-display text-3xl text-[var(--text-primary)]">Start with the calculator cluster</h2>
+        </div>
+        <a href="/tools/nutrition-calculator" class="btn btn-primary px-6 py-3">Try the nutrition calculator</a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {articles.map((article, index) => (
+          <a href={`/articles/${article.slug}`} class={`group overflow-hidden rounded-[2rem] border border-[var(--color-cream-dark)] bg-[var(--color-cream-soft)] shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-heavy)] ${index === 0 ? 'lg:col-span-2' : ''}`}>
+            <img src={article.image} alt={article.imageAlt} width="1200" height="800" loading={index === 0 ? 'eager' : 'lazy'} class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="mb-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                <span>{article.category}</span>
+                <span>•</span>
+                <span>{article.readingTime}</span>
+              </div>
+              <h3 class="text-display mb-3 text-2xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--color-wine)]">
+                {article.title}
+              </h3>
+              <p class="mb-5 text-[var(--text-secondary)]">{article.description}</p>
+              <span class="font-semibold text-[var(--color-wine)]">Read guide →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-cream)] py-16">
+    <div class="container">
+      <div class="rounded-[2rem] bg-[var(--color-charcoal)] p-8 text-white md:p-12">
+        <span class="badge badge-gold mb-4">Tools + articles</span>
+        <h2 class="text-display mb-4 text-3xl">Use the guides with PairDish calculators</h2>
+        <p class="mb-8 max-w-3xl text-light-muted">
+          The article cluster is built around the free recipe nutrition, macro, meal-prep, pantry, and grocery tools already on PairDish.
+          Read a guide, open the matching calculator, and turn planning advice into a usable weekly meal system.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/tools/nutrition-calculator" class="btn bg-white px-5 py-3 text-[var(--color-charcoal)] hover:bg-[var(--color-cream)]">Nutrition Calculator</a>
+          <a href="/tools/meal-prep" class="btn bg-white px-5 py-3 text-[var(--color-charcoal)] hover:bg-[var(--color-cream)]">Meal Prep</a>
+          <a href="/tools/macro-calculator" class="btn bg-white px-5 py-3 text-[var(--color-charcoal)] hover:bg-[var(--color-cream)]">Macros</a>
+          <a href="/tools/grocery-list" class="btn bg-white px-5 py-3 text-[var(--color-charcoal)] hover:bg-[var(--color-cream)]">Grocery List</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
