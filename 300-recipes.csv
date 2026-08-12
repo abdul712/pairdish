@@ -1,0 +1,301 @@
+index,tier,category,keyword
+1,1,Chicken,butter chicken recipe
+2,1,Chicken,chicken biryani recipe
+3,1,Chicken,chicken shawarma recipe
+4,1,Chicken,chicken tikka masala recipe
+5,1,Chicken,chicken karahi recipe
+6,1,Chicken,chicken 65 recipe
+7,1,Chicken,chicken korma recipe
+8,1,Chicken,chicken tandoori recipe
+9,1,Chicken,chicken tikka recipe
+10,1,Chicken,chicken malai tikka recipe
+11,1,Chicken,chicken seekh kebab recipe
+12,1,Chicken,chicken mandi recipe
+13,1,Chicken,chicken curry recipe
+14,1,Chicken,chicken jalfrezi recipe
+15,1,Chicken,chicken haleem recipe
+16,1,Chicken,chicken yakhni pulao recipe
+17,1,Chicken,chicken samosa recipe
+18,1,Chicken,chicken pakora recipe
+19,1,Chicken,chicken shashlik recipe
+20,1,Chicken,chicken chapli kebab recipe
+21,1,Chicken,lemon chicken recipe
+22,1,Chicken,grilled chicken marinade recipe
+23,1,Chicken,one pot chicken rice recipe
+24,1,Chicken,sticky chicken recipe
+25,1,Chicken,chicken wrap recipe
+26,1,Biryani & Rice,biryani recipe
+27,1,Biryani & Rice,chicken biryani recipe
+28,1,Biryani & Rice,lamb biryani recipe
+29,1,Biryani & Rice,beef biryani recipe
+30,1,Biryani & Rice,vegetable biryani recipe
+31,1,Biryani & Rice,egg biryani recipe
+32,1,Biryani & Rice,mutton biryani recipe
+33,1,Biryani & Rice,sindhi biryani recipe
+34,1,Biryani & Rice,kolkata biryani recipe
+35,1,Biryani & Rice,hyderabadi biryani recipe
+36,1,Biryani & Rice,mandi rice recipe
+37,1,Biryani & Rice,kabsa recipe
+38,1,Biryani & Rice,mutton pulao recipe
+39,1,Biryani & Rice,tahari recipe
+40,1,Biryani & Rice,zarda rice recipe
+41,1,Lamb & Beef,lamb curry recipe
+42,1,Lamb & Beef,lamb chops recipe
+43,1,Lamb & Beef,lamb shank recipe
+44,1,Lamb & Beef,lamb seekh kebab recipe
+45,1,Lamb & Beef,lamb kofta recipe
+46,1,Lamb & Beef,lamb nihari recipe
+47,1,Lamb & Beef,lamb karahi recipe
+48,1,Lamb & Beef,lamb biryani recipe
+49,1,Lamb & Beef,lamb mandi recipe
+50,1,Lamb & Beef,beef curry recipe
+51,1,Lamb & Beef,beef biryani recipe
+52,1,Lamb & Beef,beef kofta recipe
+53,1,Lamb & Beef,beef nihari recipe
+54,1,Lamb & Beef,beef shawarma recipe
+55,1,Lamb & Beef,beef kebab recipe
+56,1,Lamb & Beef,keema recipe
+57,1,Lamb & Beef,keema matar recipe
+58,1,Lamb & Beef,pasanda recipe
+59,1,Lamb & Beef,roghan josh recipe
+60,1,Lamb & Beef,bhuna gosht recipe
+61,1,Middle Eastern,hummus recipe
+62,1,Middle Eastern,falafel recipe
+63,1,Middle Eastern,shawarma recipe
+64,1,Middle Eastern,fattoush salad recipe
+65,1,Middle Eastern,tabbouleh recipe
+66,1,Middle Eastern,baba ganoush recipe
+67,1,Middle Eastern,muttabal recipe
+68,1,Middle Eastern,ful medames recipe
+69,1,Middle Eastern,shakshuka recipe
+70,1,Middle Eastern,mansaf recipe
+71,1,Middle Eastern,musakhan recipe
+72,1,Middle Eastern,maqluba recipe
+73,1,Middle Eastern,kibbeh recipe
+74,1,Middle Eastern,warak enab recipe
+75,1,Middle Eastern,muhammara recipe
+76,1,Snacks & Appetizers,samosa recipe
+77,1,Snacks & Appetizers,spring roll recipe
+78,1,Snacks & Appetizers,pakora recipe
+79,1,Snacks & Appetizers,onion bhaji recipe
+80,1,Snacks & Appetizers,chaat recipe
+81,1,Snacks & Appetizers,aloo tikki recipe
+82,1,Snacks & Appetizers,pani puri recipe
+83,1,Snacks & Appetizers,dahi puri recipe
+84,1,Snacks & Appetizers,chicken wings recipe
+85,1,Snacks & Appetizers,potato wedges recipe
+86,1,Snacks & Appetizers,spinach and feta pastry recipe
+87,1,Snacks & Appetizers,stuffed mushrooms recipe
+88,1,Snacks & Appetizers,cheese rolls recipe
+89,1,Snacks & Appetizers,crispy calamari recipe
+90,1,Snacks & Appetizers,shrimp tempura recipe
+91,1,Desserts,baklava recipe
+92,1,Desserts,kunafa recipe
+93,1,Desserts,basbousa recipe
+94,1,Desserts,gulab jamun recipe
+95,1,Desserts,kheer recipe
+96,1,Desserts,rice pudding recipe
+97,1,Desserts,halva recipe
+98,1,Desserts,sheer khurma recipe
+99,1,Desserts,jalebi recipe
+100,1,Desserts,ras malai recipe
+101,1,Desserts,sohan halwa recipe
+102,1,Desserts,carrot halwa recipe
+103,1,Desserts,mochi ice cream recipe
+104,1,Desserts,date and nut bars recipe
+105,1,Desserts,churros recipe
+106,1,Desserts,malpua recipe
+107,1,Desserts,firni recipe
+108,1,Desserts,shahi tukray recipe
+109,1,Desserts,coconut ladoo recipe
+110,1,Desserts,semolina cake recipe
+111,1,Desserts,orange almond cake recipe
+112,1,Desserts,pistachio ice cream recipe
+113,1,Desserts,saffron ice cream recipe
+114,1,Desserts,rose milk cake recipe
+115,1,Desserts,chocolate date truffles recipe
+116,2,Soups & Stews,lentil soup recipe
+117,2,Soups & Stews,haleem recipe
+118,2,Soups & Stews,shorba recipe
+119,2,Soups & Stews,tomato soup recipe
+120,2,Soups & Stews,chicken corn soup recipe
+121,2,Soups & Stews,dal recipe
+122,2,Soups & Stews,dal makhani recipe
+123,2,Soups & Stews,chana masala recipe
+124,2,Soups & Stews,dal tadka recipe
+125,2,Soups & Stews,palak paneer recipe
+126,2,Soups & Stews,matar paneer recipe
+127,2,Soups & Stews,shahi paneer recipe
+128,2,Soups & Stews,paneer butter masala recipe
+129,2,Soups & Stews,egg curry recipe
+130,2,Soups & Stews,fish curry recipe
+131,2,Soups & Stews,coconut curry recipe
+132,2,Soups & Stews,thai green curry recipe
+133,2,Soups & Stews,red lentil dal recipe
+134,2,Soups & Stews,harira soup recipe
+135,2,Soups & Stews,chorba recipe
+136,2,Breads & Flatbreads,naan bread recipe
+137,2,Breads & Flatbreads,garlic naan recipe
+138,2,Breads & Flatbreads,roti recipe
+139,2,Breads & Flatbreads,paratha recipe
+140,2,Breads & Flatbreads,aloo paratha recipe
+141,2,Breads & Flatbreads,pita bread recipe
+142,2,Breads & Flatbreads,khubz recipe
+143,2,Breads & Flatbreads,manakeesh recipe
+144,2,Breads & Flatbreads,sambusa recipe
+145,2,Breads & Flatbreads,puff pastry recipe
+146,2,Breads & Flatbreads,pizza dough recipe
+147,2,Breads & Flatbreads,flatbread recipe
+148,2,Breads & Flatbreads,cheese naan recipe
+149,2,Breads & Flatbreads,whole wheat roti recipe
+150,2,Breads & Flatbreads,laffa bread recipe
+151,2,Sauces & Dips,tahini sauce recipe
+152,2,Sauces & Dips,toum recipe
+153,2,Sauces & Dips,garlic sauce recipe
+154,2,Sauces & Dips,mint chutney recipe
+155,2,Sauces & Dips,tamarind chutney recipe
+156,2,Sauces & Dips,raita recipe
+157,2,Sauces & Dips,cilantro chutney recipe
+158,2,Sauces & Dips,mango chutney recipe
+159,2,Sauces & Dips,chili garlic sauce recipe
+160,2,Sauces & Dips,yogurt dip recipe
+161,2,Sauces & Dips,hummus variation recipe
+162,2,Sauces & Dips,harissa paste recipe
+163,2,Sauces & Dips,zhoug sauce recipe
+164,2,Sauces & Dips,bbq sauce recipe
+165,2,Sauces & Dips,chimichurri recipe
+166,2,Salads & Sides,greek salad recipe
+167,2,Salads & Sides,cucumber salad recipe
+168,2,Salads & Sides,fattoush recipe
+169,2,Salads & Sides,kachumber salad recipe
+170,2,Salads & Sides,carrot raita recipe
+171,2,Salads & Sides,roasted vegetables recipe
+172,2,Salads & Sides,cauliflower rice recipe
+173,2,Salads & Sides,garlic potatoes recipe
+174,2,Salads & Sides,saag recipe
+175,2,Salads & Sides,creamed spinach recipe
+176,2,Salads & Sides,grilled corn recipe
+177,2,Salads & Sides,herb couscous recipe
+178,2,Salads & Sides,mujadara recipe
+179,2,Salads & Sides,lentil rice recipe
+180,2,Salads & Sides,vermicelli pulao recipe
+181,2,Breakfast,shakshuka recipe
+182,2,Breakfast,omelette recipe
+183,2,Breakfast,french toast recipe
+184,2,Breakfast,pancakes recipe
+185,2,Breakfast,ful medames recipe
+186,2,Breakfast,breakfast wrap recipe
+187,2,Breakfast,scrambled eggs recipe
+188,2,Breakfast,paratha breakfast recipe
+189,2,Breakfast,honey yogurt bowl recipe
+190,2,Breakfast,oat pancakes recipe
+191,2,Breakfast,semolina porridge recipe
+192,2,Breakfast,date smoothie recipe
+193,2,Breakfast,mango lassi recipe
+194,2,Breakfast,chia pudding recipe
+195,2,Breakfast,banana bread recipe
+196,2,Drinks,mango lassi recipe
+197,2,Drinks,rose milk recipe
+198,2,Drinks,saffron milk recipe
+199,2,Drinks,tamarind drink recipe
+200,2,Drinks,lemon mint drink recipe
+201,2,Drinks,chai tea recipe
+202,2,Drinks,karak chai recipe
+203,2,Drinks,saffron tea recipe
+204,2,Drinks,fruit punch recipe
+205,2,Drinks,almond milk recipe
+206,3,Global Fusion,loaded fries recipe
+207,3,Global Fusion,mac and cheese recipe
+208,3,Global Fusion,burger recipe
+209,3,Global Fusion,sliders recipe
+210,3,Global Fusion,chicken pizza recipe
+211,3,Global Fusion,flatbread pizza recipe
+212,3,Global Fusion,pasta bake recipe
+213,3,Global Fusion,chicken alfredo recipe
+214,3,Global Fusion,lasagna recipe
+215,3,Global Fusion,nachos recipe
+216,3,Global Fusion,tacos recipe
+217,3,Global Fusion,chicken quesadilla recipe
+218,3,Global Fusion,stuffed peppers recipe
+219,3,Global Fusion,meatball recipe
+220,3,Global Fusion,spaghetti meatballs recipe
+221,3,Global Fusion,chicken burger recipe
+222,3,Global Fusion,fish and chips recipe
+223,3,Global Fusion,birria tacos recipe
+224,3,Global Fusion,korean bbq chicken recipe
+225,3,Global Fusion,teriyaki chicken recipe
+226,3,Global Fusion,noodle stir fry recipe
+227,3,Global Fusion,lo mein recipe
+228,3,Global Fusion,fried rice recipe
+229,3,Global Fusion,sesame chicken recipe
+230,3,Global Fusion,orange chicken recipe
+231,3,Global Fusion,mongolian beef recipe
+232,3,Global Fusion,chicken satay recipe
+233,3,Global Fusion,butter shrimp recipe
+234,3,Global Fusion,garlic noodles recipe
+235,3,Global Fusion,sweet potato fries recipe
+236,3,Seasonal,ramadan iftar recipe roundup
+237,3,Seasonal,eid feast menu recipe
+238,3,Seasonal,summer bbq chicken recipe
+239,3,Seasonal,thanksgiving turkey recipe
+240,3,Seasonal,eid al adha meat recipes
+241,3,Seasonal,meal prep chicken recipe
+242,3,Seasonal,high protein meal prep recipe
+243,3,Seasonal,healthy bowl recipe
+244,3,Seasonal,low carb dinner recipe
+245,3,Seasonal,gluten free dinner recipe
+246,3,Seasonal,one pot dinner recipe
+247,3,Seasonal,quick dinner recipe
+248,3,Seasonal,budget meal prep recipe
+249,3,Seasonal,kid friendly dinner recipe
+250,3,Seasonal,party appetizers recipe roundup
+251,3,Seasonal,game day snacks recipe
+252,3,Seasonal,family dinner recipe
+253,3,Seasonal,sunday roast chicken recipe
+254,3,Seasonal,picnic food ideas recipe
+255,3,Seasonal,freezer meal prep recipe
+256,4,Roundups,best chicken dinner recipes
+257,4,Roundups,best rice dishes
+258,4,Roundups,easy dinner ideas
+259,4,Roundups,one pot meals
+260,4,Roundups,30 minute meals
+261,4,Roundups,healthy dinner ideas
+262,4,Roundups,comfort food recipes
+263,4,Roundups,protein packed dinners
+264,4,Roundups,vegetarian dinner ideas
+265,4,Roundups,dairy free dinner ideas
+266,4,Roundups,gluten free dinner ideas
+267,4,Roundups,meal prep ideas
+268,4,Roundups,party food ideas
+269,4,Roundups,breakfast ideas
+270,4,Roundups,dessert recipes roundup
+271,4,Roundups,summer grilling recipes
+272,4,Roundups,cozy winter dinners
+273,4,Roundups,spice blends recipes
+274,4,Roundups,marinade recipes
+275,4,Roundups,dip recipes roundup
+276,4,Roundups,instant pot recipes
+277,4,Roundups,air fryer chicken recipes
+278,4,Roundups,slow cooker recipes
+279,4,Roundups,stovetop chicken recipes
+280,4,Roundups,oven baked chicken recipes
+281,4,Roundups,grilled meat recipes
+282,4,Roundups,skillet dinner recipes
+283,4,Roundups,casserole recipes
+284,4,Roundups,stuffed vegetable recipes
+285,4,Roundups,foil packet dinner recipes
+286,4,Basics,how to cook basmati rice
+287,4,Basics,how to make ghee
+288,4,Basics,how to bloom spices
+289,4,Basics,how to knead dough
+290,4,Basics,chicken temperature guide
+291,4,Basics,rice to water ratio
+292,4,Basics,how to marinate chicken
+293,4,Basics,spice storage guide
+294,4,Basics,essential pantry list
+295,4,Basics,kitchen tools guide
+296,4,Basics,how to meal prep
+297,4,Basics,how to read a recipe
+298,4,Basics,ingredient substitution guide
+299,4,Basics,nutrition calculator guide
+300,4,Basics,how to scale a recipe
