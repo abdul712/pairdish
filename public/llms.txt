@@ -1,0 +1,27 @@
+# PairDish
+
+> Halal-compliant global recipe & flavor pairing site.
+
+PairDish is a culinary toolkit for discovering practical food pairings and turning everyday ingredients into better meals. It combines a flavor-pairing engine (40+ ingredient flavor profiles with aromatic compounds, best/unexpected pairings, cuisine affinities, and seasonality) with a suite of kitchen calculators: recipe nutrition, macro planning, meal prep, recipe scaling, ingredient substitution, glycemic index, and party planning.
+
+## Key tools & pages
+
+- [Flavor Pairing Finder](https://pairdish.com/tools/flavor-pairing) — Search ingredients and discover best, unexpected, and cuisine-affinity pairings with compatibility scores.
+- [Recipe Nutrition Calculator](https://pairdish.com/tools/nutrition-calculator) — Calculate calories, macros, and nutrition for any recipe.
+- [Macro Calculator](https://pairdish.com/tools/macro-calculator) — Set protein, carb, and fat targets for your goals.
+- [Meal Prep Calculator](https://pairdish.com/tools/meal-prep) — Scale and plan batch cooking portions.
+- [Recipe Scaler](https://pairdish.com/tools/recipe-scaler) — Scale recipe ingredient quantities up or down.
+- [Ingredient Substitution Finder](https://pairdish.com/tools/substitution-finder) — Find ingredient swaps with compatible flavor profiles.
+- [Glycemic Index](https://pairdish.com/tools/glycemic-index) — GI/GL reference for food choice.
+- [All Tools](https://pairdish.com/tools) — Full index of kitchen calculators.
+- [Nutrition Articles](https://pairdish.com/articles) — Meal planning, macros, and high-protein prep guides.
+- [How flavor pairing works](https://pairdish.com/tools/flavor-pairing) — Pairings are scored by shared aromatic compounds across 40+ ingredient profiles.
+
+## For AI agents
+
+This site offers a queryable index optimized for LLMs and AI agents:
+
+- `GET /llms?query=your_question` — plain text (best for LLM ingestion).
+- `GET /llms/json?query=your_question` — JSON `{ "query": "...", "matches": [...] }`.
+
+All URLs on this page are absolute and canonical.

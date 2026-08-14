@@ -1,0 +1,133 @@
+[
+ {
+  "title": "Flavor Pairing Finder",
+  "url": "https://pairdish.com/tools/flavor-pairing",
+  "keywords": [
+   "flavor pairing",
+   "food pairing",
+   "ingredient pairing",
+   "what goes with",
+   "compatibility score",
+   "aromatic compounds",
+   "best pairings",
+   "unexpected pairings"
+  ],
+  "text": "Search over 40 ingredient flavor profiles to find best, unexpected, and cuisine-affinity pairings. Pairings are scored by shared aromatic compounds, with seasonality and cooking-method guidance for proteins, vegetables, fruits, dairy, grains, herbs, spices, and more."
+ },
+ {
+  "title": "How flavor pairing works",
+  "url": "https://pairdish.com/tools/flavor-pairing",
+  "keywords": [
+   "how flavor pairing works",
+   "aromatic compounds",
+   "why foods pair",
+   "flavor science",
+   "compatibility score",
+   "pairing logic"
+  ],
+  "text": "PairDish scores ingredient pairs by shared aromatic and flavor compounds. Each of 40+ ingredients carries flavor notes, an aromatic profile, intensity, best and unexpected pairings, cuisine affinities, and seasonality; higher shared-aroma overlap yields a higher compatibility score."
+ },
+ {
+  "title": "Recipe Nutrition Calculator",
+  "url": "https://pairdish.com/tools/nutrition-calculator",
+  "keywords": [
+   "recipe nutrition",
+   "calorie calculator",
+   "macros for recipe",
+   "nutrition facts",
+   "calories per serving",
+   "diet tracking"
+  ],
+  "text": "Calculate calories, protein, carbs, fat, and per-serving nutrition for any recipe. Paste ingredients and servings to get a full nutrition breakdown for meal planning and diet tracking."
+ },
+ {
+  "title": "Macro Calculator",
+  "url": "https://pairdish.com/tools/macro-calculator",
+  "keywords": [
+   "macro calculator",
+   "macros",
+   "protein",
+   "carbs",
+   "fat",
+   "calorie targets",
+   "bodybuilding macros"
+  ],
+  "text": "Set protein, carbohydrate, and fat targets based on your goal and body metrics. Get a personalized macro split and calorie recommendation for weight loss, maintenance, or muscle gain."
+ },
+ {
+  "title": "Meal Prep Calculator",
+  "url": "https://pairdish.com/tools/meal-prep",
+  "keywords": [
+   "meal prep",
+   "meal planning",
+   "batch cooking",
+   "portion planning",
+   "meal prep portions"
+  ],
+  "text": "Plan batch cooking and meal prep: scale servings, budget portions across the week, and align with your macro or nutrition goals. Includes a macro-focused meal planning guide."
+ },
+ {
+  "title": "Recipe Scaler",
+  "url": "https://pairdish.com/tools/recipe-scaler",
+  "keywords": [
+   "recipe scaler",
+   "scale recipe",
+   "ingredient quantities",
+   "adjust serving size",
+   "recipe multiplier"
+  ],
+  "text": "Scale any recipe's ingredient quantities up or down to match your serving count. Adjust portion sizes while keeping ingredient ratios intact."
+ },
+ {
+  "title": "Ingredient Substitution Finder",
+  "url": "https://pairdish.com/tools/substitution-finder",
+  "keywords": [
+   "ingredient substitution",
+   "substitute",
+   "swap ingredient",
+   "flour substitute",
+   "sugar substitute",
+   "what can i use instead"
+  ],
+  "text": "Find practical ingredient swaps that preserve flavor and structure. Covers substitutions for common pantry items such as flour, sugar, butter, eggs, and more, with flavor-aware suggestions."
+ },
+ {
+  "title": "Glycemic Index",
+  "url": "https://pairdish.com/tools/glycemic-index",
+  "keywords": [
+   "glycemic index",
+   "GI",
+   "glycemic load",
+   "blood sugar",
+   "low gi foods",
+   "glycemic reference"
+  ],
+  "text": "Reference glycemic index and glycemic load values for common foods to support blood-sugar-conscious food choices and meal planning."
+ },
+ {
+  "title": "Nutrition Articles & Meal Planning Guides",
+  "url": "https://pairdish.com/articles",
+  "keywords": [
+   "articles",
+   "nutrition guide",
+   "meal planning",
+   "high protein meal prep",
+   "grocery budget",
+   "macros guide",
+   "pantry planning"
+  ],
+  "text": "Guides on recipe nutrition, meal planning with macros, high-protein meal prep, grocery-budget meal planning, and pantry planning — practical advice for turning ingredients into better meals."
+ },
+ {
+  "title": "Party & Buffet Calculators",
+  "url": "https://pairdish.com/tools/party-calculator",
+  "keywords": [
+   "party calculator",
+   "buffet planner",
+   "appetizer planner",
+   "how much food per person",
+   "entertaining"
+  ],
+  "text": "Plan how much food to prepare for parties and buffets, including appetizer and per-person quantities so you neither under- nor over-cater for your guests."
+ }
+]
