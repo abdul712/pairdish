@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+.wrangler/
+dist/
+.figma-session/
+.reasonix/
+.freebuff/
+.claude/
+__pycache__/
+*.log
+.env
+.bundle
