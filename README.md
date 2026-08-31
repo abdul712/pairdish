@@ -1,43 +1,29 @@
-# Astro Starter Kit: Minimal
+# PairDish — Culinary Flavor Profiles & Pairing Intelligence
 
-```sh
-npm create astro@latest -- --template minimal
+PairDish is a culinary application that pairs ingredients, calculates nutritional compositions, recommends complementary wines and side dishes, and assists with meal planning.
+
+## WebMCP (Web Model Context Protocol) Support
+
+PairDish natively integrates with **WebMCP** enabling browser AI assistants (ChatGPT Desktop Browser, Claude in Browser, Chrome AI) to discover culinary capabilities and execute food pairing searches:
+
+### 1. Browser-Native WebMCP Runtime (`window.modelContext`)
+AI browser agents can discover and call PairDish pairing tools directly:
+```javascript
+// Discover available tools
+const tools = window.modelContext.getTools();
+
+// Search pairings for an ingredient or dish
+const results = await window.modelContext.callTool('pairdish_find_pairings', {
+  dish: 'salmon',
+  limit: 5
+});
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 2. Available Tools
+- **`pairdish_find_pairings`**: Finds culinary dish pairings, side dishes, wine, and complementary flavor profiles for any dish or ingredient.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+## Local Development
+```bash
+npm install
+npm run dev
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
