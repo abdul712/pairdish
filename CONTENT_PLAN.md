@@ -98,4 +98,10 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
 
 ## 6. Progress log
 
-- 2026-09-07: Plan created. Batch A items 1–3 drafted. FAQ section removed from template (user rule). Official external links added to template (links field). GA4 gtag installed. Bing URL submission wired for new URLs.
+- 2026-09-07 (run 1): Plan created from corpus analysis.
+- 2026-09-07 (run 2): **Batch A items 1-3 PUBLISHED AND LIVE** (review-first gate: user reviews
+  these 3 live URLs before the rest of Batch A is scheduled at 1/day). FAQ removed from
+  template, tables + sources blocks added, GA4 gtag live, Bing submission done.
+- Next: after user OK → items 4-8 (kielbasa, tilapia, country fried steak, blackened salmon,
+  biscuits+syrup) at 1/day with the same pipeline (Commons real photo → visual verify →
+  tables + .gov sources → deploy → Bing submit).
