@@ -1,56 +1,69 @@
-"""Source real food images from Wikimedia Commons for PairDish articles.
-Follows content-site-asset-sourcing skill: generator=search, imageinfo+extmetadata,
-license filter CC0/PD/CC BY/CC BY-SA (reject NC/ND), mime filter, width>=1200,
-token-relevance filter, global dedupe, attribution output. Idempotent per article.
-"""
-import json, re, html, time, urllib.request, urllib.parse, pathlib
+"""Source REAL food images from Wikimedia Commons for PairDish articles.
 
-OUT = pathlib.Path("/home/hermes/projects/pairdish/assets_sourcing")
+Per content-site-asset-sourcing skill: generator=search + imageinfo + extmetadata,
+license filter (CC0/PD/CC BY/CC BY-SA; reject NC/ND), mime filter, width>=1200,
+token-relevance + BAD_TITLE filters, global dedupe, idempotent per-slug.
+Uses curl (urllib fetches were stalled/blocked from this VPS in run 1).
+
+Output: assets_sourcing/manifest.json + credits.csv
+"""
+import json, re, html, subprocess, time, pathlib, csv, hashlib
+
+ROOT = pathlib.Path("/home/hermes/projects/pairdish")
+OUT = ROOT / "assets_sourcing"
 OUT.mkdir(exist_ok=True)
-UA = {"User-Agent": "PairDishContentBot/1.0 (contact: admin@pairdish.com) commons-image-sourcing"}
+UA = "PairDishContentBot/1.0 (admin@pairdish.com) commons-image-sourcing"
 
 ARTICLES = {
     "what-to-serve-with-roasted-potatoes": {
-        "queries": ["roasted potatoes dish", "roast potatoes dinner plate", "crispy roasted potatoes"],
-        "tokens": ["potato", "roast", "roasted"],
+        "queries": ["roasted potatoes plate", "crispy roast potatoes bowl", "roasted potato wedges"],
+        "tokens": ["potato"],
     },
     "what-to-serve-with-fried-fish": {
-        "queries": ["fried fish fillet plate", "fried fish and chips dish", "breaded fried fish"],
-        "tokens": ["fish", "fried"],
+        "queries": ["fried fish fillets plate", "fish and chips plate", "breaded fried fish dish"],
+        "tokens": ["fish"],
     },
     "what-to-serve-with-pesto-chicken": {
-        "queries": ["pesto chicken dish", "chicken pesto dinner", "grilled chicken pesto"],
-        "tokens": ["chicken", "pesto"],
+        "queries": ["pesto chicken dish", "chicken pesto pasta plate", "grilled chicken pesto"],
+        "tokens": ["chicken"],
     },
 }
 
-LICENSE_OK = re.compile(r"(CC0|Public domain|Public Domain|CC BY(?!-NC|-ND)|CC BY-SA|CC BY 4|CC BY-SA 4|Attribution)", re.I)
-LICENSE_BAD = re.compile(r"(NC|ND|Non-Commercial|NonCommercial|NoDeriv|fair use|Fair use)", re.I)
+LICENSE_OK = re.compile(r"(CC0|public domain|CC BY(?!-NC|-ND)|CC BY-SA|attribution)", re.I)
+LICENSE_BAD = re.compile(r"(NC|ND|non-commercial|noncommercial|noderivs|fair use)", re.I)
+BAD_TITLE = re.compile(
+    r"(paint|painting|drawing|illustration|logo|stamp|map|statue|sculpture|"
+    r"book|cover|page scan|menu\b|sign\b|label|poster|coat of arms|model\b|"
+    r"toy|figurine|game|airport|street|building|train|car\b|bicycle)", re.I)
 
-def api(params, tries=6):
+
+def api(params, tries=4):
     base = "https://commons.wikimedia.org/w/api.php?"
-    qs = urllib.parse.urlencode({**params, "format": "json"})
+    from urllib.parse import urlencode
+    # NOTE: action=query MUST be present — api.php without it returns the HTML help page
+    url = base + urlencode({"action": "query", **params, "format": "json"})
     for attempt in range(tries):
-        try:
-            req = urllib.request.Request(base + qs, headers=UA)
-            with urllib.request.urlopen(req, timeout=40) as r:
-                return json.loads(r.read())
-        except Exception as e:
-            wait = min(30, 5 * (attempt + 1) + (2 if attempt > 2 else 0))
-            print(f"  retry {attempt+1} after err: {e} (wait {wait}s)")
-            time.sleep(wait)
+        r = subprocess.run(["curl", "-s", "--max-time", "45", "-H", f"User-Agent: {UA}", url],
+                           capture_output=True, text=True)
+        if r.returncode == 0 and r.stdout.strip().startswith("{"):
+            try:
+                return json.loads(r.stdout)
+            except json.JSONDecodeError:
+                pass
+        time.sleep(min(30, 8 * (attempt + 1)))
     return None
 
-def find_image(query, tokens, used):
+
+def find_candidates(query):
     data = api({
         "generator": "search", "gsrsearch": query, "gsrnamespace": "6", "gsrlimit": "20",
-        "prop": "imageinfo", "iiprop": "url|mime|size|extmetadata", "iiurlwidth": "1600",
+        "prop": "imageinfo",
+        "iiprop": "url|mime|size|extmetadata", "iiurlwidth": "1600",
     })
     if not data:
-        return None
-    pages = data.get("query", {}).get("pages", {})
-    cands = []
-    for p in pages.values():
+        return []
+    out = []
+    for p in (data.get("query", {}).get("pages", {}) or {}).values():
         ii = (p.get("imageinfo") or [{}])[0]
         em = ii.get("extmetadata") or {}
         title = p.get("title", "")
@@ -65,50 +78,70 @@ def find_image(query, tokens, used):
         lic = html.unescape((em.get("LicenseShortName") or {}).get("value", ""))
         if LICENSE_BAD.search(lic) or not LICENSE_OK.search(lic):
             continue
-        if (em.get("Credit") or {}).get("value", "") and "generated" in (em.get("ImageDescription") or {}).get("value", "").lower():
-            continue  # skip AI-generated flagged descriptions
-        lt = title.lower()
-        if not any(t in lt for t in tokens):
+        # reject AI-generated-flagged descriptions
+        desc = html.unescape((em.get("ImageDescription") or {}).get("value", "")).lower()
+        if "generated" in desc or "ai-generated" in desc or "midjourney" in desc or "dall" in desc:
             continue
-        if title in used:
+        if BAD_TITLE.search(title):
             continue
-        cands.append({
-            "title": title,
-            "width": w, "height": ii.get("height"),
+        artist_raw = (em.get("Artist") or {}).get("value", "")
+        artist = html.unescape(re.sub(r"<[^>]+>", "", artist_raw)).strip()[:120] or "Unknown"
+        out.append({
+            "title": title, "width": w, "height": ii.get("height"),
             "thumburl": ii.get("thumburl") or ii.get("url"),
-            "page": ii.get("descriptionurl"),
-            "license": lic,
-            "artist": html.unescape(re.sub(r"<[^>]+>", "", (em.get("Artist") or {}).get("value", ""))).strip()[:120],
+            "descurl": ii.get("descriptionurl", ""),
+            "license": lic, "artist": artist,
         })
-    cands.sort(key=lambda c: -c["width"])
-    return cands[0] if cands else None
+    out.sort(key=lambda c: -c["width"])
+    return out
 
-manifest_path = OUT / "manifest.json"
-manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
-used = {m["title"] for m in manifest.values()}
 
-for slug, spec in ARTICLES.items():
-    if slug in manifest and manifest[slug].get("status") == "ok":
-        print(f"{slug}: already sourced -> {manifest[slug]['title']}")
-        continue
-    picked = None
-    for qi, q in enumerate(spec["queries"]):
-        print(f"{slug}: query '{q}'")
-        picked = find_image(q, spec["tokens"], used)
+def main():
+    manifest_path = OUT / "manifest.json"
+    credits_path = OUT / "credits.csv"
+    manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    # global dedupe: seed from ALL previously ok entries
+    used = {m["title"] for m in manifest.values() if m.get("status") == "ok"}
+
+    for slug, spec in ARTICLES.items():
+        if manifest.get(slug, {}).get("status") == "ok":
+            print(f"{slug}: already sourced -> {manifest[slug]['title']}")
+            continue
+        picked = None
+        q_used = None
+        for q in spec["queries"]:
+            print(f"{slug}: query '{q}'")
+            q_used = q
+            cands = find_candidates(q)
+            token_hit = [c for c in cands if all(t in c["title"].lower() for t in spec["tokens"])]
+            if token_hit:
+                picked = token_hit[0]
+                break
+            time.sleep(2)
         if picked:
-            print(f"  PICKED: {picked['title']} [{picked['license']}] {picked['width']}x{picked['height']}")
-            print(f"  page: {picked['page']}")
-            break
+            manifest[slug] = {"status": "ok", "query": q_used, **picked}
+            used.add(picked["title"])
+            print(f"  PICKED: {picked['title']} [{picked['license']}] {picked['width']}px")
+        else:
+            manifest[slug] = {"status": "none", "queries_tried": spec["queries"]}
+            print("  NO suitable image")
+        manifest_path.write_text(json.dumps(manifest, indent=1))
         time.sleep(2)
-    if picked:
-        manifest[slug] = {"status": "ok", "query": q, **picked}
-        used.add(picked["title"])
-    else:
-        manifest[slug] = {"status": "none", "queries_tried": spec["queries"]}
-        print("  NO suitable image")
-    manifest_path.write_text(json.dumps(manifest, indent=1))
-    time.sleep(2)
 
-print("\n=== SUMMARY ===")
-for slug, m in manifest.items():
-    print(slug, "->", m.get("status"), "|", m.get("title", ""), "|", m.get("license", ""))
+    # regenerate credits.csv from manifest (skill pitfall: regenerate at end, never accumulate)
+    with open(credits_path, "w", newline="") as f:
+        wcsv = csv.writer(f)
+        wcsv.writerow(["article_slug", "file_title", "artist", "license", "source_page", "thumb_url", "local_path"])
+        for slug in ARTICLES:
+            m = manifest.get(slug, {})
+            if m.get("status") == "ok":
+                wcsv.writerow([slug, m["title"], m["artist"], m["license"], m["descurl"], m["thumburl"],
+                               f"/images/articles/{slug}.jpg"])
+    print("\n=== SUMMARY ===")
+    for slug in ARTICLES:
+        m = manifest.get(slug, {})
+        print(slug, "->", m.get("status"), "|", m.get("title", "")[:60], "|", m.get("license", ""))
+
+
+if __name__ == "__main__":
+    main()

@@ -4,9 +4,9 @@ import { articles } from '../../data/articles';
 ---
 
 <BaseLayout
-  title="Recipe Nutrition & Meal Planning Articles"
-  description="Five practical PairDish guides for recipe nutrition, macro meal planning, pantry dinners, grocery budgets, and high-protein meal prep."
-  keywords={['recipe nutrition articles', 'meal planning guides', 'macro meal planning', 'grocery budget meal plan', 'high protein meal prep']}
+  title="Food Pairing, Nutrition & Meal Planning Articles"
+  description="PairDish guides for food pairing, recipe nutrition, macro meal planning, pantry dinners, grocery budgets, and high-protein meal prep — with calculators for each."
+  keywords={['food pairing guides', 'what to serve with', 'recipe nutrition articles', 'meal planning guides', 'macro meal planning', 'high protein meal prep']}
   canonical="https://pairdish.com/articles"
   breadcrumbs={[
     { name: 'Home', url: '/' },
@@ -19,11 +19,11 @@ import { articles } from '../../data/articles';
       <div class="max-w-3xl">
         <span class="badge badge-wine mb-5">PairDish Guides</span>
         <h1 class="text-display mb-6 text-[var(--text-primary)]">
-          Recipe nutrition and meal planning guides
+          Pairing, nutrition, and meal planning guides
         </h1>
         <p class="text-xl leading-relaxed text-[var(--text-secondary)]">
-          A focused five-article launch library for calculating recipe nutrition, building macro-aware meal plans,
-          shopping smarter, and turning pantry staples into practical meals.
+          What to serve with your favorite mains, how to calculate recipe nutrition, and how to turn
+          pantry staples and grocery budgets into practical weekly meals — every guide pairs with a free calculator.
         </p>
       </div>
     </div>
@@ -33,8 +33,8 @@ import { articles } from '../../data/articles';
     <div class="container">
       <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <span class="badge badge-sage mb-3">Only 5 launch articles</span>
-          <h2 class="text-display text-3xl text-[var(--text-primary)]">Start with the calculator cluster</h2>
+          <span class="badge badge-sage mb-3">{articles.length} guides and growing</span>
+          <h2 class="text-display text-3xl text-[var(--text-primary)]">Start with a pairing question</h2>
         </div>
         <a href="/tools/nutrition-calculator" class="btn btn-primary px-6 py-3">Try the nutrition calculator</a>
       </div>

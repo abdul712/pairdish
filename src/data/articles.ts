@@ -1,8 +1,15 @@
+export interface ArticleTable {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+}
+
 export interface ArticleSection {
   heading: string;
   body: string[];
   bullets?: string[];
   callout?: string;
+  table?: ArticleTable;
   toolLink?: {
     href: string;
     label: string;
@@ -13,6 +20,12 @@ export interface ArticleSection {
 export interface ArticleFaq {
   question: string;
   answer: string;
+}
+
+export interface ArticleSource {
+  label: string;
+  href: string;
+  note?: string;
 }
 
 export interface Article {
@@ -26,18 +39,20 @@ export interface Article {
   category: string;
   image: string;
   imageAlt: string;
+  photoCredit?: string;
   keywords: string[];
   summary: string;
   quickWins: string[];
   sections: ArticleSection[];
-  faqs: ArticleFaq[];
+  faqs?: ArticleFaq[];
+  sources?: ArticleSource[];
   primaryTool: {
     href: string;
     label: string;
   };
 }
 
-export const articles: Article[] = [
+const coreArticles: Article[] = [
   {
     slug: 'recipe-nutrition-calculator-guide',
     title: 'How to Use a Recipe Nutrition Calculator Without Guessing',
@@ -361,6 +376,19 @@ export const articles: Article[] = [
     ]
   }
 ];
+
+// Batch A pairing guides — data lives in JSON files (resolveJsonModule is enabled).
+import roastedPotatoes from './articles/what-to-serve-with-roasted-potatoes.json';
+import friedFish from './articles/what-to-serve-with-fried-fish.json';
+import pestoChicken from './articles/what-to-serve-with-pesto-chicken.json';
+
+const pairingGuides: Article[] = [
+  roastedPotatoes as unknown as Article,
+  friedFish as unknown as Article,
+  pestoChicken as unknown as Article
+];
+
+export const articles: Article[] = [...coreArticles, ...pairingGuides];
 
 export function getArticle(slug: string): Article {
   const article = articles.find((item) => item.slug === slug);
