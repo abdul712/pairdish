@@ -137,3 +137,35 @@
 5. GSC re-check in ~1 week: are the 3 new URLs indexed? (internal links + sitemap only until
    `indexing` OAuth scope is granted — user action: re-run `webmaster_auto_add.py google-auth`).
 6. GA4 sanity check in ~48h: realtime/reports should show data now that gtag is live.
+
+### Run 3 — 2026-09-09 (this run)
+- **Monitoring (Phase 6):** new `scripts/monitor_gsc_bing.py` (GSC searchAnalytics 28d +
+  sitemap status + Bing GetQueryStats; token dual-key refresh inline).
+  - GSC: clicks=0, impressions=0, 1 day of data (site is young; gtag installed run 2).
+    Sitemap lastDownloaded=2026-09-09T01:46Z (Google re-downloaded it this week, 0 errors).
+  - Bing: 351 queries, **57 clicks / 510 impressions over Bing's ~4mo range** — all on
+    "what to serve with X" queries (pork loin, schnitzel, garlic shrimp, paella,
+    philly cheesesteak). Validates the Batch A/C direction; guides for those exact
+    dishes are the highest-value next batch.
+- **Live-site check:** homepage, sitemap (52 URLs), and all 3 published guides = 200.
+- **Directory submissions (Phase 5a): 4 processed — 1 listed, 1 submitted, 2 pending_review.**
+  - ShowMySites: LISTED live (showmysites.com/pairdish/pairdish, 200).
+  - Active Search Results: submitted (confirm page 200).
+  - Entireweb: pending_review (user clicks confirmation email).
+  - Huzzler: account verified + product created (J1LyjvxNyF, cat 36 Food & Drink, PIL logo).
+    FREE publish gated on homepage badge embed — logged in OUTREACH.md for user decision.
+- **Blockers (unchanged):** GSC URL submission needs `indexing` OAuth scope (user re-consent);
+  GA4 Data API needs `analytics.readonly` scope (user re-consent). Traffic snapshot via
+  GSC searchAnalytics only.
+- **Review-first gate still active:** 3 guides awaiting user review; next batch (items 4-8)
+  prepared but NOT scheduled. No deploy this run (no content changes to ship).
+
+### Known follow-ups for run 4
+1. Viesearch (real-browser fill) + new free targets; mailbox sweep for Entireweb confirmations.
+2. Link outreach emails (needs PAIRDISH_SMTP_* or user-approved Gmail SMTP path).
+3. Social profiles: Pinterest first (food niche), then X/FB/IG.
+4. After user reviews the 3 live guides: Batch A items 4-8 at 1/day (Commons photo → verify →
+   tables + .gov sources → deploy → Bing submit). Prioritize dishes Bing already shows demand
+   for: pork loin, schnitzel, garlic shrimp, paella, philly cheesesteak.
+5. Huzzler badge embed + publish (pending user decision).
+6. Re-check GSC indexing of the 3 guides; GA4 data should appear ~48h+ after gtag (run 2).

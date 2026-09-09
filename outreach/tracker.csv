@@ -1,2 +1,6 @@
 site_name,url,status,date,listing_url_or_proof,notes
 PairDish,https://pairdish.com,listed,2026-09-07,https://pairdish.com,seed row (the site itself); tracker smoke test
+Active Search Results,https://www.activesearchresults.com/,submitted,2026-09-09,confirm page after POST /addwebsite.php (urladdedconfirm - Thank you page returned HTTP 200),free; no confirmation email required; base gmail used (plus-alias rejected)
+Entireweb,https://www.entireweb.com/,pending_review,2026-09-09,redirect to /free_submission/sent/?zid=714dacb7f5b9 verified,confirmation email sent to mabdulrahim+pairdish-entireweb@gmail.com - USER clicks link; opts into promo mail
+ShowMySites,https://www.showmysites.com/,listed,2026-09-09,"https://www.showmysites.com/pairdish/pairdish/ (HTTP 200, name on page)",listing live immediately; account pairdish / mabdulrahim+pairdish-sms@gmail.com; NOTE: plus-alias email must be curl --data-urlencode (raw -d turns + into space)
+Huzzler,https://huzzler.so/,pending_review,2026-09-09,product created: huzzler.so/products/J1LyjvxNyF/pairdish (account verified),acct pairdish / mabdulrahim+pairdish-hz@gmail.com / PD!sh2026-Hz3k; FREE publish gated on Huzzler badge embed on pairdish.com homepage - user decision; embed code in OUTREACH.md; free queue = 72 days (expected live 2026-11-20)
