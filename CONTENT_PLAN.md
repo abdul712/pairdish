@@ -105,3 +105,7 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
 - Next: after user OK → items 4-8 (kielbasa, tilapia, country fried steak, blackened salmon,
   biscuits+syrup) at 1/day with the same pipeline (Commons real photo → visual verify →
   tables + .gov sources → deploy → Bing submit).
+- 2026-09-11 (run 4): No content changes — review-first gate still ACTIVE (3 guides awaiting
+  user review). Run focused on outreach (4 new free submissions + Entireweb confirmation) +
+  monitoring. On user OK: items 4-8 at 1/day; also queue Bing-demand dishes (philly
+  cheesesteak 22 impr, pork loin, schnitzel, garlic shrimp, paella, lentil soup).

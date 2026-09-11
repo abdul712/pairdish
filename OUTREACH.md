@@ -21,7 +21,7 @@ Statuses: submitted | pending_review | skipped_paid | skipped_other | failed | l
 
 | platform | handle | status | date | notes |
 |---|---|---|---|---|
-| Pinterest | @pairdish | todo | 2026-09-07 | HIGH-VALUE for food niche; create board structure: Pairing Guides / Cheese Boards / Meal Prep |
+| Pinterest | @pairdish | EXISTS — needs access | 2026-09-11 | Account already exists: pinterest.com/pairdish ("Pair Dish", 10-13 pins, 0 followers). Domain verified via pinterest-site-verification TXT (2025-12-13). Account mail → admin@pairdish.com (forwards to user Gmail). BLOCKER: no credentials on this box — user must provide login (or confirm who manages it). Then: boards (Pairing Guides / Cheese Boards / Meal Prep) + pin the 3 live guides. |
 | X (Twitter) | @pairdish | todo | 2026-09-07 | check handle availability first |
 | Facebook page | /pairdish | todo | 2026-09-07 | create after first 10 articles live |
 | Instagram | @pairdish | todo | 2026-09-07 | photo-heavy; needs consistent real-food imagery |
@@ -35,6 +35,17 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 ```
 
 ## Run log
+
+### Run 4 — 2026-09-11
+- **Entireweb — confirmation COMPLETED** (was pending_review since 09-09): confirmation email link clicked from the mailbox → entireweb final page "You're in the queue. Your site is now on its way into search" (zid=714dacb7f5b9d1b23741ca2d8625967a); "Thank you for your submission" email received. Note: confirming opts the +pairdish-entireweb alias into Entireweb promo mail (unsubscribe anytime).
+- **4 NEW free submissions processed:**
+  - **GainWeb — submitted** ✅ "Link submitted and awaiting approval" (free Regular LINK_TYPE=2, category Food and Drink; apex host + update_session.php mimic; script `scripts/dir_submit_gainweb.py`).
+  - **FreePRWebDirectory — pending_review** ✅ POST accepted ("Link submitted and awaiting approval"); confirmation email "currently under review" (info@freeprwebdirectory.com). Free (Regular) review takes 2-3 months, not guaranteed — standard phpLD upsell.
+  - **Directory-Free — submitted** ✅ "Thank you... Your site has been added to Directory-Free. Our editors will validate your request."
+  - **Viesearch — pending_review** ✅ submission id **28dlj**; free plan selected ("Join the Waiting List"); confirm email clicked (redirect to /28dlj/plan = confirmed). Listing 404s until editorial review (normal for free queue).
+- **Pinterest discovery:** account @pairdish ALREADY EXISTS — see the social table above. Created with admin@pairdish.com; pairdish.com domain already verified on Pinterest. No credentials on this box → user action needed before we can pin/curate.
+- **Email infrastructure:** admin@pairdish.com RECEIVES mail (Cloudflare Email Routing → user Gmail). Sending FROM pairdish.com (outreach@pairdish.com for link-outreach emails per the domain-email user rule) is still NOT possible — no SMTP/API sending creds exist. Link-outreach emails remain BLOCKED until sending is set up (user action).
+- Tracker after run: 9 rows — 2 listed / 3 pending_review / 4 submitted (`scripts/update_tracker.py summary`).
 
 ### Run 3 — 2026-09-09
 - **Active Search Results — submitted** (POST /addwebsite.php, confirm page 200). Base gmail used (plus-alias rejected there).

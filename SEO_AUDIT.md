@@ -1,6 +1,6 @@
 # PairDish (pairdish.com) — SEO Audit & Status
 
-**Last updated:** 2026-09-07 (durable job run 2)
+**Last updated:** 2026-09-11 (durable job run 4)
 **Stack:** Astro 5 + React 19 SSR on Cloudflare Workers (`pairdish` worker, routes pairdish.com/* and www)
 **Repo:** abdul712/pairdish — local `/home/hermes/projects/pairdish`
 
@@ -160,12 +160,37 @@
 - **Review-first gate still active:** 3 guides awaiting user review; next batch (items 4-8)
   prepared but NOT scheduled. No deploy this run (no content changes to ship).
 
-### Known follow-ups for run 4
-1. Viesearch (real-browser fill) + new free targets; mailbox sweep for Entireweb confirmations.
-2. Link outreach emails (needs PAIRDISH_SMTP_* or user-approved Gmail SMTP path).
-3. Social profiles: Pinterest first (food niche), then X/FB/IG.
-4. After user reviews the 3 live guides: Batch A items 4-8 at 1/day (Commons photo → verify →
-   tables + .gov sources → deploy → Bing submit). Prioritize dishes Bing already shows demand
-   for: pork loin, schnitzel, garlic shrimp, paella, philly cheesesteak.
-5. Huzzler badge embed + publish (pending user decision).
-6. Re-check GSC indexing of the 3 guides; GA4 data should appear ~48h+ after gtag (run 2).
+### Run 4 — 2026-09-11
+- **Monitoring (Phase 6):** GSC 28d: 0 clicks / 4 impressions / 3 days with data (top pages /
+  /articles + /grocery-budget-meal-planning). Sitemap healthy: 52 URLs submitted, 0 errors,
+  lastDownloaded 2026-09-10. The 3 new guides are not yet in GSC data (young site + 2–5 day
+  lag; no `indexing` scope for manual submission — sitemap + internal links only).
+  Bing (~4mo): 351 queries / 57 clicks / 510 impressions — top demand ridges: philly
+  cheesesteak (22 impr), pork loin, schnitzel, garlic shrimp, paella, lentil soup. All
+  "what to serve with X" style → Batch A/C direction stays valid.
+- **Live checks:** homepage, /articles, all 3 guides, sitemap = 200. Guides re-verified:
+  `<table>`s present, zero FAQ sections, Commons credit lines, JSON-LD present.
+- **Outreach (Phase 5a):** Entireweb confirmation COMPLETED (link clicked; "You're in the
+  queue"); 4 NEW free submissions: GainWeb (submitted), FreePRWebDirectory (pending_review +
+  email), Directory-Free (submitted), Viesearch (id 28dlj, confirm clicked, pending_review).
+  Tracker: 9 rows (2 listed / 4 submitted / 3 pending_review).
+- **Pinterest:** discovered @pairdish already exists (10-13 pins, 0 followers; domain
+  verification TXT present since 2025-12-13; creator mail to admin@pairdish.com). No creds
+  on box → user must provide access before pinning.
+- **Email infra:** admin@pairdish.com receives (CF Email Routing → user Gmail). No sending
+  creds → domain-email link outreach still blocked.
+- **Standing blockers (unchanged):** GSC `indexing` scope + GA4 `analytics.readonly` scope
+  need one-time user re-consent; link-outreach sending needs domain SMTP/API creds (user).
+- **Review gate: still ACTIVE** — the 3 guides await user review (no publish of items 4-8).
+
+### Known follow-ups for run 5
+1. Check listing states: Entireweb crawl status, Viesearch (28dlj), FreePRWebDirectory,
+   Directory-Free reviews; re-sweep mailbox for anything actionable.
+2. Pinterest: on user access → create boards (Pairing Guides / Cheese Boards / Meal Prep) +
+   pin the 3 live guides. X/FB/IG: check handle availability (user identity decisions).
+3. After user OK on the 3 guides → Batch A items 4-8 at 1/day (kielbasa, tilapia, country
+   fried steak, blackened salmon, biscuits+syrup) with the full pipeline (Commons photo →
+   vision verify → tables + .gov sources → deploy → Bing submit). Prioritize Bing demand:
+   philly cheesesteak, pork loin, schnitzel, garlic shrimp, paella, lentil soup.
+4. Huzzler badge embed + publish (pending user decision; embed code in OUTREACH.md).
+5. GSC re-check: are the 3 guides indexed? GA4 data check once scope granted.
