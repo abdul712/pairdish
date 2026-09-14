@@ -103,5 +103,9 @@
     { "label": "USDA MyPlate: vegetables food group", "href": "https://www.myplate.gov/eat-healthy/vegetables", "note": "weekly vegetable variety targets" },
     { "label": "USDA FSIS Safe Minimum Internal Temperature Chart", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart", "note": "165°F (74°C) for all poultry" }
   ],
+  "relatedGuides": [
+    { "slug": "what-to-serve-with-roasted-potatoes", "label": "What to Serve with Roasted Potatoes", "teaser": "Crispy potatoes under a Ligurian pan." },
+    { "slug": "high-protein-meal-prep", "label": "High-Protein Meal Prep That Stays Flexible", "teaser": "Prep chicken as a component, not five identical boxes." }
+  ],
   "faqs": []
 }

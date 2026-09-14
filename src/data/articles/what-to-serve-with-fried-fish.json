@@ -104,5 +104,9 @@
     { "label": "USDA FSIS Food Safety Basics", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics", "note": "Clean, Separate, Cook, Chill — the four steps behind the safety notes above" },
     { "label": "Dietary Guidelines for Americans (USDA/HHS)", "href": "https://www.dietaryguidelines.gov/", "note": "seafood servings within weekly protein and seafood recommendations" }
   ],
+  "relatedGuides": [
+    { "slug": "what-to-serve-with-roasted-potatoes", "label": "What to Serve with Roasted Potatoes", "teaser": "The classic potato side, twelve ways." },
+    { "slug": "meal-planning-with-macros", "label": "Meal Planning with Macros", "teaser": "Work fish night into a weekly macro plan." }
+  ],
   "faqs": []
 }

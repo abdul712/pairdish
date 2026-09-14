@@ -109,3 +109,7 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   user review). Run focused on outreach (4 new free submissions + Entireweb confirmation) +
   monitoring. On user OK: items 4-8 at 1/day; also queue Bing-demand dishes (philly
   cheesesteak 22 impr, pork loin, schnitzel, garlic shrimp, paella, lentil soup).
+- 2026-09-14 (run 5): **Internal-linking layer shipped** — `relatedGuides` cards in the article
+  template; all 8 articles (5 core + 3 guides) now link to 2 related reads in-body (16 new internal
+  links; every guide has 4-5 inbound article links). Deployed `c6da2103` + live-verified 8/8. No new
+  articles — review gate still ACTIVE (3 guides awaiting user review). On user OK: items 4-8 at 1/day.

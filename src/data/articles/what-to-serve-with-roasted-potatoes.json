@@ -124,5 +124,9 @@
     { "label": "USDA FSIS Safe Minimum Internal Temperature Chart", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart", "note": "safe cooking temperatures for poultry and meats" },
     { "label": "USDA FSIS Food Safety Basics", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics", "note": "Clean, Separate, Cook, Chill guidance" }
   ],
+  "relatedGuides": [
+    { "slug": "what-to-serve-with-fried-fish", "label": "What to Serve with Fried Fish", "teaser": "Fish and chips, done as a real weeknight dinner." },
+    { "slug": "grocery-budget-meal-planning", "label": "Grocery Budget Meal Planning", "teaser": "Potatoes as a price anchor for a week of meals." }
+  ],
   "faqs": []
 }

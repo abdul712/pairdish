@@ -180,6 +180,19 @@ const articleImageUrl = new URL(article.image, siteUrl).href;
             Pairing decisions get easier with a framework. Browse the guides below for more
             combinations that work, or jump straight into a calculator to size the meal.
           </p>
+          {article.relatedGuides && article.relatedGuides.length > 0 && (
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              {article.relatedGuides.map((guide) => (
+                <a
+                  href={`/articles/${guide.slug}`}
+                  class="group block rounded-2xl border border-[var(--color-cream-dark)] bg-white p-5 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-medium)]"
+                >
+                  <span class="block font-display text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--color-wine)]">{guide.label}</span>
+                  <span class="mt-1 block text-sm text-[var(--text-muted)]">{guide.teaser}</span>
+                </a>
+              ))}
+            </div>
+          )}
           {article.sources && article.sources.length > 0 && (
             <div class="mt-8 rounded-2xl bg-[var(--color-cream)] p-6">
               <h3 class="mb-3 font-display text-xl font-semibold text-[var(--text-primary)]">Sources &amp; further reading</h3>

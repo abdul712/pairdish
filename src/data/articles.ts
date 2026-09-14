@@ -50,6 +50,11 @@ export interface Article {
     href: string;
     label: string;
   };
+  relatedGuides?: {
+    slug: string;
+    label: string;
+    teaser: string;
+  }[];
 }
 
 const coreArticles: Article[] = [
@@ -72,6 +77,10 @@ const coreArticles: Article[] = [
       'Check oils, nuts, dairy, sweeteners, and grains first because small measurement errors change totals quickly.',
     ],
     primaryTool: { href: '/tools/nutrition-calculator', label: 'Open the Recipe Nutrition Calculator' },
+    relatedGuides: [
+      { slug: 'what-to-serve-with-fried-fish', label: 'What to Serve with Fried Fish', teaser: 'Portion and calorie math for a fish dinner.' },
+      { slug: 'what-to-serve-with-pesto-chicken', label: 'What to Serve with Pesto Chicken', teaser: 'Run a one-pan chicken dinner through the calculator.' }
+    ],
     sections: [
       {
         heading: 'Start with a clean ingredient list',
@@ -140,6 +149,10 @@ const coreArticles: Article[] = [
       'Balance the week rather than forcing every single meal to hit perfect numbers.'
     ],
     primaryTool: { href: '/tools/macro-calculator', label: 'Open the Macro Calculator' },
+    relatedGuides: [
+      { slug: 'what-to-serve-with-pesto-chicken', label: 'What to Serve with Pesto Chicken', teaser: 'Protein anchor, starch, and greens in one pan.' },
+      { slug: 'what-to-serve-with-roasted-potatoes', label: 'What to Serve with Roasted Potatoes', teaser: 'Starchy sides that slot into a macro template.' }
+    ],
     sections: [
       {
         heading: 'Think in templates before recipes',
@@ -203,6 +216,10 @@ const coreArticles: Article[] = [
       'Shop only for fresh items that complete two or more pantry meals.'
     ],
     primaryTool: { href: '/tools/pantry-helper', label: 'Open the Pantry Helper' },
+    relatedGuides: [
+      { slug: 'what-to-serve-with-roasted-potatoes', label: 'What to Serve with Roasted Potatoes', teaser: 'Potatoes are the ultimate pantry base.' },
+      { slug: 'what-to-serve-with-pesto-chicken', label: 'What to Serve with Pesto Chicken', teaser: 'Jarred pesto turns pantry chicken into dinner.' }
+    ],
     sections: [
       {
         heading: 'Sort pantry staples by job',
@@ -267,6 +284,10 @@ const coreArticles: Article[] = [
       'Plan one flexible “use-it-up” dinner to prevent waste.'
     ],
     primaryTool: { href: '/tools/grocery-list', label: 'Open the Grocery List Generator' },
+    relatedGuides: [
+      { slug: 'what-to-serve-with-roasted-potatoes', label: 'What to Serve with Roasted Potatoes', teaser: 'Twelve cheap mains and sauces, with per-person portion math.' },
+      { slug: 'what-to-serve-with-fried-fish', label: 'What to Serve with Fried Fish', teaser: 'Budget fish night with sides that keep the plate light.' }
+    ],
     sections: [
       {
         heading: 'Start with the budget, not the recipes',
@@ -330,6 +351,10 @@ const coreArticles: Article[] = [
       'Add protein to snacks and breakfasts, not only lunch and dinner.'
     ],
     primaryTool: { href: '/tools/protein-calculator', label: 'Open the Protein Calculator' },
+    relatedGuides: [
+      { slug: 'what-to-serve-with-pesto-chicken', label: 'What to Serve with Pesto Chicken', teaser: 'A fast protein anchor you can repeat all week.' },
+      { slug: 'what-to-serve-with-fried-fish', label: 'What to Serve with Fried Fish', teaser: 'Lean protein with sides that fit a prep plan.' }
+    ],
     sections: [
       {
         heading: 'Build components instead of identical boxes',

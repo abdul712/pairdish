@@ -36,6 +36,25 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 5 — 2026-09-14
+- **6 NEW free submissions — all accepted ("Link submitted and awaiting approval"):**
+  - **Submission Web Directory** — phpLD, free Regular, cat Cooking; captcha OCR'd (5558).
+  - **Site Promotion Directory** — phpLD, free Regular; captcha OCR'd (496396); sister network.
+  - **UK Internet Directory** — phpLD, free Regular; captcha OCR'd (358968).
+  - **Free Internet Web Directory** — phpLD, free Regular; captcha OCR'd (4946) (found via UKD's own
+    "submit to sister" link).
+  - **Promote Business Directory** — 3-step JS wizard (browser), LINK_TYPE=2 free Regular; no captcha.
+  - **Best Sites Index** — 3-step JS wizard (browser), LINK_TYPE=2 free Regular; step-3 captcha OCR'd
+    via in-browser canvas (YYdz).
+  - All six via `scripts/dir_run5_pairdish.py` (probe/post) + browser wizard steps; each site's real
+    server response captured (msg block). Review queues: 2-6 months typical for free tier.
+- **Viesearch:** free listing still queued (28dlj 404s until editorial review); a PAID "skip the wait"
+  upsell arrived → declined under the free-only rule.
+- **FreePRWebDirectory:** standard phpLD upsell email (payment.php link) → declined; free queue unchanged.
+- **Huzzler:** reminder email ("seo_boost_reminder") — badge gate unchanged, still user decision.
+- Mail sweep (11→14 Sep): no other pairdish-actionable mail.
+- Tracker after run: **15 rows — 2 listed / 10 submitted / 3 pending_review** (was 9 after run 4).
+
 ### Run 4 — 2026-09-11
 - **Entireweb — confirmation COMPLETED** (was pending_review since 09-09): confirmation email link clicked from the mailbox → entireweb final page "You're in the queue. Your site is now on its way into search" (zid=714dacb7f5b9d1b23741ca2d8625967a); "Thank you for your submission" email received. Note: confirming opts the +pairdish-entireweb alias into Entireweb promo mail (unsubscribe anytime).
 - **4 NEW free submissions processed:**

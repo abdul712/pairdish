@@ -194,3 +194,36 @@
    philly cheesesteak, pork loin, schnitzel, garlic shrimp, paella, lentil soup.
 4. Huzzler badge embed + publish (pending user decision; embed code in OUTREACH.md).
 5. GSC re-check: are the 3 guides indexed? GA4 data check once scope granted.
+
+### Run 5 — 2026-09-14
+- **Phase 4 — internal-linking layer SHIPPED:** new `relatedGuides` field + rendered card block in the
+  article template ("Keep planning your plate" section). All 8 articles now carry 2 in-body related
+  links each (16 new internal links; every pairing guide gets 4-5 inbound links from related pages,
+  every core article at least 1). Drafted via `scripts/apply_linking_edits.py` (assertion-guarded),
+  built, deployed (wrangler version `c6da2103-4067-4b12-8e6d-b032d0d4b11a`), **verified live 8/8**
+  (`scripts/verify_run5_links.py` — both cards present on every article).
+- **Phase 6 — monitoring:** GSC **BLOCKED** — Google OAuth refresh token expired/revoked
+  (`invalid_grant`; last successful refresh 2026-09-14 05:01 UTC = the known testing-mode ~7-day
+  expiry). **User action required, fleet-wide:** `python3 ~/.hermes/scripts/webmaster_auto_add.py
+  google-auth` (open the URL, paste the code) — until then GSC + GA4 APIs are down for ALL jobs.
+- **Bing (works):** ~4mo range: **396 queries / 60 clicks / 564 impressions** (up from 351/57/510 on
+  09-11). Top demand: philly cheesesteak (22 impr), pork loin (2 listed), schnitzel, garlic shrimp,
+  paella, "what to eat with fried fish", lentil soup, french toast. Sitemap feed: Success, 52 URLs,
+  last crawled 2026-09-12.
+- **Phase 5a — 6 NEW free directory submissions (all accepted into review queues):** Submission Web
+  Directory, Site Promotion Directory, UK Internet Directory, Free Internet Web Directory (phpLD +
+  captcha OCR), Promote Business Directory, Best Sites Index (3-step JS wizard). Tracker: 15 rows —
+  2 listed / 10 submitted / 3 pending_review.
+  - Viesearch free listing still queued (28dlj 404s until review); received a PAID "skip the wait"
+    upsell → declined (free-only policy). FreePRWebDirectory: standard upsell email → queue unchanged.
+- **Review gate: STILL ACTIVE** — the 3 pairing guides await user review; Batch A items 4-8 not
+  published. On user OK → 1/day cadence.
+- **Live checks:** homepage, sitemap (52), all 8 articles = 200.
+
+### Known follow-ups for run 6
+1. AFTER user re-consents: re-run GSC monitor (are the 3 guides + core articles indexed?), GA4 sanity.
+2. Directory follow-up sweep: Viesearch /28dlj status; new phpLD listings (review 2-6mo); Huzzler
+   badge decision (user); Pinterest @pairdish access (user).
+3. On user OK for the guides: Batch A items 4-8 at 1/day (kielbasa, tilapia, country fried steak,
+   blackened salmon, biscuits+syrup) + Bing-demand dishes (philly cheesesteak, pork loin, schnitzel).
+4. Keep committing+deploying within the review-gate constraints; no bulk article publishing until OK.
