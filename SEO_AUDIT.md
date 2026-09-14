@@ -216,6 +216,9 @@
   2 listed / 10 submitted / 3 pending_review.
   - Viesearch free listing still queued (28dlj 404s until review); received a PAID "skip the wait"
     upsell → declined (free-only policy). FreePRWebDirectory: standard upsell email → queue unchanged.
+- **Sitemap maintenance:** bumped `<lastmod>` to 2026-09-14 for the 8 edited articles (script
+  `scripts/bump_sitemap_lastmod.py`), rebuilt + redeployed (wrangler version `4c21fef9-773d-449f-9e88-de86bf141a78`),
+  verified live (sitemap shows the new date). Commit `6b11800` pushed.
 - **Review gate: STILL ACTIVE** — the 3 pairing guides await user review; Batch A items 4-8 not
   published. On user OK → 1/day cadence.
 - **Live checks:** homepage, sitemap (52), all 8 articles = 200.
