@@ -250,7 +250,7 @@
   - **Related Guides internal links (tools → articles layer):** new card block on 9 tool pages
     (flavor-pairing ×3 guides, meal-prep ×3, nutrition-calculator ×2, macro-calculator ×2,
     protein-calculator ×2, grocery-list ×2, pantry-helper ×2, recipe-scaler ×1, buffet-planner ×2 =
-    18 new internal links; tool pages previously linked to ZERO articles).
+    19 new internal links; tool pages previously linked to ZERO articles).
   - **WebApplication JSON-LD** on all 36 tool pages (per-page name/description/category, offer price 0)
     — replaces the removed FAQPage entity with a correct one.
   - Sitemap lastmod bumped to 2026-09-16 for the 36 tool URLs.

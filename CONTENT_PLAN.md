@@ -115,7 +115,7 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   articles — review gate still ACTIVE (3 guides awaiting user review). On user OK: items 4-8 at 1/day.
 - 2026-09-16 (run 6): **No new articles — review gate still ACTIVE (9 days).** Structural work shipped:
   site-wide FAQ removal on all 36 tool pages (user hard rule) + WebApplication JSON-LD added in its
-  place; **Related Guides internal links on 9 tool pages (tools→articles layer, 18 links — tool pages
+  place; **Related Guides internal links on 9 tool pages (tools→articles layer, 19 links — tool pages
   previously linked to zero articles)**; sitemap lastmod bump for 36 tool URLs. Deploys `72032fa2` /
   `e3fbfa62` / `9064885f`, live-verified 36/36. Directory: 2 new submissions (qid, swb) +
   **Viesearch listed live**. On user OK: items 4-8 at 1/day.
