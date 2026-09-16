@@ -1,6 +1,6 @@
 # PairDish (pairdish.com) — SEO Audit & Status
 
-**Last updated:** 2026-09-11 (durable job run 4)
+**Last updated:** 2026-09-16 (durable job run 6)
 **Stack:** Astro 5 + React 19 SSR on Cloudflare Workers (`pairdish` worker, routes pairdish.com/* and www)
 **Repo:** abdul712/pairdish — local `/home/hermes/projects/pairdish`
 
@@ -230,3 +230,45 @@
 3. On user OK for the guides: Batch A items 4-8 at 1/day (kielbasa, tilapia, country fried steak,
    blackened salmon, biscuits+syrup) + Bing-demand dishes (philly cheesesteak, pork loin, schnitzel).
 4. Keep committing+deploying within the review-gate constraints; no bulk article publishing until OK.
+
+### Run 6 — 2026-09-16
+- **Phase 5a — 2 NEW free submissions + 1 LISTING LIVE:**
+  - **Quality Internet Directory** (qualityinternetdirectory.com) — phpLD network sibling; 3-step POST
+    wizard; free Regular; cat 297 Recreation & Sports > Cooking; no captcha → "Link submitted." → `submitted`.
+  - **Sites Web Directory** (siteswebdirectory.com) — phpLD network sibling; URL-param wizard + DO_MATH
+    (8+6=14); cat 1987 Home > Cooking → "Link submitted and awaiting approval." → `submitted`.
+    (Its success page points back at qid — chain closed.)
+  - **Viesearch 28dlj WENT LIVE** (2026-09-14 email; listing verified 2026-09-16: HTTP 200, title
+    contains site name) → https://viesearch.com/28dlj/pairdish-food-pairing-tools-guides → tracker `listed`
+    (confirm → live took ~3 days).
+  - phpLD/marketing-internet-directory network now fully covered for pairdish; tracker: **17 rows —
+    3 listed / 12 submitted / 2 pending_review** (`update_tracker.py` gained a notes-preserving `status` command).
+- **Phase 4 — structural content work (review gate respected; NO new articles):**
+  - **FAQ removal site-wide (user hard rule):** all 36 tool pages — visible FAQ sections + FAQPage
+    JSON-LD removed (3,630 lines; assertion-guarded script `scripts/remove_tool_faqs.py`).
+    Live-verified 0 occurrences on 36/36.
+  - **Related Guides internal links (tools → articles layer):** new card block on 9 tool pages
+    (flavor-pairing ×3 guides, meal-prep ×3, nutrition-calculator ×2, macro-calculator ×2,
+    protein-calculator ×2, grocery-list ×2, pantry-helper ×2, recipe-scaler ×1, buffet-planner ×2 =
+    18 new internal links; tool pages previously linked to ZERO articles).
+  - **WebApplication JSON-LD** on all 36 tool pages (per-page name/description/category, offer price 0)
+    — replaces the removed FAQPage entity with a correct one.
+  - Sitemap lastmod bumped to 2026-09-16 for the 36 tool URLs.
+  - Deploys `72032fa2` → `e3fbfa62` (sitemap rebuild) → `9064885f` (schema); live verify
+    `scripts/verify_run6_live.py`: **36/36 pages clean** (FAQ gone, schema present, guides links
+    present, sitemap dates correct, article pages unaffected). Commits `12587f8`, `1d3213c` pushed.
+- **Phase 6 — monitoring:** GSC **STILL BLOCKED** — refresh token `invalid_grant`, last good refresh
+  2026-09-14 05:01 UTC; user re-consent still pending (`webmaster_auto_add.py google-auth`).
+  Bing (~4mo): 396 queries / 60 clicks / 564 impressions (unchanged vs 09-14); sitemap feed Success,
+  52 URLs, last crawled 2026-09-12. Mail sweep 14→16 Sep: Viesearch live notices, ukd/pbd acks,
+  Huzzler + Pinterest marketing (not actionable). Live checks 200: homepage, sitemap, articles, tools.
+- **Review gate: STILL ACTIVE (9 days)** — 3 pairing guides await user review; items 4-8 not published.
+
+### Known follow-ups for run 7
+1. **Review gate needs the user OK** (open since 09-07). Batch A items 4-8 staged to publish at 1/day the
+   moment it lands (kielbasa, tilapia, country fried steak, blackened salmon, biscuits+syrup) + Bing-demand
+   dishes (philly cheesesteak, pork loin, schnitzel, garlic shrimp, paella).
+2. If Google re-consent done: GSC monitor (indexation of the 8 articles + tool pages), sitemap resubmit,
+   coverage fixes; GA4 data sanity.
+3. Directory: fresh-family research pass (phpLD vein exhausted); re-check Viesearch/qid/swb states.
+4. Pinterest access + domain-SMTP for link outreach remain user actions (blockers unchanged).

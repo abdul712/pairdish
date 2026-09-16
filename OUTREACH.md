@@ -36,6 +36,23 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 6 — 2026-09-16
+- **Viesearch → LISTED**: 28dlj live since 2026-09-14 ("Your Viesearch listing is live" email);
+  verified 2026-09-16 (HTTP 200, title contains site name):
+  https://viesearch.com/28dlj/pairdish-food-pairing-tools-guides
+- **2 NEW free submissions (both phpLD network, first try):**
+  - **Quality Internet Directory** — 3-step POST wizard → "Link submitted." (cat 297 Cooking; no
+    captcha; review ~2-3 months; script `scripts/dir_run6_pairdish.py qid`).
+  - **Sites Web Directory** — URL-param wizard + DO_MATH (8+6=14) → "Link submitted and awaiting
+    approval." (cat 1987 Home > Cooking; success page chains back to qid — network chain closed).
+  - Both use email alias mabdulrahim+pairdish-dir6@gmail.com.
+- phpLD/marketing-internet-directory network now FULLY covered for pairdish — next runs need
+  fresh-family research (or wait on reviews: typical 2-6 months).
+- Mail sweep (Sep 14→16): ukd + pbd submission acks; Huzzler "Quick question" marketing (not a
+  signal); Pinterest marketing tip; Viesearch live notices (pairdish + sibling sites).
+- Tracker after run: **17 rows — 3 listed / 12 submitted / 2 pending_review**
+  (`update_tracker.py` now supports a notes-preserving `status` command).
+
 ### Run 5 — 2026-09-14
 - **6 NEW free submissions — all accepted ("Link submitted and awaiting approval"):**
   - **Submission Web Directory** — phpLD, free Regular, cat Cooking; captcha OCR'd (5558).
