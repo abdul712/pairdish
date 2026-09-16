@@ -116,69 +116,7 @@ import ChocolatePairing from '../../components/tools/ChocolatePairing';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What wine pairs best with dark chocolate?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Ruby Port, Late Harvest Zinfandel, and Pedro Ximénez Sherry are excellent choices.
-              The wine should always be sweeter than the chocolate. For very dark chocolate (80%+),
-              the sweetest fortified wines work best to balance the bitterness.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can you pair cheese with chocolate?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Absolutely! Blue cheese pairs wonderfully with dark chocolate—the salty, tangy
-              cheese balances chocolate's bitterness. Aged Gouda, Manchego, and sharp Cheddar
-              also work well. For milk chocolate, try milder cheeses like Brie or Mascarpone.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What fruits go with chocolate?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Berries (raspberries, strawberries, cherries) are classic with dark chocolate.
-              Citrus (especially orange) creates wonderful contrast. For milk chocolate, try
-              bananas, pears, or caramelized fruits. White chocolate loves tropical fruits
-              like passion fruit and mango.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What is ruby chocolate?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Ruby chocolate is the fourth type of chocolate (after dark, milk, and white),
-              introduced in 2017. Made from specially processed ruby cocoa beans, it has a
-              natural pink color and fruity, berry-like flavor with a slight tang. It pairs
-              beautifully with fresh berries, rosé wine, and citrus flavors.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -237,45 +175,6 @@ import ChocolatePairing from '../../components/tools/ChocolatePairing';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What wine pairs best with dark chocolate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ruby Port, Late Harvest Zinfandel, and Pedro Ximénez Sherry are excellent choices. The wine should always be sweeter than the chocolate."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you pair cheese with chocolate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely! Blue cheese pairs wonderfully with dark chocolate. Aged Gouda, Manchego, and sharp Cheddar also work well. For milk chocolate, try milder cheeses like Brie or Mascarpone."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What fruits go with chocolate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Berries (raspberries, strawberries, cherries) are classic with dark chocolate. Citrus creates wonderful contrast. White chocolate loves tropical fruits like passion fruit and mango."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is ruby chocolate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ruby chocolate is the fourth type of chocolate, introduced in 2017. Made from ruby cocoa beans, it has a natural pink color and fruity, berry-like flavor with a slight tang."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

@@ -109,67 +109,7 @@ import BreadProofingCalculator from '../../components/tools/BreadProofingCalcula
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I know if my dough is over-proofed?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Over-proofed dough will be very slack and may deflate when touched. When you poke it,
-              the indent won't spring back at all. The dough may have a slightly sour smell.
-              The final bread will be flat with a dense, gummy texture.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I proof bread in the refrigerator?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! Cold proofing (retarding) in the refrigerator slows yeast activity dramatically,
-              allowing for overnight or multi-day proofs. This develops more flavor and fits bread
-              making into a busy schedule. Expect 8-24 hours for bulk fermentation in the fridge.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Why does enriched dough take longer to rise?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Butter, eggs, and sugar in enriched doughs (like brioche or challah) slow down yeast
-              activity. Fat coats the yeast cells and gluten strands, while sugar competes for
-              water. These doughs need more patience but result in tender, flavorful bread.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best temperature for proofing bread?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For most breads, 70-78°F (21-26°C) is ideal. This range balances reasonable
-              proofing times with good flavor development. Sourdough often benefits from
-              cooler temperatures (65-72°F) for more complex flavors.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -216,45 +156,6 @@ import BreadProofingCalculator from '../../components/tools/BreadProofingCalcula
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I know if my dough is over-proofed?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Over-proofed dough will be very slack and may deflate when touched. When you poke it, the indent won't spring back at all. The final bread will be flat with a dense, gummy texture."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I proof bread in the refrigerator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Cold proofing in the refrigerator slows yeast activity, allowing for overnight proofs. This develops more flavor. Expect 8-24 hours for bulk fermentation in the fridge."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does enriched dough take longer to rise?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Butter, eggs, and sugar in enriched doughs slow down yeast activity. Fat coats the yeast cells while sugar competes for water."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best temperature for proofing bread?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For most breads, 70-78°F (21-26°C) is ideal. This range balances reasonable proofing times with good flavor development."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

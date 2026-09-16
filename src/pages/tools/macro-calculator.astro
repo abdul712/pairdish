@@ -117,67 +117,7 @@ import MacroCalculator from '../../components/tools/MacroCalculator';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best macro ratio for weight loss?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For weight loss, prioritize protein (25-35%) to preserve muscle and stay full.
-              A moderate approach is 30/35/35 (protein/carbs/fat). Lower carb options like
-              25/25/50 can also work well. The best ratio is one you can stick to long-term.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I calculate my macros for muscle building?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For muscle building, use a caloric surplus (+250-500 calories) with high protein
-              (30-40%). A typical bodybuilding split is 35/40/25 (protein/carbs/fat). Carbs
-              fuel workouts and recovery, while protein builds muscle.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What are macros in keto?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Keto requires very low carbs (5-10%), moderate protein (15-25%), and high fat
-              (70-80%). Typically under 20-50g of net carbs daily. This puts your body in
-              ketosis, burning fat for fuel instead of carbohydrates.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How accurate is the BMR calculator?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              We use the Mifflin-St Jeor equation, considered the most accurate for estimating
-              BMR. However, individual metabolism varies. Use this as a starting point and
-              adjust based on actual results over 2-4 weeks.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -225,47 +165,38 @@ import MacroCalculator from '../../components/tools/MacroCalculator';
       </div>
     </div>
   </section>
+
+  <!-- Related Guides -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Guides
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <a href="/articles/meal-planning-with-macros" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-700">
+            📐
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Meal Planning With Macros</h4>
+            <p class="text-sm text-[var(--text-muted)]">A simple weekly system around your targets.</p>
+          </div>
+        </a>
+
+        <a href="/articles/high-protein-meal-prep" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-red-700">
+            💪
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">High-Protein Meal Prep</h4>
+            <p class="text-sm text-[var(--text-muted)]">Flexible prep that doesn’t feel like diet food.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What's the best macro ratio for weight loss?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For weight loss, prioritize protein (25-35%) to preserve muscle and stay full. A moderate approach is 30/35/35 (protein/carbs/fat). The best ratio is one you can stick to long-term."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I calculate my macros for muscle building?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For muscle building, use a caloric surplus (+250-500 calories) with high protein (30-40%). A typical bodybuilding split is 35/40/25 (protein/carbs/fat)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are macros in keto?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Keto requires very low carbs (5-10%), moderate protein (15-25%), and high fat (70-80%). Typically under 20-50g of net carbs daily to achieve ketosis."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate is the BMR calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We use the Mifflin-St Jeor equation, considered the most accurate for estimating BMR. Use this as a starting point and adjust based on actual results over 2-4 weeks."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

@@ -114,81 +114,7 @@ import DrinkCalculator from '../../components/tools/DrinkCalculator';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How much alcohol do I need for a wedding?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For a 5-hour wedding reception with 100 guests, plan for approximately 500 drinks total.
-              A typical split: 150 beer, 150 wine, 100 cocktails, and 100 non-alcoholic drinks.
-              Always add 10-15% buffer for late arrivals and heavy drinkers.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Should I offer a full bar or signature cocktails?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Signature cocktails are easier and more cost-effective. Choose 2-3 batch cocktails
-              (one spirit-forward, one light/refreshing, one crowd-pleaser) and pre-mix them.
-              This reduces bar wait times and ingredient waste significantly.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How much ice do I really need?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Plan for 1 pound of ice per guest as a baseline. Outdoor summer events need 1.5-2 lbs
-              per person. Don't forget you need ice for both chilling drinks AND serving in glasses.
-              It's one of the most common things to run out of—always buy extra!
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What mixers should I have on hand?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Essential mixers: club soda, tonic water, ginger beer, cranberry juice, orange juice,
-              and cola. For every bottle of spirits, plan for 3-4 liters of mixers. Fresh citrus
-              (lemons, limes) is a must for garnishes and fresh juice.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I scale batch cocktails?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Multiply each ingredient by the number of servings you need. Pro tip: reduce citrus
-              juice by about 10% when scaling up—it can become overpowering. Always add carbonated
-              ingredients (soda, sparkling wine) just before serving to keep the fizz.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -235,53 +161,6 @@ import DrinkCalculator from '../../components/tools/DrinkCalculator';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much alcohol do I need for a wedding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For a 5-hour wedding reception with 100 guests, plan for approximately 500 drinks total. A typical split: 150 beer, 150 wine, 100 cocktails, and 100 non-alcoholic drinks."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I offer a full bar or signature cocktails?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Signature cocktails are easier and more cost-effective. Choose 2-3 batch cocktails and pre-mix them to reduce bar wait times and ingredient waste."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much ice do I really need?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Plan for 1 pound of ice per guest as a baseline. Outdoor summer events need 1.5-2 lbs per person. Always buy extra!"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What mixers should I have on hand?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Essential mixers: club soda, tonic water, ginger beer, cranberry juice, orange juice, and cola. For every bottle of spirits, plan for 3-4 liters of mixers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I scale batch cocktails?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Multiply each ingredient by the number of servings. Reduce citrus juice by 10% when scaling up. Add carbonated ingredients just before serving."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

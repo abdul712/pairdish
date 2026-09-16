@@ -114,67 +114,7 @@ import PotluckCoordinator from '../../components/tools/PotluckCoordinator';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How many dishes should I plan for my potluck?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              A good rule of thumb is 1 dish per 4-5 guests. For a potluck of 20 people,
-              plan for 4-5 dishes total. Our coordinator recommends specific amounts
-              per category based on your guest count.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I ensure dietary needs are met?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Tag each dish with dietary flags (vegetarian, vegan, gluten-free, etc.).
-              The dietary coverage section shows how well you're accommodating different
-              needs. Aim to have at least one option per major dietary requirement.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I share the potluck plan with guests?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! Use the Share Summary button to copy or share your potluck plan.
-              You can also print the list for easy reference at the event or to
-              post in a shared space.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What makes a potluck "well balanced"?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              A balanced potluck has dishes across all categories relative to the
-              recommended amounts. Aim for 80% or higher balance score. This ensures
-              guests have variety and all courses are covered.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -221,45 +161,6 @@ import PotluckCoordinator from '../../components/tools/PotluckCoordinator';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How many dishes should I plan for my potluck?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A good rule of thumb is 1 dish per 4-5 guests. For a potluck of 20 people, plan for 4-5 dishes total."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I ensure dietary needs are met?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tag each dish with dietary flags (vegetarian, vegan, gluten-free, etc.). The dietary coverage section shows how well you're accommodating different needs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I share the potluck plan with guests?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Use the Share Summary button to copy or share your potluck plan. You can also print the list for easy reference."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What makes a potluck well balanced?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A balanced potluck has dishes across all categories relative to the recommended amounts. Aim for 80% or higher balance score."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

@@ -109,67 +109,7 @@ import PanSizeConverter from '../../components/tools/PanSizeConverter';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I substitute a round pan for a square pan?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! An 8" square pan and a 9" round pan have nearly identical baking areas
-              (64 sq in vs 63.6 sq in). They can be used interchangeably for most recipes
-              without adjusting ingredients.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I adjust baking time for different pan sizes?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              As a general rule, adjust baking time by 5-10 minutes per inch of size
-              difference. Larger pans with thinner batter cook faster. Start checking
-              10-15 minutes before the estimated time, using a toothpick to test doneness.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I use two smaller pans instead of one large pan?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! Two 9" round pans equal approximately one 9x13" rectangular pan.
-              Divide the batter evenly and reduce baking time by 10-15 minutes since
-              the layers will be thinner.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How full should I fill my pan?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For most cakes, fill pans 1/2 to 2/3 full to allow room for rising.
-              Cheesecakes and dense cakes can go higher. Never fill more than 3/4 full
-              or the batter may overflow. If you have extra batter, make cupcakes!
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -216,45 +156,6 @@ import PanSizeConverter from '../../components/tools/PanSizeConverter';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I substitute a round pan for a square pan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! An 8\" square pan and a 9\" round pan have nearly identical baking areas (64 sq in vs 63.6 sq in). They can be used interchangeably for most recipes without adjusting ingredients."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I adjust baking time for different pan sizes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "As a general rule, adjust baking time by 5-10 minutes per inch of size difference. Larger pans with thinner batter cook faster. Start checking 10-15 minutes before the estimated time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use two smaller pans instead of one large pan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Two 9\" round pans equal approximately one 9x13\" rectangular pan. Divide the batter evenly and reduce baking time by 10-15 minutes since the layers will be thinner."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How full should I fill my pan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For most cakes, fill pans 1/2 to 2/3 full to allow room for rising. Never fill more than 3/4 full or the batter may overflow."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

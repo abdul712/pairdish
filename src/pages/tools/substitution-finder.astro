@@ -114,70 +114,7 @@ import SubstitutionFinder from '../../components/tools/SubstitutionFinder';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best egg substitute for baking?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              It depends on the egg's role in the recipe. For binding: flax eggs or chia eggs
-              work great. For moisture: applesauce or mashed banana. For leavening: aquafaba
-              (chickpea water) is excellent for meringues and can replace egg whites 1:1.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I substitute butter with oil in any recipe?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Not always. Butter provides flavor, structure (through its water content), and
-              creates flakiness in pastries. For muffins and cakes, use 3/4 cup oil per 1 cup
-              butter. For pie crusts and croissants where flakiness matters, stick with
-              butter or use solid coconut oil.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best gluten-free flour for all-purpose baking?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Commercial 1:1 gluten-free flour blends (like Bob's Red Mill or King Arthur)
-              are most reliable as they're formulated with xanthan gum for structure. For
-              specific applications, almond flour works great for cookies, and oat flour
-              is good for pancakes and muffins.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I substitute dairy milk in recipes?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Most plant milks can be substituted 1:1. Oat milk and soy milk are closest
-              to dairy in baking performance due to their protein and fat content. For
-              buttermilk, add 1 tablespoon of vinegar or lemon juice to 1 cup of plant
-              milk and let sit for 5 minutes.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -224,45 +161,6 @@ import SubstitutionFinder from '../../components/tools/SubstitutionFinder';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What's the best egg substitute for baking?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It depends on the egg's role. For binding: flax eggs or chia eggs. For moisture: applesauce or mashed banana. For leavening: aquafaba (chickpea water) is excellent for meringues."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I substitute butter with oil in any recipe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not always. Butter provides flavor, structure, and creates flakiness. For muffins and cakes, use 3/4 cup oil per 1 cup butter. For pastries where flakiness matters, stick with butter or use solid coconut oil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best gluten-free flour for all-purpose baking?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Commercial 1:1 gluten-free flour blends (like Bob's Red Mill or King Arthur) are most reliable as they're formulated with xanthan gum for structure."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I substitute dairy milk in recipes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most plant milks can be substituted 1:1. Oat milk and soy milk are closest to dairy in baking performance. For buttermilk, add 1 tablespoon of vinegar to 1 cup of plant milk."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

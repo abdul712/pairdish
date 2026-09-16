@@ -106,69 +106,7 @@ import CheesePairing from '../../components/tools/CheesePairing';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I build a balanced cheese board?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Include 3-5 cheeses from different categories: one soft (like Brie), one hard
-              (like aged Cheddar), one blue or strong (like Gorgonzola), and optionally a
-              fresh cheese (like goat cheese). Add complementary crackers, fruits, nuts,
-              and condiments for variety.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What wine pairs best with most cheeses?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Champagne and sparkling wines are incredibly versatile cheese partners—the
-              bubbles cleanse the palate between bites. For still wines, white wines
-              generally pair more easily with cheese than reds. However, port and sweet
-              wines are exceptional with blue cheeses.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Should cheese be served at room temperature?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! Remove cheese from the refrigerator 30-60 minutes before serving. Cold
-              suppresses flavor and aroma. Soft cheeses like Brie become wonderfully creamy
-              at room temperature, and hard cheeses develop more complex flavors.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best order to taste cheeses?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Progress from mild to strong. Start with fresh and soft cheeses, move to
-              semi-hard and aged varieties, and finish with blue or washed-rind cheeses.
-              This prevents stronger flavors from overwhelming more delicate ones.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -215,45 +153,6 @@ import CheesePairing from '../../components/tools/CheesePairing';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I build a balanced cheese board?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Include 3-5 cheeses from different categories: one soft (like Brie), one hard (like aged Cheddar), one blue or strong (like Gorgonzola), and optionally a fresh cheese. Add complementary crackers, fruits, nuts, and condiments."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What wine pairs best with most cheeses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Champagne and sparkling wines are incredibly versatile cheese partners. For still wines, white wines generally pair more easily with cheese than reds. Port and sweet wines are exceptional with blue cheeses."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should cheese be served at room temperature?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Remove cheese from the refrigerator 30-60 minutes before serving. Cold suppresses flavor and aroma. Soft cheeses become creamy at room temperature, and hard cheeses develop more complex flavors."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best order to taste cheeses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Progress from mild to strong. Start with fresh and soft cheeses, move to semi-hard and aged varieties, and finish with blue or washed-rind cheeses."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

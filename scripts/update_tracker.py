@@ -45,6 +45,35 @@ def main():
         for k, v in sorted(c.items()):
             print(f"  {k}: {v}")
         return
+    if args[0] == "status" and len(args) >= 4:
+        # status <domain-or-url> <new-status> [proof] [note-append]
+        # Preserves existing notes (appends the new note); fleet lesson: naive
+        # status updates REPLACE notes and lose history.
+        target = norm_domain(args[1])
+        new_status = args[2]
+        proof = args[3] if len(args) > 3 else ""
+        note = args[4] if len(args) > 4 else ""
+        from datetime import date
+        rows = load_rows()
+        hit = False
+        for r in rows:
+            if norm_domain(r.get("url", "")) == target:
+                hit = True
+                r["status"] = new_status
+                r["date"] = date.today().isoformat()
+                if proof:
+                    r["listing_url_or_proof"] = proof
+                if note:
+                    r["notes"] = (r.get("notes", "") + " | " + note).strip(" |")
+        if not hit:
+            print(f"NOT FOUND: {target}")
+            sys.exit(3)
+        with open(TRACKER, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=FIELDS)
+            w.writeheader()
+            w.writerows({k: r.get(k, "") for k in FIELDS} for r in rows)
+        print(f"Updated {target} -> {new_status} (notes preserved/appended)")
+        return
     if args[0] == "add" and len(args) >= 4:
         name, url, status = args[1], args[2], args[3]
         proof = args[4] if len(args) > 4 else ""

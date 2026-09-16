@@ -108,67 +108,7 @@ import GlycemicIndexGuide from '../../components/tools/GlycemicIndexGuide';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What is a good glycemic index to aim for?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Aim for foods with a GI of 55 or below for most meals. These "low-GI" foods cause a
-              gradual rise in blood sugar. Medium-GI foods (56-69) can be eaten in moderation, while
-              high-GI foods (70+) should be limited or paired with protein and fat to reduce their impact.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How can I lower the GI of a meal?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Combine high-GI foods with protein, healthy fats, or fiber. For example, have bread with
-              eggs, or pasta with olive oil and vegetables. Cook pasta al dente, choose whole grains,
-              and add acidic ingredients like lemon or vinegar which can lower GI.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Is glycemic load more important than glycemic index?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Glycemic load (GL) is often more useful because it considers portion size. Watermelon has
-              a high GI (76) but low GL (8) because it's mostly water. Use both: GI to compare similar
-              foods, GL to understand actual blood sugar impact of typical servings.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Do low-GI foods help with weight loss?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Low-GI foods can support weight management by keeping you fuller longer and preventing
-              energy crashes that lead to overeating. They provide sustained energy without the
-              spike-and-crash cycle. However, calories still matter - focus on overall diet quality.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -224,45 +164,6 @@ import GlycemicIndexGuide from '../../components/tools/GlycemicIndexGuide';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a good glycemic index to aim for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Aim for foods with a GI of 55 or below for most meals. These 'low-GI' foods cause a gradual rise in blood sugar. Medium-GI foods (56-69) can be eaten in moderation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I lower the GI of a meal?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Combine high-GI foods with protein, healthy fats, or fiber. Cook pasta al dente, choose whole grains, and add acidic ingredients like lemon or vinegar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is glycemic load more important than glycemic index?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Glycemic load (GL) is often more useful because it considers portion size. Use both: GI to compare similar foods, GL to understand actual blood sugar impact."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do low-GI foods help with weight loss?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Low-GI foods can support weight management by keeping you fuller longer and preventing energy crashes that lead to overeating."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

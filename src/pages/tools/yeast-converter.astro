@@ -109,67 +109,7 @@ import YeastConverter from '../../components/tools/YeastConverter';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I substitute instant yeast for active dry yeast?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! Use about 25% less instant yeast than active dry. For 1 teaspoon active
-              dry, use ¾ teaspoon instant. You can also skip the proofing step and add
-              instant yeast directly to the flour.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I know if my yeast is still active?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Proof test it: dissolve yeast in ¼ cup warm water (105-110°F) with a pinch
-              of sugar. Wait 10 minutes. If it becomes foamy and doubles in volume, it's
-              active. If nothing happens, the yeast is dead and should be discarded.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What temperature water should I use for yeast?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For active dry yeast: 105-110°F (40-43°C) - warm to the touch but not hot.
-              For instant yeast mixed with flour: up to 120°F. For fresh yeast: 95°F (35°C).
-              Water above 130°F will kill the yeast.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I use sourdough starter instead of commercial yeast?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes, but with adjustments. Replace 1 packet of yeast with about ½ cup (120g)
-              active sourdough starter. Reduce flour and water in the recipe by about 60g
-              each to compensate. Expect longer rise times (2-4x longer).
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -216,45 +156,6 @@ import YeastConverter from '../../components/tools/YeastConverter';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I substitute instant yeast for active dry yeast?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Use about 25% less instant yeast than active dry. For 1 teaspoon active dry, use ¾ teaspoon instant. You can skip the proofing step with instant yeast."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I know if my yeast is still active?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Proof test it: dissolve yeast in ¼ cup warm water (105-110°F) with a pinch of sugar. Wait 10 minutes. If it becomes foamy and doubles in volume, it's active."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What temperature water should I use for yeast?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For active dry yeast: 105-110°F (40-43°C). For instant yeast mixed with flour: up to 120°F. For fresh yeast: 95°F (35°C). Water above 130°F will kill the yeast."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use sourdough starter instead of commercial yeast?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, replace 1 packet of yeast with about ½ cup (120g) active sourdough starter. Reduce flour and water by about 60g each. Expect 2-4x longer rise times."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

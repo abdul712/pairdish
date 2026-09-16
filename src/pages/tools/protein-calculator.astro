@@ -116,67 +116,7 @@ import ProteinCalculator from '../../components/tools/ProteinCalculator';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How much protein do I need to build muscle?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Research suggests 1.6-2.2g of protein per kilogram of bodyweight for optimal
-              muscle growth when combined with resistance training. The sweet spot for most
-              people is around 1.6-1.7g/kg. Beyond 2.2g/kg, there's no additional benefit.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I eat too much protein?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For healthy individuals, high protein intake (up to 2g/kg or more) is generally
-              safe. However, those with kidney disease should consult a doctor. Very high
-              protein intake may displace other important nutrients in your diet.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Is plant protein as good as animal protein?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Animal proteins are "complete," containing all essential amino acids. Most plant
-              proteins are "incomplete" but can be combined (rice + beans) to get all amino
-              acids. Soy, quinoa, and hemp are complete plant proteins.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              When is the best time to eat protein?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Distribute protein evenly across meals (20-40g per meal) for optimal muscle
-              protein synthesis. Consuming protein within 2 hours after exercise supports
-              recovery, but total daily intake matters more than timing.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -231,47 +171,38 @@ import ProteinCalculator from '../../components/tools/ProteinCalculator';
       </div>
     </div>
   </section>
+
+  <!-- Related Guides -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Guides
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <a href="/articles/high-protein-meal-prep" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-red-700">
+            💪
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">High-Protein Meal Prep</h4>
+            <p class="text-sm text-[var(--text-muted)]">Flexible prep that doesn’t feel like diet food.</p>
+          </div>
+        </a>
+
+        <a href="/articles/meal-planning-with-macros" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-700">
+            📐
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Meal Planning With Macros</h4>
+            <p class="text-sm text-[var(--text-muted)]">A simple weekly system around your targets.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much protein do I need to build muscle?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Research suggests 1.6-2.2g of protein per kilogram of bodyweight for optimal muscle growth when combined with resistance training. The sweet spot for most people is around 1.6-1.7g/kg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I eat too much protein?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For healthy individuals, high protein intake (up to 2g/kg or more) is generally safe. However, those with kidney disease should consult a doctor."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is plant protein as good as animal protein?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Animal proteins are 'complete,' containing all essential amino acids. Most plant proteins are 'incomplete' but can be combined. Soy, quinoa, and hemp are complete plant proteins."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When is the best time to eat protein?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Distribute protein evenly across meals (20-40g per meal) for optimal muscle protein synthesis. Total daily intake matters more than timing."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

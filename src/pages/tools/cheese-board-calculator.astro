@@ -119,67 +119,7 @@ import CheeseBoardCalculator from '../../components/tools/CheeseBoardCalculator'
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How far in advance can I prepare a cheese board?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              You can assemble a cheese board 2-4 hours ahead. Cover loosely with plastic wrap
-              and refrigerate. Remove 30-60 minutes before serving to let cheese come to room
-              temperature, which brings out the best flavors.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What wines pair best with a cheese board?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Match intensity: light wines with mild cheeses, bold wines with aged cheeses.
-              Champagne and sparkling wines pair well with almost everything. Port is classic
-              with blue cheese. Chardonnay works with brie, while Cabernet pairs with aged cheddar.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What should I use as a cheese board?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Wooden boards, slate, and marble all work beautifully. Allow about 12 inches
-              diameter for every 4 guests. Large cutting boards or even clean, food-safe
-              tile pieces can work in a pinch. Leave room between cheeses for knives and accompaniments.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I store leftover cheese?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Wrap each cheese separately in wax paper or cheese paper, then loosely in plastic
-              wrap. Store in the warmest part of your refrigerator (usually the vegetable drawer).
-              Hard cheeses keep 3-4 weeks, soft cheeses 1-2 weeks. Never freeze quality cheese.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -226,45 +166,6 @@ import CheeseBoardCalculator from '../../components/tools/CheeseBoardCalculator'
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much cheese should I buy per person?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For appetizers, plan 2 oz per person. If cheese is the main event, increase to 4 oz. A wine and cheese party falls in between at 3 oz per person."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How far in advance can I prepare a cheese board?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can assemble a cheese board 2-4 hours ahead. Cover loosely with plastic wrap and refrigerate. Remove 30-60 minutes before serving to let cheese come to room temperature."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What wines pair best with a cheese board?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Match intensity: light wines with mild cheeses, bold wines with aged cheeses. Champagne pairs well with almost everything. Port is classic with blue cheese."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I store leftover cheese?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wrap each cheese separately in wax paper, then loosely in plastic wrap. Store in the warmest part of your refrigerator. Hard cheeses keep 3-4 weeks, soft cheeses 1-2 weeks."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

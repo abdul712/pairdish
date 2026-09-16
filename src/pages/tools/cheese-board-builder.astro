@@ -85,67 +85,7 @@ import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How far in advance can I make a cheese board?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              You can arrange the cheese and dry items (nuts, crackers) up to 2 hours ahead.
-              Add fresh fruit and slice cheeses just before serving. Cover with plastic wrap
-              and refrigerate, but bring to room temperature 30-60 minutes before serving.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best board or platter to use?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Wood boards, slate, marble, or even a large cutting board all work beautifully.
-              The board should be at least 12 inches for a small gathering and 18+ inches for larger groups.
-              Line with parchment paper for easy cleanup if desired.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Should I label the cheeses?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! Small labels help guests know what they're eating and make conversation starters.
-              Use small food picks with paper flags, slate markers, or handwritten place cards.
-              Include the cheese name and type of milk.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I arrange items for best visual appeal?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Start by placing cheeses first, spread around the board. Add bowls for wet items (olives, honey).
-              Fill gaps with crackers, meats, and fruits. Tuck in nuts and dried fruit last.
-              Vary heights and create visual clusters. Cut a few slices to invite guests to start.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -195,45 +135,6 @@ import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How far in advance can I make a cheese board?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can arrange the cheese and dry items up to 2 hours ahead. Add fresh fruit just before serving. Bring to room temperature 30-60 minutes before serving."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best board or platter to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wood boards, slate, marble, or a large cutting board all work beautifully. The board should be at least 12 inches for small gatherings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I label the cheeses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Small labels help guests know what they're eating. Use food picks with paper flags or slate markers with the cheese name and milk type."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I arrange items for best visual appeal?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Place cheeses first, add bowls for wet items, fill gaps with crackers and meats, then tuck in nuts last. Vary heights and create visual clusters."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

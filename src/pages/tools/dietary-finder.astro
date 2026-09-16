@@ -116,68 +116,7 @@ import DietaryMealFinder from '../../components/tools/DietaryMealFinder';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I get enough protein on a vegan diet?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Plant-based proteins include legumes (beans, lentils, chickpeas), tofu, tempeh,
-              edamame, quinoa, seitan, nuts, and seeds. Combining different plant proteins
-              throughout the day ensures you get all essential amino acids.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What can I eat on a keto diet?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Keto focuses on high-fat, moderate-protein, very low-carb foods: meats, fatty fish,
-              eggs, cheese, nuts, seeds, healthy oils, avocados, and low-carb vegetables like
-              leafy greens, broccoli, and cauliflower. Avoid grains, sugar, and most fruits.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Is gluten-free healthier for everyone?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Gluten-free is essential for those with celiac disease or gluten sensitivity.
-              For others, there's no proven health benefit. Whole grains with gluten (wheat,
-              barley, rye) provide fiber and nutrients. Consult a doctor before eliminating gluten.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the difference between paleo and Whole30?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Both eliminate grains, legumes, dairy, and processed foods. Whole30 is a strict
-              30-day elimination program that also excludes any form of sugar (including maple
-              syrup and honey) and requires no weighing or measuring. Paleo is a more flexible
-              lifestyle approach.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -236,45 +175,6 @@ import DietaryMealFinder from '../../components/tools/DietaryMealFinder';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I get enough protein on a vegan diet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Plant-based proteins include legumes, tofu, tempeh, quinoa, seitan, nuts, and seeds. Combining different plant proteins throughout the day ensures you get all essential amino acids."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What can I eat on a keto diet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Keto focuses on high-fat, moderate-protein, very low-carb foods: meats, fatty fish, eggs, cheese, nuts, avocados, and low-carb vegetables. Avoid grains, sugar, and most fruits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is gluten-free healthier for everyone?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Gluten-free is essential for those with celiac disease or gluten sensitivity. For others, there's no proven health benefit. Consult a doctor before eliminating gluten."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the difference between paleo and Whole30?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Both eliminate grains, legumes, dairy, and processed foods. Whole30 is a strict 30-day elimination program that also excludes any form of sugar. Paleo is a more flexible lifestyle approach."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

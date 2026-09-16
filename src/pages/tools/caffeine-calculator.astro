@@ -113,67 +113,7 @@ import CaffeineCalculator from '../../components/tools/CaffeineCalculator';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How much caffeine is too much?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              The FDA considers 400mg per day safe for most healthy adults - about 4 cups of coffee.
-              However, sensitivity varies greatly. If you experience jitters, anxiety, or sleep issues,
-              you may want to reduce your intake. Pregnant women should limit to 200mg.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Does decaf coffee have caffeine?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! "Decaf" isn't caffeine-free. A typical cup of decaf coffee contains about 2-15mg
-              of caffeine (compared to 95mg in regular). This adds up if you drink multiple cups,
-              so very caffeine-sensitive people should be aware.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Why does caffeine affect people differently?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Genetics play a major role! Some people metabolize caffeine quickly (fast metabolizers)
-              while others process it slowly. Age, liver function, medications, and regular caffeine
-              consumption also affect how your body handles caffeine.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can you become addicted to caffeine?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Caffeine is physically addictive, but it's considered mild compared to other substances.
-              Regular users can experience withdrawal symptoms (headaches, fatigue, irritability)
-              when stopping suddenly. Tapering off gradually over a week or two helps minimize these effects.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -220,45 +160,6 @@ import CaffeineCalculator from '../../components/tools/CaffeineCalculator';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much caffeine is too much?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The FDA considers 400mg per day safe for most healthy adults - about 4 cups of coffee. Pregnant women should limit to 200mg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does decaf coffee have caffeine?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! A typical cup of decaf coffee contains about 2-15mg of caffeine compared to 95mg in regular coffee."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does caffeine affect people differently?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Genetics play a major role. Some people metabolize caffeine quickly while others process it slowly. Age, medications, and regular consumption also affect caffeine sensitivity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you become addicted to caffeine?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Caffeine is physically addictive but mild. Regular users can experience withdrawal symptoms when stopping suddenly. Tapering off gradually helps minimize these effects."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

@@ -109,81 +109,7 @@ import PartyFoodCalculator from '../../components/tools/PartyFoodCalculator';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I account for children at my event?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Children typically eat about 60% of an adult portion. Our calculator automatically
-              adjusts when you specify the number of children. For very young children (under 5),
-              you might reduce this further to about 40%.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Should I adjust quantities for heavy eaters?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes! If you know your guest list includes hearty appetites, add 15-20% more food.
-              Our calculator lets you specify the number of "heavy eaters" to automatically
-              increase portions. This is especially important for main proteins and starches.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How much food for appetizers-only events?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For cocktail parties or appetizer-only events, plan for 10-12 pieces per person
-              for a 2-3 hour event. If it's replacing a meal, increase to 15-18 pieces. Offer
-              a variety of 5-8 different items to keep things interesting.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What about dietary restrictions?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Always survey your guests for dietary restrictions. Plan to have vegetarian/vegan
-              options even if not specifically requested—about 10-15% of your offerings. For
-              known allergies, prepare separate dishes and label them clearly.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How much extra should I prepare?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              A good rule of thumb is to prepare 10-15% more food than calculated. This accounts
-              for unexpected guests, popular dishes running out quickly, and ensures no one
-              goes hungry. Our calculator includes this buffer in its recommendations.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -230,53 +156,6 @@ import PartyFoodCalculator from '../../components/tools/PartyFoodCalculator';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I account for children at my event?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Children typically eat about 60% of an adult portion. For very young children (under 5), you might reduce this to about 40%."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I adjust quantities for heavy eaters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! If you know your guest list includes hearty appetites, add 15-20% more food, especially for main proteins and starches."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much food for appetizers-only events?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Plan for 10-12 pieces per person for a 2-3 hour event. If it's replacing a meal, increase to 15-18 pieces."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What about dietary restrictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Always survey your guests. Plan to have vegetarian/vegan options even if not requested—about 10-15% of your offerings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much extra should I prepare?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Prepare 10-15% more food than calculated to account for unexpected guests and popular dishes running out quickly."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

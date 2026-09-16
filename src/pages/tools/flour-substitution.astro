@@ -106,67 +106,7 @@ import FlourSubstitution from '../../components/tools/FlourSubstitution';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I use all-purpose flour for everything?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Yes, for most recipes! All-purpose flour is the jack-of-all-trades.
-              Cakes will be slightly less tender, bread slightly less chewy, but results
-              will still be good. It's why it's called "all-purpose."
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I make cake flour from all-purpose?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Remove 2 tablespoons from 1 cup of all-purpose flour and replace with
-              2 tablespoons of cornstarch. Sift together 5-6 times to distribute evenly.
-              This lowers the protein content to approximate cake flour.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the difference between bread and all-purpose flour?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Bread flour has 12-14% protein vs all-purpose's 10-12%. This extra protein
-              creates more gluten, giving bread its chewy texture and better structure.
-              For most bread recipes, you can substitute 1:1 with slightly less chew.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Can I substitute whole wheat for all-purpose?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Start with a 50/50 blend. 100% whole wheat makes dense, heavy baked goods
-              because the bran cuts gluten strands. The blend gives you nutrition benefits
-              while maintaining good texture. Increase the ratio as you get comfortable.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -213,45 +153,6 @@ import FlourSubstitution from '../../components/tools/FlourSubstitution';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I use all-purpose flour for everything?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, for most recipes! All-purpose flour is versatile. Cakes will be slightly less tender, bread slightly less chewy, but results will still be good."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I make cake flour from all-purpose?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Remove 2 tablespoons from 1 cup of all-purpose flour and replace with 2 tablespoons of cornstarch. Sift together 5-6 times to distribute evenly."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the difference between bread and all-purpose flour?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bread flour has 12-14% protein vs all-purpose's 10-12%. This extra protein creates more gluten, giving bread its chewy texture."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I substitute whole wheat for all-purpose?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Start with a 50/50 blend. 100% whole wheat makes dense, heavy baked goods. The blend gives nutrition benefits while maintaining good texture."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

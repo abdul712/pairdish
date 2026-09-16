@@ -114,71 +114,7 @@ import CookingTimeCalculator from '../../components/tools/CookingTimeCalculator'
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I know when my meat is done without a thermometer?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              While a thermometer is most reliable, you can use the touch test for steaks:
-              compare firmness to the base of your thumb. Rare = relaxed hand, medium =
-              thumb touching middle finger, well = thumb touching pinky. For roasts,
-              juices should run clear for poultry and pork.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Why is my calculated time different from the recipe?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Cooking times vary based on oven temperature, meat starting temperature
-              (room temp vs. fridge cold), bone-in vs. boneless, and oven accuracy.
-              Our calculator provides a baseline estimate. Always use a thermometer
-              to confirm doneness rather than relying solely on time.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Should I bring meat to room temperature before cooking?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              For thick cuts like roasts and steaks, letting meat sit at room temperature
-              for 30-60 minutes promotes more even cooking. For food safety, don't leave
-              meat out for more than 2 hours. Smaller cuts and poultry can go straight
-              from fridge to pan with adjusted timing.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best way to rest meat?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Transfer meat to a cutting board and tent loosely with foil. Don't wrap
-              tightly or you'll steam the crust. Rest small steaks 5 minutes, roasts
-              10-20 minutes, and large turkeys up to 30 minutes. The meat will stay
-              warm and the juices will redistribute.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -225,45 +161,6 @@ import CookingTimeCalculator from '../../components/tools/CookingTimeCalculator'
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I know when my meat is done without a thermometer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "While a thermometer is most reliable, you can use the touch test for steaks. Compare the firmness to the base of your thumb when touching different fingers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is my calculated time different from the recipe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cooking times vary based on oven temperature, meat starting temperature, bone-in vs. boneless, and oven accuracy. Always use a thermometer to confirm doneness."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I bring meat to room temperature before cooking?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For thick cuts like roasts and steaks, letting meat sit at room temperature for 30-60 minutes promotes more even cooking. Don't leave meat out for more than 2 hours."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best way to rest meat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Transfer meat to a cutting board and tent loosely with foil. Rest small steaks 5 minutes, roasts 10-20 minutes, and large turkeys up to 30 minutes."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

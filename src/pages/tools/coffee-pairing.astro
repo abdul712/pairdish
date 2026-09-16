@@ -104,69 +104,7 @@ import CoffeePairing from '../../components/tools/CoffeePairing';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What dessert goes best with espresso?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Espresso pairs wonderfully with Italian classics like biscotti, cannoli, and
-              tiramisu. Dark chocolate desserts also complement espresso's intense flavor.
-              For a special treat, try an affogato—espresso poured over vanilla gelato.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Does light roast coffee pair with chocolate?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Light roasts have bright, fruity notes that can be overwhelmed by dark chocolate.
-              Instead, pair light roasts with white chocolate or milk chocolate. For chocolate
-              desserts with a light roast, opt for milk chocolate truffles or white chocolate
-              fruit tarts.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the best dessert for cold brew coffee?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Cold brew's smooth, naturally sweet character pairs well with rich chocolate
-              desserts like brownies and chocolate mousse. Ice cream and frozen desserts
-              are also excellent—the cold temperatures complement each other perfectly.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Should I match or contrast coffee and dessert flavors?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Both work! Complementary pairings (chocolate coffee with chocolate cake)
-              amplify similar flavors. Contrasting pairings (dark roast with sweet caramel
-              dessert) create balance. The key is matching intensity—don't pair a delicate
-              dessert with an overpowering coffee or vice versa.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -213,45 +151,6 @@ import CoffeePairing from '../../components/tools/CoffeePairing';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What dessert goes best with espresso?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Espresso pairs wonderfully with Italian classics like biscotti, cannoli, and tiramisu. Dark chocolate desserts also complement espresso's intense flavor. Try an affogato—espresso poured over vanilla gelato."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does light roast coffee pair with chocolate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Light roasts have bright, fruity notes that can be overwhelmed by dark chocolate. Pair light roasts with white chocolate or milk chocolate instead."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the best dessert for cold brew coffee?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cold brew's smooth, naturally sweet character pairs well with rich chocolate desserts like brownies and chocolate mousse. Ice cream and frozen desserts are also excellent."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I match or contrast coffee and dessert flavors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Both work! Complementary pairings amplify similar flavors, while contrasting pairings create balance. The key is matching intensity—don't pair a delicate dessert with an overpowering coffee."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {

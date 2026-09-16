@@ -110,67 +110,7 @@ import UnitConverter from '../../components/tools/UnitConverter';
           </div>
         </div>
 
-        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
-        </h3>
 
-        <div class="space-y-4">
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Why does 1 cup of flour weigh different amounts in different recipes?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Flour settles and compacts over time. Scooping directly from the bag packs more
-              flour than the "spoon and level" method. Professional recipes specify weight
-              (usually 125g for all-purpose flour) to ensure consistency.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              What's the difference between fluid ounces and ounces?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              Fluid ounces (fl oz) measure volume, while ounces (oz) measure weight.
-              8 fl oz of water weighs about 8 oz, but 8 fl oz of honey weighs about 12 oz
-              because honey is denser than water.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              How do I measure a "stick" of butter?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              In the US, 1 stick of butter = ½ cup = 8 tablespoons = 4 ounces = 113 grams.
-              A standard US butter package has 4 sticks (1 pound total). Each stick usually
-              has tablespoon markings on the wrapper for easy measuring.
-            </p>
-          </details>
-
-          <details class="group bg-[var(--color-cream)] rounded-lg p-5">
-            <summary class="font-medium cursor-pointer list-none flex items-center justify-between text-[var(--text-primary)]">
-              Are UK and US cups the same size?
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-open:rotate-180 transition-transform">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-[var(--text-secondary)]">
-              No! A US cup is 237 ml, while an Imperial (UK) cup is 284 ml—about 20% larger.
-              Australian cups are 250 ml. Always check where a recipe originates to use
-              the correct cup size, or convert to weight for accuracy.
-            </p>
-          </details>
-        </div>
       </article>
     </div>
   </section>
@@ -217,45 +157,6 @@ import UnitConverter from '../../components/tools/UnitConverter';
   </section>
 </BaseLayout>
 
-<!-- FAQ Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does 1 cup of flour weigh different amounts in different recipes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Flour settles and compacts over time. Scooping directly from the bag packs more flour than the 'spoon and level' method. Professional recipes specify weight (usually 125g) for consistency."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the difference between fluid ounces and ounces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fluid ounces (fl oz) measure volume, while ounces (oz) measure weight. 8 fl oz of water weighs about 8 oz, but 8 fl oz of honey weighs about 12 oz because honey is denser."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I measure a stick of butter?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "1 stick of butter = ½ cup = 8 tablespoons = 4 ounces = 113 grams. A standard US butter package has 4 sticks (1 pound total)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are UK and US cups the same size?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No! A US cup is 237 ml, while an Imperial (UK) cup is 284 ml—about 20% larger. Australian cups are 250 ml."
-      }
-    }
-  ]
-})} />
 
 <style>
   .prose {
