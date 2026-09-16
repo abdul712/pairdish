@@ -260,8 +260,10 @@
 - **Phase 6 — monitoring:** GSC **STILL BLOCKED** — refresh token `invalid_grant`, last good refresh
   2026-09-14 05:01 UTC; user re-consent still pending (`webmaster_auto_add.py google-auth`).
   Bing (~4mo): 396 queries / 60 clicks / 564 impressions (unchanged vs 09-14); sitemap feed Success,
-  52 URLs, last crawled 2026-09-12. Mail sweep 14→16 Sep: Viesearch live notices, ukd/pbd acks,
-  Huzzler + Pinterest marketing (not actionable). Live checks 200: homepage, sitemap, articles, tools.
+  52 URLs, last crawled 2026-09-12. **Bing SubmitUrlBatch: the 36 edited tool URLs submitted for
+  recrawl (`{"d":null}`, daily quota 1000→964).** Mail sweep 14→16 Sep: Viesearch live notices,
+  ukd/pbd acks, Huzzler + Pinterest marketing (not actionable). Live checks 200: homepage, sitemap,
+  articles, tools.
 - **Review gate: STILL ACTIVE (9 days)** — 3 pairing guides await user review; items 4-8 not published.
 
 ### Known follow-ups for run 7
