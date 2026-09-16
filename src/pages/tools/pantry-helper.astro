@@ -190,6 +190,19 @@ import PantryHelper from '../../components/tools/PantryHelper';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pantry Pairing Helper",
+  "description": "Build delicious meals from your pantry staples. Select ingredients you have on hand and discover meal ideas with smart pairing suggestions.",
+  "url": "https://pairdish.com/tools/pantry-helper",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

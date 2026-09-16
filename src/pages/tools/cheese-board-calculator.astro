@@ -165,6 +165,19 @@ import CheeseBoardCalculator from '../../components/tools/CheeseBoardCalculator'
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cheese Board Calculator",
+  "description": "Calculate how much cheese and charcuterie to buy for your party. Get quantities, variety recommendations, accompaniment lists, and budget estimates.",
+  "url": "https://pairdish.com/tools/cheese-board-calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

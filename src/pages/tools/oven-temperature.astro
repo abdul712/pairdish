@@ -160,6 +160,19 @@ import OvenTemperatureConverter from '../../components/tools/OvenTemperatureConv
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Oven Temperature Converter",
+  "description": "Convert between Fahrenheit, Celsius, and Gas Mark instantly. Includes convection oven adjustments and high altitude baking tips.",
+  "url": "https://pairdish.com/tools/oven-temperature",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

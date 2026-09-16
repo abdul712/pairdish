@@ -152,6 +152,19 @@ import CheesePairing from '../../components/tools/CheesePairing';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cheese & Accompaniment Matcher",
+  "description": "Find perfect wine, fruit, nut, and charcuterie pairings for 16 popular cheeses. Build the ultimate cheese board with expert pairing recommendations.",
+  "url": "https://pairdish.com/tools/cheese-pairing",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

@@ -133,6 +133,19 @@ import LeftoverMatcher from '../../components/tools/LeftoverMatcher';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Leftover Ingredient Recipe Matcher",
+  "description": "Turn your leftovers into delicious meals! Enter ingredients you have and get recipe suggestions instantly. Never waste food again with our ingredient-to-recipe finder.",
+  "url": "https://pairdish.com/tools/leftover-matcher",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

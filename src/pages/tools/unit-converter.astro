@@ -156,6 +156,19 @@ import UnitConverter from '../../components/tools/UnitConverter';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cooking Unit Converter",
+  "description": "Convert between cups, tablespoons, grams, ounces, and more. Includes ingredient-specific volume-to-weight conversions for accurate baking.",
+  "url": "https://pairdish.com/tools/unit-converter",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

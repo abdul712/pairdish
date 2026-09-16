@@ -151,6 +151,19 @@ import RecipeGenerator from '../../components/tools/RecipeGenerator';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "What Should I Cook Tonight? | Recipe Generator",
+  "description": "Not sure what to make for dinner? Our recipe generator suggests perfect meals based on your mood, time, cuisine preferences, and dietary needs.",
+  "url": "https://pairdish.com/tools/recipe-generator",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

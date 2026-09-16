@@ -155,6 +155,19 @@ import BreadProofingCalculator from '../../components/tools/BreadProofingCalcula
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Bread Proofing Calculator | Estimate Dough Rise Times",
+  "description": "Calculate accurate bread proofing times based on room temperature, yeast type, and dough conditions. Get precise bulk fermentation and final proof estimates.",
+  "url": "https://pairdish.com/tools/bread-proofing",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

@@ -160,6 +160,19 @@ import PotluckCoordinator from '../../components/tools/PotluckCoordinator';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Potluck Coordinator",
+  "description": "Plan the perfect potluck gathering. Track dishes, contributors, dietary needs, and ensure balanced variety for your event.",
+  "url": "https://pairdish.com/tools/potluck-coordinator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

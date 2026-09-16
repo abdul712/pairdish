@@ -173,6 +173,19 @@ import MealPrepCalculator from '../../components/tools/MealPrepCalculator';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Weekly Meal Prep Calculator",
+  "description": "Plan your weekly meal prep with our interactive calculator. Organize meals, generate shopping lists, and calculate total prep time for efficient batch cooking.",
+  "url": "https://pairdish.com/tools/meal-prep",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

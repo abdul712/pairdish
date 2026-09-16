@@ -160,6 +160,19 @@ import SubstitutionFinder from '../../components/tools/SubstitutionFinder';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Ingredient Substitution Finder",
+  "description": "Find ingredient substitutes for allergies, dietary restrictions, or when you're out of something. Vegan, dairy-free, gluten-free, and keto alternatives with ratios.",
+  "url": "https://pairdish.com/tools/substitution-finder",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

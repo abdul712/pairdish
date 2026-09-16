@@ -155,6 +155,19 @@ import YeastConverter from '../../components/tools/YeastConverter';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Yeast Conversion Calculator",
+  "description": "Convert between active dry yeast, instant yeast, fresh yeast, and sourdough starter. Accurate ratios and helpful tips for perfect bread every time.",
+  "url": "https://pairdish.com/tools/yeast-converter",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

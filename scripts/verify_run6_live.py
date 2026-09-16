@@ -35,6 +35,9 @@ for slug in TOOLS:
     if bad_faq or bad_schema:
         fails.append(f'{slug}: FAQ leftovers {bad_faq}/{bad_schema}')
         continue
+    if h.count('"@type":"WebApplication"') != 1:
+        fails.append(f'{slug}: WebApplication schema missing')
+        continue
     if slug in EXPECTED:
         guides = h.count('Related Guides')
         links = len(set(re.findall(r'href="/articles/([a-z-]+)"', h)))

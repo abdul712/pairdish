@@ -171,6 +171,19 @@ import CookingStyleQuiz from '../../components/tools/CookingStyleQuiz';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "What's Your Cooking Style? | Cooking Personality Quiz",
+  "description": "Discover your unique cooking personality! Take our fun quiz to find out if you're an Adventurous Chef, Comfort Cook, Wellness Warrior, or one of our other cooking styles.",
+  "url": "https://pairdish.com/tools/cooking-style-quiz",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

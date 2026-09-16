@@ -155,6 +155,19 @@ import PartyFoodCalculator from '../../components/tools/PartyFoodCalculator';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Party Food Calculator",
+  "description": "Calculate exactly how much food you need for your party or event. Our smart calculator accounts for guest count, event type, duration, and dietary restrictions.",
+  "url": "https://pairdish.com/tools/party-calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

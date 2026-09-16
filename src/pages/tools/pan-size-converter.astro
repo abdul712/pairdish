@@ -155,6 +155,19 @@ import PanSizeConverter from '../../components/tools/PanSizeConverter';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pan Size Converter",
+  "description": "Convert baking recipes between different pan sizes and shapes. Calculate scaling factors for round, square, rectangle, bundt, loaf, and springform pans.",
+  "url": "https://pairdish.com/tools/pan-size-converter",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

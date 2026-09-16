@@ -175,6 +175,19 @@ import RecipeScaler from '../../components/tools/RecipeScaler';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Recipe Scaling Calculator",
+  "description": "Easily scale any recipe up or down. Our smart calculator adjusts ingredient quantities with beautiful fraction display and baking tips for perfect results every time.",
+  "url": "https://pairdish.com/tools/recipe-scaler",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

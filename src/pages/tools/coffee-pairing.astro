@@ -150,6 +150,19 @@ import CoffeePairing from '../../components/tools/CoffeePairing';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Coffee & Dessert Pairing Guide",
+  "description": "Find the perfect dessert for your coffee. Match espresso, cappuccino, cold brew, and different roast levels with pastries, cakes, cookies, and chocolate.",
+  "url": "https://pairdish.com/tools/coffee-pairing",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

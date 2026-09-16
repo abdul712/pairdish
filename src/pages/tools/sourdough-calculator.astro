@@ -148,6 +148,19 @@ import SourdoughCalculator from '../../components/tools/SourdoughCalculator';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sourdough Hydration Calculator",
+  "description": "Calculate sourdough bread hydration, adjust recipes to target percentages, and scale dough weights. Includes baker's percentages and helpful tips.",
+  "url": "https://pairdish.com/tools/sourdough-calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>

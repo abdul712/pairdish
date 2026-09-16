@@ -134,6 +134,19 @@ import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
     </div>
   </section>
 </BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Build Your Perfect Cheese Board | Interactive Builder",
+  "description": "Create the perfect cheese board step-by-step! Choose cheeses, accompaniments, and get quantity recommendations for your guests with our interactive builder.",
+  "url": "https://pairdish.com/tools/cheese-board-builder",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
 
 
 <style>
