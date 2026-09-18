@@ -119,3 +119,10 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   previously linked to zero articles)**; sitemap lastmod bump for 36 tool URLs. Deploys `72032fa2` /
   `e3fbfa62` / `9064885f`, live-verified 36/36. Directory: 2 new submissions (qid, swb) +
   **Viesearch listed live**. On user OK: items 4-8 at 1/day.
+- 2026-09-18 (run 7): **Thin-content fix (within gate)** — `grocery-budget-meal-planning` expanded
+  ~750 → **1,460 words** with 2 official-data tables (USDA ERS food-price changes + 2026 forecast;
+  BLS average U.S. city prices, Aug 2026) + a sources block (USDA ERS / BLS / Iowa State Extension,
+  all verified live) + 4 new sections (price context, street prices, unit-price math, bulk-buying
+  rules); deploy `9b4b9be5` live-verified. Directory: **5 more free submissions** (phpLD extension:
+  hrd/uswd/awd/gwd/iwd — all first-try). Gate still ACTIVE (11 days): items 4-8 staged, not published.
+  Next thin articles queued for within-gate expansion: macros, pantry, nutrition-guide, high-protein.

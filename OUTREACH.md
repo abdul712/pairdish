@@ -36,6 +36,23 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 7 — 2026-09-18
+- **5 NEW free submissions (phpLD extension set — all first-try, "Link submitted and awaiting approval"):**
+  - **High Rank Directory** — highrankdirectory.com (captcha OCR 6574; cat 297 Cooking; desc cap 1000)
+  - **USA Web Sites Directory** — usawebsitesdirectory.com (captcha 4253; cat 297; desc cap 500)
+  - **Australia Web Directory** — australiawebdirectory.net (captcha 3553; cat 297; desc cap 1000)
+  - **Germany Web Directory** — germanywebdirectory.com (captcha 2372; cat 297 "Kochen-Cooking"; cap 500)
+  - **Italy Web Directory** — italywebdirectory.net (captcha 6549; cat 297; desc cap 500)
+  - All via `scripts/dir_phpld_ext.py` (probe → vision OCR → post, same-jar captcha flow); email alias
+    +pairdish-dir7@gmail.com. Review queues: free tier, months-scale as usual.
+- **Tracker after run: 22 rows — 3 listed / 17 submitted / 2 pending_review.**
+- **Mail sweep 16→18 Sep:** siteswebdirectory ack ("Your Link Request" — run-6 submission); Entireweb
+  promo (non-actionable); one italywebdirectory ack that PREDATES this run's submission (sibling
+  campaign's — always match the To: address before attributing acks). Pairdish acks for the 5 new
+  submissions expected within days; re-check next run.
+- phpLD family now fully harvested for pairdish across all verified veins (4-network + pbd/bsi + qid/swb +
+  hrd/uswd/awd/gwd/iwd); remaining unprobed siblings: turkeywebdirectory.com / francewebdirectory.net.
+
 ### Run 6 — 2026-09-16
 - **Viesearch → LISTED**: 28dlj live since 2026-09-14 ("Your Viesearch listing is live" email);
   verified 2026-09-16 (HTTP 200, title contains site name):

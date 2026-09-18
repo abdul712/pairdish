@@ -1,6 +1,6 @@
 # PairDish (pairdish.com) — SEO Audit & Status
 
-**Last updated:** 2026-09-16 (durable job run 6)
+**Last updated:** 2026-09-18 (durable job run 7)
 **Stack:** Astro 5 + React 19 SSR on Cloudflare Workers (`pairdish` worker, routes pairdish.com/* and www)
 **Repo:** abdul712/pairdish — local `/home/hermes/projects/pairdish`
 
@@ -273,4 +273,42 @@
 2. If Google re-consent done: GSC monitor (indexation of the 8 articles + tool pages), sitemap resubmit,
    coverage fixes; GA4 data sanity.
 3. Directory: fresh-family research pass (phpLD vein exhausted); re-check Viesearch/qid/swb states.
+4. Pinterest access + domain-SMTP for link outreach remain user actions (blockers unchanged).
+
+### Run 7 — 2026-09-18
+- **Phase 5a — 5 NEW free submissions (phpLD extension set — ALL first-try):** High Rank Directory
+  (highrankdirectory.com), USA Web Sites Directory (usawebsitesdirectory.com), Australia Web Directory
+  (australiawebdirectory.net), Germany Web Directory (germanywebdirectory.com), Italy Web Directory
+  (italywebdirectory.net). Single-form flow, free Regular (LINK_TYPE=normal), captchas OCR'd via vision
+  (6574/4253/3553/2372/6549), cat 297 Cooking on all five (gwd label "Kochen-Cooking"). Every POST
+  returned the `class="msg"` marker "Link submitted and awaiting approval." New script
+  `scripts/dir_phpld_ext.py`. **Tracker: 22 rows — 3 listed / 17 submitted / 2 pending_review.**
+- **Phase 4 — within the review gate (no new articles published):** `grocery-budget-meal-planning`
+  EXPANDED from ~750 words (below the 1,200–1,900 band) to **1,460 rendered words** with:
+  - 2 official-data tables: USDA ERS food-at-home price changes by category (+ 2026 forecast) and
+    BLS average U.S. city prices for 12 staples (Aug 2026, values pulled from the official ERS CSV
+    and BLS API/id series — e.g. ground beef $6.92/lb, whole chicken $2.01/lb, eggs $2.27/doz).
+  - 4 new sections (what food prices are doing; street price of staples; unit-price math with a worked
+    example; when bulk buying actually saves) + a **sources block** (USDA ERS Food Price Outlook, BLS
+    CPI Average Price Data factsheet, Iowa State University Extension — all URL-verified live).
+  - dateModified 2026-05-26 → 2026-09-18, sitemap lastmod bumped. Script `scripts/run7_expand_grocery.py`
+    (assertion-guarded, 6 edits). Deploy `9b4b9be5-9bd7-44bf-81f2-ab491a34e0b7` — **live-verified**
+    (1,460 words, 2 tables, sources links present, 0 FAQ, quickWins updated).
+- **Phase 6 — monitoring:** GSC **STILL BLOCKED** — refresh token `invalid_grant` (last good refresh
+  2026-09-14 05:01 UTC; user re-consent still pending). Bing (~4mo): 397 queries / 60 clicks / 564
+  impressions (flat vs 09-16); sitemap feed Success, 52 URLs. Expanded article URL submitted for
+  recrawl (`{"d":null}`; daily quota 999 left). Mail sweep 16→18 Sep: only acks/promo (swb ack;
+  Entireweb promo; one iwd ack pre-dating our submission = sibling campaign's) — nothing actionable.
+- **Review gate: STILL ACTIVE (11 days)** — 3 pairing guides await user review; Batch A items 4-8
+  remain staged (kielbasa, tilapia, country fried steak, blackened salmon, biscuits+syrup + Bing-demand
+  dishes: philly cheesesteak, schnitzel, garlic shrimp, paella).
+- Live checks 200: homepage, sitemap, articles index, expanded article, tools (spot-checked).
+- Commits pushed: `5a3a77d` (dirs), `e64ae3d` (article expansion), + this state commit.
+
+### Known follow-ups for run 8
+1. **Review gate needs the user OK** — nothing new publishes until it lands. Continue within-gate work:
+   expand the next thin articles (`meal-planning-with-macros` / `pantry-meal-planning`, ~600-700 words).
+2. If Google re-consent done: GSC indexation re-check (8 articles + tool pages), sitemap resubmit, GA4 sanity.
+3. Directory: geo-sister set now done; remaining unprobed siblings: turkeywebdirectory.com,
+   francewebdirectory.net; re-check acks for the 5 new submissions; fresh-family research continues.
 4. Pinterest access + domain-SMTP for link outreach remain user actions (blockers unchanged).
