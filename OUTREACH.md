@@ -36,6 +36,32 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 8 — 2026-09-21
+- **2 NEW free submissions (phpLD geo-sister set — both first-try, "Link submitted and awaiting approval"):**
+  - **Turkey Web Directory** — turkeywebdirectory.com (captcha OCR 8526; cat 297 Cooking; desc cap 500;
+    ack notice says the submitter address must confirm by email).
+  - **France Web Directory** — francewebdirectory.net (captcha OCR 2432; cat 297 Cuisine-Cooking;
+    desc cap 1000).
+  - Both via the extended `scripts/dir_phpld_ext.py` (probe → vision OCR → post, same-jar captcha flow);
+    email alias +pairdish-dir7. These were the last two known-unprobed phpLD siblings.
+- **Fresh-family research pass (0 further submissions — all classified, logged in tracker so future runs
+  don't re-probe):** 16 generic web/blog-directory candidates screened with the new
+  `scripts/screen_dir_candidates_fast.py` (curl + 8s per-request cap, incremental JSONL output at
+  `outreach/dir_screen_run8.jsonl`):
+  - **WebSquash** → skipped_paid (`/submit.php` is a PayPal subscription form)
+  - **A1 Web Directory** → skipped_other (domain repurposed: `/add.html` now serves unrelated spam/gambling content)
+  - **Free Web Submission** → skipped_other (legacy search-engine submission service, no SEO value today)
+  - **Directory Vault** → skipped_other (Cloudflare/JS challenge on datacenter IP)
+  - 11 others (Blogarama, Blog-Directory.org, EasyWebDirectory, EveryDirectory, Add-Link,
+    AllWebsiteDirectory, WebWorldIndex, AddUrl.org, SoMuch, SearchSight, BetterWebDirectory, Ezilon)
+    → skipped_other: no reachable submission form at root/submit paths.
+  - Read: the generic-directory vein is largely exhausted for a content site; the productive veins left
+    are niche (food/blog) directories and per-domain outreach, not open web directories.
+- **Tracker after run: 28 rows — 3 listed / 19 submitted / 2 pending_review / 3 skipped_other / 1 skipped_paid.**
+- **Mail sweep 18→21 Sep:** no pairdish-specific acks yet for the run-7 submissions; the confirmations seen
+  (Viesearch, Activ Directory, italywebdirectory) belong to other campaigns — matched by To: address
+  (flyaviary / personalityspark / socializeexperts) before attributing, per the standing rule.
+
 ### Run 7 — 2026-09-18
 - **5 NEW free submissions (phpLD extension set — all first-try, "Link submitted and awaiting approval"):**
   - **High Rank Directory** — highrankdirectory.com (captcha OCR 6574; cat 297 Cooking; desc cap 1000)

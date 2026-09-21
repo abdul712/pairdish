@@ -126,3 +126,13 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   rules); deploy `9b4b9be5` live-verified. Directory: **5 more free submissions** (phpLD extension:
   hrd/uswd/awd/gwd/iwd — all first-try). Gate still ACTIVE (11 days): items 4-8 staged, not published.
   Next thin articles queued for within-gate expansion: macros, pantry, nutrition-guide, high-protein.
+- 2026-09-21 (run 8): **Second and third thin-article expansions shipped (within gate)** —
+  `meal-planning-with-macros` ~700 → **1,612 words** (Dietary Guidelines for Americans 2025-2030 layer:
+  protein 1.2-1.6 g/kg/day serving goal, daily serving minimums, saturated-fat/added-sugar/sodium ceilings,
+  worked grams-per-day table, sources block) and `pantry-meal-planning` ~700 → **1,597 words** (USDA FSIS
+  shelf-stable + refrigeration storage-time tables, FSIS two-hour rule, USDA ERS food-loss figures,
+  sources block). Factory `protein-calculator` copy refreshed to the current guideline range. Deploys
+  `0385e21b` / `ef164a20`; live verify **30/30**. Directory: 2 submissions (twd/fwd) + a documented
+  fresh-family screen with 0 further wins (generic web-directory vein exhausted). Gate still ACTIVE
+  (14 days): items 4-8 staged. Next within-gate: nutrition-guide + high-protein expansions; `seasonal
+  ingredients` response (new Bing demand ridge).

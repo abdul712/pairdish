@@ -1,6 +1,6 @@
 # PairDish (pairdish.com) — SEO Audit & Status
 
-**Last updated:** 2026-09-18 (durable job run 7)
+**Last updated:** 2026-09-21 (durable job run 8)
 **Stack:** Astro 5 + React 19 SSR on Cloudflare Workers (`pairdish` worker, routes pairdish.com/* and www)
 **Repo:** abdul712/pairdish — local `/home/hermes/projects/pairdish`
 
@@ -309,6 +309,74 @@
 1. **Review gate needs the user OK** — nothing new publishes until it lands. Continue within-gate work:
    expand the next thin articles (`meal-planning-with-macros` / `pantry-meal-planning`, ~600-700 words).
 2. If Google re-consent done: GSC indexation re-check (8 articles + tool pages), sitemap resubmit, GA4 sanity.
-3. Directory: geo-sister set now done; remaining unprobed siblings: turkeywebdirectory.com,
-   francewebdirectory.net; re-check acks for the 5 new submissions; fresh-family research continues.
+3. Directory: geo-sister set now done (turkeywebdirectory.com + francewebdirectory.net submitted in run 8);
+   re-check acks for the pending submissions; fresh-family research continues in the NICHE lane.
 4. Pinterest access + domain-SMTP for link outreach remain user actions (blockers unchanged).
+
+### Run 8 — 2026-09-21
+- **Phase 4 — within-gate content work (NO new articles published; review gate now 14 days):**
+  - **`meal-planning-with-macros` expanded ~700 → 1,612 words.** New official-data layer: the
+    **Dietary Guidelines for Americans, 2025-2030** (HHS/USDA, joint edition published Jan 2026; verified
+    live at dietaryguidelines.gov + the official PDF on cdn.realfood.gov) sets a **protein serving goal of
+    1.2-1.6 g/kg body weight per day** — a real change from the old percentage-of-calories framing. Added:
+    a guideline table (protein/dairy/vegetables/fruits/whole grains minimums, saturated fat <10% of
+    calories, added sugar ≤10 g per meal, sodium <2,300 mg), a worked **grams-per-day table**
+    (130/150/175/200 lb → kg → 1.2 g/kg and 1.6 g/kg targets → per-meal split, computed in the script),
+    a "hit the number without weighing every meal" section, 4-bullet guidance, and a 4-source block
+    (DGA + dietaryguidelines.gov + USDA NAL DRI calculator + USDA FoodData Central).
+  - **`pantry-meal-planning` expanded ~700 → 1,597 words.** New official-data layer: **USDA FSIS
+    shelf-stable storage times** (low-acid cans 2-5 yr / 3-4 days after opening; high-acid cans 12-18 mo /
+    5-7 days; rice and dried pasta 2 yr / 3-4 days cooked; hard dry sausage 6 wk pantry / 3 wk refrigerated),
+    **FSIS refrigerator storage times** (leftovers 3-4 days; ground meat, raw poultry, fresh fish 1-2 days;
+    eggs in shell 3-5 weeks), the FSIS two-hour refrigeration rule, and **USDA ERS food-loss figures**
+    (133 billion lb / 31% of retail-and-consumer supply, ~$162B retail value, 1.2 lb per person per day;
+    supermarket produce shrink: 11.6% average across 31 fresh vegetables, 4.1% bananas to 43.1% papayas).
+    4-source block (FSIS shelf-stable / refrigeration / leftovers, ERS Food Loss). Every cited page was
+    fetched and verified from this box before publishing.
+  - **Freshness sweep:** `protein-calculator` tool page copy now states the current guideline range
+    (1.2-1.6 g/kg/day) alongside the RDA (0.8 g/kg = deficiency minimum) and links dietaryguidelines.gov.
+    Site-wide grep for other old-guideline claims: none found.
+  - Scripts: `scripts/run8_expand_macros.py`, `scripts/run8_expand_pantry.py` (both assertion-guarded,
+    abort on any non-unique anchor). Sitemap lastmod bumped to 2026-09-21 for the 3 touched URLs.
+  - Build + deploy: `0385e21b-b410-45e9-9bb9-156ac064cae0` (macros + tool page) →
+    `ef164a20-9798-4408-a0bf-d48468189db7` (pantry). Live verification `scripts/verify_run8_live.py`:
+    **30/30 checks pass** — word bands (1,612 / 1,597), 2 tables each, DGA + FSIS/ERS data present,
+    official source links present, 0 FAQ sections / 0 FAQPage JSON-LD on both articles, meta descriptions
+    117 and 136 chars, sitemap lastmods correct, 52 URLs.
+- **Phase 5a — 2 NEW free directory submissions + a documented research pass:** Turkey Web Directory and
+  France Web Directory (last unprobed phpLD siblings; both first-try "Link submitted and awaiting
+  approval", captchas OCR'd). A 16-candidate fresh-family screen produced 0 additional submissions
+  (4 classified: paid / repurposed-to-spam / no-SEO-value / CF wall; 11 with no reachable form) — the
+  generic web-directory vein is exhausted for a content site; niche food/blog directories and per-domain
+  outreach are the remaining lanes. Tracker: **28 rows — 3 listed / 19 submitted / 2 pending_review /
+  3 skipped_other / 1 skipped_paid**.
+- **Phase 6 — monitoring:** GSC **STILL BLOCKED** — refresh token `invalid_grant` (last good refresh
+  2026-09-14 05:01 UTC); user re-consent still pending (`webmaster_auto_add.py google-auth`). Google API
+  reads (GSC + GA4) are down fleet-wide until then.
+  - **Bing (works): up on every metric** — **463 queries / 61 clicks / 703 impressions** (vs 397/60/564 on
+    09-18). New demand ridge: **"seasonal ingredients"** queries (where to find / compare / breakdown —
+    relevant to /tools/seasonal-guide) and "flavour pairing website / flavour pairing" (7 and 6
+    impressions), alongside the standing "what to serve with X" ridges (philly cheesesteak 22, pork loin,
+    schnitzel, garlic shrimp 4). Sitemap feeds: both `pairdish.com` and `www.pairdish.com` =
+    **Success, 52 URLs**.
+  - **Bing SubmitUrlBatch:** 2 edited URLs (macros, protein-calculator) + 1 more (pantry) submitted for
+    recrawl (`{"d":null}`; daily quota 1000 → 997).
+  - Mail sweep 18→21 Sep: no pairdish acks yet for run-7/run-8 submissions; confirmations present in the
+    shared mailbox all belonged to sibling campaigns (verified by To: address).
+- **Live checks 200:** homepage, sitemap (52), articles index, all 5 article pages FAQ-free, tools.
+- Commits pushed: `1a2a5ed` (macros expansion + 2 directory submissions + screener), `684c11e` (pantry
+  expansion + verification script) — both verified against `git ls-remote origin master`.
+
+### Known follow-ups for run 9
+1. **Review gate still needs the user OK** (open since 09-07, now 14 days) — Batch A items 4-8 stay staged
+   (kielbasa, tilapia, country fried steak, blackened salmon, biscuits+syrup + Bing-demand dishes: philly
+   cheesesteak, schnitzel, garlic shrimp, paella). Within-gate work continues either way.
+2. Continue within-gate expansion of the last thin articles (`recipe-nutrition-calculator-guide`,
+   `high-protein-meal-prep`) with verified official data — same pattern: fetch + verify every source first.
+3. Consider a `seasonal ingredients` response (Bing now shows demand: 3 query variants, ~20 impressions) —
+   expand /tools/seasonal-guide copy or add a seasonal pairing guide with official produce-season data.
+4. If Google re-consent lands: GSC indexation re-check (5 articles + 36 tool pages), sitemap resubmit,
+   GA4 data sanity.
+5. Directory lane: research NICHE (food/recipe/blog) directories + food-blog submission sites; the open
+   web-directory vein is documented as exhausted. Re-check acks for the pending submissions.
+6. Pinterest access + domain-SMTP sending remain user actions (blockers unchanged).
