@@ -23,3 +23,7 @@ Germany Web Directory,https://www.germanywebdirectory.com/,submitted,2026-09-18,
 Italy Web Directory,https://www.italywebdirectory.net/,submitted,2026-09-18,"POST /submit.php -> ""Link submitted and awaiting approval.""",Free Regular; captcha OCR'd (6549); cat 297 Cooking; desc cap 500; email +pairdish-dir7
 Turkey Web Directory,https://www.turkeywebdirectory.com/,submitted,2026-09-21,2026-09-21,POST /submit.php -> 'Link submitted and awaiting approval.' + email-confirm notice (msg block)
 France Web Directory,https://www.francewebdirectory.net/,submitted,2026-09-21,2026-09-21,POST /submit.php -> 'Link submitted and awaiting approval.' (msg block)
+WebSquash,https://www.websquash.com/,skipped_paid,2026-09-21,2026-09-21,n/a - /submit.php exposes a PayPal subscription form (cmd/business/amount fields)
+A1 Web Directory,https://www.a1webdirectory.org/,skipped_other,2026-09-21,2026-09-21,n/a
+Free Web Submission,https://www.freewebsubmission.com/,skipped_other,2026-09-21,2026-09-21,n/a
+Directory Vault,https://www.directoryvault.com/,skipped_other,2026-09-21,2026-09-21,n/a
