@@ -28,6 +28,8 @@ SITES = {
     "awd":  {"candidates": ["https://www.australiawebdirectory.net", "https://australiawebdirectory.net"], "desc_limit": "1000"},
     "gwd":  {"candidates": ["https://www.germanywebdirectory.com", "https://germanywebdirectory.com"], "desc_limit": "500"},
     "iwd":  {"candidates": ["https://www.italywebdirectory.net", "https://italywebdirectory.net"], "desc_limit": "500"},
+    "twd":  {"candidates": ["https://www.turkeywebdirectory.com", "https://turkeywebdirectory.com"], "desc_limit": "500"},
+    "fwd":  {"candidates": ["https://www.francewebdirectory.net", "https://francewebdirectory.net"], "desc_limit": "1000"},
 }
 
 TITLE = "PairDish - Food Pairing Tools & Guides"
