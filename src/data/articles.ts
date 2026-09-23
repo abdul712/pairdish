@@ -64,17 +64,18 @@ const coreArticles: Article[] = [
     eyebrow: 'Nutrition Basics',
     description: 'Learn how to calculate recipe calories, macros, and per-serving nutrition with cleaner ingredient entries, serving math, and practical accuracy checks.',
     datePublished: '2026-05-26',
-    dateModified: '2026-05-26',
-    readingTime: '7 min read',
+    dateModified: '2026-09-23',
+    readingTime: '11 min read',
     category: 'Recipe Nutrition',
     image: '/images/articles/recipe-nutrition-calculator-guide.webp',
     imageAlt: 'Flat lay of recipe ingredients, measuring spoons, and macro notes beside a nutrition calculator interface.',
-    keywords: ['recipe nutrition calculator', 'recipe calories', 'macro calculator', 'per serving nutrition', 'nutrition facts for recipes'],
+    keywords: ['recipe nutrition calculator', 'recipe calories', 'macro calculator', 'per serving nutrition', 'nutrition facts for recipes', 'how to calculate calories in a recipe'],
     summary: 'The fastest way to estimate recipe nutrition is to clean up your ingredient list, set servings before you calculate, and sanity-check the biggest calorie sources first.',
     quickWins: [
       'Enter ingredients in plain measurable units: grams, ounces, cups, tablespoons, or whole items.',
       'Set the recipe yield before comparing calories or macros per serving.',
       'Check oils, nuts, dairy, sweeteners, and grains first because small measurement errors change totals quickly.',
+      'Match the entry to the ingredient: raw weight with raw entries, cooked weight with cooked entries.',
     ],
     primaryTool: { href: '/tools/nutrition-calculator', label: 'Open the Recipe Nutrition Calculator' },
     relatedGuides: [
@@ -117,6 +118,75 @@ const coreArticles: Article[] = [
         ]
       },
       {
+        heading: 'What the Nutrition Facts label actually measures',
+        body: [
+          'A recipe calculator is doing the same job as a Nutrition Facts panel: describing a defined serving of a defined food. The FDA is explicit that a label serving size “reflects the amount that people typically eat or drink” and that it “is not a recommendation of how much you should eat or drink.” That one sentence explains most serving-size arguments.',
+          'It also explains why every number moves together. On the FDA sample label for frozen lasagna, one cup is 280 calories; eat two cups and you have taken in 560 calories, and every other nutrient and percentage doubles with it. A recipe calculator behaves the same way — change the yield and every per-serving figure changes — which is why setting servings first is part of the measurement, not bookkeeping.',
+          'Labels also standardize the unit: a familiar household measure first, the metric weight second. That is the format worth copying into your own recipes. “One scoop” does not travel between tools; “45 g” does.'
+        ],
+        table: {
+          caption: 'Daily Values behind %DV on a 2,000-calorie diet (FDA)',
+          headers: ['Nutrient', 'Daily Value', 'Goal'],
+          rows: [
+            ['Saturated fat', '20 g', 'Less than'],
+            ['Sodium', '2,300 mg', 'Less than'],
+            ['Added sugars', '50 g', 'Less than'],
+            ['Dietary fiber', '28 g', 'At least'],
+            ['Vitamin D', '20 mcg', 'At least'],
+            ['Calcium', '1,300 mg', 'At least'],
+            ['Iron', '18 mg', 'At least'],
+            ['Potassium', '4,700 mg', 'At least']
+          ]
+        },
+        bullets: [
+          'The %DV column does not add up to 100% down the side of a label; each line is that nutrient’s share of its own daily value.',
+          'Protein, total sugars, and trans fat normally carry no %DV — a protein %DV appears only when the label makes a protein claim.',
+          'FDA’s reading rule: 5% DV or less of a nutrient per serving is low, 20% DV or more is high.'
+        ],
+        callout: 'The fastest sanity check on any recipe estimate is to ask what share of a day’s sodium, added sugar, or protein one serving carries. That question catches more errors than recalculating every ingredient.',
+        toolLink: { href: '/tools/dietary-finder', label: 'Match a recipe to a dietary pattern', description: 'Filter meal ideas when sodium, added sugar, or protein targets are the deciding factor.' }
+      },
+      {
+        heading: 'Added sugars versus total sugars: the label line that fools recipe math',
+        body: [
+          'Total sugars counts everything: sugars naturally present in milk, fruit, and vegetables plus anything added during processing or cooking. Added sugars counts only the sweeteners — sucrose, dextrose, syrups, honey, and concentrated fruit or vegetable juices. On the FDA example, a yogurt label reading “Total Sugars 15 g, Includes 7 g Added Sugars” means 7 g were added and 8 g occur naturally in the yogurt itself.',
+          'For recipe math that distinction matters. A fruit-sweetened smoothie, a yogurt marinade, and a honey-glazed sheet pan can land on the same total sugar number with very different added sugar totals. If added sugar is what you are watching, enter the sweetener as its own line — honey, maple syrup, brown sugar — rather than relying on a combined ingredient entry that hides it.',
+          'Percentages make the point faster than grams. Added sugars use 50 g per day as their 100% Daily Value, so a recipe contributing 12 g of added sugar per serving is already at 24% DV. By FDA’s own reading rule, that is a high-sugar serving.'
+        ],
+        bullets: [
+          'Enter sweeteners separately: they are the only added-sugar source most home recipes contain.',
+          'Natural sugars from milk, fruit, and vegetables still count toward total sugars, so a smoothie can read high while carrying no added sugar at all.',
+          'When a packaged ingredient is doing heavy lifting in a recipe, use its label numbers rather than a generic database entry.'
+        ]
+      },
+      {
+        heading: 'The raw-versus-cooked check that fixes most calculator errors',
+        body: [
+          'Ingredient databases carry separate entries for raw, cooked, drained, and ready-to-eat versions of the same food, and the gaps are large. USDA FoodData Central lists 22.5 g of protein per 100 g for raw boneless skinless chicken breast and 32.1 g per 100 g for the same cut cooked and braised. Nothing was added; water cooked off, so every gram of the cooked food now carries more protein.',
+          'That means the entry you pick has to match the food in front of you. A 200 g portion of cooked chicken read against a raw entry comes out near 45 g of protein; read against a cooked entry it is about 64 g. Choosing the wrong state moves the number by 30 to 40 percent without a single ingredient being wrong.',
+          'The same logic covers cans and packages. Drained solids, solids and liquids, and rinsed items are different entries, and as-purchased weights include parts you do not eat. Select the entry that describes what actually lands on the plate.'
+        ],
+        table: {
+          caption: 'USDA FoodData Central: protein per 100 g by entry state',
+          headers: ['Food and entry state', 'Protein per 100 g'],
+          rows: [
+            ['Chicken breast, boneless, skinless — raw', '22.5 g'],
+            ['Chicken breast, meat only — cooked, braised', '32.1 g'],
+            ['Fish, tuna, light, canned in water — drained solids', '25.5 g'],
+            ['Egg, whole — cooked, hard-boiled', '12.6 g'],
+            ['Lentils, mature seeds — cooked, boiled', '9.02 g'],
+            ['Yogurt, Greek, plain, lowfat — ready to eat', '9.95 g']
+          ]
+        },
+        bullets: [
+          'Type the weight in the same state as the entry: raw weight with raw entries, cooked weight with cooked entries.',
+          'Batch cooking? Note the raw weight before the pan, because that is the number the database understands.',
+          'When a recipe and a package label disagree, the label wins for that packaged product; the database entry wins for loose ingredients.'
+        ],
+        callout: 'Before trusting a total, write the raw weight next to what came off the pan. If the two are far apart, check that the entry matches the weight you typed.',
+        toolLink: { href: '/tools/unit-converter', label: 'Convert weights and volumes first', description: 'Get grams, ounces, cups, and tablespoons onto one scale before comparing entries.' }
+      },
+      {
         heading: 'Use the result as an estimate, not medical advice',
         body: [
           'A recipe calculator is a planning tool. Ingredient databases, brand differences, cooking loss, drained liquids, and serving sizes all affect the final numbers. For general home cooking, a thoughtful estimate is usually enough to plan meals, compare recipes, and build grocery lists.',
@@ -128,6 +198,23 @@ const coreArticles: Article[] = [
       { question: 'Can I paste an entire recipe into a nutrition calculator?', answer: 'Yes, but the result is cleaner if each ingredient is on its own line with a clear quantity and unit.' },
       { question: 'Should I calculate raw or cooked ingredient weights?', answer: 'Use the measurement style from the recipe. If you weigh cooked portions after cooking, keep that method consistent across the whole recipe.' },
       { question: 'Why do recipe calorie estimates vary between tools?', answer: 'Different tools use different ingredient databases and assumptions for brands, preparation methods, and serving sizes.' }
+    ],
+    sources: [
+      {
+        label: 'FDA — How to Understand and Use the Nutrition Facts Label',
+        href: 'https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label',
+        note: 'Source of the serving-size definition, the 5%/20% %DV reading guide, the Daily Value table, and the added-sugars example cited above.'
+      },
+      {
+        label: 'USDA FoodData Central',
+        href: 'https://fdc.nal.usda.gov/',
+        note: 'Source of the protein values in the entry-state table (chicken breast raw FDC 2646170, cooked FDC 331960, and the other food-detail pages for each row).'
+      },
+      {
+        label: 'USDA National Agricultural Library — DRI Calculator',
+        href: 'https://www.nal.usda.gov/human-nutrition-and-food-safety/dri-calculator',
+        note: 'Estimates daily calorie and nutrient needs from the Dietary Reference Intakes.'
+      }
     ]
   },
   {
@@ -595,8 +682,8 @@ const coreArticles: Article[] = [
     eyebrow: 'Protein Prep',
     description: 'Plan high-protein meal prep with flexible components, balanced macros, and repeatable formulas that do not require eating the same container all week.',
     datePublished: '2026-05-26',
-    dateModified: '2026-05-26',
-    readingTime: '7 min read',
+    dateModified: '2026-09-23',
+    readingTime: '11 min read',
     category: 'Meal Prep',
     image: '/images/articles/high-protein-meal-prep.webp',
     imageAlt: 'Neatly arranged meal prep containers with grains, roasted vegetables, protein foods, and macro cards.',
@@ -605,7 +692,8 @@ const coreArticles: Article[] = [
     quickWins: [
       'Prep protein anchors separately from sauces so meals can change flavor.',
       'Cook one base and two vegetables to create several combinations.',
-      'Add protein to snacks and breakfasts, not only lunch and dinner.'
+      'Add protein to snacks and breakfasts, not only lunch and dinner.',
+      'Weigh protein raw and divide by containers: that number does not change when water cooks off.'
     ],
     primaryTool: { href: '/tools/protein-calculator', label: 'Open the Protein Calculator' },
     relatedGuides: [
@@ -643,6 +731,75 @@ const coreArticles: Article[] = [
         callout: 'High-protein does not have to mean plain. Flavorful sauces make simple protein anchors easier to repeat.'
       },
       {
+        heading: 'What the protein numbers actually look like per portion',
+        body: [
+          'Component prep gets easier once you know how much protein each anchor really delivers, because that number decides how many containers a batch fills. These are USDA FoodData Central values for protein per 100 g of the food as eaten; the portion column is the same figure multiplied out for a 150 g serving.',
+          'The spread is the useful part. A 150 g portion of cooked poultry delivers more protein than three times that weight of cooked chickpeas, so “protein anchor” is really several tiers. Building a week from two tiers — one dense anchor plus one plant anchor — holds up better than trying to hit the top of the list at every meal.',
+          'It also explains why portions look so different. Reaching 30 g of protein from cooked chickpeas means eating roughly 340 g of them; 100 g of cooked poultry already clears 30 g. Neither is better, but the container is not the same size.'
+        ],
+        table: {
+          caption: 'USDA FoodData Central — protein per 100 g as eaten, with a 150 g portion worked out',
+          headers: ['Protein anchor', 'Protein per 100 g', 'In a 150 g portion'],
+          rows: [
+            ['Chicken or turkey breast, meat only, cooked', '32.1 g', 'about 48 g'],
+            ['Tuna, light, canned in water, drained solids', '25.5 g', 'about 38 g'],
+            ['Eggs, whole, hard-boiled', '12.6 g', 'about 19 g'],
+            ['Cottage cheese, lowfat (1% milkfat)', '12.4 g', 'about 19 g'],
+            ['Tofu, extra firm, prepared with nigari', '9.98 g', 'about 15 g'],
+            ['Yogurt, Greek, plain, lowfat', '9.95 g', 'about 15 g'],
+            ['Lentils, cooked, boiled', '9.02 g', 'about 14 g'],
+            ['Chickpeas, cooked, boiled', '8.86 g', 'about 13 g'],
+            ['Black beans, cooked, boiled', '8.86 g', 'about 13 g']
+          ]
+        },
+        bullets: [
+          'Use the 100 g column to compare anchors; use the portion column to plan containers.',
+          'Cheese, nuts, and seeds add protein but arrive with much more fat per gram, so they support a meal rather than anchor it.',
+          'Protein powders and bars are label-driven: read the package rather than a database entry.'
+        ],
+        callout: 'If you track one number in meal prep, track grams of protein per container. It survives every cooking method, and it is the figure the plan is actually built on.',
+        toolLink: { href: '/tools/protein-calculator', label: 'Set your daily protein target', description: 'Work out grams per day and per meal before dividing a batch into containers.' }
+      },
+      {
+        heading: 'Do the batch math from raw weight',
+        body: [
+          'Protein is not lost when meat cooks; water is. That single fact makes batch math simple: multiply the raw weight of the protein by the protein density of the raw food, and you have the protein in the whole package no matter what the pan does to the scale.',
+          'A 3 lb (1,361 g) pack of raw boneless skinless chicken breast at 22.5 g of protein per 100 g carries roughly 306 g of protein. Divided into five containers that is about 61 g each; six containers gives about 51 g. The container count sets the per-serving number, not the cooked weight on the day.',
+          'The same approach covers plant anchors. A 250 g portion of cooked chickpeas at 8.86 g per 100 g comes to about 22 g of protein — roughly one plant-anchor serving. Write the batch number on the lid once and you never recalculate lunch again.'
+        ],
+        bullets: [
+          'Weigh raw, note the batch total, then divide by the containers you actually filled.',
+          'Sauces, marinades, and oils are their own lines: they change fat and sodium, not the protein math.',
+          'Freezing half the batch? Split the protein figure before it goes in the freezer so both halves carry their own number.'
+        ],
+        callout: 'Cooked weight changes; protein content does not. Do the division from the raw package and the containers stay consistent from week to week.',
+        toolLink: { href: '/tools/nutrition-calculator', label: 'Calculate the full batch', description: 'Turn a batch recipe into per-container calories, protein, and macros.' }
+      },
+      {
+        heading: 'Keep the week inside the safe storage window',
+        body: [
+          'A prep plan is also a food-safety plan, and the USDA Food Safety and Inspection Service publishes the windows that apply. Cooked leftovers — casseroles, soups, stews, cooked meat, poultry, and fish — keep three to four days in a refrigerator held at 40 °F or below. Cooked rice, pasta, and beans follow the same three-to-four-day rule. Raw ground meat, raw poultry, and fresh fish are far shorter: one to two days.',
+          'That is the argument for four containers instead of seven. Build the week in two batches, or freeze the back half in the containers you plan to eat later and thaw it in the refrigerator.',
+          'Two habits protect the batch. Get cooked food into the refrigerator promptly — FSIS guidance for leftovers is within two hours — and cool large batches fast by dividing them into small portions in shallow containers instead of leaving a deep pot to shed heat slowly.'
+        ],
+        table: {
+          caption: 'USDA FSIS refrigerator storage windows (40 °F or below)',
+          headers: ['Prepped item', 'Refrigerator time'],
+          rows: [
+            ['Cooked leftovers: casseroles, soups, stews, cooked meat, poultry, fish', '3 to 4 days'],
+            ['Cooked rice, pasta, or beans', '3 to 4 days'],
+            ['Raw ground meat or poultry, fresh poultry, fresh fish', '1 to 2 days'],
+            ['Eggs, fresh in shell', '3 to 5 weeks']
+          ]
+        },
+        bullets: [
+          'Write the cook date on each lid so day four is obvious at a glance.',
+          'Cool in shallow containers first, then stack and cover once the food stops steaming.',
+          'Freeze anything you will not eat inside the window — and label the container with the freeze date too.'
+        ],
+        callout: 'A four-day container is not a suggestion about freshness; it is the outer edge of the safe window for cooked food.'
+      },
+      {
         heading: 'Check the recipe once, then repeat confidently',
         body: [
           'Once you have a meal prep combination you like, calculate it once and save the notes. Record the batch size, number of servings, protein per serving, and the sauce portion. The next time you cook it, you can adjust from a known baseline instead of starting over.',
@@ -655,6 +812,23 @@ const coreArticles: Article[] = [
       { question: 'What are easy high-protein meal prep foods?', answer: 'Beans, lentils, tofu, eggs, Greek yogurt, cottage cheese, edamame, fish, poultry, lean meat, tempeh, and protein-rich grains can all work.' },
       { question: 'How do I meal prep without getting bored?', answer: 'Prep components separately and change sauces, wraps, bowls, salads, and sides through the week.' },
       { question: 'Should every meal be high protein?', answer: 'Not necessarily. Many people do better by spreading protein across the day and balancing the week overall.' }
+    ],
+    sources: [
+      {
+        label: 'USDA FoodData Central',
+        href: 'https://fdc.nal.usda.gov/',
+        note: 'Source of every protein value in the anchor table (for example chicken breast cooked, FDC 331960; raw, FDC 2646170).'
+      },
+      {
+        label: 'USDA FSIS — Refrigeration & Food Safety',
+        href: 'https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/refrigeration',
+        note: 'Source of the refrigerator storage windows and the shallow-container cooling guidance.'
+      },
+      {
+        label: 'USDA FSIS — Leftovers and Food Safety',
+        href: 'https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety',
+        note: 'Basis for the two-hour refrigeration rule for cooked food.'
+      }
     ]
   }
 ];

@@ -12,7 +12,7 @@ import SeasonalGuide from '../../components/tools/SeasonalGuide';
 <BaseLayout
   title="Seasonal Ingredient Guide"
   description="Discover what fruits and vegetables are in season each month. Get peak season dates, storage tips, and perfect pairing suggestions for fresh produce."
-  keywords={['seasonal produce guide', 'whats in season', 'seasonal fruits vegetables', 'peak season produce', 'seasonal cooking']}
+  keywords={['seasonal produce guide', 'seasonal ingredients', 'whats in season', 'seasonal fruits vegetables', 'peak season produce', 'seasonal cooking']}
   breadcrumbs={[
     { name: 'Home', url: '/' },
     { name: 'Tools', url: '/tools' },
@@ -114,6 +114,58 @@ import SeasonalGuide from '../../components/tools/SeasonalGuide';
           </div>
         </div>
 
+
+              <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6 mt-12">
+          Seasonal Ingredients, Broken Down by Season
+        </h2>
+
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          When people compare seasonal ingredients, they are usually asking a practical question:
+          what is actually at its best right now? The USDA SNAP-Ed Seasonal Produce Guide tracks
+          that season by season, and the table below condenses it. Seasonal produce varies by
+          growing conditions and weather, so treat this as a national baseline rather than a local
+          forecast.
+        </p>
+
+        <figure class="mb-10 overflow-x-auto rounded-2xl border border-[var(--color-cream-dark)] bg-white shadow-[var(--shadow-soft)]">
+          <table class="w-full min-w-[560px] border-collapse text-left text-[var(--text-secondary)]">
+            <caption class="px-4 pt-3 text-left text-sm font-medium text-[var(--text-muted)]">USDA SNAP-Ed Seasonal Produce Guide &mdash; fruits and vegetables listed for each season</caption>
+            <thead>
+              <tr class="bg-[var(--color-cream-soft)]">
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Season</th>
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Fruits and vegetables at their best</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Spring</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Apples, Apricots, Asparagus, Avocados, Bananas, Blackberries, Broccoli, Cabbage, Carrots, Celery, Collard Greens, Garlic, Herbs, Kale, Kiwifruit, Lemons, Lettuce, Limes, Mushrooms, Onions, Peas, Pineapples, Plantains, Radishes, Rhubarb, Spinach, Strawberries, Swiss Chard, Turnips</td></tr>
+              <tr class="bg-[var(--color-cream)]"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Summer</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Apples, Apricots, Avocados, Bananas, Beets, Bell Peppers, Blackberries, Blueberries, Cantaloupe, Carrots, Celery, Cherries, Corn, Cucumbers, Eggplant, Garlic, Grapes, Green Beans, Herbs, Honeydew Melon, Lemons, Lima Beans, Limes, Mangos, Okra, Onions, Peaches, Pears, Peas, Pineapples, Plantains, Plums, Raspberries, Strawberries, Summer Squash, Tomatillos, Tomatoes, Watermelon, Zucchini</td></tr>
+              <tr class="bg-white"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fall</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Apples, Bananas, Beets, Bell Peppers, Broccoli, Brussels Sprouts, Cabbage, Carrots, Cauliflower, Celery, Collard Greens, Cranberries, Garlic, Ginger, Grapes, Green Beans, Herbs, Kale, Kiwifruit, Lemons, Lettuce, Limes, Mangos, Mushrooms, Okra, Onions, Parsnips, Pears, Peas, Plantains, Pomegranates, Potatoes, Pumpkin, Radishes, Raspberries, Rutabagas, Spinach, Sweet Potatoes and Yams, Swiss Chard, Turnips, Winter Squash</td></tr>
+              <tr class="bg-[var(--color-cream)]"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Winter</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Apples, Avocados, Bananas, Beets, Brussels Sprouts, Cabbage, Carrots, Celery, Collard Greens, Grapefruit, Grapes, Herbs, Kale, Kiwifruit, Leeks, Lemons, Limes, Onions, Oranges, Parsnips, Pears, Plantains, Pomegranates, Potatoes, Pumpkin, Rutabagas, Sweet Potatoes and Yams, Swiss Chard, Turnips, Winter Squash</td></tr>
+            </tbody>
+          </table>
+        </figure>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4 mt-10">
+          How to compare &mdash; and find &mdash; seasonal ingredients
+        </h3>
+
+        <ul class="mb-6 list-disc space-y-2 pl-6 text-[var(--text-secondary)]">
+          <li><strong>Read the origin label.</strong> A sticker or sign naming a nearby state is the fastest signal that an item is in its local window; imports cover the rest of the year.</li>
+          <li><strong>Watch the price, not the marketing.</strong> Peak-season supply lowers cost, so the cheapest item in the produce section is often the most seasonal one.</li>
+          <li><strong>Shop the overlap.</strong> Apples, carrots, celery, onions, and herbs appear in every season on the USDA guide, which makes them reliable year-round buys rather than compromise picks.</li>
+          <li><strong>Rotate the rest.</strong> Rhubarb and asparagus belong to spring, corn and tomatoes to summer, pumpkin and parsnips to fall, citrus and winter squash to winter.</li>
+        </ul>
+
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          Seasonality data in the table above comes from the
+          <a href="https://snaped.fns.usda.gov/seasonal-produce-guide" rel="noopener" class="text-[var(--color-wine)] underline">USDA SNAP-Ed Seasonal Produce Guide</a>.
+          Once you have a seasonal ingredient, pair it with
+          <a href="/tools/flavor-pairing" class="text-[var(--color-wine)] underline">the flavor pairing finder</a>
+          or run it through the
+          <a href="/tools/meal-prep" class="text-[var(--color-wine)] underline">meal prep calculator</a>
+          to size the batch. Budget shoppers can also see how seasonal buying shows up in
+          <a href="/articles/grocery-budget-meal-planning" class="text-[var(--color-wine)] underline">the grocery budget plan</a>.
+        </p>
 
       </article>
     </div>
