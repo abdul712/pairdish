@@ -27,3 +27,7 @@ WebSquash,https://www.websquash.com/,skipped_paid,2026-09-21,2026-09-21,n/a - /s
 A1 Web Directory,https://www.a1webdirectory.org/,skipped_other,2026-09-21,2026-09-21,n/a
 Free Web Submission,https://www.freewebsubmission.com/,skipped_other,2026-09-21,2026-09-21,n/a
 Directory Vault,https://www.directoryvault.com/,skipped_other,2026-09-21,2026-09-21,n/a
+FreeTopRankDirectory,https://www.freetoprankdirectory.com/,submitted,2026-09-23,https://www.freetoprankdirectory.com/submit.php,"run 9 (2026-09-23): free Regular (LINK_TYPE=normal), category Cooking=297; success marker 'Link submitted and awaiting approval.' (class=msg). No captcha. phpLD sibling proven by the NY-tax campaign."
+Fire Directory,https://fire-directory.com/,skipped_other,2026-09-23,https://fire-directory.com/submit.php,"run 9 (2026-09-23): free form requires reCAPTCHA ('Please check reCAPTCHA box') AND a reciprocal backlink on our own page -> badge class, do not submit."
+Ask Directory,https://ask-directory.com/,skipped_other,2026-09-23,https://ask-directory.com/submit.php,run 9 (2026-09-23): free Regular form requires reCAPTCHA; POST carried the payload (TITLE echoed) but no msg block -> captcha wall.
+Blogarama,https://www.blogarama.com/,skipped_other,2026-09-23,https://www.blogarama.com/add-a-site/,run 9 (2026-09-23): add-a-site is an account signup form (email+password); cron runner does not set passwords. User can register manually.

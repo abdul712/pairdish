@@ -136,3 +136,16 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   fresh-family screen with 0 further wins (generic web-directory vein exhausted). Gate still ACTIVE
   (14 days): items 4-8 staged. Next within-gate: nutrition-guide + high-protein expansions; `seasonal
   ingredients` response (new Bing demand ridge).
+- 2026-09-23 (run 9): **Last two below-band articles brought into band (within gate)** —
+  `recipe-nutrition-calculator-guide` ~740 -> **1,926 words** (FDA serving-size definition, the
+  5%/20% %DV rule, an 8-row Daily Value table, added-vs-total sugars, and a raw-vs-cooked
+  entry-state table from USDA FoodData Central) and `high-protein-meal-prep` ~690 -> **1,741
+  words** (9-row protein-per-anchor table with computed 150 g portions, raw-weight batch math,
+  FSIS storage windows for prepped containers). Both got sources blocks citing FDA / USDA FDC /
+  FSIS. **All 8 articles are now inside the 1,200-1,900 band** (lowest = pesto chicken 1,272).
+  Two live Bing demand ridges answered on existing tool pages instead of new articles:
+  `/tools/seasonal-guide` gains the USDA SNAP-Ed seasonality table (936 words live) and
+  `/tools/flavor-pairing` gains the "flavour pairing" (British spelling) section + classic-pairing
+  table (525 words live). Deploy `5541fe9b`, live verify 55/55, commit `fb81642`. Gate still
+  ACTIVE (16 days): Batch A items 4-8 remain staged; next within-gate target = the three pairing
+  guides sitting at the bottom of the band.

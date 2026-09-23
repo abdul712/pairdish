@@ -36,6 +36,38 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 9 — 2026-09-23
+- **1 NEW free submission: FreeTopRankDirectory** — freetoprankdirectory.com (phpLD, **no captcha**,
+  free Regular `LINK_TYPE=normal`, category **Cooking = 297**, desc cap 500). POST returned the
+  `class="msg"` block "Link submitted and awaiting approval." Verified by re-reading the saved result
+  HTML (msg present, 0 errForm, title/category echoed). Target was mined by diffing this campaign's
+  tracker against the phpLD roster after the NY-tax campaign proved the sibling set — none of
+  fire-directory / ask-directory / freetoprankdirectory had ever been tried here.
+- **3 candidates classified this run (all logged, nothing fabricated):**
+  - Fire Directory (fire-directory.com) — `skipped_other`: the free form requires **reCAPTCHA**
+    ("Please check reCAPTCHA box") **and** a reciprocal backlink on our own page -> badge class,
+    never embed unilaterally.
+  - Ask Directory (ask-directory.com) — `skipped_other`: reCAPTCHA required; our POST carried the
+    payload (title echoed back) but the page returned no success msg and no error block.
+  - Blogarama (blogarama.com) — `skipped_other`: `/add-a-site/` is an account signup form
+    (email + password). A cron runner does not set passwords; the user can register manually.
+- **Generic web-directory vein re-confirmed thin:** an 8-candidate screen (blogarama / saashub /
+  alternativeto / thefoodieblogroll / yumgoggle / blogcatalog / blogengage / tasteaholics) produced
+  0 additional usable free forms — 404s, dead hosts (000), CF 403 walls, or paid-only. saashub's
+  `/submit/list` is a JS-rendered list (only 3 external links in raw HTML) — mining it needs the
+  browser tool, noted for a future run.
+- **Tracker after run 9:** 32 rows — 3 listed / 20 submitted / 2 pending_review / 6 skipped_other /
+  1 skipped_paid. New rows: FreeTopRankDirectory (submitted), Fire Directory, Ask Directory,
+  Blogarama (skipped_other).
+- **Mail attribution (TO pairdish, since 09-12):** 10 messages, no new acks for the 09-18 / 09-21
+  submissions (hrd/uswd/awd/gwd/iwd/twd/fwd) — free-tier review takes 2-6 months. Acked so far:
+  ukinternetdirectory (09-14), promotebusinessdirectory (09-14), siteswebdirectory (09-16), Viesearch
+  listed live (09-14). Script: `scripts/mail_pairdish_acks.py [since]`.
+- **Untried phpLD siblings for next run (highest-yield lane):** prolinkdirectory.com, digabusiness.com,
+  marketinginternetdirectory.com, allstatesusadirectory.com — all four went first-try for the NY-tax
+  campaign; prolink/digabusiness need the AJAX `categ-tree.php` drill to a Cooking leaf, all four need
+  captcha OCR.
+
 ### Run 8 — 2026-09-21
 - **2 NEW free submissions (phpLD geo-sister set — both first-try, "Link submitted and awaiting approval"):**
   - **Turkey Web Directory** — turkeywebdirectory.com (captcha OCR 8526; cat 297 Cooking; desc cap 500;
