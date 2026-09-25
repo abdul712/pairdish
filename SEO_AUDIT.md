@@ -1,6 +1,6 @@
 # PairDish (pairdish.com) — SEO Audit & Status
 
-**Last updated:** 2026-09-23 (durable job run 9)
+**Last updated:** 2026-09-25 (durable job run 10)
 **Stack:** Astro 5 + React 19 SSR on Cloudflare Workers (`pairdish` worker, routes pairdish.com/* and www)
 **Repo:** abdul712/pairdish — local `/home/hermes/projects/pairdish`
 
@@ -475,3 +475,107 @@ passwords; user can register). Tracker now **32 rows: 3 listed / 20 submitted / 
    AJAX `categ-tree.php` drill to find a Cooking leaf; all four need captcha OCR. Also note the NY
    campaign's fresh single-form finds are reCAPTCHA-walled for us (fire-directory, ask-directory).
 5. **Pinterest access + per-domain SMTP (domain-email sending)** remain user actions (unchanged).
+
+### Run 10 — 2026-09-25
+
+**Phase 1/6 audit:** homepage, sitemap (52 URLs), articles hub, tools hub all 200. Two new
+audit sweeps built this run: `scripts/live_wordcount.py` (word count + meta length + FAQ +
+`href="undefined"` for every sitemap URL) and `scripts/run10_meta_audit.py` (same, with
+`html.unescape` applied before length). Results across all 52 live URLs: **0 pages missing a
+meta description, 0 FAQPage, 0 `href="undefined"`, and 10 pages shipping meta descriptions of
+161–175 chars against the ≤160 rule** — a live-tree spec defect the draft-side gates had never
+caught. **Review gate STILL ACTIVE (18 days, open since 09-07):** no new articles; every
+content change stayed inside the gate.
+
+**Phase 4 — live meta hygiene (new work class for this site):** all 10 over-long metas
+rewritten to **136–155 chars** (`scripts/run10_meta_fix.py` replaces both the BaseLayout prop
+and the JSON-LD copy where present): `/articles`, `/disclaimer`, and the tool pages
+herb-spice-matrix, recipe-scaler, substitution-finder, appetizer-planner, **buffet-planner
+(175 → 145)**, leftover-matcher, macro-calculator, cooking-style-quiz. Sitemap lastmod bumped
+for the 11 changed URLs (`scripts/run10_sitemap_lastmod.py`; 52 URLs still).
+
+**Phase 4b — two thin tool pages answered with verified official data (within gate):**
+- **`/tools/flour-substitution` 472 → 1,108 words.** New "Flour Substitution by Weight"
+  section: a 7-row weight table (all-purpose 120 g/cup, bread 120 g, cake 120 g, whole wheat
+  113 g, self-rising 113 g, pastry 106 g, cornstarch 112 g) and worked conversions that answer
+  the actual Bing queries — **"60 g cake flour → 53 g all-purpose + 7 g cornstarch"** (scaled
+  from King Arthur's published 105 g + 14 g blend) and **"2½ cups all-purpose → 2½ cups
+  (300 g) bread flour, 1:1"** — plus the protein figures from the brand's own specs (cake flour
+  10%, all-purpose 11.7%, bread flour 12.7%) and the brand-variance caveat. Sources block links
+  four King Arthur pages (weight chart, cake-vs-AP, bread-flour substitution, self-rising).
+- **`/tools/buffet-planner` 678 → 1,305 words, 2 tables.** New "Buffet Menu Planning That Holds
+  Up on the Line": a category/options table (protein 2–3, starch 2–3, vegetable 2–3, bread 1–2,
+  sauce 2, dessert 1–2, each with the reason it earns a place) and a **USDA FSIS holding-rules
+  table** — danger zone 40–140 °F with bacterial numbers doubling in as little as 20 minutes,
+  two-hour maximum out of refrigeration (one hour above 90 °F), hot ≥140 °F, cold ≤40 °F,
+  shallow-container cooling within two hours, reheat to 165 °F — plus the University of Minnesota
+  Extension group-meal guidance (contrast in colour, texture, shape, temperature and flavour;
+  self-service loses portion control).
+
+**Also fixed a live defect the link sweep exposed:** `/apple-touch-icon.png` was referenced by
+`BaseLayout.astro` but returned **404** — now generated as a 180×180 PNG from `favicon.svg`
+(cairosvg) and live at 200.
+
+**Build / deploy / verify:** `astro build` (via `node --max-old-space-size=3584
+node_modules/astro/astro.js build`) → `npx wrangler deploy` two versions
+(`79636107-9dcd-4c3d-8c31-2f5b31e54326`, then `cfe3145b-7b1d-443a-a245-9a0d2916ba7b` after the
+icon). Live verification `scripts/verify_run10_live.py`: **46/46 checks pass** — 200 on all 11
+changed URLs, metas 136–156, both new sections' phrases and every official-source href present
+in the rendered HTML, 2 tables on buffet-planner, 0 FAQPage, 0 `href="undefined"`, all 23
+internal hrefs on the two expanded pages resolve 200, sitemap 52 URLs with lastmod 2026-09-25
+on all 11. Note the first verify pass right after deploy read **stale edge copies** of
+`/articles` and `/tools/buffet-planner` (old meta, no new section) — a re-fetch minutes later
+showed both correct; do not call a deploy failed on the first read.
+
+**Phase 5 (directories) — 4 new free submissions, all first-try-verified:** the four phpLD
+siblings this campaign had never tried (proven for other campaigns), via
+`scripts/dir_run10_phpld.py`:
+- **Marketing Internet Directory** — marketinginternetdirectory.com (single form, free
+  `LINK_TYPE=normal`, cat 297 "Cooking and Baking", captcha 452872, desc cap 800) →
+  "Link submitted and awaiting approval."
+- **All States USA Directory** — allstatesusadirectory.com (single form, cat 297 "Cooking",
+  captcha 7623, cap 1000) → "Link submitted and awaiting approval."
+- **ProLink Directory** — prolinkdirectory.com (AJAX `categ-tree.php`, hidden CATEGORY_ID=0;
+  leaf **Home & Family > Cooking = 751**; captcha qEGv; cap 1000) → "Your link was submitted and
+  is now pending review."
+- **Diga Business Directory** — digabusiness.com (AJAX tree; leaf **Food and Cooking Businesses
+  > Chef Businesses = 199**; 5-glyph speckled captcha — first read rejected "Invalid code", a
+  fresh captcha (new IMAGEHASH) read **uPMPy** on both a binarised and a raw view and was
+  accepted; cap 1000) → "We got your submission! We'll send you an email after approving it."
+- Tracker now **36 rows: 3 listed / 24 submitted / 2 pending_review / 6 skipped_other /
+  1 skipped_paid.** Script note for future runs: its paid-tier detector matches the template's
+  PayPal logo on the success page (false positive for prolink/dgb) — trust the `class="msg"`
+  success marker instead.
+
+**Phase 6 monitoring:**
+- **Bing (works):** 463 queries / **61 clicks / 703 impressions** (flat vs 09-23). Demand ridges
+  unchanged: `what to serve with philly cheesesteak` 22 impressions (still no page — gate), the
+  seasonal cluster now answered, `flavour pairing` answered. Both sitemap feeds (apex + www)
+  = Success, 52 URLs.
+- **Bing SubmitUrlBatch:** the 11 changed URLs submitted (`{"d":null}`; daily quota 989 left).
+- **GSC / GA4: BLOCKED** — Google refresh token `invalid_grant` re-probed this run; user
+  re-consent still pending since 09-14.
+- **Mail sweep (TO pairdish since 09-16):** no new pairdish-specific acknowledgements. The only
+  pairdish-addressed mail is Entireweb newsletters; the Pinterest digests go to
+  admin@pairdish.com. Free-tier phpLD reviews run 2–6 months, so silence is expected.
+
+**Commits pushed:** `cf2d38b` (content + meta fixes + sitemap + tracker) and `54a349a` (icon +
+verify script) — both verified against `git ls-remote origin master`; working tree clean.
+
+### Known follow-ups for run 11
+1. **Review gate open 18 days / 10 runs — the single biggest growth blocker.** Batch A items
+   4–8 remain staged (kielbasa, tilapia, country fried steak, blackened salmon, biscuits+syrup)
+   plus the Bing-demand dishes (philly cheesesteak 22 impressions, schnitzel, garlic shrimp,
+   pork loin, paella, lentil soup). Nothing new can be published until the user says go.
+2. **Within-gate content queue (demand-matched, from the live word sweep):** the thinnest tool
+   pages are now substitution-finder (330 w), cooking-style-quiz (273 w), cheese-board-builder
+   (257 w), grocery-list (275 w), recipe-generator (305 w), meal-prep (354 w). Pair each with a
+   real Bing ridge before expanding.
+3. **Google re-consent** (`webmaster_auto_add.py google-auth`) → then GSC indexation re-check for
+   the 8 articles + 37 tool pages, sitemap resubmit, GA4 reads (`analytics.readonly`).
+4. **Directory lane:** the phpLD roster is now ~12 installs deep for pairdish; remaining veins are
+   niche food/blog directories and per-domain outreach, not generic web directories.
+5. **Pinterest access + per-domain SMTP (domain-email sending)** remain user actions (unchanged).
+6. **GA4 tracking:** the property exists and the gtag is live but has recorded ~0 data — verify
+   the measurement ID after the next content push, and read traffic from Bing + GSC until the
+   Google token is restored.

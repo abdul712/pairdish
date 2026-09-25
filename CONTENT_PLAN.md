@@ -149,3 +149,22 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   table (525 words live). Deploy `5541fe9b`, live verify 55/55, commit `fb81642`. Gate still
   ACTIVE (16 days): Batch A items 4-8 remain staged; next within-gate target = the three pairing
   guides sitting at the bottom of the band.
+- 2026-09-25 (run 10): **Live-tree spec audit + meta hygiene + two demand-matched tool-page
+  expansions (within gate).** All 52 live URLs swept (`scripts/live_wordcount.py`): 0 missing
+  metas, 0 FAQPage, 0 `href="undefined"` — but **10 pages shipped meta descriptions of 161-175
+  chars** against the ≤160 rule. All 10 rewritten to **136-155 chars**
+  (`scripts/run10_meta_fix.py`; both the BaseLayout prop and JSON-LD copy) and their sitemap
+  lastmods bumped. Content: **`/tools/flour-substitution` 472 -> 1,108 words** — weight-based
+  substitution table (grams/cup for 7 flours, verified against King Arthur's ingredient weight
+  chart) plus worked conversions that answer the live Bing queries exactly ("60 g cake flour ->
+  53 g all-purpose + 7 g cornstarch"; "2½ cups all-purpose -> 2½ cups / 300 g bread flour,
+  1:1"); **`/tools/buffet-planner` 678 -> 1,305 words, 2 tables** — buffet category/options
+  table plus a USDA FSIS holding-rules table (40-140 °F danger zone, 20-minute doubling,
+  two-hour rule, hot ≥140 °F, cold ≤40 °F, reheat 165 °F) with UMN Extension group-meal
+  guidance as a second official source. Also fixed a live 404: `/apple-touch-icon.png`
+  (referenced by BaseLayout) now generated from `favicon.svg`. Deploy `cfe3145b`, live verify
+  **46/46**, commit `cf2d38b` + `54a349a`. Directory: **4 new free phpLD submissions**
+  (marketinginternetdirectory, allstatesusadirectory, prolinkdirectory, digabusiness — the last
+  two via their AJAX `categ-tree.php` Cooking leaves); tracker 36 rows. Gate still ACTIVE
+  (18 days): Batch A items 4-8 remain staged. Next within-gate: the remaining thin tool pages
+  (substitution-finder 330 w, cooking-style-quiz 273 w, cheese-board-builder 257 w).

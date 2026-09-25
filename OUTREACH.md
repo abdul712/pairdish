@@ -36,6 +36,36 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 10 — 2026-09-25
+- **4 NEW free submissions (phpLD siblings this campaign had never tried — all verified by their
+  own success marker, script `scripts/dir_run10_phpld.py`):**
+  - **Marketing Internet Directory** — marketinginternetdirectory.com: single-form phpLD, free
+    `LINK_TYPE=normal`, category **297 "Cooking and Baking"**, captcha OCR 452872, desc cap 800 →
+    `class="msg"` "Link submitted and awaiting approval."
+  - **All States USA Directory** — allstatesusadirectory.com: single-form, cat **297 "Cooking"**,
+    captcha OCR 7623, cap 1000 → "Link submitted and awaiting approval."
+  - **ProLink Directory** — prolinkdirectory.com: AJAX `categ-tree.php` install (hidden
+    `CATEGORY_ID=0`); drilled Home & Family (345) → **Cooking = 751** as the leaf; captcha OCR
+    qEGv; cap 1000 → "Your link was submitted and is now pending review."
+  - **Diga Business Directory** — digabusiness.com: AJAX tree; Food and Cooking Businesses (7) →
+    **Chef Businesses = 199** (a true leaf — its child list holds only "Go one step back");
+    5-glyph speckled captcha: the first read was rejected ("Invalid code"), so the form was
+    re-probed for a fresh IMAGEHASH and the new captcha read **uPMPy** on both a binarised 5×
+    upscale and the raw image, then accepted → "We got your submission! We'll send you an email
+    after approving it."
+  - All four used the alias **mabdulrahim+pairdish-dir10@gmail.com**; POSTs were forced to IPv4
+    (`PD_IPV4=1`) because this family writes REMOTE_ADDR into a varchar column and IPv6 egress
+    triggers "Data too long for column 'IPADDRESS'".
+  - **Tracker after run: 36 rows — 3 listed / 24 submitted / 2 pending_review / 6 skipped_other /
+    1 skipped_paid** (`python3 scripts/update_tracker.py summary`).
+- **Mail sweep (TO pairdish since 09-16):** no new pairdish-specific acknowledgements. The only
+  pairdish-addressed mail is Entireweb newsletters (09-18, 09-25) and Pinterest digests to
+  admin@pairdish.com. Free-tier phpLD reviews run 2–6 months, so no ack for the 09-18/09-21/09-25
+  batches is expected yet — nothing to attribute and nothing to click.
+- **No link-outreach emails sent this run** — per-domain sending from pairdish.com is still
+  impossible (no SMTP/API creds for the domain; the user's action), so Phase 5b remains blocked
+  rather than attempted through Gmail.
+
 ### Run 9 — 2026-09-23
 - **1 NEW free submission: FreeTopRankDirectory** — freetoprankdirectory.com (phpLD, **no captcha**,
   free Regular `LINK_TYPE=normal`, category **Cooking = 297**, desc cap 500). POST returned the
