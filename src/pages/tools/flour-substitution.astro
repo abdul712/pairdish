@@ -111,6 +111,131 @@ import FlourSubstitution from '../../components/tools/FlourSubstitution';
     </div>
   </section>
 
+
+  <!-- Flour Substitution by Weight -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Flour Substitution by Weight: The Numbers Behind the Swap
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Volume is the reason flour substitutions go wrong. A "cup" of all-purpose flour can weigh
+        anything from roughly 100 g to 145 g depending on whether it was scooped, spooned or sifted
+        &mdash; and a two-tablespoon error is enough to turn a tender cake into a tough one. Every
+        swap below is written as a weight ratio, so you can scale it to any recipe size and use
+        <a href="/tools/unit-converter" class="text-[var(--color-wine)] underline">the unit
+        converter</a> when the recipe only gives cups.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pt-3 text-left text-sm font-medium text-[var(--text-muted)]">
+            One cup of flour on a scale, and what changes when you swap it in (King Arthur Baking
+            ingredient weight chart and product specifications).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 text-sm font-semibold text-[var(--text-primary)]">Flour</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 text-sm font-semibold text-[var(--text-primary)]">1 cup weighs</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 text-sm font-semibold text-[var(--text-primary)]">What changes when you swap it in</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">All-purpose</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The default. 11.7% protein in the brand tested &mdash; strong enough for
+              bread-ish doughs, weak enough for cookies and quick breads.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bread flour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12.7% protein. Swaps 1:1 by weight or volume for all-purpose in a pinch;
+              the dough absorbs slightly more liquid, so the crumb comes out a little tighter.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cake flour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10% protein &mdash; the tenderest of the three. Fine to use all-purpose
+              instead; the reverse (cake flour into a bread recipe) risks a sunken or crumbly
+              result because it cannot build enough gluten.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Whole wheat (100%)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">113 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bran interferes with gluten, so whole wheat loaves are usually paired with a
+              stronger flour &mdash; a 50/50 whole wheat and bread-flour blend was tested to give a
+              better structure and rise than whole wheat and all-purpose.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Self-rising</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">113 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Already contains baking powder and salt, so do not add more leavening on
+              top of it. Swap it for all-purpose only after adjusting the recipe's leavening.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pastry flour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">106 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Lighter than all-purpose, heavier than cake flour. Good 1:1 by weight for
+              pie dough and biscuits that should stay flaky rather than chewy.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cornstarch</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">112 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not a flour substitute on its own &mdash; it is the tenderiser in every
+              do-it-yourself cake flour blend (see the ratio below).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Worked conversions
+      </h3>
+      <ul class="list-disc pl-6 mb-8 space-y-3 text-[var(--text-secondary)] text-base leading-relaxed">
+        <li><strong>2&#189; cups all-purpose, but the shelf only has bread flour?</strong> Bread
+        flour weighs the same per cup, so the swap is 1:1 &mdash; 2&#189; cups (300 g) of bread
+        flour for 2&#189; cups (300 g) of all-purpose. Expect a slightly chewier result and be ready
+        to add a splash of water if the dough feels stiff.</li>
+        <li><strong>60 g of cake flour, built from all-purpose plus cornstarch?</strong> The
+        published blend is 105 g all-purpose whisked with 14 g cornstarch to stand in for 1 cup
+        (about 120 g) of cake flour. Scaled down: 60 g cake flour &#8776; 53 g all-purpose + 7 g
+        cornstarch, whisked together twice so the starch is evenly distributed.</li>
+        <li><strong>Measuring by spoons instead?</strong> That same blend is 3/4 cup + 2 tablespoons
+        all-purpose plus 2 tablespoons cornstarch &mdash; the starch lowers the overall protein of
+        the mixture to mimic cake flour and adds tenderness.</li>
+        <li><strong>Making self-rising flour from all-purpose?</strong> Whisk 1 cup (120 g)
+        all-purpose with 1&#189; teaspoons baking powder and &#188; teaspoon salt for each cup of
+        self-rising flour the recipe calls for.</li>
+      </ul>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-4">
+        One caveat that matters more than the math: published weights and protein percentages are
+        brand-specific. Milling companies blend different wheat, and substituting one brand's bread
+        flour for another brand's all-purpose can move the protein level by two to three points,
+        which is enough to change how a loaf rises. Check the bag you actually own, and once you
+        have the weight, <a href="/tools/recipe-scaler" class="text-[var(--color-wine)] underline">scale
+        the whole recipe</a> rather than adjusting one ingredient in isolation. For leavening
+        maths that pair with these flours, see the
+        <a href="/tools/yeast-converter" class="text-[var(--color-wine)] underline">yeast converter</a>
+        and <a href="/tools/bread-proofing" class="text-[var(--color-wine)] underline">bread proofing
+        calculator</a>.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: King Arthur Baking
+        <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart" rel="noopener" class="text-[var(--color-wine)] underline">Ingredient
+        Weight Chart</a>,
+        <a href="https://www.kingarthurbaking.com/blog/2023/01/18/cake-flour-vs-all-purpose-flour" rel="noopener" class="text-[var(--color-wine)] underline">cake flour
+        vs. all-purpose flour</a>,
+        <a href="https://www.kingarthurbaking.com/blog/2016/07/21/substitute-bread-flour-for-all-purpose-flour" rel="noopener" class="text-[var(--color-wine)] underline">how to
+        substitute bread flour for all-purpose flour</a>, and
+        <a href="https://www.kingarthurbaking.com/blog/2024/01/18/self-rising-flour" rel="noopener" class="text-[var(--color-wine)] underline">self-rising
+        flour</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
