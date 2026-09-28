@@ -90,6 +90,185 @@ import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
     </div>
   </section>
 
+
+  <!-- Cheese quantities, board proportions and storage -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        How Much Cheese Per Person, by Board Style
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The builder above sizes your board from one number: ounces of cheese per guest. What
+        changes between events is that number, and it changes a lot &mdash; a pre-dinner board
+        with dinner still coming needs a third of what a cheese-only supper needs. The table
+        below is the same scale the builder uses, written out so you can check it at a glance.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Per-guest cheese quantities by board style, with the number of cheeses that keeps a
+            board readable rather than crowded.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Board style</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Cheese per guest</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Cheeses to include</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Why it works out that way</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cocktail hour, dinner to follow</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1.5&ndash;2 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3&ndash;4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Guests are grazing, not eating a course; the board is one of several
+                things on the table, so 2 oz each still leaves plenty per person.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Appetizer board before a meal</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3&ndash;5</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Enough to take the edge off without filling anyone before the main
+                course &mdash; the level most hosts should start from.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cheese is the main event</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3&ndash;4 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5&ndash;6</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">With bread, fruit and something pickled alongside, 3&ndash;4 oz of
+                cheese reads as a full plate once the accompaniments are added.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cheese-only dinner</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4&ndash;5 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5&ndash;6</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The board is dinner, so portion it like a main course rather than a
+                garnish &mdash; and expect the blue and the aged wedges to go last.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Variety proportions for a balanced board
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Variety is about contrast in three directions at once: how long the cheese was aged
+        (which drives salt and intensity), how much moisture it holds, and which milk it came
+        from. Splitting the total weight by style &mdash; rather than buying an ounce of six
+        things &mdash; is what stops a board from becoming six near-identical slices.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            A workable split of the total cheese weight by style; adjust by a few points to taste
+            but keep the spread in intensity.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Style</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Share of weight</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Examples</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What it contributes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Hard and aged</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">30%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Aged cheddar, Parmesan, Manchego, Gruy&egrave;re</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Salt, structure and a long finish; also the most forgiving to leave on
+                the board for an hour.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Semi-hard</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">20%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Gouda, Comt&eacute;, Jarlsberg, young Manchego</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The middle ground that most guests actually eat most of &mdash; mild,
+                sliceable, pairs with everything else on the board.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soft and bloomy</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">20%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Brie, Camembert, triple-cream</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Richness and spreadability; these want about 30 minutes out of the
+                fridge so the paste relaxes.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh and goat</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">20%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ch&egrave;vre, feta, ricotta salata</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Acid and brightness &mdash; the reset button between two rich bites.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Blue</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Roquefort, Gorgonzola, Stilton</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A small wedge goes an unusually long way: it is the most assertive
+                thing on the board, so weight it lightly.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Storage and food-safety windows after the board is built
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Cheese is a perishable food, and the softer it is, the shorter the window. Keep the
+        refrigerator at or below 40&nbsp;&deg;F, keep wrapped wedges in the vegetable drawer or
+        another cold spot, and follow the same two-hour rule the rest of your food follows:
+        anything left out longer than two hours &mdash; one hour if the room is above
+        90&nbsp;&deg;F &mdash; should be discarded rather than re-chilled.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Refrigerator and freezer storage times (USDA FSIS dairy guidance and the
+            University of Nebraska-Lincoln Extension home food storage chart).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Cheese</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Refrigerator (40&nbsp;&deg;F or below)</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Freezer (0&nbsp;&deg;F or below)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Hard &mdash; cheddar, Swiss, block Parmesan</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6 months unopened; 3&ndash;4 weeks after opening</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6 months</td></tr>
+            <tr class="bg-[var(--color-cream)]"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soft &mdash; Brie, Camembert, Bel Paese</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1&ndash;2 weeks</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6 months</td></tr>
+            <tr class="bg-white"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Shredded &mdash; cheddar, mozzarella</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 month</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3&ndash;4 months</td></tr>
+            <tr class="bg-[var(--color-cream)]"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cottage or ricotta</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 weeks unopened; 1 week opened</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Does not freeze well</td></tr>
+            <tr class="bg-white"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cream cheese</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 weeks</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Does not freeze well</td></tr>
+            <tr class="bg-[var(--color-cream)]"><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Processed slices</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3&ndash;4 weeks</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Does not freeze well</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-4">
+        Scale the guest count first with
+        <a href="/tools/cheese-board-calculator" class="text-[var(--color-wine)] underline">the cheese board calculator</a>,
+        then pick cheeses by contrast with
+        <a href="/tools/cheese-pairing" class="text-[var(--color-wine)] underline">the cheese pairing guide</a>.
+        If the board is one station of a larger spread, the
+        <a href="/tools/appetizer-planner" class="text-[var(--color-wine)] underline">appetizer planner</a>
+        and <a href="/tools/party-calculator" class="text-[var(--color-wine)] underline">party calculator</a>
+        keep the other stations in proportion.
+      </p>
+
+      <p class="fine-print text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://ask.fsis.usda.gov/article/How-long-can-you-keep-dairy-products-like-yogurt-milk-and-cheese-in-the-refrigerator" rel="noopener" class="underline">USDA FSIS &mdash; dairy storage times</a>,
+        <a href="https://food.unl.edu/free-resource/food-storage/" rel="noopener" class="underline">University of Nebraska-Lincoln Extension home food storage chart</a>,
+        <a href="https://www.foodsafety.gov/food-safety-charts/cold-food-storage-charts" rel="noopener" class="underline">FoodSafety.gov cold food storage chart</a>, and
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="underline">USDA FSIS &ldquo;Danger Zone&rdquo; (40&nbsp;&deg;F&ndash;140&nbsp;&deg;F)</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
@@ -121,13 +300,13 @@ import CheeseBoardBuilder from '../../components/tools/CheeseBoardBuilder';
           </div>
         </a>
 
-        <a href="/tools/cheese-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
-          <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-2xl">
-            🧀
+        <a href="/tools/appetizer-planner" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-rose-100 flex items-center justify-center text-2xl">
+            🫒
           </div>
           <div>
-            <h4 class="font-medium text-[var(--text-primary)]">Cheese Pairing Guide</h4>
-            <p class="text-sm text-[var(--text-muted)]">Perfect accompaniments</p>
+            <h4 class="font-medium text-[var(--text-primary)]">Appetizer Planner</h4>
+            <p class="text-sm text-[var(--text-muted)]">Size the rest of the spread</p>
           </div>
         </a>
       </div>
