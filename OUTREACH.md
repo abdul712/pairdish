@@ -36,6 +36,28 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 11 — 2026-09-28
+- **Sourcing method that worked: sibling-campaign acknowledgement mail, not another aggregator list.**
+  Server-side IMAP sweep of the shared mailbox (`scripts/run11_ack_mining.py`, `SINCE 18-Sep-2026` +
+  subject filters) surfaced 11 ack-like messages; 5 hosts were ones this campaign had never tried.
+  Trying those produced **2/2 first-try free submissions, both acknowledged within the same minute**
+  to the run-11 alias:
+  - **USA Listing Directory — submitted** ✅ usalistingdirectory.com; single-form phpLD, free
+    `LINK_TYPE=normal`, cat 297 "Cooking", **no captcha**, desc cap 1000; marker
+    "Link submitted and awaiting approval." Ack `Your Link Request at https://www.usalistingdirectory.com/`
+    (28-Sep 16:43 UTC). Script: `scripts/dir_run11_phpld.py probe|post usld`.
+  - **Britain Business Directory — submitted** ✅ britainbusinessdirectory.com; same template, free
+    `LINK_TYPE=normal`, cat 297, no captcha, AGREERULES posts `on`; marker "Link submitted".
+    Ack `Link Request at https://www.britainbusinessdirectory.com` (28-Sep 16:43 UTC).
+- **Ebay Dir — skipped_other**: its `/submit.php` 404s and `/submit` serves a form with only
+  `formSubmitted`/`submitForm` fields (no TITLE/URL/DESCRIPTION field set to post) — non-standard
+  install, not worth a browser round.
+- **Not attempted, on prior evidence**: `activdirectory.net` (the 7-glyph speckled captcha that has
+  failed three campaigns) and `caida.eu` (its confirm link points at a NXDOMAIN domain, so the listing
+  can never be confirmed).
+- Tracker after run 11: **39 rows — 3 listed / 26 submitted / 2 pending_review / 7 skipped_other /
+  1 skipped_paid** (`scripts/update_tracker.py summary`).
+
 ### Run 10 — 2026-09-25
 - **4 NEW free submissions (phpLD siblings this campaign had never tried — all verified by their
   own success marker, script `scripts/dir_run10_phpld.py`):**

@@ -168,3 +168,20 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   two via their AJAX `categ-tree.php` Cooking leaves); tracker 36 rows. Gate still ACTIVE
   (18 days): Batch A items 4-8 remain staged. Next within-gate: the remaining thin tool pages
   (substitution-finder 330 w, cooking-style-quiz 273 w, cheese-board-builder 257 w).
+- 2026-09-28 (run 11): **Three more within-gate tool-page expansions, each matched to a live Bing
+  ridge (2,341 -> 3,695 words on those pages).** `/tools/cheese-board-builder` 257 -> **991 w / 3
+  tables** (per-guest quantities by board style, variety proportions hard 30 / semi-hard 20 / soft 20
+  / fresh-goat 20 / blue 10, official storage table from FSIS + UNL Extension, 40 °F and two-hour
+  rules) — plus a real defect fix (the page listed Cheese Pairing Guide twice in Related Tools).
+  `/tools/bread-proofing` 487 -> **1,281 w / 1 table** (proofing stage/temperature/time reference on
+  King Arthur's verified 72-78 °F range, the 180 °C = 356 °F conversion, enriched-dough 50-75% rise
+  note, and an FDA/CDC/FSIS dough-safety section). `/tools/seasonal-guide` 948 -> **1,423 w / 1
+  table** (USDA Local Food Directory types - farmers market, on-farm market, CSA, food hub, u-pick -
+  answering the ~39-impression "where to find seasonal ingredients" cluster). Pre-deploy QA gate
+  (`scripts/run11_qa.py`) PASS, deploy `de54b8d9-b0ce-47ba-854c-4a1071cba51b`, live verify
+  `scripts/verify_run11_live.py` **PASS 3/3**, sitemap lastmod 2026-09-28 on the three URLs, Bing
+  SubmitUrlBatch done. Directory: **2 new free submissions** (usalistingdirectory.com,
+  britainbusinessdirectory.com - sourced from sibling-campaign ack mail rather than an aggregator
+  list; both acked within the minute). Bing now **529 queries / 64 clicks / 826 impressions**.
+  Gate still ACTIVE (21 days). Next within-gate: grocery-list, potluck-coordinator, cooking-style-quiz,
+  recipe-generator; plus the flour-substitution blend queries.

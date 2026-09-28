@@ -1,6 +1,6 @@
 # PairDish (pairdish.com) — SEO Audit & Status
 
-**Last updated:** 2026-09-25 (durable job run 10)
+**Last updated:** 2026-09-28 (durable job run 11)
 **Stack:** Astro 5 + React 19 SSR on Cloudflare Workers (`pairdish` worker, routes pairdish.com/* and www)
 **Repo:** abdul712/pairdish — local `/home/hermes/projects/pairdish`
 
@@ -579,3 +579,86 @@ verify script) — both verified against `git ls-remote origin master`; working 
 6. **GA4 tracking:** the property exists and the gtag is live but has recorded ~0 data — verify
    the measurement ID after the next content push, and read traffic from Bing + GSC until the
    Google token is restored.
+
+### Run 11 — 2026-09-28
+
+**Phase 1/6 audit:** all **52** live URLs swept again (`scripts/live_wordcount.py --sitemap`) —
+every one 200, 0 missing metas, **0 pages over the 160-char meta limit** (run 10's fix held),
+0 FAQPage, 0 `href="undefined"`, sitemap still 52 URLs. **Review gate STILL ACTIVE (21 days,
+open since 09-07):** no new articles published; all content work stayed inside the gate.
+
+**Phase 6 monitoring:**
+- **Bing (works): 529 queries / 64 clicks / 826 impressions** — up from 463/61/703 on 09-25.
+  Standing demand ridges: `what to serve with philly cheesesteak` (22 impr, still no page — gate),
+  the **seasonal-ingredients cluster** (`where to find seasonal ingredients` 10, `seasonal
+  ingredients breakdown` 10, `compare seasonal ingredients` 8, `must see…` 6, `seasonal ingredients
+  comparison` 5, `…guide` 5), `flavour pairing` (13 combined, answered), plus `what to serve with
+  pork loin` / `schnitzel` / `garlic shrimp` and new bread-proofing queries (3 × 4 impr).
+  Both sitemap feeds (apex + www) = Success, 52 URLs.
+- **Bing SubmitUrlBatch:** the 3 changed URLs submitted (`{"d":null}`).
+- **GSC / GA4: STILL BLOCKED** — Google refresh token re-probed this run: `400 invalid_grant`.
+  User re-consent (`webmaster_auto_add.py google-auth`) pending since 09-14; this is now the
+  longest-running blocker on the site.
+- **Mail sweep:** all four run-10 submissions (mid/asud/prolink/dgb) are acked; nothing else
+  pairdish-specific beyond Entireweb newsletters and a Pinterest digest to admin@pairdish.com.
+
+**Phase 4 — three within-gate tool-page expansions, each matched to a live Bing ridge
+(2,341 → 3,695 words on those pages):**
+- **`/tools/cheese-board-builder` 257 → 991 words, 3 tables.** "How Much Cheese Per Person, by
+  Board Style" (1.5–2 oz cocktail hour → 4–5 oz cheese-only dinner, with the number of cheeses and
+  the reason), "Variety proportions for a balanced board" (hard/aged 30%, semi-hard 20%, soft-bloomy
+  20%, fresh/goat 20%, blue 10% — the split answers "cheese board variety proportions hard soft blue
+  goat"), and a **storage table from official sources** (hard cheese 6 months unopened / 3–4 weeks
+  opened; soft 1–2 weeks; shredded 1 month; processed 3–4 weeks) plus the FSIS 40 °F / two-hour rule.
+  Also fixed a real defect: the page's Related Tools row listed **Cheese Pairing Guide twice** — now
+  cheese-pairing + cheese-board-calculator + appetizer-planner.
+- **`/tools/bread-proofing` 487 → 1,281 words, 1 table.** "Proofing Temperature and Time: A
+  Reference Table" — five stages with target temperature, typical window and the visual cue, anchored
+  on King Arthur's verified 72–78 °F (22–26 °C) range; a Celsius note tying 180 °C to 356 °F and why
+  enriched doughs need only a 50–75% rise; and a **food-safety section** quoting FDA ("most flour is a
+  raw food… don't eat raw dough"), CDC (wash hands/utensils; no raw dough for children) and the FSIS
+  Danger Zone (2 hours out of refrigeration, 1 hour above 90 °F) — the exact phrasing Bing is serving
+  for "bread dough proofing … food safety".
+- **`/tools/seasonal-guide` 948 → 1,423 words, 1 table.** "Where to Find Seasonal Ingredients Near
+  You" — the five USDA Local Food Directory types (farmers market, on-farm market, CSA, food hub,
+  u-pick/agritourism) with what each is best for and what to ask, linking the USDA AMS directory hub
+  and the Local Food Portal, plus a "how to time a seasonal shop" list. Directly answers the
+  ~39-impression seasonal cluster.
+
+**Build / deploy / verify:** pre-deploy QA gate `scripts/run11_qa.py` (tag balance, no `\uXXXX`
+escapes, no FAQ, no `href="undefined"`, every internal href resolves to a file on disk, every external
+href on an official host) → **PASS**; `astro build` with `NODE_OPTIONS=--max-old-space-size=3584` →
+`npx wrangler deploy` → **version `de54b8d9-b0ce-47ba-854c-4a1071cba51b`**; live verify
+`scripts/verify_run11_live.py` → **PASS** (3/3 pages cache-busted, section phrases present, table
+counts, metas 149–157, every internal link 200, sitemap lastmod `2026-09-28` on the three URLs).
+External `.gov`/extension source links return 403/000 **from this VPS** (datacenter-IP block and one
+local CA-chain gap) — each URL's content was fetched and verified through the extraction service
+before insertion, so they are cited from verified pages, not from curl status.
+
+**Phase 5 (directories):** switched sourcing from aggregator lists to **sibling-campaign ack mail**
+(new method, verified): `scripts/run11_ack_mining.py` (server-side IMAP, subject-filtered) found 11
+ack-like messages in the shared mailbox, 5 hosts untried by pairdish → **2/2 first-try free
+submissions** (usalistingdirectory.com, britainbusinessdirectory.com — both single-form phpLD, free
+`LINK_TYPE=normal`, cat 297 Cooking, no captcha, both acknowledged within the same minute). Ebay Dir
+logged `skipped_other` (non-standard submit form). Tracker now **39 rows: 3 listed / 26 submitted /
+2 pending_review / 7 skipped_other / 1 skipped_paid**.
+
+**Commits pushed:** `acc5b9f` (content + sitemap + QA gate) and the run-11 docs commit — both
+verified against `git ls-remote origin master`; working tree clean.
+
+### Known follow-ups for run 12
+1. **Review gate open 21 days / 11 runs — still the single biggest growth blocker.** Batch A items
+   4–8 remain staged (kielbasa, tilapia, country fried steak, blackened salmon, biscuits+syrup) plus
+   the Bing-demand dishes (philly cheesesteak 22 impr, schnitzel 4, garlic shrimp 4, pork loin 4/1
+   click). Nothing new publishes until the user says go.
+2. **Google re-consent** → then GSC indexation re-check for the 8 articles + 37 tool pages, sitemap
+   resubmit, GA4 reads (`analytics.readonly` still missing from the token).
+3. **Within-gate queue (demand-matched):** remaining thin tool pages — grocery-list 275 w,
+   potluck-coordinator 281 w, cooking-style-quiz 273 w, recipe-generator 305 w, nutrition-calculator
+   352 w, meal-prep 354 w. Pair each with a real Bing ridge first; the flour-substitution query set
+   (cake-flour/cornstarch blends, pastry-flour swaps) is still the richest unserved ridge on an
+   already-expanded page.
+4. **Directory lane:** sibling-ack mining produced 2 wins from 5 untried hosts; next run should repeat
+   the ack sweep (new acks accumulate weekly) and check whether `usalistingdirectory` /
+   `britainbusinessdirectory` confirm mail needs clicking.
+5. **Pinterest access + per-domain SMTP (domain-email sending)** remain user actions (unchanged).
