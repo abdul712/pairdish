@@ -36,6 +36,26 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 12 — 2026-09-30
+- **Sourcing method (repeat of run 11, still the best yield): sibling-campaign ack mail, not aggregator lists.**
+  `scripts/run11_ack_mining.py` (server-side IMAP, subject-filtered) surfaced 4 hosts untried by pairdish:
+  `huludirectory.com` and `marketingwebdirectory.com` (fresh 29-Sep acks from sibling campaigns), plus two
+  known dead ends — `activdirectory.net` (7-char speckled captcha has failed three separate campaigns) and
+  `caida.eu` (confirm link points at an NXDOMAIN domain). 2/2 first-try free submissions from the two live ones.
+- **huludirectory.com — submitted.** phpLD-5 URL-param wizard whose form is at **`/submit`**, not `/submit.php`
+  (`/submit.php` 404s on both hosts this run — always grep the homepage for its submit href first). Step 2 free
+  tier = `LINK_TYPE=1` "Link - free" (3 = article free, 5 = video free, 7 = premium $1.50); step 3 = DO_MATH
+  challenge + AGREERULES + `continue`. Marker: "Link submitted". Ack arrived same-day.
+- **marketingwebdirectory.com — submitted.** Same wizard, free `LINK_TYPE=1`, step 3 5-char IMAGEHASH captcha.
+  Binarised reads (thr 110 → `s3c1s`, MaxFilter/MedianFilter → `11111` / `s37s3`) were all garbage on the thin
+  dark-on-light glyphs; three unprocessed reads (native, 4x, 8x) agreed on `92393` and the POST was accepted →
+  "Link submitted and awaiting approval". `scripts/dir_run12_wizard.py` holds the reusable flow (probe/post).
+- **Mail:** both run-11 submissions (usalistingdirectory.com, britainbusinessdirectory.com) were acked 28-Sep to
+  the pairdish alias; **neither needs a click**. The "Action Required" confirmations in Spam are for
+  pinbuilds/athenelinks aliases — matched by To: address and deliberately not acted on.
+- Tracker after run: **41 rows — 3 listed / 28 submitted / 2 pending_review / 7 skipped_other /
+  1 skipped_paid** (`scripts/update_tracker.py summary`).
+
 ### Run 11 — 2026-09-28
 - **Sourcing method that worked: sibling-campaign acknowledgement mail, not another aggregator list.**
   Server-side IMAP sweep of the shared mailbox (`scripts/run11_ack_mining.py`, `SINCE 18-Sep-2026` +

@@ -185,3 +185,16 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   list; both acked within the minute). Bing now **529 queries / 64 clicks / 826 impressions**.
   Gate still ACTIVE (21 days). Next within-gate: grocery-list, potluck-coordinator, cooking-style-quiz,
   recipe-generator; plus the flour-substitution blend queries.
+
+- 2026-09-30 (run 12): **Three within-gate tool-page expansions, each matched to a live Bing ridge
+  (1,409 -> 3,168 words on those pages).** `/tools/flavor-pairing` 526 -> **1,072 w / 1 table** (three
+  pairing lenses, the verified 2011 flavor-network finding, a 5-step workflow, tool limits) for the
+  ~35-impression flavour/flavor pairing tool cluster; `/tools/party-calculator` 473 -> **1,138 w /
+  2 tables** (ISU Extension per-guest quantities, UAEX hourly appetizer counts, a worked 70-guest /
+  11-appetizer answer, sheet-cake servings, 40-140 F clock); `/tools/herb-spice-matrix` 410 -> **958 w /
+  2 tables** (UD Cooperative Extension per-food seasoning table + 9 named blends + dose guidance).
+  QA gate PASS, deploy `2895b848-914a-4a9e-8a7b-a388b1b6a51c`, live verify PASS 3/3, sitemap lastmod
+  2026-09-30, Bing SubmitUrlBatch done. Directory: **2 new free submissions** (huludirectory.com,
+  marketingwebdirectory.com - both phpLD-5 wizards served at `/submit`). New diagnostic: 27 archived
+  legacy `/what-to-serve-with-*/` URLs 404 while Bing spends ~half its crawl budget on 4xx -> when the
+  gate opens, ship Batch A at those exact slugs (philly cheesesteak first). Gate still ACTIVE (23 days).
