@@ -175,6 +175,115 @@ import AdSense from '../../components/AdSense.astro';
   <!-- Ad Unit -->
   <AdSense slot="0000000006" format="auto" className="my-8" />
 
+
+  <!-- How pairing tools decide -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        How a Pairing Tool Decides What Works
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The results above come from a pairing graph: ingredients are nodes, and a link means
+        &ldquo;these two are used together, or they share something.&rdquo; Which of those two the
+        link means changes everything about how much weight a suggestion deserves. There are three
+        rules in common use, and a good tool blends all three.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            The three pairing lenses, what each one actually claims, and where it holds up.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Lens</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What it claims</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Typical example</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Where it is strongest</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Shared aroma compounds</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Two ingredients taste related when their volatile compounds overlap.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cocoa and roasted coffee &mdash; both roasted, overlapping volatile
+                compounds.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Western European and North American cooking; desserts, spice blends,
+                roasting.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Contrast and balance</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Opposites finish each other: fat with acid, sweet with salt, rich with
+                something bitter or green.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fried fish with lemon (fat plus acid); salted caramel (sweet plus
+                salt).</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Finishing a rich dish; sauces, dressings, and anything that tastes flat or
+                heavy.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Regional tradition</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ingredients grown, harvested or preserved together end up plated
+                together.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Tomato, basil and olive oil; rye bread with caraway.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Everyday home cooking and anything with a regional accent.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        The shared-compound idea is a measured tendency, not a law
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The chemistry lens was tested at scale in the 2011 &ldquo;flavor network&rdquo; study in
+        <em>Scientific Reports</em>. The authors linked culinary ingredients when they share flavor
+        compounds, then compared that network with the pairs real recipes actually use. Western
+        cuisines showed a tendency to pair ingredients that share many flavor compounds &mdash; the
+        food-pairing hypothesis &mdash; while East Asian cuisines tended to avoid compound-sharing
+        pairs. Two useful consequences follow. First, a compound-based suggestion is a statistical
+        pattern drawn from recipe data, not a verdict on your dinner. Second, the same tool will be
+        a better guide to a European dish than to an East Asian one, and neither answer beats your
+        own taste.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        A workflow that gets more out of the results
+      </h3>
+      <ol class="list-decimal pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>Enter the ingredient you are building the dish around, not the whole recipe.</li>
+        <li>Read the top matches as candidates, then keep two or three &mdash; not all of them.</li>
+        <li>Pick your pairings from different lenses where you can: one shared-compound match, one
+          contrasting match, one regional match.</li>
+        <li>Taste them at spoon scale before they go in the pan. Salt, fat and acid move a pairing
+          far more than a mismatch at trace level.</li>
+        <li>Write down what worked. Pairings repeat, and the second time you need it you will not
+          want to guess again.</li>
+      </ol>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        What a pairing tool cannot see
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-4">
+        Compound tables are incomplete, and a shared compound at trace level may be far too weak to
+        taste. The graph also ignores texture, temperature, seasoning level and how the dish is
+        cooked &mdash; charred and raw versions of the same vegetable behave differently. Three
+        checks fill the gaps: the
+        <a href="/tools/seasonal-guide" class="text-[var(--color-wine)] underline">seasonal guide</a> for what is actually good right
+        now, the
+        <a href="/tools/herb-spice-matrix" class="text-[var(--color-wine)] underline">herb and spice matrix</a> for seasoning-level
+        matches, and the
+        <a href="/tools/cheese-pairing" class="text-[var(--color-wine)] underline">cheese pairing guide</a> when the plate already has
+        a cheese on it. If you are cooking to a fixed dish, start from a
+        <a href="/articles/what-to-serve-with-roasted-potatoes" class="text-[var(--color-wine)] underline">what-to-serve-with</a> guide
+        instead and use this tool to fill the gaps.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.nature.com/articles/srep00196" rel="noopener" class="underline">Ahn et al., &ldquo;Flavor network and the principles of food pairing&rdquo;, <em>Scientific Reports</em> 1:196 (2011)</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

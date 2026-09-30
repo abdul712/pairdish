@@ -114,6 +114,163 @@ import PartyFoodCalculator from '../../components/tools/PartyFoodCalculator';
     </div>
   </section>
 
+
+  <!-- How much food per guest -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        How Much Food Per Guest, by Party Type
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The calculator multiplies per-guest rates. This is where those rates come from: the
+        per-person party quantities used by university extension food and nutrition programs, which
+        plan quantity food service for crowds every week. Treat the numbers as a floor, then round
+        up for the groups that eat more &mdash; and always keep the food-safety clock running.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Per-guest party quantities for a self-serve event (Iowa State University Extension and
+            Outreach, AnswerLine).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Item</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Plan per guest</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Cross-check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Main protein</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6&ndash;8 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sliders 1.5&ndash;2 oz each; sandwiches 3&ndash;4 oz; burgers 4&ndash;6 oz;
+                meatballs 2&ndash;3 pieces.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sides</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4&ndash;6 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">For 50 guests that is roughly 2.5 gal of baked beans or 12.5&ndash;15 lb
+                of finished potato salad.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Appetizers</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4&ndash;7 bite-size pieces</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Rises with party length &mdash; see the hourly count below.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dessert</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 slice of cake, 1 cupcake or donut, 1&ndash;2 cookies or bars</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A half sheet cake (13 &times; 18 in) yields 24&ndash;50 servings and a full
+                sheet (18 &times; 26 in) 48&ndash;100, depending on cut.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beverages</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 bottles of water and 2 cans of soda per guest per hour; 6 oz punch</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Drinks are the most under-bought line on a party list.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Everything combined</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1&ndash;1.5 lb of food per guest</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">For an open-house style party, plan for about 60% of the people you
+                invited &mdash; guests drift between parties.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Appetizer-only parties: count by the hour, not by the tray
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        When there is no main course, appetite is a function of time. The University of Arkansas
+        System Division of Agriculture extension guidance is about eight appetizers per person
+        during the first two hours of a party and about four per person for each two hours after
+        that &mdash; roughly twelve pieces per guest over a four-hour event. A two-hour reception
+        needs about half that.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Worked example: 70 guests, 11 kinds of passed appetizers
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-4">
+        This is the shape of question the calculator gets most often: a large cocktail party, a
+        caterer passing appetizers, and the worry that the quantity is too light. Running the
+        four-hour benchmark of about twelve pieces per guest against the numbers gives an answer
+        either way, depending on what &ldquo;two per person&rdquo; meant.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            70-guest cocktail party, four hours, 11 passed appetizer varieties.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Reading</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Pieces per guest</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Total pieces</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Verdict against the benchmark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Two pieces of each of the 11 varieties</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">22</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1,540</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Comfortably enough; passed appetizers alone cover the party.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Two pieces in total per guest</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Well short &mdash; add cheese and vegetable trays, and a stationary
+                item guests can serve themselves.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Benchmark for comparison</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">About 12</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">840</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The number to plan to, then round up.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        The two clocks that matter more than the totals
+      </h3>
+      <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>Perishable food should not sit in the 40&nbsp;&deg;F&ndash;140&nbsp;&deg;F range for
+          more than two hours; above 90&nbsp;&deg;F that window shortens to one hour.</li>
+        <li>Hold hot food at 140&nbsp;&deg;F or warmer and cold food at 39&nbsp;&deg;F or colder,
+          and swap small trays rather than leaving one large tray out.</li>
+        <li>Make dips and spreads a day or two ahead &mdash; most improve, and it moves work off
+          party day.</li>
+        <li>Standardized quantity recipes exist for 25, 50 and 100 portions. Multiplying a
+          family-size recipe up by five is where baked goods and thickened sauces go wrong.</li>
+      </ul>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-4">
+        Pair this page with the
+        <a href="/tools/appetizer-planner" class="text-[var(--color-wine)] underline">appetizer planner</a> for the tray list, the
+        <a href="/tools/buffet-planner" class="text-[var(--color-wine)] underline">buffet planner</a> for holding and refill timing,
+        the <a href="/tools/drink-calculator" class="text-[var(--color-wine)] underline">drink calculator</a> so the bar is not the
+        short line, and the
+        <a href="/tools/cheese-board-calculator" class="text-[var(--color-wine)] underline">cheese board calculator</a> when a board is
+        the stationary item.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources:
+        <a href="https://blogs.extension.iastate.edu/answerline/2026/03/03/graduation-party-planning/" rel="noopener" class="underline">Iowa State University Extension and Outreach &mdash; party food quantities per guest</a>,
+        <a href="https://www.uaex.uada.edu/counties/miller/news/fcs/holiday-foods/Appetizers-or-Hors-d-oeuvres-Options-are-Endless.aspx" rel="noopener" class="underline">University of Arkansas System Division of Agriculture &mdash; appetizers per person by party length</a>, and
+        <a href="https://extension.umn.edu/cooking-safely-crowd/planning-quantity-food-occasion" rel="noopener" class="underline">University of Minnesota Extension &mdash; planning the quantity food occasion</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
