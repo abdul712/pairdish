@@ -1,6 +1,6 @@
 # PairDish (pairdish.com) — SEO Audit & Status
 
-**Last updated:** 2026-09-30 (durable job run 12)
+**Last updated:** 2026-10-05 (durable job run 13)
 **Stack:** Astro 5 + React 19 SSR on Cloudflare Workers (`pairdish` worker, routes pairdish.com/* and www)
 **Repo:** abdul712/pairdish — local `/home/hermes/projects/pairdish`
 
@@ -663,7 +663,7 @@ verified against `git ls-remote origin master`; working tree clean.
    `britainbusinessdirectory` confirm mail needs clicking.
 5. **Pinterest access + per-domain SMTP (domain-email sending)** remain user actions (unchanged).
 
-### Run 12 — 2026-09-30 (this run)
+### Run 12 — 2026-09-30
 
 **Phase 1 (audit, live):** homepage / robots.txt / sitemap all **200**; sitemap = **52 URLs**
 (note: the live path is `/sitemap.xml` — older run notes wrote `sitemap-0.xml`, which 404s here).
@@ -762,3 +762,93 @@ roughly half of Bing's crawl budget is going into 4xx.**
 4. **Directory lane:** repeat the sibling-ack sweep next run — it produced 2/2 first-try free submissions
    this run and new acks accumulate weekly. Both 29-Sep sourced hosts are now tracked.
 5. **Pinterest access + per-domain SMTP (domain-email sending)** remain user actions (unchanged).
+
+### Run 13 — 2026-10-05 (this run)
+
+**Phase 1/6 (audit + monitoring).** Full live-tree sweep (`scripts/live_wordcount.py --sitemap`):
+**52/52 URLs return 200**, 0 missing meta descriptions, 0 FAQPage markup, 0 `href="undefined"`.
+The pages still under the 1,200-word article band are only the legal/about/contact pages
+(259–449 w), which are out of scope, plus the thin tool-page tail listed below. Bing, last
+~4 months: **608 queries / 66 clicks / 940 impressions** (up from 529/64/826 on 28-Sep).
+`GetCrawlStats`, last 5 days: 30–52 pages crawled per day; the two newest days read
+**Code4xx = 21 and 41** against 47 and 52 crawled — i.e. Bing is still spending a large share
+of the crawl budget on the archived legacy `/what-to-serve-with-*/` paths that were 404 at
+Wayback capture time (run-12 diagnostic; there is no equity to reclaim, they are a demand
+signal for the gated Batch A slugs). Both sitemap feeds (apex + www) report **Success, 52 URLs**;
+`SubmitUrlBatch` for the three changed URLs returned `{"d":null}`.
+
+**Google token is still dead.** `scripts/gsc_token_probe.py` fails at the refresh step with
+`400 invalid_grant` — the testing-mode OAuth client's refresh token expired again (~7-day
+lifetime). GSC indexing/query reads and GA4 reads are blocked until the user re-runs
+`webmaster_auto_add.py google-auth`; Bing is carrying the whole monitoring channel meanwhile.
+
+**Phase 4 (execution, inside the still-closed review gate — now 28 days / 13 runs).** Three
+demand-matched sections shipped on thin tool pages (chosen from the run-13 Bing query dump, not
+guesswork):
+
+- **`/tools/coffee-pairing` 420 → 988 w, 2 tables.** Answers the "chocolate dessert coffee
+  pairing guide" / "coffee dessert pairing guide chocolate cheesecake fruit desserts" ridge
+  (8 impressions, both new this run). Roast-level × dessert table, dessert-type × coffee table,
+  the FDA caffeine ceiling (400 mg/day ≈ two to three 12-oz cups), and the Green & Lim (2010)
+  sweet–bitter suppression finding including the 31-to-1 concentration ratio for quinine
+  sulfate vs sucrose.
+- **`/tools/cheese-pairing` 397 → 1,068 w, 2 tables.** Answers "emmental cheese pairing figs
+  wine nuts honey official cheese pairing". Five cheese families with accompaniments and drink
+  directions, the Rinaldi et al. 2024 wine–cheese mechanism (tannin binding softens astringency;
+  wine rinses the fat film; semi-hard rated best of the cheeses tested; ~6 g piece leaves ~15%
+  residue for high-fat vs ~4% low-fat), and a storage table built on the Center for Dairy
+  Research's water-activity/pH holding rule plus the FSIS two-hour rule.
+- **`/tools/nutrition-calculator` 352 → 871 w, 1 table.** Answers the "why is the number too
+  high" / raw-vs-cooked entry-state question: yield table from MU Extension "In a Pinch: Food
+  Yields" and UNL Food (1 cup dry rice ≈ 3 cups cooked; 1 cup dry pasta ≈ 2–2¼ cups cooked),
+  a three-step total check, and the per-gram/rounding note.
+
+Pre-deploy gate `scripts/run13_qa.py` → **PASS** (tag balance, no `\uXXXX`, no FAQ, no
+`href="undefined"`, every internal href resolving to a file on disk, every external on an
+official host); build with `NODE_OPTIONS=--max-old-space-size=3584`; `./node_modules/.bin/wrangler
+deploy` → version **`6daa6bd1-9ceb-48b9-8c9d-3e3cea6ab5d8`** (the local binary, not `npx`, which
+the cron package scanner blocks); live verify `scripts/verify_run13_live.py` → **PASS 3/3**
+(cache-busted fetches, section phrases present, tables 2/2/1, metas 153/148/147, every internal
+link 200, sitemap lastmod 2026-10-05 on the three URLs). Source-link note: four official hosts
+(fda.gov ×2, fsis.usda.gov, extension.missouri.edu) 403 this VPS — all four were read through
+the extraction service earlier in the same run before being cited.
+
+**Phase 5 (directories).** Sibling-campaign acknowledgement mining produced **2/2 first-try free
+submissions this run**: `royallinkup.com` (phpLD-5 wizard served at `/submit`; step-2 free
+`LINK_TYPE=1`; step-3 DO_MATH 5+6 solved inline; category Home & Family > Cooking = 316; no
+captcha) and `excitedirectory.com` (same wizard family served at `/submit.php`, not `/submit`;
+free `LINK_TYPE=1`; no captcha; category Cooking = 113); both answered "Link submitted and
+awaiting approval." **HuLu Directory (run-12 submission) sent an acceptance email** — "PairDish
+… has been accepted into the Directory HuLu Directory .com" — but the live listing URL is not
+locatable from this VPS (its `/search.php` and `?s=` paths 403/404), so the row sits at
+`pending_review` with the acceptance recorded rather than a fabricated `listed`. A
+`/search.php?search=pairdish.com` verification sweep over all 32 submitted/pending rows found
+**zero flips** (consistent with the family's 2–6 month free queues; 4 hosts 403 the scripted
+fetch). Tracker now **43 rows: 3 listed / 3 pending_review / 29 submitted / 7 skipped_other /
+1 skipped_paid**.
+
+**Commits:** `2c926ce` (content + sitemap lastmod + QA gate + run-13 scripts) — verified against
+`git ls-remote origin master`.
+
+### Known follow-ups for run 14
+1. **Review gate open 28 days / 13 runs — still the single biggest growth blocker.** Batch A
+   items 4–8 remain staged (kielbasa, tilapia, country fried steak, blackened salmon,
+   biscuits+syrup) plus the Bing-demand dishes (philly cheesesteak 22 impr, pork loin 9,
+   schnitzel 8 with 2 clicks, garlic shrimp 4). Nothing new publishes until the user says go.
+2. **Google re-consent** → then GSC indexation re-check, sitemap resubmit, GA4 reads
+   (`analytics.readonly` is also still missing from the token scopes).
+3. **Within-gate queue (demand-matched), by live word count:** grocery-list 275,
+   cooking-style-quiz 273, potluck-coordinator 281, recipe-generator 305, substitution-finder
+   330, meal-prep 354, cooking-time 372, unit-converter 403, leftover-matcher 416,
+   oven-temperature 419, drink-calculator 424, chocolate-pairing 434. **Biggest unserved Bing
+   ridge is the seasonal-ingredients cluster — 57 impressions across 7 queries** ("compare
+   seasonal ingredients" 13, "seasonal ingredients breakdown" 12, "where to find seasonal
+   ingredients" 10, "must see seasonal ingredients" 9, "seasonal ingredients comparison" 5,
+   "seasonal ingredients guide" 5, "fantastic seasonal ingredients comparison" 2). The
+   `/tools/seasonal-guide` page was expanded in run 11; a month-by-month or
+   comparison-shaped section is the next honest response there.
+4. **Directory lane:** repeat the sibling-ack sweep — it produced 2/2 first-try wins this run.
+   Untried known-family members are nearly gone (43 tracked); the next batch should screen a
+   fresh phpLD signature list rather than re-probing rejected hosts.
+5. **Pinterest access + per-domain SMTP (domain-email sending)** remain user actions (unchanged).
+

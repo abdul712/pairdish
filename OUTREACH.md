@@ -36,6 +36,36 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
 
 ## Run log
 
+### Run 13 — 2026-10-05
+- **Sibling-ack sourcing again beat fresh-list mining (2/2 first-try).** An IMAP sweep of the
+  shared mailbox for directory acks since 25-Sep, diffed against `tracker.csv` hosts, surfaced
+  one untried family member. Submissions this run:
+  - **Royallinkup Free Website Link Directory — submitted** ✅ `POST https://royallinkup.com/submit`
+    (phpLD-5 URL-param wizard; step 2 free `LINK_TYPE=1` "Link - free"; step 3 `DO_MATH` 5+6 solved
+    inline; category **Home & Family > Cooking = 316** of a 241-option tree; **no captcha**) →
+    `class="msg"` "Link submitted and awaiting approval." Script `scripts/dir_run13_royallinkup.py`
+    (probe/post), alias `+pairdish-dir13`.
+  - **Excitedirectory — submitted** ✅ `POST https://www.excitedirectory.com/submit.php?c=113&LINK_TYPE=1`
+    (same wizard family but served at **`/submit.php`**, `/submit` 404s; free `LINK_TYPE=1`
+    "Free Review - free"; **no captcha**; category Cooking = 113 of 191 options) → "Link submitted
+    and awaiting approval." Script `scripts/dir_run13_excitedir.py`.
+- **HuLu Directory — ACCEPTED (run-12 submission).** Acceptance mail: "Congratulations! 'PairDish -
+  Food Pairing Tools & Recipe Calculators' has been accepted into the Directory HuLu Directory
+  .com". The listing page URL is **not locatable from this VPS** (`/search.php` and `?s=` paths
+  return 403/404 to scripted clients), so the row is `pending_review` with the acceptance recorded —
+  no `listed` without a verified 200 listing page.
+- **Listing-verification sweep (all 32 submitted/pending rows).** `/search.php?search=pairdish.com`
+  per host: **zero flips to listed** — consistent with the family's 2–6 month free review queues.
+  4 hosts (entireweb, freeprwd, spd, britainbusinessdirectory) 403 the scripted fetch, so their
+  status is inconclusive rather than negative. Script `scripts/run13_dir_verify.py`.
+- **Candidate screen (this run):** `upsdirectory.com` and `directory4.org` both reach the
+  phpLD-5 step 3 with a `CAPTCHA` + `IMAGEHASH` challenge → not attempted (the speckled-captcha
+  class has failed for three campaigns). Tracker after run: **43 rows — 3 listed / 3
+  pending_review / 29 submitted / 7 skipped_other / 1 skipped_paid**.
+- **Unchanged user actions:** Pinterest access (account @pairdish exists, no credentials on this
+  box) and per-domain SMTP for link outreach (no sending creds exist for pairdish.com).
+
+
 ### Run 12 — 2026-09-30
 - **Sourcing method (repeat of run 11, still the best yield): sibling-campaign ack mail, not aggregator lists.**
   `scripts/run11_ack_mining.py` (server-side IMAP, subject-filtered) surfaced 4 hosts untried by pairdish:

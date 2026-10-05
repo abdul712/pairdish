@@ -198,3 +198,20 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   marketingwebdirectory.com - both phpLD-5 wizards served at `/submit`). New diagnostic: 27 archived
   legacy `/what-to-serve-with-*/` URLs 404 while Bing spends ~half its crawl budget on 4xx -> when the
   gate opens, ship Batch A at those exact slugs (philly cheesesteak first). Gate still ACTIVE (23 days).
+
+- 2026-10-05 (run 13): **Three more within-gate tool-page expansions, each matched to a fresh
+  live Bing ridge (1,169 -> 2,927 words on those pages).** `/tools/coffee-pairing` 420 -> **988 w /
+  2 tables** (roast × dessert and dessert × coffee tables, FDA caffeine ceiling, Green & Lim 2010
+  sweet–bitter suppression + the 31-to-1 quinine:sucrose ratio) for the "chocolate dessert coffee
+  pairing guide" cluster; `/tools/cheese-pairing` 397 -> **1,068 w / 2 tables** (five families +
+  accompaniments, Rinaldi 2024 wine–cheese mechanism, CDR water-activity/pH holding rule, FSIS
+  two-hour rule) for "emmental cheese pairing figs wine nuts honey"; `/tools/nutrition-calculator`
+  352 -> **871 w / 1 table** (raw-vs-cooked yield table from MU Extension + UNL Food, three-step
+  total check, per-gram/rounding note) for the "why is the number too high" question. QA gate
+  PASS, deploy `6daa6bd1-9ceb-48b9-8c9d-3e3cea6ab5d8`, live verify PASS 3/3, sitemap lastmod
+  2026-10-05, Bing SubmitUrlBatch done. Directory: **2 new free submissions** (royallinkup.com,
+  excitedirectory.com - both phpLD wizard variants sourced from sibling-campaign ack mail) plus a
+  **HuLu Directory acceptance email** (listing URL not locatable from this VPS). Bing now
+  **608 queries / 66 clicks / 940 impressions**. Gate still ACTIVE (28 days). Next within-gate:
+  grocery-list, cooking-style-quiz, potluck-coordinator, recipe-generator; plus a
+  comparison-shaped section on `/tools/seasonal-guide` for the 57-impression seasonal cluster.
