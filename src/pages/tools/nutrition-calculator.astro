@@ -115,6 +115,105 @@ import NutritionCalculator from '../../components/tools/NutritionCalculator';
     </div>
   </section>
 
+
+  <!-- Raw vs cooked entry states -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Raw or Cooked? Why a Calculated Number Often Looks Too High
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The single most common reason a nutrition total looks wrong is a state mismatch. Food
+        composition data is recorded per food in one specific state &mdash; dry or cooked, raw or
+        roasted &mdash; and the two are not interchangeable. Enter cooked rice against dry-rice
+        data and the calories come back close to three times too high, because the water that
+        tripled the volume added no calories at all.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Enter these in the state the data expects. Yields are the published extension figures.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Ingredient</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Enter it as</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Yield</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Rice</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dry weight</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 cup dry &asymp; 3 cups cooked</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Three cups of cooked rice carry the calories of one cup dry</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pasta</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dry weight</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 cup dry &asymp; 2 to 2&frac14; cups cooked</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Doubling the volume roughly halves the density</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dried beans and lentils</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dry weight</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 cup dry &asymp; 3 cups cooked</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soaked and simmered beans absorb their cooking liquid</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Meat, poultry and fish</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">One state, used consistently</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Weight falls as fat renders and water cooks off</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The same portion weighs less after cooking; mixing states inflates the total</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Leafy greens and vegetables</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Raw weight, unless the entry says cooked</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Greens collapse to a fraction of their raw volume</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A large raw handful cooks down to a small serving</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        A three-step check when the total looks wrong
+      </h3>
+      <ol class="list-decimal pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>Check the serving count first. Dividing by eight when the recipe makes four doubles
+          every number on the panel, and it is the easiest mistake to make and to miss.</li>
+        <li>Check the entry states. If the total is high by roughly two to three times, this is
+          almost always a dry-versus-cooked mismatch on a grain, pasta or legume.</li>
+        <li>Check for double entry. Oil, butter, sugar and sauces are often listed once as an
+          ingredient and again inside a prepared component, so they get counted twice. Use the
+          <a href="/tools/recipe-scaler" class="text-[var(--color-wine)] underline">recipe scaler</a> to re-check a scaled batch, and
+          the <a href="/tools/unit-converter" class="text-[var(--color-wine)] underline">unit converter</a> to move between cups and
+          grams before comparing against the data.</li>
+      </ol>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        The per-gram rule, and where rounding creeps in
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-4">
+        Protein and carbohydrate each supply about 4 kilocalories per gram and fat about 9, so the
+        macro figures will not always sum exactly to the calorie line. Fat contains more than twice
+        the energy per gram of the other two, which is why a small change in the oil or butter
+        figure moves the total far more than the same change in a starch. The calorie line also
+        counts alcohol and organic acids where they are present, and the FDA&rsquo;s nutrition-label
+        guidance notes that declared values are rounded to set increments &mdash; so a small
+        difference between a calculator and a printed label is normal, not a bug. The
+        <a href="/articles/recipe-nutrition-calculator-guide" class="text-[var(--color-wine)] underline">guide to using recipe nutrition
+        data</a> walks through how to read the panel once the inputs are right.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://extension.missouri.edu/publications/mp563" rel="noopener" class="underline">University of Missouri Extension, &ldquo;In a Pinch: Food Yields&rdquo; (mp563)</a>; <a href="https://food.unl.edu/article/nutrition-education-program-nep/all-about-cooking-rice/" rel="noopener" class="underline">University of Nebraska&ndash;Lincoln Food, &ldquo;All About Cooking Rice&rdquo;</a>; <a href="https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label" rel="noopener" class="underline">U.S. Food and Drug Administration, &ldquo;How to Understand and Use the Nutrition Facts Label&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
