@@ -119,6 +119,131 @@ import SubstitutionFinder from '../../components/tools/SubstitutionFinder';
     </div>
   </section>
 
+
+  <!-- Substituting by weight -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Substituting Flour and Sugar by Weight, Not by Cup
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Most failed substitutions are volume problems, not ingredient problems. A cup measures
+        the scoop as much as the flour: how deep you dug into the bag, and whether you sifted
+        first, can move the same &ldquo;cup&rdquo; by 20 per cent or more. Weighing removes that
+        variable, and it turns every swap into arithmetic. A cup of all-purpose flour weighs
+        120 g, cake flour 120 g, pastry flour 106 g and whole-wheat pastry flour 96 g; packed
+        brown sugar weighs 213 g a cup against 198 g for granulated.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        The gram weights to work from
+      </h3>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            One cup, weighed &mdash; the numbers the substitutions below are built on.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Ingredient</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">1 cup</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">All-purpose flour</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The reference flour for most substitution rules</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bread flour</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">More protein, so it takes up more water than all-purpose</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cake flour</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Lowest protein of the wheat flours; the lightest crumb</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pastry flour</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">106 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Between cake and all-purpose in protein and weight</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Whole-wheat pastry flour</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">96 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Lightest of the list; add liquid and expect a denser bake</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cornstarch</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">112 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A quarter cup weighs 28 g; used to dilute flour protein</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Granulated sugar</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">198 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 lb is about 2&frac14; cups</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Brown sugar, packed</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">213 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Denser because of the molasses and moisture it carries</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Confectioners&rsquo; sugar, unsifted</td><td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">113 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Weigh it; a sifted cup is lighter still</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        The substitutions that come up most, worked out
+      </h3>
+      <ol class="list-decimal pl-6 space-y-3 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li><strong>All-purpose to bread flour.</strong> Both weigh 120 g a cup, so 2&frac12;
+          cups all-purpose (300 g) is 300 g of bread flour. The protein is higher, so bread
+          flour drinks more water: add a spoonful or two of extra liquid and let the dough rest
+          before deciding it is too stiff.</li>
+        <li><strong>Cake flour, when you only have all-purpose.</strong> The extension rule is
+          1 cup of sifted cake flour for 1 cup of sifted all-purpose flour minus 2 tablespoons
+          (a scant &frac78; cup). By weight: 120 g all-purpose less 15 g leaves 105 g, and
+          2 tablespoons of cornstarch adds about 14 g back, so 1 cup cake flour &asymp; 105 g
+          all-purpose flour plus 14 g cornstarch. For a batch calling for 2&frac34; cups cake
+          flour (330 g) that is about <strong>289 g all-purpose flour plus 39 g
+          cornstarch</strong>. The swap works because cake flour is simply a lower-protein
+          flour, and cornstarch dilutes the protein further.</li>
+        <li><strong>A small cake-flour batch.</strong> 60 g of cake flour is half a cup, so it
+          becomes about <strong>53 g all-purpose flour plus 7 g cornstarch</strong> &mdash; one
+          level tablespoon.</li>
+        <li><strong>All-purpose to pastry flour.</strong> Pastry flour weighs 106 g a cup
+          against 120 g, so weigh 106 g of all-purpose for each cup the recipe asks for and you
+          are within a gram of the same mass.</li>
+        <li><strong>Granulated to brown sugar.</strong> Two cups of granulated sugar is 396 g.
+          Packed brown sugar is denser at 213 g a cup, so 396 g of brown sugar is a little
+          under 1&frac78; cups. Expect a softer, darker crumb, because brown sugar carries
+          molasses and moisture. Going the other way, 1 cup of firmly packed brown sugar
+          substitutes for 1 cup of granulated.</li>
+        <li><strong>Cornstarch as a thickener.</strong> 1 tablespoon of cornstarch thickens
+          like 2 tablespoons of all-purpose flour, but it must first be stirred into cold
+          liquid &mdash; added dry to a hot pan it clumps.</li>
+      </ol>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        What the tool does with your numbers
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The substitution finder above works from these same ratios. Enter amounts as weights
+        where you can, and treat the answer as a starting point rather than a guarantee:
+        protein content, moisture, and the leavening already in the recipe all shift a little
+        when flours change. Re-check the dough or batter before it goes in the oven. For the
+        rest of the arithmetic, the <a href="/tools/flour-substitution" class="text-[var(--color-wine)] underline">flour
+        substitution table</a> covers the full weight list, the
+        <a href="/tools/recipe-scaler" class="text-[var(--color-wine)] underline">recipe scaler</a> re-sizes the whole batch, and
+        the <a href="/tools/unit-converter" class="text-[var(--color-wine)] underline">unit converter</a> moves between cups and
+        grams for anything not in the table.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart" rel="noopener" class="underline">King Arthur Baking &mdash; Ingredient Weight Chart</a>; <a href="https://randolph.ces.ncsu.edu/news/baking-substitutions-that-work/" rel="noopener" class="underline">N.C. Cooperative Extension, &ldquo;Baking Substitutions That Work&rdquo;</a>; <a href="https://extension.msstate.edu/publications/ingredient-substitutions-and-equivalents" rel="noopener" class="underline">Mississippi State University Extension, &ldquo;Ingredient Substitutions and Equivalents&rdquo;</a>; <a href="https://extension.usu.edu/archive/list-of-ingredient-substitutions-for-cooking-and-baking" rel="noopener" class="underline">Utah State University Extension, &ldquo;List of Ingredient Substitutions for Cooking and Baking&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

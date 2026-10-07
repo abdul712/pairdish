@@ -158,7 +158,7 @@ import SeasonalGuide from '../../components/tools/SeasonalGuide';
 
         <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
           Seasonality data in the table above comes from the
-          <a href="https://snaped.fns.usda.gov/seasonal-produce-guide" rel="noopener" class="text-[var(--color-wine)] underline">USDA SNAP-Ed Seasonal Produce Guide</a>.
+          <a href="https://snaped.fna.usda.gov/resources/nutrition-education-materials/seasonal-produce-guide" rel="noopener" class="text-[var(--color-wine)] underline">USDA SNAP-Ed Seasonal Produce Guide</a>.
           Once you have a seasonal ingredient, pair it with
           <a href="/tools/flavor-pairing" class="text-[var(--color-wine)] underline">the flavor pairing finder</a>
           or run it through the
@@ -263,7 +263,123 @@ import SeasonalGuide from '../../components/tools/SeasonalGuide';
       <p class="fine-print text-sm text-[var(--text-muted)] leading-relaxed">
         Sources: <a href="https://www.ams.usda.gov/services/local-regional/food-directories" rel="noopener" class="underline">USDA AMS &mdash; Local Food Directories</a>,
         <a href="https://www.usdalocalfoodportal.com/" rel="noopener" class="underline">USDA Local Food Portal</a>, and
-        <a href="https://snaped.fns.usda.gov/seasonal-produce-guide" rel="noopener" class="underline">USDA SNAP-Ed Seasonal Produce Guide</a>.
+        <a href="https://snaped.fna.usda.gov/resources/nutrition-education-materials/seasonal-produce-guide" rel="noopener" class="underline">USDA SNAP-Ed Seasonal Produce Guide</a>.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Fresh, frozen or canned -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Fresh, Frozen, or Canned: Comparing the Same Ingredient
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The guide above answers <em>when</em> a fruit or vegetable is at its best. This section
+        answers the other half of the question: <em>in what form</em>. In-season produce bought
+        at peak is cheaper and tastes better, but the preserving method is what decides how much
+        of the nutrition reaches the plate &mdash; and the answer is not automatically
+        &ldquo;fresh&rdquo;.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Four forms of the same ingredient: what each one is good at, and what it costs you.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Form</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">How it is preserved</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Where it wins</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What to watch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh, in season</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Eaten within days of harvest</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Flavour and texture; raw uses such as salads, garnishes and
+                crudités; lowest price at peak</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Vitamin C and the B vitamins decline during storage and cooking;
+                leafy greens lose quality fastest</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh, out of season</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Shipped long distances, often picked early to survive the trip</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Availability &mdash; you can still buy it</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The longer it spent in transit and on the shelf, the smaller its
+                advantage over frozen</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Frozen</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Blanched briefly, then frozen close to harvest</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Picked and processed at peak; very short heat exposure; no oxygen
+                inside the pack</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Nutrients are lost gradually during long freezer storage through
+                oxidation; watery vegetables soften, so use them in cooked dishes</td>
+            </tr>
+            <tr class="bg-[var(--color-cream)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Canned</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Heat-processed in the sealed container</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Long shelf life; heat-stable nutrients such as carotenoids, vitamin E,
+                minerals and fibre hold up well</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Vitamin C and the B vitamins take the biggest hit in the initial heat
+                treatment; check sodium in brine and sugar in syrup, and drain and rinse</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dried</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Water removed, sometimes with sulphur dioxide</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Concentrated flavour and a pantry-stable supply; fibre and minerals
+                survive</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Water-soluble vitamins are largely gone, so it is not a like-for-like
+                swap for fresh in a recipe</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        What the research actually shows
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A two-part review from the University of California, Davis compared fresh, frozen and
+        canned fruits and vegetables across the published literature. Its first finding is
+        uncomfortable for fresh-first advice: nutrient loss in fresh produce during storage and
+        cooking can be more substantial than most shoppers assume, and depending on the
+        commodity, freezing and canning do preserve nutrient value. The mechanisms differ in an
+        interesting way. The initial heat treatment of processed produce costs water-soluble,
+        oxygen-labile nutrients such as vitamin C and the B vitamins, but those nutrients are
+        then relatively stable during canned storage because the sealed can holds no oxygen.
+        Frozen produce loses less during the short blanch but more during storage, because
+        oxidation continues in the freezer. The review's own conclusion is the line worth
+        remembering: recommendations that point only at fresh produce ignore the nutrient
+        benefits of canned and frozen products (Rickman, Barrett &amp; Bruhn, <em>Journal of the
+        Science of Food and Agriculture</em> 87(6):930&ndash;944, 2007).
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        How to use this when you shop
+      </h3>
+      <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>Buy fresh at peak for raw, texture-forward uses &mdash; salads, slaws, garnishes,
+          platters &mdash; where the flavour difference is the point.</li>
+        <li>Buy frozen for cooking out of season: soups, stews, curries, stir-fries and bakes
+          where texture is not the deciding factor.</li>
+        <li>Buy canned for pantry depth, and count the heat-stable nutrients (carotenoids,
+          vitamin E, minerals, fibre) as real, not as a compromise.</li>
+        <li>Drain and rinse canned beans and vegetables when sodium matters; that step removes a
+          useful share of the added salt.</li>
+        <li>Build the list around whichever form is cheapest at its peak &mdash; the
+          <a href="/tools/grocery-list" class="text-[var(--color-wine)] underline">grocery list builder</a> and the
+          <a href="/articles/grocery-budget-meal-planning" class="text-[var(--color-wine)] underline">grocery budget plan</a> both
+          work per form; <a href="/tools/pantry-helper" class="text-[var(--color-wine)] underline">pantry helper</a> tells you what
+          you can already skip buying.</li>
+      </ul>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://snaped.fna.usda.gov/resources/nutrition-education-materials/seasonal-produce-guide" rel="noopener" class="underline">USDA SNAP-Ed Connection &mdash; Seasonal Produce Guide</a>; <a href="https://scijournals.onlinelibrary.wiley.com/doi/10.1002/jsfa.2825" rel="noopener" class="underline">Rickman, Barrett &amp; Bruhn, &ldquo;Nutritional comparison of fresh, frozen and canned fruits and vegetables. Part 1&rdquo;, <em>Journal of the Science of Food and Agriculture</em> 87(6):930&ndash;944 (2007)</a>; <a href="https://www.ams.usda.gov/services/local-regional/food-directories" rel="noopener" class="underline">USDA AMS &mdash; Local Food Directories</a>.
       </p>
     </div>
   </section>
