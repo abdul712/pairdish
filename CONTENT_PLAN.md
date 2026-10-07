@@ -215,3 +215,22 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   **608 queries / 66 clicks / 940 impressions**. Gate still ACTIVE (28 days). Next within-gate:
   grocery-list, cooking-style-quiz, potluck-coordinator, recipe-generator; plus a
   comparison-shaped section on `/tools/seasonal-guide` for the 57-impression seasonal cluster.
+- 2026-10-07 (run 14): **Three within-gate tool-page expansions, each matched to a live Bing
+  ridge (2,824 → 4,807 words on those pages, +1,983).** `/tools/flavor-pairing` 1,072 → **1,710 w /
+  1 table** (the four jobs a side dish can do — cut richness, add contrast, carry salt, supply
+  starch — with a per-main-dish table and a worked Philly-cheesesteak example; Green & Lim 2010
+  taste suppression, Ahn 2011 flavour network, FSIS danger zone) for the ~200-impression
+  "what to serve with X" cluster; `/tools/seasonal-guide` 1,422 → **2,056 w / 1 table** (fresh vs
+  frozen vs canned comparison + the verified Rickman/Barrett/Bruhn 2007 UC Davis nutrient-retention
+  findings + SNAP-Ed guide) for the ~56-impression seasonal cluster; `/tools/substitution-finder`
+  330 → **1,041 w / 1 table** (nine gram weights + six worked conversions: 2¾ cups cake flour →
+  289 g all-purpose + 39 g cornstarch, 60 g cake flour → 53 g + 7 g, 2 cups granulated = 396 g ≈
+  1⅞ cups packed brown) for the substitution cluster. Also fixed a **live dead citation** on
+  `/tools/seasonal-guide` (snaped.fns.usda.gov no longer resolves → repointed to the live
+  snaped.fna.usda.gov URL). QA gate PASS, deploy `2792a4b0-9718-4b8f-8866-4d23e69f7f4e`, live
+  verify PASS 3/3, sitemap lastmod 2026-10-07, Bing SubmitUrlBatch done. Directory: **2 new free
+  phpLD-4 submissions** (athenelinks.com — confirmation clicked the same run; abicloud.org —
+  confirmation pending) plus 1 captcha-ambiguous skip (brestlinks.com). Bing now **609 queries /
+  66 clicks / 940 impressions**; crawl is still ~⅓ 4xx from the archived legacy URLs. Gate still
+  ACTIVE (30 days). Next within-gate: buffet-planner menu composition, cheese-board-calculator
+  per-person quantities, then the thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).

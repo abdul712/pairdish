@@ -287,3 +287,30 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   - Viesearch (browser fill; free plan radio; email confirm link must be clicked by user)
   - Avoid known bot-walled: Cylex, Hotfrog, Cybo, Yalwa, Brownbook, ExactSeek, SonicRun, LinkCentre (403/captcha)
   - Avoid paid: DirectoryFire ($59), outbid-style pay-to-rank boards
+
+### Run 14 — 2026-10-07 (2 free submissions; 1 captcha skip; 0 listing flips)
+
+- **Sourcing:** the sibling-ack sweep again beat fresh-list mining — the shared mailbox held an
+  untracked `athenelinks.com` "Action Required: Confirm your link submission" mail (from another
+  campaign) and a `starterbest.com` signup confirmation. Rejected as non-fits:
+  coinbase/plaid/mercor/provenexpert (not directories), plus the two storage-alert spam domains.
+- **Targets probed:** athenelinks.com, brestlinks.com, abicloud.org — one phpLD-4 template
+  (bare `/captcha.php`, no IMAGEHASH; radios featured / normal(paid) / reciprocal / **free =
+  "Regular Reviews"**; shared taxonomy Home > Cooking = 185).
+- **Athene Directory (athenelinks.com)** — ✅ submitted, free tier: "Link submitted and awaiting
+  approval." Confirmation mail arrived in **Spam** and was clicked in the same run →
+  "Your link submission was confirmed!" (queue 1–6 months).
+- **AbiCloud Directory (abicloud.org)** — ✅ submitted, free tier: "Link submitted and awaiting
+  approval." Email confirmation still required; the mail had not landed at check time — click it
+  next run.
+- **Brestlinks (brestlinks.com)** — ⛔ failed, no POST spent: the 6-char captcha read disagreed at
+  one character between preprocessings (cleaned/left `HZRMSY` vs raw/right `HZRM5Y`), so the
+  single-use code was not burned.
+- **Verification sweep:** `/search.php?search=pairdish.com` across all 32 submitted/pending rows →
+  **0 flips** (4 hosts 403 the scripted fetch). Free phpLD queues are 2–6 months, so this is the
+  expected shape, not a failure signal.
+- **HuLu Directory:** acceptance already recorded (mail recovered this run lists pairdish.com in
+  the accepted set); the live listing URL is still not locatable from this VPS, so the row stays
+  pending_review rather than a fabricated `listed`.
+- Tracker after run: **46 rows — 3 listed / 30 submitted / 4 pending_review / 7 skipped_other /
+  1 skipped_paid / 1 failed**.
