@@ -124,6 +124,125 @@ import CheeseBoardCalculator from '../../components/tools/CheeseBoardCalculator'
     </div>
   </section>
 
+
+  <!-- Per-person quantities + varieties + holding -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        How Much Cheese and Charcuterie Per Person
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The quantity depends on one question: is the board an appetizer or is it the meal? Extension
+        guidance for charcuterie boards gives a figure for each, and the gap between them is wider
+        than most people expect &mdash; a board that shares the table with dinner needs half the
+        food of one standing in for dinner.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[620px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Buy to the role the board plays, not to the guest count alone.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Board role</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Cheese per person</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Charcuterie per person</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Grazing / cocktail appetizer</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1&ndash;2 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2&ndash;3 oz</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The board is the meal</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4 oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6 oz</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Penn State Extension puts an appetizer-board portion at 1&ndash;2&nbsp;ounces of cheese per
+        person; University of Kentucky family and consumer sciences guidance for a board served as
+        a meal doubles that to 4&nbsp;ounces, with charcuterie following the same shape at
+        3&nbsp;ounces as an appetizer and 6&nbsp;ounces as a meal. When the board sits between
+        those two roles, split the difference and take the lower number whenever a second course is
+        coming.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        How many varieties, and how much of each
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The per-variety number people actually cut from is total ounces divided by the number of
+        cheeses, so the variety count drives how generous each wedge looks. Three varieties carry a
+        small board; five is the ceiling worth buying for a larger one, because past that the
+        wedges get thin and the board reads as scraped rather than set. The mix that works is the
+        one already used by the <a href="/tools/cheese-board-builder" class="text-[var(--color-wine)] underline">cheese board
+        builder</a>: roughly 30% hard, 20% semi-hard, 20% soft, 20% fresh or goat, and 10% blue.
+      </p>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[620px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            A worked example at the appetizer rate of 2 oz per person.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Guests</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Total cheese</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Varieties</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Per variety</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">8</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">16 oz (1 lb)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 5.3 oz each</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">16</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">32 oz (2 lb)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">8 oz each</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">26</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">52 oz (3.25 lb)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 10.4 oz each</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Keeping the board safe past the first hour
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Cheese and cured meat are both perishable, and a board is by design the food most likely to
+        sit out. Keep it cold &mdash; at or below 40&nbsp;&#176;F until serving, nested on ice if it
+        will stand out longer than two hours &mdash; and throw away anything that has been at room
+        temperature past the two-hour mark (one hour if the room is above 90&nbsp;&#176;F). The
+        habit that keeps a board looking set all evening is extension advice worth copying: build
+        several small platters in advance and swap a nearly empty one for a fresh one from the
+        refrigerator, rather than topping up a dish that has already been out. Adding new food to
+        an old dish is how a safe board turns into a risky one.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://extension.psu.edu/creating-a-healthy-charcuterie-board" rel="noopener" class="text-[var(--color-wine)] underline">Penn State Extension, &ldquo;Creating a Healthy Charcuterie Board&rdquo;</a>;
+        <a href="https://fcs.mgcafe.uky.edu/sites/fcs.mgcafe.uky.edu/files/charcuterieboards101-pub.pdf" rel="noopener" class="text-[var(--color-wine)] underline">University of Kentucky Family and Consumer Sciences, &ldquo;Charcuterie Boards 101&rdquo;</a>;
+        <a href="https://www.fda.gov/food/buy-store-serve-safe-food/serving-safe-buffets" rel="noopener" class="text-[var(--color-wine)] underline">U.S. Food and Drug Administration, &ldquo;Serving Up Safe Buffets&rdquo;</a>;
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="text-[var(--color-wine)] underline">USDA Food Safety and Inspection Service, &ldquo;Danger Zone (40&nbsp;&#176;F &ndash; 140&nbsp;&#176;F)&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

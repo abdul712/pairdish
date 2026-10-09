@@ -257,10 +257,110 @@ import BuffetPlanner from '../../components/tools/BuffetPlanner';
 
       <p class="text-sm text-[var(--text-muted)] leading-relaxed">
         Sources: USDA Food Safety and Inspection Service,
-        <a href="https://www.fsis.usda.gov/food-safe-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="text-[var(--color-wine)] underline">"Danger
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="text-[var(--color-wine)] underline">"Danger
         Zone" (40&nbsp;&#176;F &ndash; 140&nbsp;&#176;F)</a>; University of Minnesota Extension,
         <a href="https://extension.umn.edu/food/preparing/cooking-at-home/cooking-safely-for-a-crowd/planning-the-quantity-food-occasion" rel="noopener" class="text-[var(--color-wine)] underline">Planning the
         quantity food occasion</a>.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Worked multi-protein buffet menu -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Building a Buffet Menu: A Worked Six-Category Example
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The request that comes up again and again is a buffet that carries several proteins at once
+        &mdash; fish, chicken, pork, beef &mdash; plus a vegetable and a salad. The shape that
+        handles it is six categories, each doing one job, with the proteins deliberately split by
+        cooking method rather than by animal so nothing crowds the same flavour space.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[760px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            A menu template for a hot buffet line. Swap dishes within a row, keep the row.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Category</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Example dish</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Why it is in this slot</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fish</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Baked salmon, or a white fish in a lemon-butter sauce</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The lightest protein: it feeds guests who skip red meat and gives the line a second temperature and texture.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Poultry</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Roast chicken thighs, or a chicken in a cream or mushroom sauce</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The safe middle that nearly everyone eats; thighs hold far better on a warming tray than breast meat.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pork</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pulled pork, glazed ham, or a braised pork shoulder</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A rich, soft-textured main that contrasts the roasted or baked dishes either side of it.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beef</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sliced roast beef in au jus, or a braised beef</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The anchor for the meat-eaters, and the dish that sets how generous the portion math needs to be.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Starch</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Roast or mashed potatoes, rice pilaf, or a pasta bake</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The volume filler that keeps the line fed when a protein runs short, and the carrier for whichever sauce is left on the plate.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Vegetable and salad</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A roasted vegetable plus one cold dressed salad</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">One hot, one cold: the temperature and texture contrast that stops a four-protein line reading as heavy.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Turning the template into numbers
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Four proteins do not mean four full portions per guest. Guests take a little of several and
+        a full serving of one, so plan the protein total at roughly one serving per person across
+        the whole category, not one per person per dish. For a 60-guest buffet that is about
+        60 servings of protein in total, split however you expect the crowd to lean &mdash; often
+        half beef and chicken, and the fish and pork sharing the remainder. Add a second, cheaper
+        starch and a second salad so the line never empties into one dish, keep at least one
+        vegetarian-friendly side that is not an afterthought, and put an acid (a vinegar slaw, a
+        pickle, a lemon-dressed green) next to the richest meat. The per-category option counts and
+        the portion sizes behind this menu are worked out in the tables above and in the
+        <a href="/tools/party-calculator" class="text-[var(--color-wine)] underline">party food calculator</a>.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Keeping a four-protein line safe
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        More proteins means more dishes in the danger zone at once, so the FDA's buffet rules carry
+        more weight here than on a two-dish table. Hold every hot dish at an internal temperature
+        of 140&nbsp;&#176;F or warmer and check it with a thermometer rather than trusting the
+        warmer &mdash; some models top out at 110&ndash;120&nbsp;&#176;F, which is warm but not hot
+        enough. Keep the cold salad and any chilled sides at 40&nbsp;&#176;F or colder, on ice once
+        they have been out two hours. Never top up a partly eaten dish: replace it with a freshly
+        filled one from the refrigerator or from an oven held at 200&ndash;250&nbsp;&#176;F. And
+        discard anything perishable that has sat out past two hours, or one hour in a room above
+        90&nbsp;&#176;F.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.fda.gov/food/buy-store-serve-safe-food/serving-safe-buffets" rel="noopener" class="text-[var(--color-wine)] underline">U.S. Food and Drug Administration, &ldquo;Serving Up Safe Buffets&rdquo;</a>;
+        <a href="https://www.canr.msu.edu/news/food_safety_should_be_your_most_important_buffet_guest" rel="noopener" class="text-[var(--color-wine)] underline">Michigan State University Extension, &ldquo;Food safety should be your most important buffet guest&rdquo;</a>;
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="text-[var(--color-wine)] underline">USDA Food Safety and Inspection Service, &ldquo;Danger Zone (40&nbsp;&#176;F &ndash; 140&nbsp;&#176;F)&rdquo;</a>.
       </p>
     </div>
   </section>
