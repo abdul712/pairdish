@@ -314,3 +314,31 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   pending_review rather than a fabricated `listed`.
 - Tracker after run: **46 rows — 3 listed / 30 submitted / 4 pending_review / 7 skipped_other /
   1 skipped_paid / 1 failed**.
+
+### Run 15 — 2026-10-09 (1 free submission; 1 listing FLIP; 1 failed no-op)
+
+- **Sourcing:** sibling-ack sweep over the shared mailbox (01-Oct window) re-confirmed the HuLu
+  Directory acceptance for pairdish.com and surfaced one untracked host with a submission ack,
+  `chameleonwebservices.com`. Non-fits rejected: google.com (Flow notice), mail.perplexity.ai,
+  mercor.com, provenexpert.com, starterbest.com.
+- **Brestlinks (brestlinks.com)** — submitted, free tier: `LINK_TYPE=free` ("Regular Reviews
+  (1-6 months review time)"). Run 14 skipped this host because two captcha preprocessings
+  disagreed at one character; this run the raw and cleaned reads both returned `MTB8F2`, so the
+  single-use POST was spent -> "Link submitted and awaiting approval." Its confirmation email is
+  still required and has not landed for pairdish yet — re-check next run.
+- **Directory HuLu (huludirectory.com)** — **listed**. Live at
+  https://huludirectory.com/listing/pairdish--food-pairing-tools-and-recipe-calculators-2256734
+  (200; title "PairDish - Food Pairing Tools & Recipe Calculators"; outbound link to
+  pairdish.com; no pending marker). Found with `?search=PairDish` — the domain search
+  (`?search=pairdish.com`) returns no hits on this install.
+- **Chameleon Web Services (chameleonwebservices.com)** — failed, silent no-op. phpLD-4 template
+  with a real free radio; www->apex 301 handled; AF_INET forced. Two POSTs (split-case read
+  `CKVZ3H`/`CkVz3H`, then agreed read `8RPJGH`) each returned a byte-identical blank form with no
+  message block, no error and no field echo — and the retry produced no "TITLE already exists"
+  message, which is the proof no entry was created.
+- **Verification sweep:** `scripts/run15_dir_verify.py` (site-NAME search across all 34
+  submitted/pending rows) -> **1 flip** (huludirectory). All other reachable phpLD hosts return
+  their search page with no listing link yet (free queues run 2-6 months); 4 hosts 403 the
+  scripted fetch.
+- Tracker after run: **47 rows — 4 listed / 31 submitted / 3 pending_review / 7 skipped_other /
+  1 skipped_paid / 1 failed**.

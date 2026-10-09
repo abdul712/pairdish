@@ -234,3 +234,28 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   66 clicks / 940 impressions**; crawl is still ~⅓ 4xx from the archived legacy URLs. Gate still
   ACTIVE (30 days). Next within-gate: buffet-planner menu composition, cheese-board-calculator
   per-person quantities, then the thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).
+
+- 2026-10-09 (run 15): **Three within-gate tool-page expansions, each matched to a live Bing
+  ridge (2,233 -> 4,147 words on those pages, +1,914).** `/tools/chocolate-pairing` 434 ->
+  **1,205 w / 2 tables** (FDA 21 CFR Part 163 standards-of-identity table for sweet / semisweet /
+  milk / white / ruby chocolate with the exact minimum contents, a pairing-by-type table, the
+  USDA National Agricultural Library caffeine figures tied to the coffee-pairing page, and
+  Clemson HGIC storage/bloom guidance) for the ~13-impression chocolate-pairing cluster;
+  `/tools/cheese-board-calculator` 494 -> **1,017 w / 2 tables** (per-person cheese and
+  charcuterie by board role from Penn State Extension and University of Kentucky FCS, a
+  varieties-vs-guests worked table that answers "how much cheese per person per variety", and the
+  FDA/FSIS holding rules) for the cheese-board quantity cluster; `/tools/buffet-planner`
+  1,305 -> **1,925 w** (a worked six-category fish / poultry / pork / beef / starch /
+  vegetable-and-salad menu template answering the exact multi-protein query, with the
+  one-serving-per-person-across-the-category rule and FDA safe-buffet guidance). Also **fixed a
+  live dead citation** on `/tools/buffet-planner` (FSIS danger-zone path missing its
+  `/food-safety/` segment served the FSIS Page Not Found page -> repointed and guarded).
+  QA gate PASS, deploy `81ff673d-1809-4ad3-b002-26408010f2c1`, live verify PASS 3/3, sitemap
+  lastmod 2026-10-09, Bing SubmitUrlBatch done. Directory: **1 new free phpLD-4 submission
+  (brestlinks.com, free tier, captcha agreed across preprocessings)**, **1 listing FLIP**
+  (huludirectory.com now live at /listing/pairdish--food-pairing-tools-and-recipe-calculators-2256734,
+  found via the site-NAME search), and 1 failed no-op host (chameleonwebservices.com — two POSTs,
+  byte-identical re-renders, no duplicate-title proof). Tracker 47 rows (4 listed). Bing still
+  609 queries / 66 clicks / 940 impressions; crawl still ~1/3 4xx from the archived legacy URLs.
+  Gate still ACTIVE (32 days). Next within-gate: macro-calculator, sugar-substitution, then the
+  thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).
