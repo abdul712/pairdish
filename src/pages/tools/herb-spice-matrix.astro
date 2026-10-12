@@ -285,6 +285,196 @@ import HerbSpiceMatrix from '../../components/tools/HerbSpiceMatrix';
     </div>
   </section>
 
+
+  <!-- Flavour-family mapping + build-your-own blend substitutions -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Mapping Herbs and Spices by Taste, Not by Food
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A flavour wheel groups seasonings by the taste they carry rather than by what they are
+        traditionally sprinkled on. That is the more useful direction when you are holding an
+        unfamiliar jar: place it next to the seasonings whose taste descriptor it shares, and the
+        pairings write themselves. Penn State Extension&rsquo;s herb and spice pairing chart lists a
+        taste descriptor and a set of partners for each seasoning; the table below is that chart,
+        reordered so the families sit together.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Taste descriptor and partners for sixteen seasonings (Penn State Extension).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Seasoning</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Taste</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Partners</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Basil</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet, spicy</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Chives, cilantro, garlic, oregano, mint, parsley, rosemary, thyme</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cardamom</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet, bitter</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Caraway, cinnamon, cloves, coriander, cumin, ginger</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Caraway</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet, bitter</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Coriander, garlic, parsley, thyme</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cinnamon</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet, bitter</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cloves, coriander, cumin, ginger, nutmeg, turmeric</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Coriander</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cinnamon, cloves, cumin, garlic, ginger, fennel, nutmeg</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cumin</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bitter, sweet</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cardamom, cinnamon, cloves, coriander, curry leaves, fennel seed, garlic,
+                ginger, nutmeg, oregano, paprika, thyme, turmeric</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dill</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sour, sweet</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Basil, cumin, garlic, ginger, parsley, turmeric</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ginger</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Basil, cilantro, coconut, garlic, lime, lemongrass, mint, scallions,
+                turmeric</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Lemongrass</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Basil, cilantro, cinnamon, cloves, coconut milk, garlic, ginger,
+                turmeric</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Mint</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet, tangy</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Basil, clove, cumin, dill, ginger, oregano, parsley, thyme</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Nutmeg</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet, bitter</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cardamom, cinnamon, cloves, coriander, cumin, ginger, thyme</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Oregano</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bitter, savoury</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Basil, cumin, garlic, parsley, rosemary, sage, thyme</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Parsley</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet, tangy</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Basil, chives, garlic, mint, oregano, rosemary, tarragon</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Rosemary</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Savoury</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bay, chives, garlic, lavender, mint, oregano, parsley, sage, thyme</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Clove</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cinnamon, coriander, curry, fennel, ginger, nutmeg</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Mustard seed</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sweet</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bay, coriander, cumin, dill, fennel, garlic, parsley, tarragon,
+                turmeric</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-10">
+        Read as three loose families, the chart is easy to hold in your head. The
+        <strong>warm-sweet</strong> group is cinnamon, cardamom, nutmeg, clove, allspice and
+        ginger; the <strong>bright and sour</strong> group is coriander, ginger, lemongrass and
+        dill; the <strong>green and savoury</strong> group is basil, parsley, oregano, rosemary,
+        sage and thyme. Seasonings inside a family swap for each other cleanly. A blend that tastes
+        finished usually draws one or two from each family rather than three from the same one.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Building a blend you do not have
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The same logic answers the pantry question. A pre-mixed blend is a recipe, and Colorado
+        State University Extension publishes the recipe for most of them.
+      </p>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Blend and seasoning substitutions (Colorado State University Extension).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Called for</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Build it from</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Allspice, 1 tsp</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1/2 tsp cinnamon plus 1/2 tsp ground cloves</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Apple pie spice, 1 tsp</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1/2 tsp cinnamon, 1/4 tsp nutmeg and 1/8 tsp cardamom</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pumpkin pie spice, 1 tsp</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1/2 tsp cinnamon, 1/4 tsp ginger, 1/8 tsp allspice and 1/8 tsp nutmeg</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Italian seasoning, 1 tsp</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1/4 tsp basil, 2/3 tsp dried parsley and a pinch of oregano</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh herbs, 1 tbsp</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 tsp dried herbs, or 1/4 tsp powdered</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Keeping the flavour once you have the blend
+      </h3>
+      <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>Store the blend in an airtight jar, away from light and the heat above the stove. Whole
+          seed pods hold for a year or more that way; ground spices fade in months.</li>
+        <li>Buy whole and grind as needed where you can. Ground cumin and ground nutmeg lose their
+          character far faster than the whole seed or nut.</li>
+        <li>Skip dried parsley for a blend you will use raw. It carries very little flavour, which
+          is why the substitution above leans on it only as bulk.</li>
+        <li>Fresh herbs keep a few days in the vegetable crisper, and stems stand longer in a glass
+          of water. Anything limp or blackened goes out before it flavours the jar.</li>
+      </ul>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://bkc-od-media.vmhost.psu.edu/documents/HO_PE_foodherbspicepairing.pdf" rel="noopener" class="text-[var(--color-wine)] underline">Penn State Extension, &ldquo;Food herb &amp; spice pairing chart&rdquo; (PDF)</a>;
+        <a href="https://extension.psu.edu/preserving-herbs-by-drying" rel="noopener" class="text-[var(--color-wine)] underline">Penn State Extension, &ldquo;Preserving Herbs by Drying&rdquo;</a>;
+        <a href="https://extension.colostate.edu/resource/ingredient-substitutions/" rel="noopener" class="text-[var(--color-wine)] underline">Colorado State University Extension, &ldquo;Ingredient Substitutions&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

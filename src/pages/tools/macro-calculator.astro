@@ -122,6 +122,162 @@ import MacroCalculator from '../../components/tools/MacroCalculator';
     </div>
   </section>
 
+
+  <!-- Macro balancing: calorie factors + percentage-to-grams math -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        The Macro Balancing Math Behind the Percentages
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A macro split is only half a plan. The percentages say how the day&rsquo;s calories are
+        divided; they say nothing about how many grams of each nutrient that works out to, and the
+        grams are the number you actually weigh. The conversion depends on how much energy a gram of
+        each macronutrient carries &mdash; and those figures are not a fitness-app convention. They
+        are the general factors the U.S. Food and Drug Administration uses to calculate the calorie
+        content printed on a nutrition label.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Calorie factors used for U.S. nutrition labelling (21 CFR 101.9(c)(1)(i)).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Nutrient</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Calories per gram</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What it means on a 2,000-calorie day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Protein</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">100 g is 400 calories &mdash; a fifth of the day from a food you may think of
+                as &ldquo;free&rdquo;.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Total carbohydrate</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The same 4 as protein, which is why a high-carb day fills up fast.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Total fat</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">9</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">One gram of fat carries as much energy as 2.25 grams of protein or
+                carbohydrate.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soluble non-digestible carbohydrate (fibre)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Counted at half rate, not the full 4.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sugar alcohols</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">0 to 3</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Isomalt and lactitol 2.0, xylitol 2.4, maltitol 2.1, sorbitol 2.6,
+                hydrogenated starch hydrolysates 3.0, mannitol 1.6, erythritol 0.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        From a percentage to grams
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Multiply the calorie target by the percentage for that macro, then divide by its factor
+        &mdash; 4 for protein and carbohydrate, 9 for fat. A 2,000-calorie day at 40% protein,
+        35% carbohydrate and 25% fat becomes 2,000 &times; 0.40 &divide; 4 = 200 g of protein,
+        2,000 &times; 0.35 &divide; 4 = 175 g of carbohydrate and 2,000 &times; 0.25 &divide; 9 =
+        56 g of fat.
+      </p>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Four common splits converted to grams at 2,000 calories.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Split (protein / carbohydrate / fat)</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Protein</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Carbohydrate</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Fat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Balanced 25 / 50 / 25</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">125 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">250 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">56 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">High protein 40 / 35 / 25</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">200 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">175 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">56 g</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Low carb 30 / 30 / 40</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">150 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">150 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">89 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ketogenic 20 / 5 / 75</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">100 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">25 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">167 g</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-10">
+        Run the arithmetic back the other way and the rounding shows up. The balanced row is
+        125 &times; 4 + 250 &times; 4 + 56 &times; 9 = 2,004 calories, not 2,000. That gap is the
+        reason a plan can be built exactly to its percentages and still miss the calorie target by a
+        few calories a day.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Why the totals never land exactly
+      </h3>
+      <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-10">
+        <li>Grams are rounded to whole numbers and the calories they carry are not. The imbalance is
+          always small, but it is always there.</li>
+        <li>Fibre sits inside the carbohydrate total and is counted at 2 calories per gram, so a
+          high-fibre day delivers less energy than the plain 4-per-gram arithmetic predicts.</li>
+        <li>Sugar alcohols in protein bars and reduced-sugar sweets run from 0 to 3 calories per
+          gram, so two bars with the same protein figure can carry very different calorie totals.</li>
+        <li>Alcoholic drinks carry calories that no macro percentage accounts for. A drink on a
+          training day is the usual reason the numbers will not reconcile.</li>
+      </ul>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-3">
+        Two official anchors to check a plan against
+      </h3>
+      <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>The current Dietary Guidelines for Americans set a protein goal of <strong>1.2 to 1.6
+          grams per kilogram of body weight per day</strong>, adjusted for calories. For a 70 kg
+          adult that is 84 to 112 g &mdash; convert it per person with the
+          <a href="/tools/protein-calculator" class="text-[var(--color-wine)] underline">protein calculator</a>.</li>
+        <li>They set a ceiling rather than a target for added sugars: no single meal should contain
+          more than 10 grams. Check what the sweetener in a recipe contributes with the
+          <a href="/tools/sugar-substitution" class="text-[var(--color-wine)] underline">sugar substitution tool</a>.</li>
+        <li>Saturated fat should not exceed 10% of total daily calories &mdash; about 22 g on a
+          2,000-calorie day. Because fat carries 9 calories per gram, that ceiling arrives sooner
+          than most people expect.</li>
+      </ul>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-A/section-101.9" rel="noopener" class="text-[var(--color-wine)] underline">21 CFR 101.9(c)(1)(i), &ldquo;Nutrition labelling of food&rdquo; (calorie factors)</a>;
+        <a href="https://cdn.realfood.gov/DGA.pdf" rel="noopener" class="text-[var(--color-wine)] underline">USDA Food and Nutrition Service, <em>Dietary Guidelines for Americans, 2025&ndash;2030</em></a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
