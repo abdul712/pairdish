@@ -259,3 +259,29 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   609 queries / 66 clicks / 940 impressions; crawl still ~1/3 4xx from the archived legacy URLs.
   Gate still ACTIVE (32 days). Next within-gate: macro-calculator, sugar-substitution, then the
   thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).
+
+- 2026-10-12 (run 16): **Three within-gate tool-page expansions, each matched to a live Bing
+  ridge (2,233 -> 4,147 words on those pages, +1,967).** `/tools/macro-calculator` 464 ->
+  **1,140 w / 2 tables** (calorie factors read verbatim from 21 CFR 101.9(c)(1)(i) — 4/4/9 plus
+  fibre at 2 and the eight published sugar-alcohol factors — a percentage-to-grams table for four
+  common splits at 2,000 kcal, the reconciliation step showing the balanced row sums to 2,004 kcal,
+  and the current Dietary Guidelines for Americans 2025-2030 anchors: protein 1.2-1.6 g/kg/day,
+  no meal over 10 g of added sugars, saturated fat <=10% of calories) for the "macro balance
+  calculator" cluster; `/tools/sugar-substitution` 517 -> **1,179 w / 2 tables** (Colorado State
+  University Extension liquid-sweetener conversion rows, Utah State University Extension
+  calories-per-gram + canning-suitability table, the FDA GRAS rule for high-intensity sweeteners,
+  the Dietary Guidelines added-sugar classification, and the CDC no-honey-under-1-year rule) for
+  the maple-syrup-to-monk-fruit and liquid-sweetener conversion cluster; `/tools/herb-spice-matrix`
+  958 -> **1,587 w / 2 tables** (the Penn State Extension herb & spice pairing chart re-ordered
+  into taste families, the three flavour-family groupings, CSU blend-building substitutions, and
+  storage/whole-vs-ground guidance) for the "herbs and spices pairing flavor wheel" cluster.
+  Also corrected the sugar page's own vague liquid-adjustment line to the cited 1/4 cup figure.
+  QA gate PASS, deploy `ba9c9ada-14fb-45ac-bf2b-87c7733e99fe`, live verify PASS 3/3, sitemap
+  lastmod 2026-10-12, Bing SubmitUrlBatch done. Directory: **1 new free submission**
+  (addfreewebdirectory.com — phpLD-5 URL-param wizard, free radio value 11, no captcha) and
+  **1 confirmation CLICKED** (brestlinks.com, recoverable from Gmail Spam) -> pending_review;
+  0 listing flips this sweep. Bing's rolling window finally advanced: **701 queries / 72 clicks /
+  1,101 impressions**; crawl stats now 2026-10-03..10-06 with Code2xx 62-63/day vs Code4xx
+  13-29/day (the legacy-404 share is shrinking). Gate still ACTIVE (35 days). Next within-gate:
+  the seasonal-comparison ridge, flavour-pairing-website, and the bread-proofing cluster, then the
+  thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).

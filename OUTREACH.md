@@ -342,3 +342,27 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   scripted fetch.
 - Tracker after run: **47 rows — 4 listed / 31 submitted / 3 pending_review / 7 skipped_other /
   1 skipped_paid / 1 failed**.
+
+### Run 16 — 2026-10-12 (1 free submission; 1 confirmation clicked; 0 listing flips)
+
+- **Sourcing again came from sibling-campaign ack mail, not a fresh list.** An IMAP sweep for
+  untracked directory acks surfaced `addfreewebdirectory.com` (two acks, the newest today).
+- **addfreewebdirectory.com — submitted, free tier.** phpLD-5 URL-param wizard: `/submit.php`
+  alone shows only the category `<select>`; `?c=331` (Home & Family > Cooking) renders five
+  link-type radios where **value 11 = "Free Regular Link--free"** (7/8/9/10 are $60 / $20 per year
+  / $20 lifetime / $7 per year paid); `?c=331&LINK_TYPE=11` renders the detail form with
+  TITLE / URL / DESCRIPTION / OWNER_NAME / OWNER_EMAIL / RECPR_* / a **DO_MATH arithmetic
+  challenge** / AGREERULES — **no captcha**. POST → *"Link submitted and awaiting approval."*
+  Script: `scripts/dir_run16_afwd.py` (probe/post); category probe: `scripts/dir_run16_probe.py`.
+- **brestlinks.com — confirmation clicked.** The confirm mail (noreply@brestlinks.com, 2026-10-09
+  16:48) was in **Gmail Spam**; GETting its `emailconfirmation.php?linkurl=tz67ala` URL returned
+  *"Your link submission was confirmed!"* — without that click the entry is auto-deleted, so the
+  run-15 submission is only now genuinely queued. Status moved `submitted` → `pending_review`.
+- **Flip sweep: 0 flips.** Name-search over all 35 submitted/pending rows found no new live
+  listings (the free queues run 2–6 months). Four hosts 403/404/302 the scripted search.
+- Reminder: `search.php?search=<domain>` returns 0 hits on this family even when a listing exists —
+  always search the site NAME.
+- Tracker: **48 rows — 4 listed / 31 submitted / 4 pending_review / 7 skipped_other /
+  1 skipped_paid / 1 failed.**
+- Unchanged user actions: Pinterest access (account exists, no credentials here) and per-domain
+  SMTP (only Gmail creds are present, so `outreach@pairdish.com` sending is still blocked).
