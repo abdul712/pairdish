@@ -119,6 +119,223 @@ import DrinkCalculator from '../../components/tools/DrinkCalculator';
     </div>
   </section>
 
+
+  <!-- Standard-drink math + non-alcoholic beverage planning -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        What Counts as One Drink &mdash; and Why the Bottle Count Lies
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The calculator above works in servings. A serving is not a fixed amount of alcohol, and
+        that is where most party bars go wrong: the same twelve-ounce bottle is one drink or two
+        depending only on what is inside it. U.S. health agencies settle the definition the way a
+        bar measures a pour &mdash; a standard drink contains about 0.6 fluid ounces, or 14 grams,
+        of pure alcohol &mdash; and then translate that into the glass sizes people actually use.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            One U.S. standard drink, by beverage (NIAAA; CDC).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Beverage</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Standard serving</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Alcohol by volume</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Why it matters when you buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Regular beer</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12 fl oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The reference case: one bottle, one standard drink.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Malt liquor or hard seltzer</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">8 to 10 fl oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">7%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">More alcohol per ounce, so the standard serving is a smaller pour.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Table wine</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5 fl oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A restaurant pour, not a full mug &mdash; the five-glasses-per-bottle
+                figure comes from this measure.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Distilled spirits (gin, rum, vodka, whiskey)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1.5 fl oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">40% (80 proof)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The shot measure most cocktail recipes assume.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-10">
+        Mixers change the volume of a drink, not the alcohol in it. A cocktail built on
+        1.5 fl oz of spirits and topped with four ounces of juice, soda or sour mix is still one
+        standard drink; it simply takes longer to drink. That is the arithmetic your calculator is
+        already doing at the guest level, and it is the arithmetic you need at the shopping level
+        too.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Standard drinks in the containers people actually buy (1 fl oz = 29.57 mL; the
+            arithmetic is shown so you can redo it for any bottle).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Container</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Volume</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">ABV</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Standard drinks</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">The arithmetic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beer can or bottle</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12 fl oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12 &times; 0.05 &divide; 0.6 = 1.0</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Craft or imperial beer, same can</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12 fl oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12 &times; 0.10 &divide; 0.6 = 2.0</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beer pint glass</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">16 fl oz</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 1 1/3</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">16 &times; 0.05 &divide; 0.6 = 1.3</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Wine bottle</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">750 mL (25.4 fl oz)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 5</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">25.4 &times; 0.12 &divide; 0.6 = 5.1</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Large-format wine bottle</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1.5 L (50.7 fl oz)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 10</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">50.7 &times; 0.12 &divide; 0.6 = 10.1</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Spirits bottle (a fifth)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">750 mL (25.4 fl oz)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">40%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 17</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">25.4 &times; 0.40 &divide; 0.6 = 16.9</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Spirits bottle (a handle)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1.75 L (59.2 fl oz)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">40%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 39</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">59.2 &times; 0.40 &divide; 0.6 = 39.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-10">
+        Read the two tables together and the shopping list writes itself: divide the servings the
+        calculator gives you for wine by 5 and you have bottles, divide the spirits servings by 17
+        and you have fifths. Size the food side of the same event with the
+        <a href="/tools/appetizer-planner" class="text-[var(--color-wine)] underline">appetizer planner</a>, and check the whole
+        menu still adds up with the
+        <a href="/tools/party-calculator" class="text-[var(--color-wine)] underline">party food calculator</a>.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Non-alcoholic drinks need their own count
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Coffee, tea and soda are the drinks most hosts under-buy, because they are planned as an
+        afterthought to the bar. Michigan State University Extension publishes percentages of
+        attendance for each, split by the makeup of the group and by whether the break falls in
+        the morning or the afternoon. Multiply the percentage by your guest count to get cups,
+        then divide by 20 (the number of eight-ounce cups in a gallon) to get gallons &mdash; and
+        round each partial gallon up to the next half gallon.
+      </p>
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Beverage planning, as a percentage of attendance (Michigan State University
+            Extension).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Beverage</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Morning break: all-male / all-female / mixed</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Afternoon break: all-male / all-female / mixed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Regular coffee</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">60% / 50% / 55%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">35% / 30% / 35%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Decaf coffee</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">20% / 25% / 25%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">20% / 20% / 20%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Tea</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10% / 15% / 10%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10% / 15% / 10%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soda</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">25% / 25% / 25%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">70% / 70% / 70%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Worked once: 300 guests at a mixed morning break means 300 &times; 55% = 165 cups of
+        regular coffee, which is 165 &divide; 20 = 8.25 gallons, rounded up to 8.5 gallons. The
+        same 300 guests take 75 cups of tea and 75 sodas on that break, and 210 sodas if the break
+        falls in the afternoon. The same guidance sizes the bar itself at one bar and bartender per
+        75 guests for a hosted bar and per 100 for a cash bar, and suggests opening the bars
+        furthest from the entrance first so the queue does not bottleneck at the door.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        One caution that has nothing to do with quantities: the amount of alcohol a person drinks
+        affects their health, and U.S. health agencies publish the standard-drink definitions used
+        above so that count is possible. If you are buying for a mixed group, plan the alcohol-free
+        share first, then let the alcohol count fall out of it &mdash; the
+        <a href="/tools/buffet-planner" class="text-[var(--color-wine)] underline">buffet planner</a> covers the food side of the same
+        event.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink" rel="noopener" class="text-[var(--color-wine)] underline">National Institute on Alcohol Abuse and Alcoholism, &ldquo;What Is A Standard Drink?&rdquo;</a>;
+        <a href="https://www.cdc.gov/alcohol/standard-drink-sizes/index.html" rel="noopener" class="text-[var(--color-wine)] underline">U.S. Centers for Disease Control and Prevention, &ldquo;About Standard Drink Sizes&rdquo;</a>;
+        <a href="https://www.canr.msu.edu/eventservices/uploads/files/Food%20&amp;%20Beverage%20Planning%20Tips.pdf" rel="noopener" class="text-[var(--color-wine)] underline">Michigan State University Extension, &ldquo;Food &amp; Beverage Planning Tips&rdquo; (PDF)</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

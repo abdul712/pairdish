@@ -119,6 +119,180 @@ import AppetizerPlanner from '../../components/tools/AppetizerPlanner';
     </div>
   </section>
 
+
+  <!-- Extension benchmarks for quantities + buffet holding limits -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        What the Extension Services Actually Recommend
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The per-event-type figures above are a starting point. Two university extension services
+        publish the benchmarks behind them, and they agree on the shape of the answer: the count
+        per person depends on when the party falls and whether a meal is coming afterwards. A
+        reception that replaces dinner needs several times the food of a late-evening reception
+        where guests have already eaten.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Per-person appetizer benchmarks published by extension services.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Occasion</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Appetizers per person</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published by</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Reception with no meal</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">14 per hour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Michigan State University Extension</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Over the lunch hour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Michigan State University Extension</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Late afternoon or late evening reception</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6 to 8</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Michigan State University Extension</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Four-hour party, first two hours</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 8</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">UAEX, University of Arkansas System Division of Agriculture</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Four-hour party, hours three and four</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">UAEX, University of Arkansas System Division of Agriculture</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The two sources describe different kinds of party, which is why the numbers look far apart.
+        The Michigan State figures are a catering guide for receptions; the UAEX figures describe a
+        four-hour party where the appetite falls off as the evening goes on. For a four-hour event,
+        the UAEX rule is the more useful one to price, because it scales with the clock rather than
+        assuming a single rate.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            The four-hour rule worked for three party sizes (UAEX: about 8 per person in the first
+            two hours, about 4 per person after that).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Guests</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">First two hours</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Last two hours</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Total pieces</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">20</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">160</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">80</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">240</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">50</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">400</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">200</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">600</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">100</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">800</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">400</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1,200</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-10">
+        That total is pieces, not varieties. Serving four kinds of appetizer to fifty guests means
+        about 150 pieces of each rather than 600 of one, which is also the answer to the
+        &ldquo;how much of each thing&rdquo; question the planner above cannot know on its own.
+        Pair the quantities with the
+        <a href="/tools/flavor-pairing" class="text-[var(--color-wine)] underline">flavour pairing tool</a> so the spread reads as a
+        menu rather than a list.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Holding limits once the table is set
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Appetizer food sits out longer than any other course, which makes holding temperatures part
+        of the planning rather than an afterthought. The limits below come from the same extension
+        guidance as the quantities.
+      </p>
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Holding and safety limits for a buffet or appetizer table.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Item</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Limit</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published by</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Hot appetizers held for service</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140 &deg;F or warmer</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">UAEX</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cold appetizers held for service</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">39 &deg;F or colder</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">UAEX</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Food left at room temperature</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">discard after 2 hours</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">UAEX; Michigan State University Extension</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Reheating a dish before it goes back out</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165 &deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Michigan State University Extension</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>Serve hot appetizers in stages rather than all at once, so a hot tray replaces an
+          emptied one instead of sitting under a lamp.</li>
+        <li>Nest cold dishes in bowls of ice, or use small trays and replace them often &mdash;
+          dips, salads and cut fruit are the items that spend the longest on the table.</li>
+        <li>Do not reheat food in a slow cooker. Heat it to 165 &deg;F in the oven or microwave
+          first, then move it to the slow cooker to hold.</li>
+        <li>Keep the count honest: the two-hour clock applies to the food that has been out, not to
+          the party, so a late-arriving tray gets its own two hours.</li>
+      </ul>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.uaex.uada.edu/counties/miller/news/fcs/holiday-foods/Appetizers-or-Hors-d-oeuvres-Options-are-Endless.aspx" rel="noopener" class="text-[var(--color-wine)] underline">UAEX (University of Arkansas System Division of Agriculture), &ldquo;Appetizers or hors d&rsquo;oeuvres Options are Endless&rdquo;</a>;
+        <a href="https://www.canr.msu.edu/eventservices/uploads/files/Food%20&amp;%20Beverage%20Planning%20Tips.pdf" rel="noopener" class="text-[var(--color-wine)] underline">Michigan State University Extension, &ldquo;Food &amp; Beverage Planning Tips&rdquo; (PDF)</a>;
+        <a href="https://www.canr.msu.edu/news/6_tips_for_food_safety_at_holidays_parties_and_dinners" rel="noopener" class="text-[var(--color-wine)] underline">Michigan State University Extension, &ldquo;6 tips for food safety at holidays parties and dinners&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

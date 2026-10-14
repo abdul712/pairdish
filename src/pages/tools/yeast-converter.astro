@@ -114,6 +114,143 @@ import YeastConverter from '../../components/tools/YeastConverter';
     </div>
   </section>
 
+
+  <!-- Published conversion multipliers + packet-based substitutions -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Converting Between Fresh, Active Dry and Instant Yeast
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Fresh yeast, active dry yeast and instant yeast are the same organism packaged at three
+        different moisture levels, so the conversion is a matter of weight rather than of strength.
+        King Arthur Baking&rsquo;s professional reference publishes the two multipliers that cover
+        most substitutions, both written from fresh yeast as the starting point because that is
+        where the water is.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Published conversion rules (King Arthur Baking professional reference).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Converting</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Multiply the fresh weight by</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Handling note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh yeast to active dry yeast</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">0.4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Active dry must be hydrated in warm water before it goes into the
+                dough.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh yeast to instant yeast</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">0.33</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Instant can be added straight to the flour; make up the weight difference
+                with extra water so the dough yield stays the same.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Going the other way means dividing by the same multiplier, which is how a recipe written
+        around a packet of dry yeast gets translated to the block of fresh yeast at the back of the
+        shop. The two multipliers also imply a cross-rate between the dry yeasts: instant yeast is
+        about 0.825 times the weight of active dry (0.33 divided by 0.4), so active dry is about
+        1.21 times instant. Keep that in mind as an estimate rather than a rule &mdash; the
+        published guidance is to use the manufacturer&rsquo;s own ratio when it is printed on the
+        package.
+      </p>
+
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Worked conversions. Arithmetic from the rules above: fresh &times; 0.4 for
+            active dry, fresh &times; 0.33 for instant, and division to travel back to fresh.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">The recipe calls for</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Fresh</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Active dry</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Instant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh yeast, 30 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">30 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fresh yeast, 10 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3.3 g</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">One packet active dry, 7 g (1/4 oz)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 17.5 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">7 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 5.8 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">One packet instant, 7 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 21 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">about 8.5 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">7 g</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Reading the packet instead of the scale
+      </h3>
+      <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        <li>A 1/4 ounce (7 g) package of active dry yeast holds 2 1/2 teaspoons &mdash; Colorado
+          State University Extension lists it as the equivalent of one compressed yeast cake.</li>
+        <li>A tablespoon of active dry yeast is also listed as one cake of compressed yeast by New
+          Mexico State University Extension, which is the handier measure when a recipe calls for
+          an odd fraction of a packet.</li>
+        <li>Only active dry needs the warm-water step. Instant yeast can be mixed straight into the
+          flour, and fresh yeast is crumbled into the dough.</li>
+        <li>Weigh rather than scoop when precision matters: a tablespoon of active dry is a volume
+          measure, and the two dry yeasts differ in granule size.</li>
+      </ul>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        What a conversion does not fix
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Changing the yeast form does not change how fast the dough rises. Dough temperature, the
+        amount of sugar and salt in the formula, and the temperature of the room do that, which is
+        why the same recipe can double in ninety minutes in summer and in four hours in a cold
+        kitchen. Judge the rise by the dough rather than the clock: the
+        <a href="/tools/bread-proofing" class="text-[var(--color-wine)] underline">bread proofing guide</a> covers the visual cues and
+        the time-and-temperature reference table, the
+        <a href="/tools/sourdough-calculator" class="text-[var(--color-wine)] underline">sourdough calculator</a> covers the wild-yeast
+        case, and the <a href="/tools/flour-substitution" class="text-[var(--color-wine)] underline">flour substitution tool</a>
+        covers the other half of a formula swap when the flour changes at the same time. If you
+        are scaling the whole recipe rather than one ingredient, run it through the
+        <a href="/tools/recipe-scaler" class="text-[var(--color-wine)] underline">recipe scaler</a> afterwards.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.kingarthurbaking.com/pro/reference/yeast" rel="noopener" class="text-[var(--color-wine)] underline">King Arthur Baking, professional reference: &ldquo;Yeast&rdquo;</a>;
+        <a href="https://extension.colostate.edu/resource/ingredient-substitutions/" rel="noopener" class="text-[var(--color-wine)] underline">Colorado State University Extension, &ldquo;Ingredient Substitutions&rdquo;</a>;
+        <a href="https://pubs.nmsu.edu/_e/E131/index.html" rel="noopener" class="text-[var(--color-wine)] underline">New Mexico State University Extension, &ldquo;In a Pinch: Ingredient Substitution&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
