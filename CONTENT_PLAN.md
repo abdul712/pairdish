@@ -285,3 +285,23 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   13-29/day (the legacy-404 share is shrinking). Gate still ACTIVE (35 days). Next within-gate:
   the seasonal-comparison ridge, flavour-pairing-website, and the bread-proofing cluster, then the
   thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).
+- 2026-10-14 (run 17): **Three demand-matched within-gate tool-page expansions (+2,064 words) plus
+  the first three legacy-URL 301s.** `/tools/drink-calculator` 424 -> **1,285 w / 3 tables** (NIAAA
+  + CDC standard-drink table; a computed standard-drinks-per-container table with per-row
+  arithmetic; the Michigan State University Extension beverage-planning percentages with the
+  cups-to-gallons worked example) for the "cocktail party drink calculation per person formula" and
+  "drink measure calculator" ridges. `/tools/appetizer-planner` 515 -> **1,107 w / 3 tables** (MSU
+  and UAEX per-person benchmarks side by side, the four-hour rule worked for 20/50/100 guests, and
+  the 140 F / 39 F / two-hour / 165 F holding limits). `/tools/yeast-converter` 558 -> **1,169 w /
+  2 tables** (King Arthur's fresh x 0.4 / fresh x 0.33 multipliers, the derived 0.825 dry-to-dry
+  cross-rate, worked conversions, and the CSU/NMSU packet equivalents). URL hygiene: 301s for
+  `/what-to-serve-with-{fried-fish,roasted-potatoes,pesto-chicken}` -> `/articles/...`, verified in
+  both slash forms; 25 further legacy paths stay 404 because no equivalent page exists yet (Batch A
+  is still gated). QA gate PASS, deploy `de3165d6-a66f-4fe3-b87c-c64d6842cc81`, live verify PASS
+  (3/3 pages + 3/3 redirects), sitemap lastmod 2026-10-14, Bing SubmitUrlBatch done. Directory:
+  **0 submissions** — three hosts investigated (caida.eu, directory4.org, upsdirectory.com), all
+  free-tier confirmed and all stopped at a split-read captcha with no POST spent; 0 listing flips;
+  4/4 `listed` rows re-verified live. Bing window unchanged at **701 queries / 72 clicks /
+  1,101 impressions**; GSC token still dead (invalid_grant). Gate still ACTIVE (37 days). Next
+  within-gate: the seasonal-comparison and flavour-pairing ridges, the "what to serve with X"
+  cluster, then the thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).

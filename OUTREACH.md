@@ -366,3 +366,40 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   1 skipped_paid / 1 failed.**
 - Unchanged user actions: Pinterest access (account exists, no credentials here) and per-domain
   SMTP (only Gmail creds are present, so `outreach@pairdish.com` sending is still blocked).
+### Run 17 — 2026-10-14 (0 submissions; 3 captcha-class skips; 0 listing flips)
+
+- **Sourcing:** the sibling-ack sweep over the shared mailbox (window from 05-Oct) returned exactly
+  one untracked directory host with a fresh acknowledgement: **caida.eu** ("Action Required: Confirm
+  your link submission at Caida Web Directory", 2026-10-12 13:06). Non-fits rejected as before:
+  google.com, mail.perplexity.ai, provenexpert.com, starterbest.com. The HuLu Directory acceptance
+  for pairdish.com was re-confirmed in the same sweep (already recorded as `listed`).
+- **Caida Web Directory (caida.eu)** — ⛔ captcha class, **no POST spent.** phpLD-4 bare
+  `/captcha.php` template (no IMAGEHASH), free radio `LINK_TYPE=free` = "Regular Listings (6+ months
+  + review time, depending on waiting list)"; www→apex 301 to the apex host, AF_INET forced. Three
+  fresh captures each read split at exactly one character (raw/mild pairs `WFOYJM`/`WF0YUM`,
+  `9EPGUK`/`BEPGUK`, `HUXFAB`/`6UXFAB`); isolated high-zoom glyph crops contradicted one another
+  (character 3 read O / 0 / D, character 1 read 9 / B, then H / 6); the heavy threshold read was
+  garbage. The family rule is not to burn a single-use code on a split read.
+- **Directory4.org** — ⛔ captcha class, no POST spent. phpLD-5 `/submit` URL-param wizard:
+  `/submit` → category select; `/submit?c=203` → step 2 with radios 1–6 all free ("Link - free",
+  business, article, picture, video, coupon) and 7 = $1.50 premium; `/submit?c=203&LINK_TYPE=1` →
+  the detail form carrying an **IMAGEHASH** plus a 7-character `/captcha.php?imagehash=` image.
+  Four preprocessings of one capture split in the middle (raw `7K8yCMH`, mild `7KEVCMH`, median5
+  `7K8ycMII`, median3 `7KBVCMH` — two votes each). Script:
+  `scripts/dir_run17_phpld5.py` (detect / probe / step2 / captcha / post-imagehash / post).
+- **UPS Directory (upsdirectory.com)** — ⛔ same install and template as directory4.org (identical
+  category tree, cat 203 = Home > Cooking, same free radios, same IMAGEHASH captcha). Free tier
+  confirmed, captcha unreadable, no POST spent.
+- **Incidental finding worth keeping:** a second request for the same phpLD captcha phrase returns
+  "Could not fetch image phrase!" — the phrase is consumed by the first request, so fetch the image
+  once and save the bytes.
+- **Flip sweep** (`scripts/run17_dir_verify.py`, site-NAME search over all 35 submitted/pending
+  rows): **0 flips** — every reachable phpLD host returns its search page with no listing link (the
+  free queues run 2–6 months); athenelinks 404s its old search path, abicloud/brestlinks 302 to the
+  search form, entireweb/freeprwebdirectory/sitepromotion/britainbusiness 403 the scripted fetch.
+- **`listed` rows re-verified** (`scripts/run17_listed_check.py`): ShowMySites, Viesearch, HuLu
+  Directory and pairdish.com itself all return 200 with the site name in the body.
+- Tracker after run: **51 rows — 4 listed / 31 submitted / 4 pending_review / 10 skipped_other /
+  1 skipped_paid / 1 failed.**
+- Unchanged user actions: Pinterest access (account exists, no credentials here) and per-domain
+  SMTP (only Gmail creds are present, so `outreach@pairdish.com` sending is still blocked).
