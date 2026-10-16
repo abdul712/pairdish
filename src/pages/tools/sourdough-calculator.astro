@@ -107,6 +107,170 @@ import SourdoughCalculator from '../../components/tools/SourdoughCalculator';
     </div>
   </section>
 
+
+  <!-- Starter ratios, ripening checks and dough temperature -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Feeding Ratios, Ripening Checks and Dough Temperature
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Hydration is the arithmetic of a sourdough recipe; the starter is the part that is alive,
+        and living things keep their own schedule. That is why two bakers can follow the same
+        formula and get dough that proofs in four hours and dough that proofs in nine. The
+        published extension and test-kitchen guidance below covers the two variables you actually
+        control &mdash; how much food you give the starter, and how warm you keep the dough.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[660px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Starter feeding and storage, from Clemson Extension and the King Arthur Baking test
+            kitchen. Ratios are by weight, not volume.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Practice</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published guidance</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What it means for your schedule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Maintenance ratio</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A minimum of 1:1:1 &mdash; equal parts starter, flour and water by weight, discarding starter at each feed</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">One part starter carried over, one part fresh flour, one part water.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A worked 1:1:1 feed</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">50 g starter + 50 g flour + 50 g water = 150 g of starter, about &#8532; cup</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">King Arthur calls 150 g an ideal amount to keep on hand; scale all three numbers together to keep more.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Kept at room temperature</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Feed it daily</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The organisms in a starter thrive at room temperature, so this is the option for baking several times a week.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Kept in the refrigerator</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Feed it about once a week, then give it a few room-temperature feedings before baking</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cold storage slows the culture; the extra feedings are what wake it back up.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Readiness &mdash; rise</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">It should rise to double its size within 4 to 6 hours after feeding</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Clemson Extension's first test. No rise means keep feeding on the 12-hour routine.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Readiness &mdash; float test</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A small spoonful placed in a bowl of water floats when the starter is ready</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Clemson Extension's second test, and the quickest one to run on the day.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beyond the minimum</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Higher flour-to-starter ratios extend the time between feedings</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Use them when you want to feed tonight and bake tomorrow rather than twice a day.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Dough temperature, and what it does to proofing time
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Once the dough is mixed, temperature is the dial. Yeast activity rises with warmth, so a
+        dough that proofs in a warm kitchen can finish in half the time of the same dough on a cold
+        counter, and the failure mode at the fast end is over-proofing &mdash; the dough puffs,
+        then collapses, and no amount of baking brings the structure back. King Arthur's baking
+        ambassador Martin Philip puts the working band for bread dough at 72 &deg;F to 78 &deg;F,
+        described as warm enough to encourage yeast activity without letting the dough move so fast
+        that it over-proofs or fails to develop flavour.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        With the dough in that band, proofing is judged by the dough rather than the clock. Bread
+        typically doubles, or nearly doubles, in size as it proofs. For a shaped loaf in a tin the
+        published test is height: look for the dough to rise about an inch above the lip of the pan
+        and measure it rather than guessing. For a free-form loaf the test is the poke &mdash;
+        lightly flour a finger, press the dough down about an inch, and read the indentation. If
+        the indent stays, the loaf is ready to bake; if it springs back out, it needs more time.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Where the starter goes in the hydration arithmetic
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A starter is not a free ingredient. At 100 per cent hydration it is half flour and half
+        water by weight, so it counts toward both sides of the ratio. The table works the same
+        dough three ways: 500 g of total flour, 100 g of starter, and three target hydrations. In
+        every row the flour you add is 450 g, because 50 g of the flour is already inside the
+        starter.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            One dough, three targets: 500 g total flour including 100 g of 100 per cent hydration
+            starter (50 g flour + 50 g water).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Target hydration</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Total water</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Water still to add</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Flour still to add</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">65% &mdash; stiff, for sandwich loaves</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">325 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">275 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">450 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">70% &mdash; a middle ground</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">350 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">300 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">450 g</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">75% &mdash; open-crumb country loaf</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">375 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">325 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">450 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">80% &mdash; high hydration, harder to handle</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">400 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">350 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">450 g</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Read the third column as the number you put on the scale and the second as the number you
+        are aiming at. If you change the starter weight, both the flour and the water you add move
+        in opposite directions, which is exactly the correction the calculator above automates. For
+        the leavening conversions that sit alongside this one, see the
+        <a href="/tools/yeast-converter" class="text-[var(--color-wine)] underline">yeast
+        converter</a> and the
+        <a href="/tools/bread-proofing" class="text-[var(--color-wine)] underline">bread proofing
+        calculator</a>, and for the bake itself the
+        <a href="/tools/oven-temperature" class="text-[var(--color-wine)] underline">oven
+        temperature converter</a> covers the gas-mark and convection adjustments.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://hgic.clemson.edu/how-to-make-feed-and-bake-with-a-sourdough-starter-sourdough-101-guide/" rel="noopener" class="text-[var(--color-wine)] underline">Clemson University Home &amp; Garden Information Center, &ldquo;How to Make, Feed, and Bake With a Sourdough Starter&rdquo;</a>;
+        <a href="https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe" rel="noopener" class="text-[var(--color-wine)] underline">King Arthur Baking, &ldquo;Feeding and Maintaining Your Sourdough Starter&rdquo;</a>;
+        <a href="https://www.kingarthurbaking.com/blog/2023/08/31/proofing-bread" rel="noopener" class="text-[var(--color-wine)] underline">King Arthur Baking, &ldquo;What is proofing bread? And how do I get it right?&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

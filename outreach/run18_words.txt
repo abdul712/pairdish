@@ -1,0 +1,22 @@
+slug                      words  tables   h2   h3  ext  int
+flour-substitution          913       1    5   16    7   30
+substitution-finder         814       1    4    8    7   29
+unit-converter              232       0    3    7    3   26
+sourdough-calculator        308       0    7    5    3   26
+cooking-time                261       0    3    6    3   26
+oven-temperature            263       1    3    6    3   26
+bread-proofing              954       2    4   10    8   30
+pan-size-converter          345       1    5    7    3   26
+leftover-matcher            324       0    4   11    3   26
+pantry-helper               355       0    4   12    3   28
+meal-prep                   267       1    4    3    3   29
+grocery-list                196       0    5    4    3   28
+recipe-generator            204       0    3    4    3   26
+potluck-coordinator         193       0    2   10    3   26
+cooking-style-quiz          178       0    3    6    3   26
+dietary-finder              690       0    8   28    3   26
+glycemic-index              645       0    3   66    3   26
+caffeine-calculator         368       0    6    4    3   26
+seasonal-guide             1891       3    6    9    7   35
+flavor-pairing             1506       3    5   11    6   42
+BOTHDONE

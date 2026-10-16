@@ -1,0 +1,54 @@
+=== 1. sitemap sweep ===
+sitemap URLs: 52
+  meta>160 or missing: none
+  FAQ markers: ['https://pairdish.com/contact']
+  href=undefined: none
+
+=== 2. Bing traffic ===
+  window 2025-09-07 .. 2026-10-14: clicks=80 impressions=2821 rows=96
+  last 7 rows: [('2026-10-08', 1, 52), ('2026-10-09', 2, 35), ('2026-10-10', 0, 39), ('2026-10-11', 0, 39), ('2026-10-12', 3, 57), ('2026-10-13', 2, 53), ('2026-10-14', 1, 45)]
+
+=== 3. Bing query stats ===
+  queries=701 clicks=72 impressions=1101
+    i= 22 c= 0  what to serve with philly cheesesteak
+    i= 16 c= 0  seasonal ingredients breakdown
+    i= 13 c= 0  compare seasonal ingredients
+    i= 10 c= 0  where to find seasonal ingredients
+    i=  9 c= 0  must see seasonal ingredients
+    i=  7 c= 0  flavour pairing
+    i=  7 c= 0  flavour pairing website
+    i=  7 c= 0  macro balance calculator
+    i=  5 c= 1  flavor pairing tool
+    i=  5 c= 0  herbs and spices pairing flavor wheel
+    i=  5 c= 0  seasonal ingredients comparison
+    i=  5 c= 0  seasonal ingredients guide
+    i=  5 c= 0  whag to serve with pork loin australia
+    i=  4 c= 0  best french toast served with?.com
+    i=  4 c= 0  bread dough proofing 6 hours room temperature food safety yeast dough
+    i=  4 c= 0  casis puree pair with herb
+    i=  4 c= 0  chocolate dessert coffee pairing guide
+    i=  4 c= 0  coffee dessert pairing guide chocolate cheesecake fruit desserts
+    i=  4 c= 0  emmental cheese pairing figs wine nuts honey official cheese pairing
+    i=  4 c= 0  final proof enriched dough 24 25 c hokkaido milk bread poke test
+    i=  4 c= 0  food and beverage buffet menu planning dishes
+    i=  4 c= 0  for 60 grams of cake flour, how much all-purpose and how much corn flour should i use?
+    i=  4 c= 0  make me a buffet menu that has fish, chicken, pork, beef, vegetable, and salad
+    i=  4 c= 0  matches well with taste flavor examples
+    i=  4 c= 0  no, 3 cups flour + cornstarch
+    i=  4 c= 0  pair of dishes
+    i=  4 c= 0  proofing bread dough twice its size baking temperature 180 c
+    i=  4 c= 1  schnitzel side dishes
+    i=  4 c= 0  what flavor matches cloves from this list only food compounds (spice profiles) (p) phenols (f) fruity (te) terpenes (fragrant, earthy, penetrating or citrus) (py) pyrazines (toasty) (a) sweet-sour acids (s) sulphurous compounds (pu) pungent compounds (u) unique compounds
+    i=  4 c= 0  what flavor matches cubed pepper from this list only food compounds (spice profiles) (p) phenols (f) fruity (te) terpenes (fragrant, earthy, penetrating or citrus) (py) pyrazines (toasty) (a) sweet-sour acids (s) sulphurous compounds (pu) pungent compounds (u) unique compounds
+
+=== 4. Bing crawl stats (last 6) ===
+  2026-10-07: 2xx=62 4xx=17 5xx=0 301=2 crawled=31 inIndex=56
+  2026-10-08: 2xx=62 4xx=18 5xx=0 301=2 crawled=28 inIndex=56
+  2026-10-09: 2xx=62 4xx=28 5xx=0 301=2 crawled=41 inIndex=56
+  2026-10-10: 2xx=62 4xx=33 5xx=0 301=2 crawled=47 inIndex=56
+  2026-10-12: 2xx=62 4xx=30 5xx=0 301=2 crawled=45 inIndex=56
+  2026-10-13: 2xx=62 4xx=18 5xx=0 301=2 crawled=28 inIndex=56
+
+=== 5. Bing feeds ===
+  https://www.pairdish.com/sitemap.xml | Success | urls=52 | last=/Date(1791819781000)/
+  https://pairdish.com/sitemap.xml | Success | urls=52 | last=/Date(1791900807000)/

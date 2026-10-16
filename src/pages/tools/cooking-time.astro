@@ -119,6 +119,178 @@ import CookingTimeCalculator from '../../components/tools/CookingTimeCalculator'
     </div>
   </section>
 
+
+  <!-- FSIS safe minimum internal temperatures + the holding clock -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Safe Minimum Internal Temperatures: the Numbers Behind the Timer
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Recipes give you minutes because minutes are what a cook can watch. The federal food-safety
+        guidance gives you degrees, because degrees are what a thermometer can check. The two are
+        not interchangeable: a roast that reaches its target temperature five minutes early is
+        done, and a roast that has sat in the oven for the recipe's full time can still be under
+        done if it started cold or the oven ran low. The table below is the published target list
+        used by the U.S. Department of Agriculture's Food Safety and Inspection Service, and it is
+        meant to be read with a probe thermometer in hand.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Safe minimum internal temperatures (USDA FSIS, last updated 14 April 2025). Measure
+            with a food thermometer before the food leaves the heat source.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Product</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Minimum internal temperature</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Rest time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beef, pork, veal and lamb steaks, chops and roasts</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">145 &deg;F (62.8 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">At least 3 minutes</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ground meats (beef, pork, veal, lamb)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">160 &deg;F (71.1 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ground poultry</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165 &deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ham, fresh or smoked (uncooked)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">145 &deg;F (62.8 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">At least 3 minutes</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fully cooked ham, reheated</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140 &deg;F (60 &deg;C) if packaged in a USDA-inspected plant; 165 &deg;F (73.9 &deg;C) otherwise</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">All poultry &mdash; breasts, whole bird, legs, thighs, wings, giblets, stuffing</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165 &deg;F (73.9 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Eggs and egg dishes</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">160 &deg;F (71.1 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fish and shellfish</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">145 &deg;F (62.8 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Leftovers</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165 &deg;F (73.9 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Casseroles</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165 &deg;F (73.9 &deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not specified</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The rest time is not a serving suggestion. FSIS writes the three-minute rest into the same
+        line as the 145 &deg;F figure for steaks, chops and roasts, which means the temperature and
+        the waiting are one instruction. There is a mechanical reason: a roast pulled from the oven
+        keeps rising in temperature as heat migrates from the surface to the centre, so the reading
+        you take at the moment you move it to the board is not the reading five minutes later.
+        Carrying the meat to its rest and then slicing it early is what produces the pool of juice
+        on the board &mdash; the liquid leaves with the cut instead of staying in it.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Convert the targets once and keep them on the fridge. The
+        <a href="/tools/oven-temperature" class="text-[var(--color-wine)] underline">oven temperature
+        converter</a> handles the Celsius side of the same problem, and the
+        <a href="/tools/unit-converter" class="text-[var(--color-wine)] underline">unit converter</a>
+        covers the weights and volumes you measure the rest of the meal in.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        How long food can wait once it is cooked
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Cooking time ends when the food comes off the heat. What happens next has its own published
+        limits, and they are the ones most often broken at a buffet, a cookout or a holiday table,
+        where the food is held for the length of the meal rather than eaten straight away.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[620px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Holding and resting limits (USDA FSIS).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Situation</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published limit</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Why it is the number it is</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Food left out of refrigeration</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Never more than 2 hours</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bacteria grow most rapidly between 40 &deg;F and 140 &deg;F and can double in number in as little as 20 minutes.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Food left out when the air temperature is above 90 &deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not more than 1 hour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A hot room shortens the safe window; the same 20-minute doubling applies faster.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Hot holding at the table or on a buffet</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140 &deg;F or above</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Chafing dishes, preheated steam tables, warming trays and slow cookers are the listed equipment.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cold holding at the table or on a buffet</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">40 &deg;F or below</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Keep containers on ice; this is the bottom edge of the danger zone.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Reheating leftovers</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165 &deg;F, or until hot and steaming</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Higher than the original cook temperature because the food has been handled and stored since.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        One practical consequence for timing: build the rest into the plan instead of treating it as
+        dead time. If a roast needs three minutes on the board before carving, that is three minutes
+        you can spend moving the
+        <a href="/tools/buffet-planner" class="text-[var(--color-wine)] underline">buffet</a> to the
+        table, and it is also three minutes the
+        <a href="/tools/sourdough-calculator" class="text-[var(--color-wine)] underline">bread or
+        dough</a> sitting next to it does not get. The
+        <a href="/tools/recipe-scaler" class="text-[var(--color-wine)] underline">recipe scaler</a>
+        handles the quantity side of the same meal.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources: <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" rel="noopener" class="text-[var(--color-wine)] underline">USDA Food Safety and Inspection Service, &ldquo;Safe Minimum Internal Temperature Chart&rdquo;</a>;
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="text-[var(--color-wine)] underline">USDA FSIS, &ldquo;Danger Zone (40 &deg;F &ndash; 140 &deg;F)&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
