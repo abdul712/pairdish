@@ -21,6 +21,7 @@ PAGES = {
         "How long food can wait once it is cooked",
         "Holding and resting limits",
         "Never more than 2 hours",
+        "The oven dial is not the food temperature",
     ],
     "src/pages/tools/unit-converter.astro": [
         "How a Cup Is Actually Defined",
@@ -29,6 +30,8 @@ PAGES = {
         "Published one-cup weights",
         "Sugar (granulated white)",
         "Cornmeal, whole",
+        "Worked conversions for recipe-sized amounts",
+        "20 &times; 120 g = 2,400 g",
     ],
     "src/pages/tools/sourdough-calculator.astro": [
         "Feeding Ratios, Ripening Checks and Dough Temperature",
