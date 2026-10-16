@@ -305,3 +305,31 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   1,101 impressions**; GSC token still dead (invalid_grant). Gate still ACTIVE (37 days). Next
   within-gate: the seasonal-comparison and flavour-pairing ridges, the "what to serve with X"
   cluster, then the thin tail (cooking-style-quiz, grocery-list, potluck-coordinator).
+- 2026-10-16 (run 18): **Three demand-matched within-gate tool-page expansions (+2,350 words
+  live) plus the first site-wide audit catch of the visible-FAQ rule.** `/tools/unit-converter`
+  232 -> **1,006 w / 2 tables** (household measures defined for U.S. nutrition labelling, read from
+  21 CFR 101.9(b)(5)(viii) — tsp 5 mL, tbsp 15 mL, cup 240 mL, fl oz 30 mL, oz 28 g — the 240 mL
+  labelling cup versus the 236.6 mL customary cup, a fourteen-row one-cup weight table from the
+  King Arthur ingredient weight chart, the weight-ounce / fluid-ounce trap, and five worked
+  conversions) for the ~60-impression flour cup-to-gram cluster. `/tools/cooking-time` 261 ->
+  **1,100 w / 2 tables** (the USDA FSIS Safe Minimum Internal Temperature Chart for ten product
+  classes with the three-minute rest inside the 145 &deg;F line, the FSIS holding clock of 2 hours /
+  1 hour above 90 &deg;F / 140 &deg;F hot / 40 &deg;F cold / 165 &deg;F reheat, and why the oven dial
+  is not the food temperature) for the baking-temperature and internal-temperature ridge.
+  `/tools/sourdough-calculator` 308 -> **1,045 w / 2 tables** (Clemson HGIC's minimum 1:1:1 starter
+  ratio with the discard rule, the 4-6 hour doubling check and the float test; King Arthur's
+  50 g : 50 g : 50 g = 150 g base and the 72-78 &deg;F proofing band with the poke test; a worked
+  500 g total-flour table at 65/70/75/80 per cent hydration showing the starter moving both sides of
+  the ratio) for the dough-temperature cluster. **Standing-rule fix:** `/contact` had been shipping a
+  visible "Frequently Asked Questions" section for months — article- and schema-level checks never
+  covered it. Restructured to "Working With PairDish" with statement headings; every answer sentence
+  preserved and asserted both ways by the QA gate. QA gate PASS, deploy versions
+  `8b0c9559-e70c-4a48-b90c-f439b7e3d646` then `225b467d-a7d4-4fdb-a9d9-b124052afca6`, live verify PASS
+  4/4 pages + 3/3 legacy 301s in both slash forms, sitemap lastmod 2026-10-16, Bing SubmitUrlBatch
+  done. Directory: **1 new free submission** (247webdirectory.com — a new non-phpLD ASP.NET vein with
+  a free `paid=N` radio and an arithmetic captcha, categ 277 Home & Garden > Cooking) and 1
+  `skipped_paid` probe (wired.business $29); 0 listing flips; 0 pending confirmations. Bing window
+  unchanged at **701 queries / 72 clicks / 1,101 impressions**; GSC token still dead (invalid_grant,
+  five runs). Gate still ACTIVE (39 days). Next within-gate: dietary-finder and glycemic-index (the
+  largest zero-table pages), then the seasonal-guide and flavour-pairing ridges, then the thin tail
+  (cooking-style-quiz, potluck-coordinator, grocery-list).

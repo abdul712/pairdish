@@ -403,3 +403,35 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   1 skipped_paid / 1 failed.**
 - Unchanged user actions: Pinterest access (account exists, no credentials here) and per-domain
   SMTP (only Gmail creds are present, so `outreach@pairdish.com` sending is still blocked).
+### Run 18 — 2026-10-16 (1 new free submission; 0 listing flips; 0 pending confirmations)
+
+- **A NEW non-phpLD vein: `247webdirectory.com`, submitted free.** The form is ASP.NET MVC, not
+  phpLD: `/submit` renders `site_title` (≤150) / `site_url` (≤250) / `site_desc` (≤500) /
+  `email_add` / `categ_cd` (652 options, **277 = Home & Garden > Cooking**) plus a
+  `__RequestVerificationToken` (per-GET, cookie-bound), a `website_confirm` honeypot and an
+  **arithmetic** captcha ("Verification: a + b = ?", no image). The pricing radios are all named
+  `paid`; **the free tier is `paid=N`** — and the markup pre-checks `ExpediteReview` ($39.99), so
+  the free value has to be posted explicitly or the submission silently becomes a paid one. POST to
+  `/submit/save` → 200 on `/submit/confirm`, *"Thank you for your submission. Your website has been
+  received and is pending review."* Script `scripts/dir_run18_247.py` (probe / save modes).
+- **`wired.business` → skipped_paid.** Probed in a browser: `/submit` is a client-rendered $29
+  checkout (DR 78 dofollow). `yo.directory` and `twelve.tools` serve a pricing page at their submit
+  URLs → paid.
+- **Sibling-ack sweep: nothing attributable to this campaign.** Ten untracked hosts surfaced in the
+  05-Oct→16-Oct window, but every approval-shaped one belonged to another campaign —
+  `anoox.com` acked `support@pinbuilds.com`, and `exampledir.com` approvals went to
+  `mabdulrahim@gmail.com`, `+nytax`, `support@tweetreplier.com` and `abdul@flyaviary.com`.
+  Reading the **To:** header before acting is the rule that prevented a mis-attributed
+  "approval"; the sending host alone would have made three of these look like pairdish wins.
+- **Flip sweep** (`scripts/run18_dir_verify.py`): **0 flips** across all 35 submitted/pending rows
+  (site-NAME search, the only form that matches on this family). The phpLD free queues still run
+  2-6 months.
+- **Pending-confirmation sweep** (`scripts/run18_confirm_sweep.py`): **0** unclicked confirm/verify
+  mails for any of the 35 pending hosts — brestlinks was already clicked in run 16 and
+  addfreewebdirectory has not sent one.
+- Reminder (unchanged): `search.php?search=<domain>` returns 0 hits on the phpLD family even when a
+  listing exists — always search the site NAME, and keep a known-live control in the same probe.
+- Tracker after run: **53 rows — 4 listed / 32 submitted / 4 pending_review / 10 skipped_other /
+  2 skipped_paid / 1 failed.**
+- Unchanged user actions: Pinterest access (account exists, no credentials here) and per-domain
+  SMTP (only Gmail creds are present, so `outreach@pairdish.com` sending is still blocked).
