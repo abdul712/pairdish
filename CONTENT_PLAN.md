@@ -333,3 +333,35 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   five runs). Gate still ACTIVE (39 days). Next within-gate: dietary-finder and glycemic-index (the
   largest zero-table pages), then the seasonal-guide and flavour-pairing ridges, then the thin tail
   (cooking-style-quiz, potluck-coordinator, grocery-list).
+- 2026-10-19 (run 19): **Three more within-gate tool-page expansions (+2,393 live words) and the
+  glycemic-load data correction.** `/tools/dietary-finder` 690 -> **1,425 w / 2 tables** (the nine
+  FDA major food allergens with where each hides and the FASTER Act sesame/1-Jan-2023 note, the
+  legal "gluten-free" definition at under 20 ppm with its three conditions, and the NIH ODS table
+  of B12 2.4 mcg, iron 8/18 mg, calcium 1,000/1,200 mg and zinc 11/8 mg with why a restricted
+  pattern changes each) for the allergy/restriction cluster. `/tools/glycemic-index` 645 ->
+  **1,460 w / 3 tables** (the glucose vs white-bread reference scales and the 100/70 conversion,
+  the GI 55/70 and GL 10/20 bands, 20 published GI values with standard errors from the 2008
+  international tables, a six-row worked GL table with the watermelon-versus-cola case, and the
+  tables' own stated limits plus the 2021 AJCN revision) — this page had **zero inbound internal
+  links** and now has two. `/tools/caffeine-calculator` 368 -> **1,211 w / 2 tables** (a nine-row
+  guidance table drawing the FDA's 400 mg/day, ~1,200 mg toxic dose, decaf 2-15 mg/8 fl oz and
+  energy-drink 54-328 mg/16 fl oz beside EFSA's 400 mg/day, 200 mg single dose, 100 mg sleep
+  threshold, 200 mg pregnancy and 3 mg/kg children, plus EFSA's per-portion content table against
+  the calculator's own values and a 350 -> 476 mg worked day). **Data fix:** 44 of 62 rows in
+  `GlycemicIndexGuide.tsx` carried a stored GL that disagreed with GI x (carbs - fibre)/100 (cola
+  16 vs 25, rice cakes 17 vs 11, pineapple 6 vs 13); every row is now derived from its own inputs
+  and the identity is gated. Caffeine limit comments re-attributed from the FDA to EFSA. QA gate
+  PASS, deploys `74ae87a5-fb92-4727-86d4-d0d47d098cc7` then `96b6dfa3-bf08-47b6-ad0f-8093c2fc1a0e`,
+  live verify PASS (3/3 pages, 3/3 legacy 301s both slash forms), sitemap lastmod 2026-10-19, Bing
+  SubmitUrl accepted 3/3. Directory: **1 new free submission** (webdirectory.top — Laravel form,
+  leaf `categoryId` 121 House > Cooking, confirmation clicked -> pending_review) and 1 wrong-fit
+  skip (iqode.com, SaaS/agency only); 0 attributable ack mails (four approval-shaped mails from
+  untracked hosts all belonged to other campaigns); 0 flips across 35 submitted/pending rows. Bing's
+  window finally advanced to **792 queries / 80 clicks / 1,251 impressions**, with a new biggest
+  query ("what to serve with philly cheesesteak", 22 impressions) and the seasonal-ingredient ridge
+  at 20/17/16/12. GSC token still dead (invalid_grant, six runs). Gate still ACTIVE (41 days). Next
+  within-gate: the seasonal-comparison ridge (seasonal-guide is already 1,891 w, so the move is a
+  demand-matched section rather than bulk), then flavour-pairing, then the thin tail
+  (cooking-style-quiz 178 w, potluck-coordinator 193 w, grocery-list 196 w, recipe-generator 204 w,
+  meal-prep 267 w — meal-prep's unsourced "$100-150/month" and "4-6 hours" claims need sources or
+  removal before it can be expanded).

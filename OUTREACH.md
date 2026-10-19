@@ -435,3 +435,40 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   2 skipped_paid / 1 failed.**
 - Unchanged user actions: Pinterest access (account exists, no credentials here) and per-domain
   SMTP (only Gmail creds are present, so `outreach@pairdish.com` sending is still blocked).
+### Run 19 — 2026-10-19 (1 new free submission; 0 listing flips; 0 attributable acks)
+
+- **A new free vein: `webdirectory.top`, submitted and confirmed.** Laravel `/submit` (not phpLD):
+  `_token` + cookie-bound form with `title` (>10 chars), `domain`, `description` (>=150 chars; 251
+  used), `email`, and a JS-built `categoryId`. Two details decide it. The category builder
+  (`/js/categoriesBuilder.js`) removes `name` from every select and gives it to the **last
+  non-empty select**, so the value has to be posted as `categoryId=<leaf id>` explicitly. And the
+  validator takes **leaf ids only** — the tree exposes `Cooking` at id **121** under `House` (118),
+  and 121 has no children, so it is the leaf to post (118 is a parent and is rejected). Post to the
+  **APEX** host: the www variant 301s and urllib re-issues the POST as GET, dropping the payload.
+  Response: 200 on `/success` — *"The request to add the site to the web directory has been
+  successfully sent"*. A confirmation mail then arrived for `mabdulrahim+pairdish@gmail.com`
+  ("Request Confirmation :: pairdish.com") and its link was clicked — *"The request to add the site
+  to the web directory has been successfully confirmed … your site will be reviewed"*. Unconfirmed
+  requests are deleted, so the click is the submission. Script: `scripts/dir_run19_wdt.py`.
+- **`iqode.com` → skipped_other (wrong fit, not an access problem).** `/submit` is a
+  SaaS-tool / web-agency directory whose first step forces one of those two categories. PairDish is
+  a content-and-tools site, so it was logged rather than filed under a category that misdescribes it.
+  (`/submit` is an SPA shell — 2.3 KB — so the probe went through the browser.)
+- **Sibling-ack sweep: nothing attributable.** Four approval-shaped mails surfaced from untracked
+  hosts — `activdirectory.net` ("Approved Link Submission", 2026-10-14),
+  `anoox.com` ("Confirm your URL submitted", 2026-10-15),
+  `secretsearchenginelabs.com` ("Please confirm your URL submission!", 2026-10-15) and
+  `toolwise.ai` ("We received your ToolWise submission", 2026-10-17). **Every one belongs to another
+  campaign** — the To: headers read `mabdulrahim+pairingplates@gmail.com` and
+  `support@pinbuilds.com`. Nothing was clicked or logged. Reading the To: line before acting
+  prevented three false "approvals" for this site.
+- **Flip sweep** (`scripts/run18_dir_verify.py`, site-NAME search over all 35 submitted/pending
+  rows): **0 flips.** The phpLD free queues still run 2-6 months; athenelinks 404s its old search
+  path, abicloud/brestlinks 302 to the search form, britainbusiness 403s the scripted fetch.
+  `247webdirectory` (run 18) still 404s its search path, which is normal pre-approval.
+- Tracker after run: **55 rows — 4 listed / 32 submitted / 5 pending_review / 11 skipped_other /
+  2 skipped_paid / 1 failed.**
+- Unchanged user actions: Google re-consent (sixth run blocked, `invalid_grant`), Pinterest access
+  (account exists, no credentials here) and per-domain SMTP (only `EMAIL_ADDRESS` /
+  `GMAIL_APP_PASSWORD` in `~/.hermes/.env`, so `outreach@pairdish.com` sending is still blocked and
+  link outreach has not been attempted).

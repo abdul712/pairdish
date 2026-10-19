@@ -1312,7 +1312,7 @@ note appended after the URL must be split on whitespace before it is fetched (tw
 000 until that was fixed — a checker bug that looked like a dead listing); and the phpLD-5
 `IMAGEHASH` captcha image is consumed by its first request.
 
-### Run 18 — 2026-10-16 (this run)
+### Run 18 — 2026-10-16
 
 **Phase 1 / 6 audit (live sweep).** All **52/52** sitemap URLs return 200. Every meta description
 is within 160 characters, `href="undefined"` count 0 and no `FAQPage` markup anywhere in the
@@ -1444,3 +1444,119 @@ label can carry its operator as an HTML entity (`&#x2B;`), so the arithmetic mus
 5. **Pinterest access + per-domain SMTP (domain-email sending)** remain user actions (unchanged;
    only `EMAIL_ADDRESS` / `GMAIL_APP_PASSWORD` exist in `~/.hermes/.env`, so link outreach from
    `outreach@pairdish.com` is still not sendable and has not been attempted).
+
+
+### Run 19 — 2026-10-19 (this run)
+
+**Phase 1 / 6 audit (live sweep).** All **52/52** sitemap URLs return 200. Every meta description is
+within 160 characters, `href="undefined"` count 0, `FAQPage` and visible "Frequently Asked
+Questions" count 0 across the sitemap (the `/contact` fix from run 18 holds). No page needed a
+repair this run.
+
+**Bing traffic — the rolling window advanced.** `GetQueryStats` now reports **792 queries / 80
+clicks / 1,251 impressions**, up from the 701 / 72 / 1,101 figure that had been frozen since
+2026-10-12. `GetRankAndTrafficStats` covers 2025-09-07 to 2026-10-17 and totals **82 clicks /
+2,940 impressions** over that year (99 daily rows), with the last seven days running 34-57
+impressions and 0-3 clicks a day. The window's biggest single query is new:
+**"what to serve with philly cheesesteak" at 22 impressions**, and the seasonal-ingredient ridge
+that run 18 flagged as a target now reads 20 / 17 / 16 / 12 impressions across four phrasings
+("must see seasonal ingredients", "seasonal ingredients breakdown", "compare seasonal ingredients",
+"where to find seasonal ingredients"). `GetCrawlStats` 2026-10-12..17: Code2xx 62 every day,
+Code4xx between 14 and 33, 301s 1-2, InIndex 56. Both feeds (`www.` and apex `sitemap.xml`) report
+`Success` with 52 URLs. **GSC is still dark** — `400 invalid_grant` at the token refresh, six
+consecutive runs, so Google-side coverage, queries and GA4 reads remain blocked pending the
+re-consent.
+
+**Phase 4 (within gate) — three more demand-matched tool-page expansions, and a data defect the
+new content exposed.** The review gate for new articles is still closed, so the work stays on
+existing pages. Live word counts below are from the same `main`-scoped counter used in run 18:
+
+* **`/tools/dietary-finder` 690 → 1,425 w / 2 tables.** Content: the **nine major food allergens**
+  the FDA requires on a label, with the places each hides in a meal plan and the FASTER Act note
+  (sesame is the ninth, labelling applied from 1 January 2023, and products already on shelves did
+  not have to be relabelled); the **legal definition of "gluten-free"** — under 20 ppm of
+  unavoidable gluten, with the three conditions the FDA applies; and an **NIH ODS table** of the
+  four nutrients restricted patterns lose (B12 2.4 mcg, iron 8 mg men / 18 mg women 19-50 with the
+  "vegetarians need almost twice as much" note, calcium 1,000 mg at 19-50 and 1,200 mg for women
+  51-70 and everyone 71+, zinc 11 mg men / 8 mg women). The page also states plainly that peanuts
+  are a legume and a separate allergen from tree nuts, so a "nut-free" tag is a starting point and
+  the label decides.
+* **`/tools/glycemic-index` 645 → 1,460 w / 3 tables.** Content: the glucose-versus-white-bread
+  reference scales and the 100/70 conversion; the band cut-offs the tool applies (GI 55 / 70, GL
+  10 / 20); **20 published GI values with their standard errors** from the international tables
+  (Atkinson, Foster-Powell & Brand-Miller, *Diabetes Care* 2008); a **six-row worked GL table**
+  (GI x (carbs - fibre) / 100) that includes the watermelon-versus-cola case; and the tables' own
+  stated limits — many foods tested once in ten or fewer subjects, values drifting upward with
+  faster manufacturing, WHO/ADA/Diabetes UK/Canadian Diabetes Association support described as
+  qualified, and the 2021 *AJCN* revision. This page had **zero inbound internal links** before
+  this run; it now has two contextual ones.
+* **`/tools/caffeine-calculator` 368 → 1,211 w / 2 tables.** Content: a **nine-row guidance
+  table** — FDA 400 mg/day for most adults, the FDA's ~1,200 mg toxic dose ("less than half a
+  teaspoon of pure caffeine"), decaf at 2-15 mg per 8 fl oz, energy drinks at 54-328 mg per 16 fl
+  oz; EFSA's 400 mg/day, 200 mg single dose (~3 mg/kg), 100 mg sleep threshold (~1.4 mg/kg),
+  200 mg/day in pregnancy and 3 mg/kg/day for children; AAP's advice against energy drinks for
+  children and teens and the Dietary Guidelines' "avoid under age 2", both as cited by the FDA —
+  plus **EFSA's per-portion content table** beside the calculator's own values (espresso 80 mg/60 ml
+  vs 63 mg/30 ml shot; filter coffee 90 mg/200 ml vs 95 mg/240 ml; cola 40 mg/355 ml vs 34 mg;
+  plain chocolate 25 mg/50 g vs dark 23 mg/28 g) and a worked day that lands at 350 mg and then
+  476 mg.
+
+**Data defect found and fixed (tool correctness).** The glycemic-index calculator displays a
+static `gl` per food beside its `gi`, `carbs` and `fiber`. Checked against the GL definition the
+new page teaches, **44 of 62 rows did not satisfy GL = GI x (carbs - fibre) / 100** — cola read 16
+against a computed 25, rice cakes 17 against 11, pineapple 6 against 13, blueberries 5 against 9.
+A reader doing the arithmetic on the page's own formula got a different number from the tool. All
+62 rows were rewritten from their own inputs (`scripts/run19_gl_recompute.py`) and the identity is
+now gated (`scripts/run19_gl_consistency.py`, run inside the QA gate). The live tool was re-read in
+a browser after deploy: Cola GL 25, White Rice 32, Baked Potato 28, Rice Cakes 11, Pineapple 13 —
+matching the recomputation. Separately, `CaffeineCalculator.tsx` credited the FDA with the 200 mg
+pregnancy figure and an undocumented adolescent threshold; both comments now cite EFSA, and the
+adolescent value is labelled as a derived 3 mg/kg figure rather than a published absolute.
+
+**Internal links.** `/tools/glycemic-index` had no inbound links; `/tools/nutrition-calculator` and
+`/tools/macro-calculator` now carry contextual sentences into it, and the nutrition page also links
+the dietary finder. Inbound counts after the pass: dietary-finder 4, glycemic-index 2,
+caffeine-calculator 1.
+
+**Build / deploy / verify.** QA gate PASS (tag balance, no literal escapes, no FAQ, no
+`href="undefined"`, metas <=160, every internal href on disk, official-only externals, exact table
+row counts, GL identity 62/62, caffeine attributions). Sitemap lastmod 2026-10-19 on the three
+edited URLs. Deploy `74ae87a5-fb92-4727-86d4-d0d47d098cc7` then `96b6dfa3-bf08-47b6-ad0f-8093c2fc1a0e`
+for the link pass. Live verify PASS: 1,425 / 1,460 / 1,211 words, 2 / 3 / 2 tables, metas
+160 / 138 / 137, no FAQ, no undefined, 52 sitemap URLs, and the three legacy 301s still answering
+in both slash forms. Browser test: both calculators hydrate and compute (caffeine 95 mg after one
+drip coffee; GI cards render the recomputed loads). Bing `SubmitUrl` accepted all three URLs
+(`{"d":null}`).
+
+**Phase 5 — one new free submission, one wrong-fit skip, nothing attributable from the mailbox.**
+`webdirectory.top` took a free submission: Laravel `/submit`, `_token` + cookie-bound form, the JS
+category builder posts the last non-empty select as `categoryId` and accepts **leaf ids only**
+(House 118 > Cooking 121 is a leaf; 118 is rejected), description 251 chars, posted to the APEX
+host. Response: `/success` — *"The request to add the site to the web directory has been
+successfully sent"*, then the confirmation mail (`mabdulrahim+pairdish@gmail.com`, subject "Request
+Confirmation :: pairdish.com") was clicked, answering *"successfully confirmed … your site will be
+reviewed"*. Status `pending_review`. `iqode.com` is a SaaS-tool / web-agency directory whose first
+step forces one of those two categories — wrong fit for a content-and-tools site, logged
+`skipped_other` rather than misrepresented. The sibling-ack sweep found four approval-shaped mails
+from untracked hosts (**activdirectory.net**, **anoox.com**, **secretsearchenginelabs.com**,
+**toolwise.ai**) and **all four belonged to other campaigns** — To: `mabdulrahim+pairingplates@`
+and `support@pinbuilds.com` — so nothing was attributed or clicked. Flip sweep over all 35
+submitted/pending rows: **0 flips** (the free queues still run 2-6 months; athenelinks 404s its old
+search path, abicloud/brestlinks 302 to the search form, britainbusiness 403s the scripted fetch).
+
+Tracker after run: **55 rows — 4 listed / 32 submitted / 5 pending_review / 11 skipped_other /
+2 skipped_paid / 1 failed.**
+
+**Bing's stored copies predate the expansions.** `GetUrlInfo` (url as a QUERY param — the
+body form returns an empty reply) reports DocumentSize 82,787 (dietary-finder, last crawled
+2026-10-14), 86,237 (glycemic-index, 2026-09-21), 63,379 (caffeine-calculator, 2026-09-14) and
+31,967 for `/tools/cooking-time`, which was expanded on 2026-10-16 and is still stored at its
+pre-expansion size. So the pages are held, but the stored snapshots are older than the content;
+the three `SubmitUrl` calls this run are what should pull the new versions in, and the next
+crawl-stat delta is the check.
+
+**Unchanged user actions.** (1) Google re-consent:
+`python3 ~/.hermes/scripts/webmaster_auto_add.py google-auth` — codes are single-use and expire in
+~10 minutes, and this is the sixth run blocked on it. (2) Pinterest access (the account exists; no
+credentials here). (3) Per-domain SMTP: only Gmail credentials are present, so `outreach@pairdish.com`
+sending and the link-outreach phase stay blocked.
