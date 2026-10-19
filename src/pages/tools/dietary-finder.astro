@@ -121,6 +121,193 @@ import DietaryMealFinder from '../../components/tools/DietaryMealFinder';
     </div>
   </section>
 
+  <!-- What a restriction filter can and cannot decide -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        What a Restriction Filter Can and Cannot Decide
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The finder sorts meals against twelve restriction tags &mdash; vegetarian, vegan,
+        gluten-free, dairy-free, nut-free, low-carb, keto, paleo, pescatarian, low-sodium,
+        Whole30 and low-FODMAP. A filter answers one question: does this recipe contain an
+        ingredient that breaks the tag? It cannot answer the harder question, which is whether
+        a particular package on your shelf is safe. That decision happens at the label, and the
+        label has its own rules.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        The nine allergens U.S. law requires the label to name
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Federal law names nine major food allergens. When a packaged food contains one of them,
+        or an ingredient that contains one, the label has to say so in plain language. The list
+        below is the FDA&rsquo;s own, with the places each allergen most often hides in a meal
+        plan.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            The nine major food allergens named by U.S. law (FDA).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Allergen</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What the label covers</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Where it hides in a pairing plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Milk</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Milk and ingredients derived from it</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Butter, ghee, cheese, cream, whey, casein, milk powder</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Eggs</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Egg white and yolk</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Mayonnaise, egg wash, some dried pasta, baked goods</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fish</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fish such as bass, flounder and cod</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fish sauce, anchovy in Worcestershire sauce, Caesar dressing</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Crustacean shellfish</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Crab, lobster and shrimp</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Shrimp paste, some stocks and bisques</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Tree nuts</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Almonds, walnuts, pecans and other tree nuts</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Almond flour, cashew cream, nut butters, praline</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Peanuts</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Peanuts, listed separately from tree nuts</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Satay, some chilli sauces, peanut oil, baked goods</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Wheat</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Wheat and any ingredient that contains it</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soy sauce, breadcrumbs, some stocks and spice blends</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soybeans</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soybeans and soy-derived ingredients</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Tofu, tempeh, edamame, soy sauce, some marinades</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sesame</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sesame seed and sesame-derived ingredients</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Tahini, hummus, sesame oil, some breads and crackers</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Sesame is the newest entry. The FASTER Act named it the ninth major allergen, and the
+        labeling rules applied to sesame from 1 January 2023. The FDA also notes that products
+        already on retail shelves before that date did not have to be relabelled, so older
+        stock can still be missing the declaration. One practical consequence for this tool:
+        peanuts are a legume and the FDA lists them separately from tree nuts, so a
+        &ldquo;nut-free&rdquo; tag covers both classes here but the label is what settles it.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        &ldquo;Gluten-free&rdquo; is a defined claim, not a style of eating
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        For celiac disease the phrase on the box has a legal meaning. The FDA set the limit at
+        less than 20 parts per million for the unavoidable presence of gluten, and a food may
+        carry the claim only if it contains no wheat, rye, barley or crossbreed ingredient, no
+        derivative of those grains that has not been processed to remove gluten, and no
+        derivative that still leaves 20 ppm or more. Gluten itself is a mixture of proteins
+        that occur naturally in wheat, rye and barley. That matters when you pick a side dish:
+        a rice pilaf is not automatically gluten-free if the stock or the soy sauce in it brings
+        wheat back in. Use the
+        <a href="/tools/substitution-finder" class="text-[var(--color-wine)] underline">substitution
+        finder</a> for the swap, then read the label on the replacement.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Where restricted eating patterns run short
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A restriction removes foods, and removal is where nutrient gaps start. The amounts below
+        are the published recommended daily intakes for adults from the NIH Office of Dietary
+        Supplements, with the reason each one matters for a plant-based or allergen-avoiding
+        pattern.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Recommended daily intakes for adults and why a restricted pattern changes them (NIH ODS).
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Nutrient</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published daily amount</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Who that number is for</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Why the pattern changes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Vitamin B12</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2.4 mcg</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Adults</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Plant foods contain no B12 unless they are fortified</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Iron</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">8 mg for men 19&ndash;50; 18 mg for women 19&ndash;50</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Adults by sex</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Vegetarians need almost twice as much because nonheme iron is absorbed less well</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Calcium</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1,000 mg at 19&ndash;50; 1,200 mg for women 51&ndash;70 and everyone 71 and older</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Adults by age and sex</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A dairy-free plate has to reach it through fortified drinks, tofu or greens such as kale and bok choi</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Zinc</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">11 mg for men; 8 mg for women</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Adults</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beans, nuts and whole grains carry zinc, so legume and nut exclusions remove sources</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The finder is a starting point for the meal, not a nutrition audit. Once you have three
+        meals that clear your tags, run the
+        <a href="/tools/nutrition-calculator" class="text-[var(--color-wine)] underline">nutrition
+        calculator</a> over the day to see whether the totals land near those figures, use the
+        <a href="/tools/macro-calculator" class="text-[var(--color-wine)] underline">macro
+        calculator</a> when protein and fat split matter, and keep the
+        <a href="/tools/meal-prep" class="text-[var(--color-wine)] underline">meal prep
+        planner</a> for the week so a restriction does not turn into a single repeated dish.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources:
+        <a href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/food-allergies" rel="noopener" class="text-[var(--color-wine)] underline">U.S. Food and Drug Administration, &ldquo;Food Allergies&rdquo;</a>;
+        <a href="https://www.fda.gov/consumers/consumer-updates/gluten-free-means-what-it-says" rel="noopener" class="text-[var(--color-wine)] underline">FDA, &ldquo;&lsquo;Gluten-Free&rsquo; Means What It Says&rdquo;</a>;
+        <a href="https://ods.od.nih.gov/factsheets/VitaminB12-Consumer/" rel="noopener" class="text-[var(--color-wine)] underline">NIH Office of Dietary Supplements, Vitamin B12</a>;
+        <a href="https://ods.od.nih.gov/factsheets/Iron-Consumer/" rel="noopener" class="text-[var(--color-wine)] underline">Iron</a>;
+        <a href="https://ods.od.nih.gov/factsheets/Calcium-Consumer/" rel="noopener" class="text-[var(--color-wine)] underline">Calcium</a>;
+        <a href="https://ods.od.nih.gov/factsheets/Zinc-Consumer/" rel="noopener" class="text-[var(--color-wine)] underline">Zinc</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

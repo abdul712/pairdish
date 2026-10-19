@@ -118,6 +118,223 @@ import CaffeineCalculator from '../../components/tools/CaffeineCalculator';
     </div>
   </section>
 
+  <!-- Published caffeine limits and how the calculator uses them -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        What the Published Caffeine Limits Actually Say
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The calculator adds up milligrams from a reference table of drinks and compares the total
+        with a limit you choose. Neither half of that is a guess: the limits come from published
+        regulatory advice, and the drink values are per-serving figures you can check against the
+        container in front of you. This section lays out both, because the limits are more
+        specific than the single number most people remember.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        The numbers behind each limit setting
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two agencies publish the figures used here. The U.S. Food and Drug Administration gives a
+        daily level for most adults, and the European Food Safety Authority gives both a daily
+        level and a single-dose level, which is the part that decides whether one large drink is
+        a problem.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Published caffeine guidance, by agency and population.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Guidance</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published figure</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Applies to</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Daily intake not generally associated with negative effects</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">400 mg a day</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Most adults</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">FDA</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Daily intake with no safety concern</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">400 mg a day, about 5.7 mg per kg of body weight</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Healthy adults, except pregnant women</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">EFSA</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Single dose with no safety concern</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">200 mg, about 3 mg per kg of body weight</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Healthy adults</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">EFSA</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Single dose that may affect sleep in some adults</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">100 mg, about 1.4 mg per kg of body weight</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Adults, particularly close to bedtime</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">EFSA</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pregnancy and breastfeeding</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">200 mg a day from all sources</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pregnant and lactating women</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">EFSA</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Children and adolescents</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 mg per kg of body weight a day</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Children and adolescents</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">EFSA</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Energy drinks</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Advised against for children and teens</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Children and teens</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">American Academy of Pediatrics, cited by FDA</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Caffeinated drinks</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Avoid for children younger than age 2</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Young children</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dietary Guidelines for Americans, cited by FDA</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Rapid dose associated with toxic effects</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">About 1,200 mg, less than half a teaspoon of pure caffeine</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Any adult</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">FDA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two details in that table change how the calculator should be read. First, 400 mg a day is
+        a daily total, while 200 mg is a single dose. Four 100 mg servings spread across a day sit
+        inside both, and one 300 mg serving does not. Second, the FDA describes 400 mg as about two
+        to three 12-fluid-ounce cups of coffee, which is a useful cross-check on any single value
+        you type in: if your own arithmetic disagrees with that by a wide margin, check the serving
+        size before trusting the number.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        The same drink, measured two ways
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        EFSA publishes a short guideline table of caffeine per portion, and the calculator carries
+        its own per-serving values for the drinks it lists. Put side by side, the gap between them
+        is mostly portion size rather than disagreement about the drink.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            EFSA guideline amounts beside the calculator&rsquo;s per-serving values.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Drink</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">EFSA guideline</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Calculator value</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Why the gap exists</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Espresso</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">80 mg in 60 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">63 mg in a 30 ml shot</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">60 ml is closer to a double shot than a single</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Filter coffee</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">90 mg in 200 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">95 mg in 240 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">A 40 ml larger cup, almost the same dose</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Black tea</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">50 mg in 220 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">47 mg in 240 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Steep time and leaf grade move tea more than volume</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cola</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">40 mg in 355 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">34 mg in 355 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Same can, different brand formulations</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Energy drink</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">80 mg in 250 ml</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">80 mg in a 250 ml can</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Agreement here; a 16 oz can of another brand carries 160 mg</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Plain chocolate</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">25 mg in 50 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">23 mg in 28 g of dark chocolate</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cocoa percentage differs between the two references</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Milk chocolate</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10 mg in 50 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6 mg in 28 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Lower cocoa solids, so less caffeine per gram</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The FDA gives ranges rather than per-brand values, and it makes two points worth keeping.
+        Decaffeinated coffee is not caffeine-free: the agency puts it at 2 to 15 mg in an
+        8-fluid-ounce cup. Energy drinks are wide: 54 to 328 mg per 16 fluid ounces, with a few
+        brands running 41 to 246 mg per 12 fluid ounces. Restaurants and retailers are not required
+        by law to tell you how much caffeine is in what they serve, so for a coffee-shop drink the
+        label may not exist at all and the calculator value is an estimate by drink type.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        How a day adds up
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Take a plausible day from the calculator&rsquo;s own table: two 8 oz drip coffees at
+        95 mg each is 190 mg, and one 16 oz energy drink at 160 mg takes the running total to
+        350 mg. That is 50 mg under the FDA daily level, and a single 200 mg dose still fits inside
+        the EFSA single-dose figure. Add a double espresso at 126 mg and the total is 476 mg, over
+        the daily level while the day&rsquo;s largest single serving is still only 160 mg. The two
+        limits answer different questions, which is why the calculator lets you switch between
+        them rather than showing one verdict. If sleep is the concern, the EFSA single-dose figure
+        of 100 mg is the tighter bound, and it applies to the drink closest to bedtime rather than
+        to the day&rsquo;s total.
+      </p>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        For the other half of the pairing &mdash; what to serve with the coffee &mdash; the
+        <a href="/tools/coffee-pairing" class="text-[var(--color-wine)] underline">coffee pairing
+        guide</a> works from the same idea of matching intensity, and the
+        <a href="/tools/chocolate-pairing" class="text-[var(--color-wine)] underline">chocolate
+        pairing guide</a> covers the dessert side where cocoa brings its own small dose. If sugar
+        rather than caffeine is what you are tracking, the
+        <a href="/tools/sugar-substitution" class="text-[var(--color-wine)] underline">sugar
+        substitution converter</a> handles the gram-for-gram swaps.
+      </p>
+
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+        Sources:
+        <a href="https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much" rel="noopener" class="text-[var(--color-wine)] underline">U.S. Food and Drug Administration, &ldquo;Spilling the Beans: How Much Caffeine is Too Much?&rdquo;</a>;
+        <a href="https://www.efsa.europa.eu/en/topics/topic/caffeine" rel="noopener" class="text-[var(--color-wine)] underline">European Food Safety Authority, &ldquo;Caffeine&rdquo; (Scientific Opinion on the safety of caffeine, 2015)</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

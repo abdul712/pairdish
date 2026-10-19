@@ -69,10 +69,10 @@ const beverages: Beverage[] = [
 
 // Daily limits
 const DAILY_LIMITS = {
-  safe: 400, // FDA recommended max for healthy adults
-  moderate: 200, // More conservative
-  pregnant: 200, // FDA recommendation for pregnant women
-  adolescent: 100, // For teens
+  safe: 400, // FDA: 400 mg/day is not generally associated with negative effects in most adults
+  moderate: 200, // EFSA: single doses up to 200 mg raise no safety concerns for healthy adults
+  pregnant: 200, // EFSA: up to 200 mg/day from all sources raises no safety concern for the foetus
+  adolescent: 100, // ~3 mg/kg bw/day (EFSA) for a 33 kg adolescent — derived, not a published absolute
 };
 
 const categoryInfo = {
