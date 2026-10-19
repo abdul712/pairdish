@@ -1555,6 +1555,13 @@ pre-expansion size. So the pages are held, but the stored snapshots are older th
 the three `SubmitUrl` calls this run are what should pull the new versions in, and the next
 crawl-stat delta is the check.
 
+**One article is missing from Bing's store.** Of the four Batch-A articles checked with
+`GetUrlInfo`, three are held (fried-fish 35,620 bytes / last crawled 2026-10-03, roasted-potatoes
+38,785 / 2026-10-05, high-protein-meal-prep 24,984 / 2026-09-16) while
+`/articles/what-to-serve-with-pesto-chicken` returns no record at all. It is live (200, in the
+sitemap, linked from the other two guides), so this is a discovery gap rather than a page defect;
+it was resubmitted with `SubmitUrl` this run and the next crawl-stat delta is the check.
+
 **Unchanged user actions.** (1) Google re-consent:
 `python3 ~/.hermes/scripts/webmaster_auto_add.py google-auth` — codes are single-use and expire in
 ~10 minutes, and this is the sixth run blocked on it. (2) Pinterest access (the account exists; no
