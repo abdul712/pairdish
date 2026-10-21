@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        
+        <title>Example Dir .com</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript">
+            var DOC_ROOT = 'https://exampledir.com';
+        </script>
+        
+        
+	<link rel="stylesheet" type="text/css" href="/templates/ClearLake/style/column.css" />
+	<link rel="stylesheet" type="text/css" href="/templates/ClearLake/style/form.css" />
+	<link rel="stylesheet" type="text/css" href="/templates/ClearLake/style/main_min.css" />
+        <link rel="stylesheet" type="text/css" href="/templates/ClearLake/style/colors/default-theme.css" />
+         <!--[if IE 7]>
+   	<link rel="stylesheet" type="text/css" href="/templates/ClearLake/style/ie7.css" />
+	  <![endif]-->
+
+        
+        <link rel="stylesheet" type="text/css" href="/templates/Core/DefaultFrontend/style/select2.css"  />
+        <link rel="stylesheet" type="text/css" href="/templates/Core/DefaultFrontend/style/fg.menu.css" />
+        <link rel="stylesheet" type="text/css" href="/templates/Core/DefaultFrontend/style/theme/jquery-ui-1.8.23.custom.css"  />
+
+
+        
+        
+        
+        <meta name="generator" content="PHP Link Directory 5.3" />
+
+        
+        
+                <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+        
+        
+            <script type="text/javascript">
+             var $ = jQuery.noConflict();
+            </script>
+        
+
+        <script type="text/javascript" src="/javascripts/jquery/jquery.select2.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery/jquery.fg.menu.js"></script>
+
+        <style type="text/css">
+body {
+
+
+}
+</style>
+        <script type="text/javascript" src="/javascripts/formtool/formtool.js"></script>
+        
+    </head>
+    <body>
+    <div class="topborder"></div>
+    <div class="masthead">
+            <div class="masthead-inner">
+                <div class="phpld-wbox">
+                    <div class="userPanel"> <a href="/login" class="btn-slide">Login</a>
+        &nbsp;|&nbsp;
+        <a href="/user/register" title="Register new user">Register</a> </div>
+                    <div class="phpld-clearfix"></div>
+
+                    <div class="header">
+                        <div class="headerLogo">
+	<a href="https://exampledir.com/" title="Example Dir .com">
+        <img src="https://exampledir.com/templates/ClearLake/images/logo.png" style="" alt="Example Dir .com" />
+    </a>
+                        </div>
+                        
+
+<script type="text/javascript">
+
+var servername = ""+"/Search/ajaxSearchLinks/";
+
+function split( val ) {
+    return val.split( /,\s*/ );
+}
+
+function extractLast( term ) {
+    return split( term ).pop();
+}
+
+function linkFormatResult(link) {
+    //<![CDATA[
+    var markup = "<hr \/><div class='listing-list-item ajax-search-result'>";
+    markup += "<div class='link-info'><div class='listing-title'><a href='"+link.url+"'><b>" + link.title + "</b></a></div>";
+    if (link.description !== undefined) {
+        markup += "<div class='description'><a href='"+link.url+"'>" + link.description + "</a></div>";
+    }
+    markup += "</div></div>"
+    return markup;
+    //]]>
+}
+
+
+function linkFormatSelection(link) {
+     return link.title;
+}
+
+var currEnteredData = null;
+
+jQuery(document).ready(function($){
+    $("#autoquery").select2({
+        placeholder:"Search for a link",
+        minimumInputLength:1,
+        ajax:{
+            url:servername,
+            dataType:'json',
+            quietMillis:100,
+            allowClear:true,
+            data:function (term, page) { // page is the one-based page number tracked by Select2
+                return {
+                    linkQuery: {q: term, loc: $("#autoquery-location").val()}, //search term
+                    page_limit:100 // page size
+                };
+            },
+        results:function (data, page) {
+            // notice we return the value of more so Select2 knows if more results can be loaded
+            for (x in data.result) {
+                data.result[x].id = data.result[x].url;
+            }
+            data.result.unshift({'id':data.url, 'title':currEnteredData, 'url':'/search?search='+currEnteredData})
+            return {results:data.result};
+        }
+    },
+
+    formatResult:linkFormatResult, // omitted for brevity, see the source of this page
+
+    formatSelection:linkFormatSelection // omitted for brevity, see the source of this page
+
+    }).on('change', function(event){
+
+        document.location.href = $(this).val();
+
+    });
+
+
+
+    jQuery(".select2-search input[type='text']").keyup(function(event){
+        currEnteredData = jQuery(this).val();
+
+    });
+
+	jQuery("#search_form").submit(function(){
+		jQuery("#autoquery").val(currEnteredData);		
+	});	
+
+});
+
+
+
+</script> <form class="phpld-form headerSearch" action="/search/basic" method="get" id="search_form"> <div class="phpld-columnar phpld-equalize" style="overflow: visible"> <div class="phpld-fbox-text float-left" style="margin-top:5px;"> <input name="search" maxlength="150" style="width: 400px; margin-top: 2px; height: 25px;" value="" /> </div> <div class="phpld-fbox-button float-left " style="position:absolute; margin-top:7px;"> <input class="button phpld-searchbutton" type="submit" value="GO" /> </div> </div> </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phpld-clearfix"></div>
+
+            <div id="nav">
+                <div class="phpld-wbox">
+                    <div class="phpld-hlist">
+                        <ul><li><a href="https://exampledir.com/submit">Submit Link</a></li><li><a href="https://exampledir.com/latest">Latest Links</a></li><li><a href="https://exampledir.com/top">Top Hits</a></li><li><a href="https://exampledir.com/contact">Contact</a></li><li><a href="https://exampledir.com/rss">Rss</a></li></ul>
+                   </div>
+                </div>
+            </div>
+    </div>
+    <div class="wrap">
+        
+        <div class="phpld-wbox">
+        <div class="phpld-clearfix"></div>
+        <center>
+
+
+<div id="contentad369387"></div>
+<script type="text/javascript">
+    (function(d) {
+        var params =
+        {
+            id: "754595ea-c908-4e68-9ef8-586f7b77796a",
+            d:  "b25lLXN1YmxpbWUtZGlyZWN0b3J5LmNvbQ==",
+            wid: "369387",
+            cb: (new Date()).getTime()
+        };
+
+        var qs=[];
+        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+        var s = d.createElement('script');s.type='text/javascript';s.async=true;
+        var p = 'https:' == document.location.protocol ? 'https' : 'http';
+        s.src = p + "://api.content-ad.net/Scripts/widget2.aspx?" + qs.join('&');
+        d.getElementById("contentad369387").appendChild(s);
+    })(document);
+</script>
+                    
+					
+<div id="contentad369388"></div>
+<script type="text/javascript">
+    (function(d) {
+        var params =
+        {
+            id: "7b41b296-5bed-4f19-bcb0-39428630f389",
+            d:  "b25lLXN1YmxpbWUtZGlyZWN0b3J5LmNvbQ==",
+            wid: "369388",
+            exitPop: true,
+            cb: (new Date()).getTime()
+        };
+
+        var qs=[];
+        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+        var s = d.createElement('script');s.type='text/javascript';s.async=true;
+        var p = 'https:' == document.location.protocol ? 'https' : 'http';
+        s.src = p + "://api.content-ad.net/Scripts/widget2.aspx?" + qs.join('&');
+        d.getElementById("contentad369388").appendChild(s);
+    })(document);
+</script>
+                    
+
+
+<!--Start Banner Code--><a href="http://46-directories.directoriesadvertising.com/advertising-46-directories.php" target="_blank" title="Put your 728x90 banner here"><img src="/templates/1_top_banner_728xxx90.png" alt="Put your 728x90 banner here" /></a><!--End Banner Code-->
+<link rel="stylesheet" type="text/css" href="/SponsLinks/banner-css/link_to_premium-featured-links.css" /><br><br><div class="premium-featured-links"><a href="http://exampledir.com/premium-featured-links.html" onclick="window.open('http://exampledir.com/premium-featured-links.html','newwindow','width=450,height=350');return false;" ><font color=#000000><b>&raquo;&raquo; Looking for Premium Featured Links at Very Low Prices &laquo;&laquo;</b></font></a></div>
+</center><div class="content-wrapper"><div class="path"><div class="breadcrumbs"> <span> <a href="https://exampledir.com/">                Example Dir .com
+            </a> <span class="divider">/</span> </span> <span>
+                            Submit Link
+            
+                    </span> </div></div><div class="phpld-column phpld-messages"> <p class="box error">TITLE: This TITLE already exists in our database and cannot be submitted again.</p> </div><div class="phpld-column linearize-level-1">
+<div class="phpld-col1"  style="width:25%;">
+    <div class="phpld-cbox">
+                    <div class="phpld-grid phpld-full phpld-widget" id="widget_11">
+    <div class="boxTop"></div>
+        <br />
+	<br /><br />
+<br /><br />
+<br /><br />
+
+
+
+<font color=#000000>&raquo;<strong><a href="http://46-directories.directoriesadvertising.com/advertising-46-directories.php#sponsorlink" target="_blank" title="Your Link Here for $0.80/directory">Your Link Here for $0.80</a></strong></font><br /><br />
+<font color=#000000>&raquo;<strong><a href="http://46-directories.directoriesadvertising.com/advertising-46-directories.php#sponsorlink" target="_blank" title="Your Link Here for $0.80/directory">Your Link Here for $0.80</a></strong></font><br /><br />
+	
+<ul class="boxPopCats">
+</ul>
+</div>
+
+            
+    </div>
+</div>
+<div class="phpld-col2"  style="width:25%;">
+    <div class="phpld-cbox">
+                    <div class="phpld-grid phpld-full phpld-widget" id="widget_12">
+    <div class="boxTop"></div>
+        <br />
+	<center>
+<!--Start Banner Code--><a href="http://46-directories.directoriesadvertising.com/advertising-46-directories.php#125x125banner" target="_blank" title="advertising with 46 directories"><img src="/SponsLinks/1_side_banner.png" alt="YOUR BANNER HERE" /></a><!--End Banner Code--><br /><br />
+
+
+<div id="contentad369389"></div>
+<script type="text/javascript">
+    (function(d) {
+        var params =
+        {
+            id: "107493ea-25b1-4223-a5fb-b2843ba0ccc6",
+            d:  "b25lLXN1YmxpbWUtZGlyZWN0b3J5LmNvbQ==",
+            wid: "369389",
+            cb: (new Date()).getTime()
+        };
+
+        var qs=[];
+        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+        var s = d.createElement('script');s.type='text/javascript';s.async=true;
+        var p = 'https:' == document.location.protocol ? 'https' : 'http';
+        s.src = p + "://api.content-ad.net/Scripts/widget2.aspx?" + qs.join('&');
+        d.getElementById("contentad369389").appendChild(s);
+    })(document);
+</script>
+                    
+
+<br />
+</center>
+<font color=#000000>&raquo; BUY <a href="https://www.earthworms.au"><b>Earthworms Australia</b></a> for composting and worms farms. Delivery Australia wide.</font><br /><br /><font color=#000000>&raquo; <a href="https://metatech-official.com/app-development/" title="Mobile App Development Company"><b>Mobile App Development Company</b></a> Metatech Official provides top websites and mobile app development services customised to your business needs. Our professional app developers create dynamic websites and user-friendly mobile apps for your business growth.</font><br /><br /><font color=#000000>&raquo; <a href="https://www.sosualadies.com/" title="Sosualadies | Luxury Adult Vacation"><b>Sosualadies | Luxury Adult Vacation</b></a> Since 2020, Sosualadies has been the Dominican Republic's premier luxury companion agency, connecting discerning gentlemen with beautiful, intelligent, and refined companions in the Caribbean.</font><br /><br /><font color=#000000>&raquo; <a href="https://omegle.fan" title="Omegle.fan – Best Omegle Alternative for Random Video Chat"><b>Omegle.fan – Best Omegle Alternative for Random Video Chat</b></a> Connect instantly with strangers worldwide on Omegle.fan. A fast, safe, and lightweight Omegle alternative where you can enjoy random video and text chats anytime, anywhere.</font><br /><br />
+<br />
+<font color=#000000>&raquo;<strong><a href="http://46-directories.directoriesadvertising.com/advertising-46-directories.php#sponsorlink" target="_blank" title="Your Link Here for $0.80/directory">Your Link Here for $0.80</a></strong></font><br /><br />
+<font color=#000000>&raquo;<strong><a href="http://46-directories.directoriesadvertising.com/advertising-46-directories.php#sponsorlink" target="_blank" title="Your Link Here for $0.80/directory">Your Link Here for $0.80</a></strong></font><br /><br />
+<center>
+<span style="background-color: #005083; color: #fff; padding: 3 6px;"><a href="http://www.fire-directory.com/free-directory-list-1.php" title="Fast & instant Approval Directory List - 90 WebDirectories"><font color=#FFFFFF><b>Fast & instant Approval Directory List - 90 WebDirectories</b></font></a></span><br />
+</center>
+	
+<center>
+
+
+ </center>
+</div>
+
+            
+    </div>
+</div><div class="phpld-col3"  style="margin-left:25%;
+                                margin-right:25%;">
+
+    <div class="phpld-cbox">
+                    
+                                                        <div class="phpld-grid phpld-full phpld-widget" id="widget_3">
+    <div class="boxTop"></div>
+        <div id="categ" style="display: none;"><br /> <select name="ADD_CATEGORY_ID[]" id="51"><option value="1" >|___Arts</option><option value="21" >|&nbsp;&nbsp;&nbsp;|___Animation</option><option value="22" >|&nbsp;&nbsp;&nbsp;|___Antiques</option><option value="23" >|&nbsp;&nbsp;&nbsp;|___Architecture</option><option value="24" >|&nbsp;&nbsp;&nbsp;|___Art History</option><option value="25" >|&nbsp;&nbsp;&nbsp;|___Artists</option><option value="26" >|&nbsp;&nbsp;&nbsp;|___Awards</option><option value="27" >|&nbsp;&nbsp;&nbsp;|___Bodyart</option><option value="28" >|&nbsp;&nbsp;&nbsp;|___Booksellers</option><option value="29" >|&nbsp;&nbsp;&nbsp;|___Censorship</option><option value="30" >|&nbsp;&nbsp;&nbsp;|___Classical Studies</option><option value="31" >|&nbsp;&nbsp;&nbsp;|___Costumes</option><option value="32" >|&nbsp;&nbsp;&nbsp;|___Crafts</option><option value="33" >|&nbsp;&nbsp;&nbsp;|___Cultures and Groups</option><option value="34" >|&nbsp;&nbsp;&nbsp;|___Dance</option><option value="35" >|&nbsp;&nbsp;&nbsp;|___Digital</option><option value="36" >|&nbsp;&nbsp;&nbsp;|___Education</option><option value="37" >|&nbsp;&nbsp;&nbsp;|___Events</option><option value="38" >|&nbsp;&nbsp;&nbsp;|___Humanities</option><option value="39" >|&nbsp;&nbsp;&nbsp;|___Illustration</option><option value="40" >|&nbsp;&nbsp;&nbsp;|___Institutes</option><option value="41" >|&nbsp;&nbsp;&nbsp;|___Literature</option><option value="42" >|&nbsp;&nbsp;&nbsp;|___Movies</option><option value="43" >|&nbsp;&nbsp;&nbsp;|___Museums and Galleries</option><option value="44" >|&nbsp;&nbsp;&nbsp;|___Music</option><option value="45" >|&nbsp;&nbsp;&nbsp;|___Organizations</option><option value="46" >|&nbsp;&nbsp;&nbsp;|___Painting</option><option value="47" >|&nbsp;&nbsp;&nbsp;|___People</option><option value="48" >|&nbsp;&nbsp;&nbsp;|___Performing Arts</option><option value="49" >|&nbsp;&nbsp;&nbsp;|___Photography</option><option value="50" >|&nbsp;&nbsp;&nbsp;|___Television</option><option value="51" >|&nbsp;&nbsp;&nbsp;|___Video</option><option value="52" >|&nbsp;&nbsp;&nbsp;|___Visual Arts</option><option value="53" >|&nbsp;&nbsp;&nbsp;|___Writing</option><option value="2" >|___Blogs</option><option value="54" >|&nbsp;&nbsp;&nbsp;|___Advertising and Marketing</option><option value="55" >|&nbsp;&nbsp;&nbsp;|___Arts</option><option value="56" >|&nbsp;&nbsp;&nbsp;|___Automotive</option><option value="57" >|&nbsp;&nbsp;&nbsp;|___Blogging</option><option value="58" >|&nbsp;&nbsp;&nbsp;|___Business</option><option value="59" >|&nbsp;&nbsp;&nbsp;|___Celebrities</option><option value="60" >|&nbsp;&nbsp;&nbsp;|___Computers</option><option value="61" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="62" >|&nbsp;&nbsp;&nbsp;|___Domain Names</option><option value="63" >|&nbsp;&nbsp;&nbsp;|___Eclectic</option><option value="64" >|&nbsp;&nbsp;&nbsp;|___Education</option><option value="65" >|&nbsp;&nbsp;&nbsp;|___Entertainment</option><option value="66" >|&nbsp;&nbsp;&nbsp;|___Female</option><option value="67" >|&nbsp;&nbsp;&nbsp;|___Finance and Investment</option><option value="68" >|&nbsp;&nbsp;&nbsp;|___Food and Drink</option><option value="69" >|&nbsp;&nbsp;&nbsp;|___Games</option><option value="70" >|&nbsp;&nbsp;&nbsp;|___Health and Medicine</option><option value="71" >|&nbsp;&nbsp;&nbsp;|___Home and Garden</option><option value="72" >|&nbsp;&nbsp;&nbsp;|___Internet</option><option value="73" >|&nbsp;&nbsp;&nbsp;|___Internet Marketing</option><option value="74" >|&nbsp;&nbsp;&nbsp;|___Literature</option><option value="75" >|&nbsp;&nbsp;&nbsp;|___Music</option><option value="76" >|&nbsp;&nbsp;&nbsp;|___News and Media</option><option value="77" >|&nbsp;&nbsp;&nbsp;|___Personal</option><option value="78" >|&nbsp;&nbsp;&nbsp;|___Photography</option><option value="79" >|&nbsp;&nbsp;&nbsp;|___Politics</option><option value="80" >|&nbsp;&nbsp;&nbsp;|___Programming and Development</option><option value="81" >|&nbsp;&nbsp;&nbsp;|___Real Estate</option><option value="82" >|&nbsp;&nbsp;&nbsp;|___Recreation</option><option value="83" >|&nbsp;&nbsp;&nbsp;|___Regional</option><option value="84" >|&nbsp;&nbsp;&nbsp;|___Religion</option><option value="85" >|&nbsp;&nbsp;&nbsp;|___Science</option><option value="86" >|&nbsp;&nbsp;&nbsp;|___Shopping</option><option value="87" >|&nbsp;&nbsp;&nbsp;|___Society and Culture</option><option value="88" >|&nbsp;&nbsp;&nbsp;|___Sports</option><option value="89" >|&nbsp;&nbsp;&nbsp;|___Technology</option><option value="90" >|&nbsp;&nbsp;&nbsp;|___Travel</option><option value="91" >|&nbsp;&nbsp;&nbsp;|___Web Design and Development</option><option value="3" >|___Business</option><option value="92" >|&nbsp;&nbsp;&nbsp;|___Accounting</option><option value="93" >|&nbsp;&nbsp;&nbsp;|___Agriculture and Forestry</option><option value="94" >|&nbsp;&nbsp;&nbsp;|___Arts and Entertainment</option><option value="95" >|&nbsp;&nbsp;&nbsp;|___Automotive</option><option value="96" >|&nbsp;&nbsp;&nbsp;|___Banking</option><option value="97" >|&nbsp;&nbsp;&nbsp;|___Business Services</option><option value="98" >|&nbsp;&nbsp;&nbsp;|___Chats and Forums</option><option value="99" >|&nbsp;&nbsp;&nbsp;|___Chemicals</option><option value="100" >|&nbsp;&nbsp;&nbsp;|___Classifieds</option><option value="101" >|&nbsp;&nbsp;&nbsp;|___Communications</option><option value="102" >|&nbsp;&nbsp;&nbsp;|___Construction and Maintenance</option><option value="103" >|&nbsp;&nbsp;&nbsp;|___Consumer Goods and Services</option><option value="104" >|&nbsp;&nbsp;&nbsp;|___Cooperatives</option><option value="105" >|&nbsp;&nbsp;&nbsp;|___Credit Cards</option><option value="106" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="107" >|&nbsp;&nbsp;&nbsp;|___Ecommerce</option><option value="108" >|&nbsp;&nbsp;&nbsp;|___Economics</option><option value="109" >|&nbsp;&nbsp;&nbsp;|___Education</option><option value="110" >|&nbsp;&nbsp;&nbsp;|___Electronics and Electrical</option><option value="111" >|&nbsp;&nbsp;&nbsp;|___Employment</option><option value="112" >|&nbsp;&nbsp;&nbsp;|___Energy and Environment</option><option value="113" >|&nbsp;&nbsp;&nbsp;|___Finance Services</option><option value="114" >|&nbsp;&nbsp;&nbsp;|___Food and Drink</option><option value="115" >|&nbsp;&nbsp;&nbsp;|___Healthcare</option><option value="116" >|&nbsp;&nbsp;&nbsp;|___Hospitality</option><option value="117" >|&nbsp;&nbsp;&nbsp;|___Industrial Goods and Services</option><option value="118" >|&nbsp;&nbsp;&nbsp;|___Insurance</option><option value="119" >|&nbsp;&nbsp;&nbsp;|___Intellectual Property</option><option value="120" >|&nbsp;&nbsp;&nbsp;|___International Trade</option><option value="121" >|&nbsp;&nbsp;&nbsp;|___Investments</option><option value="122" >|&nbsp;&nbsp;&nbsp;|___Labor</option><option value="123" >|&nbsp;&nbsp;&nbsp;|___Law</option><option value="124" >|&nbsp;&nbsp;&nbsp;|___Management</option><option value="125" >|&nbsp;&nbsp;&nbsp;|___Manufacturing</option><option value="126" >|&nbsp;&nbsp;&nbsp;|___Marketing and Advertising</option><option value="127" >|&nbsp;&nbsp;&nbsp;|___Mortgages</option><option value="128" >|&nbsp;&nbsp;&nbsp;|___Opportunities</option><option value="129" >|&nbsp;&nbsp;&nbsp;|___Organizations</option><option value="130" >|&nbsp;&nbsp;&nbsp;|___Outdoor Advertising</option><option value="131" >|&nbsp;&nbsp;&nbsp;|___Publishing and Printing</option><option value="132" >|&nbsp;&nbsp;&nbsp;|___Real Estate</option><option value="133" >|&nbsp;&nbsp;&nbsp;|___Small Business</option><option value="134" >|&nbsp;&nbsp;&nbsp;|___Taxes</option><option value="135" >|&nbsp;&nbsp;&nbsp;|___Trade</option><option value="136" >|&nbsp;&nbsp;&nbsp;|___Training and Development</option><option value="137" >|&nbsp;&nbsp;&nbsp;|___Transportation</option><option value="138" >|&nbsp;&nbsp;&nbsp;|___Writing and Editing</option><option value="4" >|___Computer</option><option value="139" >|&nbsp;&nbsp;&nbsp;|___Artificial Intelligence</option><option value="140" >|&nbsp;&nbsp;&nbsp;|___CAD and CAM</option><option value="141" >|&nbsp;&nbsp;&nbsp;|___Computer Science</option><option value="142" >|&nbsp;&nbsp;&nbsp;|___Consultants</option><option value="143" >|&nbsp;&nbsp;&nbsp;|___Cyberculture</option><option value="144" >|&nbsp;&nbsp;&nbsp;|___Data Communications</option><option value="145" >|&nbsp;&nbsp;&nbsp;|___Data Formats</option><option value="146" >|&nbsp;&nbsp;&nbsp;|___Desktop Customization</option><option value="147" >|&nbsp;&nbsp;&nbsp;|___Desktop Publishing</option><option value="148" >|&nbsp;&nbsp;&nbsp;|___Dictionaries</option><option value="149" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="150" >|&nbsp;&nbsp;&nbsp;|___Ebooks and Tutorials</option><option value="151" >|&nbsp;&nbsp;&nbsp;|___Education</option><option value="152" >|&nbsp;&nbsp;&nbsp;|___Employment Resources</option><option value="153" >|&nbsp;&nbsp;&nbsp;|___Games</option><option value="154" >|&nbsp;&nbsp;&nbsp;|___Graphics</option><option value="155" >|&nbsp;&nbsp;&nbsp;|___Hardware</option><option value="156" >|&nbsp;&nbsp;&nbsp;|___Human-Computer Interaction</option><option value="157" >|&nbsp;&nbsp;&nbsp;|___Industry Information</option><option value="158" >|&nbsp;&nbsp;&nbsp;|___Information Technology</option><option value="159" >|&nbsp;&nbsp;&nbsp;|___Macintosh</option><option value="160" >|&nbsp;&nbsp;&nbsp;|___Mobile Computing</option><option value="161" >|&nbsp;&nbsp;&nbsp;|___Multimedia</option><option value="162" >|&nbsp;&nbsp;&nbsp;|___Open Source</option><option value="163" >|&nbsp;&nbsp;&nbsp;|___Operating Systems</option><option value="164" >|&nbsp;&nbsp;&nbsp;|___Organizations</option><option value="165" >|&nbsp;&nbsp;&nbsp;|___Product Information and Reviews</option><option value="166" >|&nbsp;&nbsp;&nbsp;|___Programming and Development</option><option value="167" >|&nbsp;&nbsp;&nbsp;|___Robotics</option><option value="168" >|&nbsp;&nbsp;&nbsp;|___Security and Encryption</option><option value="169" >|&nbsp;&nbsp;&nbsp;|___Shopping</option><option value="170" >|&nbsp;&nbsp;&nbsp;|___Software</option><option value="171" >|&nbsp;&nbsp;&nbsp;|___Standards</option><option value="172" >|&nbsp;&nbsp;&nbsp;|___Supercomputing and Parallel Computing</option><option value="173" >|&nbsp;&nbsp;&nbsp;|___Systems</option><option value="174" >|&nbsp;&nbsp;&nbsp;|___Technical Guides and Support</option><option value="175" >|&nbsp;&nbsp;&nbsp;|___Telecommunications</option><option value="176" >|&nbsp;&nbsp;&nbsp;|___Training</option><option value="177" >|&nbsp;&nbsp;&nbsp;|___Virtual Reality</option><option value="5" >|___Education</option><option value="178" >|&nbsp;&nbsp;&nbsp;|___Academic Competitions</option><option value="179" >|&nbsp;&nbsp;&nbsp;|___Bilingual</option><option value="180" >|&nbsp;&nbsp;&nbsp;|___Career</option><option value="181" >|&nbsp;&nbsp;&nbsp;|___Chats and Forums</option><option value="182" >|&nbsp;&nbsp;&nbsp;|___Colleges and Universities</option><option value="183" >|&nbsp;&nbsp;&nbsp;|___Conferences</option><option value="184" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="185" >|&nbsp;&nbsp;&nbsp;|___Disabilities</option><option value="186" >|&nbsp;&nbsp;&nbsp;|___Distance Learning</option><option value="187" >|&nbsp;&nbsp;&nbsp;|___Early Childhood Education</option><option value="188" >|&nbsp;&nbsp;&nbsp;|___Financial Aid</option><option value="189" >|&nbsp;&nbsp;&nbsp;|___Government Agencies</option><option value="190" >|&nbsp;&nbsp;&nbsp;|___Graduation</option><option value="191" >|&nbsp;&nbsp;&nbsp;|___Homeschooling</option><option value="192" >|&nbsp;&nbsp;&nbsp;|___Instructional Technology</option><option value="193" >|&nbsp;&nbsp;&nbsp;|___Journals</option><option value="194" >|&nbsp;&nbsp;&nbsp;|___K-12</option><option value="195" >|&nbsp;&nbsp;&nbsp;|___Literacy</option><option value="196" >|&nbsp;&nbsp;&nbsp;|___News and Media</option><option value="197" >|&nbsp;&nbsp;&nbsp;|___Organizations</option><option value="198" >|&nbsp;&nbsp;&nbsp;|___Policy</option><option value="199" >|&nbsp;&nbsp;&nbsp;|___Programs</option><option value="200" >|&nbsp;&nbsp;&nbsp;|___Shopping and Services</option><option value="201" >|&nbsp;&nbsp;&nbsp;|___Special Education</option><option value="202" >|&nbsp;&nbsp;&nbsp;|___Standards and Testing</option><option value="203" >|&nbsp;&nbsp;&nbsp;|___Statistics</option><option value="204" >|&nbsp;&nbsp;&nbsp;|___Teaching</option><option value="205" >|&nbsp;&nbsp;&nbsp;|___Theory and Methods</option><option value="6" >|___Entertainment</option><option value="206" >|&nbsp;&nbsp;&nbsp;|___Amusement and Theme Parks</option><option value="207" >|&nbsp;&nbsp;&nbsp;|___Awards</option><option value="208" >|&nbsp;&nbsp;&nbsp;|___Books and Literature</option><option value="209" >|&nbsp;&nbsp;&nbsp;|___Cartoons and Animation</option><option value="210" >|&nbsp;&nbsp;&nbsp;|___Celebrities</option><option value="211" >|&nbsp;&nbsp;&nbsp;|___Chats and Forums</option><option value="212" >|&nbsp;&nbsp;&nbsp;|___Comedy</option><option value="213" >|&nbsp;&nbsp;&nbsp;|___Contests, Surveys, and Polls</option><option value="214" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="215" >|&nbsp;&nbsp;&nbsp;|___Ecards</option><option value="216" >|&nbsp;&nbsp;&nbsp;|___Entertainment and Media Production</option><option value="217" >|&nbsp;&nbsp;&nbsp;|___Events</option><option value="218" >|&nbsp;&nbsp;&nbsp;|___Food and Drink</option><option value="219" >|&nbsp;&nbsp;&nbsp;|___Humor</option><option value="220" >|&nbsp;&nbsp;&nbsp;|___Magic</option><option value="221" >|&nbsp;&nbsp;&nbsp;|___Movies</option><option value="222" >|&nbsp;&nbsp;&nbsp;|___Music</option><option value="223" >|&nbsp;&nbsp;&nbsp;|___Organizations</option><option value="224" >|&nbsp;&nbsp;&nbsp;|___Radio</option><option value="225" >|&nbsp;&nbsp;&nbsp;|___Reviews</option><option value="226" >|&nbsp;&nbsp;&nbsp;|___Shopping and Services</option><option value="227" >|&nbsp;&nbsp;&nbsp;|___Sports Entertainment</option><option value="228" >|&nbsp;&nbsp;&nbsp;|___Television</option><option value="229" >|&nbsp;&nbsp;&nbsp;|___Trivia</option><option value="7" >|___Games</option><option value="230" >|&nbsp;&nbsp;&nbsp;|___Board Games</option><option value="231" >|&nbsp;&nbsp;&nbsp;|___Card Games</option><option value="232" >|&nbsp;&nbsp;&nbsp;|___Communities and Forums</option><option value="233" >|&nbsp;&nbsp;&nbsp;|___Computer Games</option><option value="234" >|&nbsp;&nbsp;&nbsp;|___Console Games</option><option value="235" >|&nbsp;&nbsp;&nbsp;|___Console Platforms</option><option value="236" >|&nbsp;&nbsp;&nbsp;|___Developers and Publishers</option><option value="237" >|&nbsp;&nbsp;&nbsp;|___News and Reviews</option><option value="238" >|&nbsp;&nbsp;&nbsp;|___Online Games</option><option value="239" >|&nbsp;&nbsp;&nbsp;|___Puzzles</option><option value="240" >|&nbsp;&nbsp;&nbsp;|___Roleplaying</option><option value="241" >|&nbsp;&nbsp;&nbsp;|___Video Games</option><option value="8" >|___Health</option><option value="242" >|&nbsp;&nbsp;&nbsp;|___Addictions</option><option value="243" >|&nbsp;&nbsp;&nbsp;|___Alternative Medicine</option><option value="244" >|&nbsp;&nbsp;&nbsp;|___Beauty</option><option value="245" >|&nbsp;&nbsp;&nbsp;|___Chats and Forums</option><option value="246" >|&nbsp;&nbsp;&nbsp;|___Children's Health</option><option value="247" >|&nbsp;&nbsp;&nbsp;|___Conferences</option><option value="248" >|&nbsp;&nbsp;&nbsp;|___Consumer Products and Services</option><option value="249" >|&nbsp;&nbsp;&nbsp;|___Dental Health</option><option value="250" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="251" >|&nbsp;&nbsp;&nbsp;|___Disabilities</option><option value="252" >|&nbsp;&nbsp;&nbsp;|___Diseases and Conditions</option><option value="253" >|&nbsp;&nbsp;&nbsp;|___Education</option><option value="254" >|&nbsp;&nbsp;&nbsp;|___Emergency Services</option><option value="255" >|&nbsp;&nbsp;&nbsp;|___Employment Resources</option><option value="256" >|&nbsp;&nbsp;&nbsp;|___Environmental Health</option><option value="257" >|&nbsp;&nbsp;&nbsp;|___First Aid</option><option value="258" >|&nbsp;&nbsp;&nbsp;|___Fitness</option><option value="259" >|&nbsp;&nbsp;&nbsp;|___General Health</option><option value="260" >|&nbsp;&nbsp;&nbsp;|___Health Administration</option><option value="261" >|&nbsp;&nbsp;&nbsp;|___Health Care</option><option value="262" >|&nbsp;&nbsp;&nbsp;|___Hospitals and Medical Centers</option><option value="263" >|&nbsp;&nbsp;&nbsp;|___Hygiene</option><option value="264" >|&nbsp;&nbsp;&nbsp;|___Institutes</option><option value="265" >|&nbsp;&nbsp;&nbsp;|___Law</option><option value="266" >|&nbsp;&nbsp;&nbsp;|___Medical Resources</option><option value="267" >|&nbsp;&nbsp;&nbsp;|___Medicine</option><option value="268" >|&nbsp;&nbsp;&nbsp;|___Men's Health</option><option value="269" >|&nbsp;&nbsp;&nbsp;|___Mental Health</option><option value="270" >|&nbsp;&nbsp;&nbsp;|___Midwifery</option><option value="271" >|&nbsp;&nbsp;&nbsp;|___Nursing</option><option value="272" >|&nbsp;&nbsp;&nbsp;|___Nutrition</option><option value="273" >|&nbsp;&nbsp;&nbsp;|___Organizations</option><option value="274" >|&nbsp;&nbsp;&nbsp;|___Pet Health</option><option value="275" >|&nbsp;&nbsp;&nbsp;|___Pharmacy</option><option value="276" >|&nbsp;&nbsp;&nbsp;|___Podiatry</option><option value="277" >|&nbsp;&nbsp;&nbsp;|___Procedures and Therapies</option><option value="278" >|&nbsp;&nbsp;&nbsp;|___Professional Supplies and Services</option><option value="279" >|&nbsp;&nbsp;&nbsp;|___Public Health and Safety</option><option value="280" >|&nbsp;&nbsp;&nbsp;|___Reference</option><option value="281" >|&nbsp;&nbsp;&nbsp;|___Reproductive Health</option><option value="282" >|&nbsp;&nbsp;&nbsp;|___Senior Health</option><option value="284" >|&nbsp;&nbsp;&nbsp;|___Teen Health</option><option value="285" >|&nbsp;&nbsp;&nbsp;|___Traditional Medicine</option><option value="286" >|&nbsp;&nbsp;&nbsp;|___Travel Health and Medicine</option><option value="287" >|&nbsp;&nbsp;&nbsp;|___Vision</option><option value="288" >|&nbsp;&nbsp;&nbsp;|___Weight Issues</option><option value="289" >|&nbsp;&nbsp;&nbsp;|___Women's Health</option><option value="290" >|&nbsp;&nbsp;&nbsp;|___Workplace</option><option value="9" >|___Home</option><option value="291" >|&nbsp;&nbsp;&nbsp;|___Accessories</option><option value="292" >|&nbsp;&nbsp;&nbsp;|___Childcare</option><option value="293" >|&nbsp;&nbsp;&nbsp;|___Consumer Information</option><option value="294" >|&nbsp;&nbsp;&nbsp;|___Cooking</option><option value="295" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="296" >|&nbsp;&nbsp;&nbsp;|___Do It Yourself</option><option value="297" >|&nbsp;&nbsp;&nbsp;|___Family</option><option value="298" >|&nbsp;&nbsp;&nbsp;|___Flooring</option><option value="299" >|&nbsp;&nbsp;&nbsp;|___Furniture</option><option value="300" >|&nbsp;&nbsp;&nbsp;|___Gardening</option><option value="301" >|&nbsp;&nbsp;&nbsp;|___Home Improvement</option><option value="302" >|&nbsp;&nbsp;&nbsp;|___Homemaking</option><option value="303" >|&nbsp;&nbsp;&nbsp;|___Moving and Relocating</option><option value="304" >|&nbsp;&nbsp;&nbsp;|___Parenting</option><option value="305" >|&nbsp;&nbsp;&nbsp;|___Personal Finance</option><option value="306" >|&nbsp;&nbsp;&nbsp;|___Pest Control</option><option value="307" >|&nbsp;&nbsp;&nbsp;|___Pets</option><option value="308" >|&nbsp;&nbsp;&nbsp;|___Plants</option><option value="309" >|&nbsp;&nbsp;&nbsp;|___Security</option><option value="310" >|&nbsp;&nbsp;&nbsp;|___Seniors</option><option value="311" >|&nbsp;&nbsp;&nbsp;|___Shopping and Services</option><option value="312" >|&nbsp;&nbsp;&nbsp;|___Storage</option><option value="10" >|___Internet</option><option value="313" >|&nbsp;&nbsp;&nbsp;|___Access Providers</option><option value="314" >|&nbsp;&nbsp;&nbsp;|___Affiliate Programs</option><option value="315" >|&nbsp;&nbsp;&nbsp;|___Blogging and RSS</option><option value="316" >|&nbsp;&nbsp;&nbsp;|___Broadcasting</option><option value="317" >|&nbsp;&nbsp;&nbsp;|___Chat</option><option value="318" >|&nbsp;&nbsp;&nbsp;|___Content Providers</option><option value="319" >|&nbsp;&nbsp;&nbsp;|___Cybercrimes</option><option value="320" >|&nbsp;&nbsp;&nbsp;|___Domain Names</option><option value="321" >|&nbsp;&nbsp;&nbsp;|___Ecommerce</option><option value="322" >|&nbsp;&nbsp;&nbsp;|___Email</option><option value="323" >|&nbsp;&nbsp;&nbsp;|___Employment Resources</option><option value="324" >|&nbsp;&nbsp;&nbsp;|___File Sharing</option><option value="325" >|&nbsp;&nbsp;&nbsp;|___Forums</option><option value="326" >|&nbsp;&nbsp;&nbsp;|___Free Stuff</option><option value="327" >|&nbsp;&nbsp;&nbsp;|___Games</option><option value="328" >|&nbsp;&nbsp;&nbsp;|___Guides</option><option value="329" >|&nbsp;&nbsp;&nbsp;|___Internet Marketing</option><option value="330" >|&nbsp;&nbsp;&nbsp;|___Internet Service Providers</option><option value="331" >|&nbsp;&nbsp;&nbsp;|___Issues</option><option value="332" >|&nbsp;&nbsp;&nbsp;|___Multimedia</option><option value="333" >|&nbsp;&nbsp;&nbsp;|___Online Learning</option><option value="334" >|&nbsp;&nbsp;&nbsp;|___Portals</option><option value="335" >|&nbsp;&nbsp;&nbsp;|___Programming and Development</option><option value="336" >|&nbsp;&nbsp;&nbsp;|___Protocols</option><option value="337" >|&nbsp;&nbsp;&nbsp;|___Proxying and Filtering</option><option value="338" >|&nbsp;&nbsp;&nbsp;|___Radio</option><option value="339" >|&nbsp;&nbsp;&nbsp;|___Search Engine Optimization</option><option value="340" >|&nbsp;&nbsp;&nbsp;|___Searching the Web</option><option value="341" >|&nbsp;&nbsp;&nbsp;|___Security and Encryption</option><option value="342" >|&nbsp;&nbsp;&nbsp;|___Social Networking</option><option value="343" >|&nbsp;&nbsp;&nbsp;|___Software</option><option value="344" >|&nbsp;&nbsp;&nbsp;|___Spam</option><option value="345" >|&nbsp;&nbsp;&nbsp;|___Streaming</option><option value="346" >|&nbsp;&nbsp;&nbsp;|___Tools and Resources</option><option value="347" >|&nbsp;&nbsp;&nbsp;|___VoIP</option><option value="348" >|&nbsp;&nbsp;&nbsp;|___Web Applications</option><option value="349" >|&nbsp;&nbsp;&nbsp;|___Web Design and Development</option><option value="350" >|&nbsp;&nbsp;&nbsp;|___Web Directories</option><option value="351" >|&nbsp;&nbsp;&nbsp;|___Web Hosting</option><option value="352" >|&nbsp;&nbsp;&nbsp;|___Web Services</option><option value="353" >|&nbsp;&nbsp;&nbsp;|___Webmaster Resources</option><option value="354" >|&nbsp;&nbsp;&nbsp;|___Wireless LANs and WANs</option><option value="11" >|___Kids and Teens</option><option value="355" >|&nbsp;&nbsp;&nbsp;|___Arts</option><option value="356" >|&nbsp;&nbsp;&nbsp;|___Computers</option><option value="357" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="358" >|&nbsp;&nbsp;&nbsp;|___Entertainment</option><option value="359" >|&nbsp;&nbsp;&nbsp;|___Games</option><option value="360" >|&nbsp;&nbsp;&nbsp;|___People and Society</option><option value="361" >|&nbsp;&nbsp;&nbsp;|___Pre-School</option><option value="362" >|&nbsp;&nbsp;&nbsp;|___School Time</option><option value="363" >|&nbsp;&nbsp;&nbsp;|___Sports and Hobbies</option><option value="364" >|&nbsp;&nbsp;&nbsp;|___Teen Life</option><option value="12" >|___News and Media</option><option value="365" >|&nbsp;&nbsp;&nbsp;|___Arts and Humanities</option><option value="366" >|&nbsp;&nbsp;&nbsp;|___Business</option><option value="367" >|&nbsp;&nbsp;&nbsp;|___College and University</option><option value="368" >|&nbsp;&nbsp;&nbsp;|___Computers and Internet</option><option value="369" >|&nbsp;&nbsp;&nbsp;|___Cultures and Groups</option><option value="370" >|&nbsp;&nbsp;&nbsp;|___Current Events</option><option value="371" >|&nbsp;&nbsp;&nbsp;|___Education</option><option value="372" >|&nbsp;&nbsp;&nbsp;|___Entertainment</option><option value="373" >|&nbsp;&nbsp;&nbsp;|___Environment and Nature</option><option value="374" >|&nbsp;&nbsp;&nbsp;|___Government</option><option value="375" >|&nbsp;&nbsp;&nbsp;|___Health</option><option value="376" >|&nbsp;&nbsp;&nbsp;|___Home and Garden</option><option value="377" >|&nbsp;&nbsp;&nbsp;|___Journalism</option><option value="378" >|&nbsp;&nbsp;&nbsp;|___Magazines</option><option value="379" >|&nbsp;&nbsp;&nbsp;|___Marketing and Advertising</option><option value="380" >|&nbsp;&nbsp;&nbsp;|___News for Kids</option><option value="381" >|&nbsp;&nbsp;&nbsp;|___Newspapers</option><option value="382" >|&nbsp;&nbsp;&nbsp;|___Politics</option><option value="383" >|&nbsp;&nbsp;&nbsp;|___Polls and Surveys</option><option value="384" >|&nbsp;&nbsp;&nbsp;|___Regional</option><option value="385" >|&nbsp;&nbsp;&nbsp;|___Religion</option><option value="386" >|&nbsp;&nbsp;&nbsp;|___Science</option><option value="387" >|&nbsp;&nbsp;&nbsp;|___Sports</option><option value="388" >|&nbsp;&nbsp;&nbsp;|___Technology</option><option value="389" >|&nbsp;&nbsp;&nbsp;|___Television</option><option value="390" >|&nbsp;&nbsp;&nbsp;|___Traffic and Road Conditions</option><option value="391" >|&nbsp;&nbsp;&nbsp;|___Transportation</option><option value="392" >|&nbsp;&nbsp;&nbsp;|___Travel</option><option value="393" >|&nbsp;&nbsp;&nbsp;|___Weather</option><option value="394" >|&nbsp;&nbsp;&nbsp;|___Weird News</option><option value="13" >|___Recreation</option><option value="395" >|&nbsp;&nbsp;&nbsp;|___Amusement and Theme Parks</option><option value="396" >|&nbsp;&nbsp;&nbsp;|___Audio</option><option value="397" >|&nbsp;&nbsp;&nbsp;|___Automotive</option><option value="398" >|&nbsp;&nbsp;&nbsp;|___Aviation</option><option value="399" >|&nbsp;&nbsp;&nbsp;|___Birding</option><option value="400" >|&nbsp;&nbsp;&nbsp;|___Boating</option><option value="401" >|&nbsp;&nbsp;&nbsp;|___Camping</option><option value="402" >|&nbsp;&nbsp;&nbsp;|___Chats and Forums</option><option value="403" >|&nbsp;&nbsp;&nbsp;|___Climbing</option><option value="404" >|&nbsp;&nbsp;&nbsp;|___Collecting</option><option value="405" >|&nbsp;&nbsp;&nbsp;|___Cooking</option><option value="406" >|&nbsp;&nbsp;&nbsp;|___Dance</option><option value="407" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="408" >|&nbsp;&nbsp;&nbsp;|___Fishing</option><option value="409" >|&nbsp;&nbsp;&nbsp;|___Games</option><option value="410" >|&nbsp;&nbsp;&nbsp;|___Gardening</option><option value="412" >|&nbsp;&nbsp;&nbsp;|___Humor</option><option value="413" >|&nbsp;&nbsp;&nbsp;|___Hunting</option><option value="414" >|&nbsp;&nbsp;&nbsp;|___Motorcycles</option><option value="415" >|&nbsp;&nbsp;&nbsp;|___Outdoors</option><option value="416" >|&nbsp;&nbsp;&nbsp;|___Pets</option><option value="417" >|&nbsp;&nbsp;&nbsp;|___Radio</option><option value="418" >|&nbsp;&nbsp;&nbsp;|___Toys</option><option value="14" >|___Reference</option><option value="419" >|&nbsp;&nbsp;&nbsp;|___Acronyms and Abbreviations</option><option value="420" >|&nbsp;&nbsp;&nbsp;|___Ask an Expert</option><option value="421" >|&nbsp;&nbsp;&nbsp;|___Bibliographies</option><option value="422" >|&nbsp;&nbsp;&nbsp;|___Biographies</option><option value="423" >|&nbsp;&nbsp;&nbsp;|___Dictionaries</option><option value="424" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="425" >|&nbsp;&nbsp;&nbsp;|___Education</option><option value="426" >|&nbsp;&nbsp;&nbsp;|___Environment and Nature</option><option value="427" >|&nbsp;&nbsp;&nbsp;|___FAQs</option><option value="428" >|&nbsp;&nbsp;&nbsp;|___Geography</option><option value="429" >|&nbsp;&nbsp;&nbsp;|___Journals</option><option value="430" >|&nbsp;&nbsp;&nbsp;|___Knowledge Management</option><option value="431" >|&nbsp;&nbsp;&nbsp;|___Language Usage</option><option value="432" >|&nbsp;&nbsp;&nbsp;|___Libraries</option><option value="433" >|&nbsp;&nbsp;&nbsp;|___Maps</option><option value="434" >|&nbsp;&nbsp;&nbsp;|___Measurements and Units</option><option value="435" >|&nbsp;&nbsp;&nbsp;|___Museums</option><option value="436" >|&nbsp;&nbsp;&nbsp;|___Patents</option><option value="437" >|&nbsp;&nbsp;&nbsp;|___Research Papers</option><option value="438" >|&nbsp;&nbsp;&nbsp;|___Science</option><option value="439" >|&nbsp;&nbsp;&nbsp;|___Searching the Web</option><option value="440" >|&nbsp;&nbsp;&nbsp;|___Standards</option><option value="441" >|&nbsp;&nbsp;&nbsp;|___Statistics</option><option value="442" >|&nbsp;&nbsp;&nbsp;|___Student Resources</option><option value="15" >|___Regional</option><option value="443" >|&nbsp;&nbsp;&nbsp;|___Africa</option><option value="444" >|&nbsp;&nbsp;&nbsp;|___Asia</option><option value="445" >|&nbsp;&nbsp;&nbsp;|___Caribbean</option><option value="446" >|&nbsp;&nbsp;&nbsp;|___Central America</option><option value="447" >|&nbsp;&nbsp;&nbsp;|___Europe</option><option value="448" >|&nbsp;&nbsp;&nbsp;|___Middle East</option><option value="449" >|&nbsp;&nbsp;&nbsp;|___North America</option><option value="450" >|&nbsp;&nbsp;&nbsp;|___Oceania</option><option value="451" >|&nbsp;&nbsp;&nbsp;|___Polar Regions</option><option value="452" >|&nbsp;&nbsp;&nbsp;|___South America</option><option value="16" >|___Science and Technology</option><option value="453" >|&nbsp;&nbsp;&nbsp;|___Aeronautics and Aerospace</option><option value="454" >|&nbsp;&nbsp;&nbsp;|___Agriculture</option><option value="455" >|&nbsp;&nbsp;&nbsp;|___Animals, Insects, and Pets</option><option value="456" >|&nbsp;&nbsp;&nbsp;|___Anthropology and Archaeology</option><option value="457" >|&nbsp;&nbsp;&nbsp;|___Artificial Life</option><option value="458" >|&nbsp;&nbsp;&nbsp;|___Astronomy</option><option value="459" >|&nbsp;&nbsp;&nbsp;|___Biology</option><option value="460" >|&nbsp;&nbsp;&nbsp;|___Chats and Forums</option><option value="461" >|&nbsp;&nbsp;&nbsp;|___Chemistry</option><option value="462" >|&nbsp;&nbsp;&nbsp;|___Cognitive Science</option><option value="463" >|&nbsp;&nbsp;&nbsp;|___Complex Systems</option><option value="464" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="465" >|&nbsp;&nbsp;&nbsp;|___Earth Sciences</option><option value="466" >|&nbsp;&nbsp;&nbsp;|___Ecology</option><option value="467" >|&nbsp;&nbsp;&nbsp;|___Energy</option><option value="468" >|&nbsp;&nbsp;&nbsp;|___Engineering</option><option value="469" >|&nbsp;&nbsp;&nbsp;|___Forensics</option><option value="470" >|&nbsp;&nbsp;&nbsp;|___Geography</option><option value="471" >|&nbsp;&nbsp;&nbsp;|___Geology and Geophysics</option><option value="472" >|&nbsp;&nbsp;&nbsp;|___Hydrology</option><option value="473" >|&nbsp;&nbsp;&nbsp;|___Information Technology</option><option value="474" >|&nbsp;&nbsp;&nbsp;|___Instruments and Supplies</option><option value="475" >|&nbsp;&nbsp;&nbsp;|___Life Sciences</option><option value="476" >|&nbsp;&nbsp;&nbsp;|___Mathematics</option><option value="477" >|&nbsp;&nbsp;&nbsp;|___Medicine</option><option value="478" >|&nbsp;&nbsp;&nbsp;|___Meteorology</option><option value="479" >|&nbsp;&nbsp;&nbsp;|___Nanotechnology</option><option value="480" >|&nbsp;&nbsp;&nbsp;|___Physics</option><option value="481" >|&nbsp;&nbsp;&nbsp;|___Psychology</option><option value="482" >|&nbsp;&nbsp;&nbsp;|___Social Science</option><option value="483" >|&nbsp;&nbsp;&nbsp;|___Space</option><option value="17" >|___Shopping</option><option value="484" >|&nbsp;&nbsp;&nbsp;|___Antiques and Collectibles</option><option value="485" >|&nbsp;&nbsp;&nbsp;|___Auctions</option><option value="486" >|&nbsp;&nbsp;&nbsp;|___Autos</option><option value="487" >|&nbsp;&nbsp;&nbsp;|___Beauty Products</option><option value="488" >|&nbsp;&nbsp;&nbsp;|___Books</option><option value="489" >|&nbsp;&nbsp;&nbsp;|___Chemicals</option><option value="490" >|&nbsp;&nbsp;&nbsp;|___Children</option><option value="491" >|&nbsp;&nbsp;&nbsp;|___Classifieds</option><option value="492" >|&nbsp;&nbsp;&nbsp;|___Clothing</option><option value="493" >|&nbsp;&nbsp;&nbsp;|___Computers</option><option value="494" >|&nbsp;&nbsp;&nbsp;|___Consumer Electronics</option><option value="495" >|&nbsp;&nbsp;&nbsp;|___Consumer Guides</option><option value="496" >|&nbsp;&nbsp;&nbsp;|___Coupons and Discounts</option><option value="497" >|&nbsp;&nbsp;&nbsp;|___Crafts</option><option value="498" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="499" >|&nbsp;&nbsp;&nbsp;|___Electronics and Electrical Components</option><option value="500" >|&nbsp;&nbsp;&nbsp;|___Entertainment</option><option value="501" >|&nbsp;&nbsp;&nbsp;|___Flowers</option><option value="502" >|&nbsp;&nbsp;&nbsp;|___Food and Drink</option><option value="503" >|&nbsp;&nbsp;&nbsp;|___Furniture</option><option value="504" >|&nbsp;&nbsp;&nbsp;|___Gaming</option><option value="505" >|&nbsp;&nbsp;&nbsp;|___General Merchandise</option><option value="506" >|&nbsp;&nbsp;&nbsp;|___Gifts</option><option value="507" >|&nbsp;&nbsp;&nbsp;|___Health</option><option value="508" >|&nbsp;&nbsp;&nbsp;|___Holidays</option><option value="509" >|&nbsp;&nbsp;&nbsp;|___Home and Garden</option><option value="510" >|&nbsp;&nbsp;&nbsp;|___Jewelry</option><option value="511" >|&nbsp;&nbsp;&nbsp;|___Major Retailers</option><option value="512" >|&nbsp;&nbsp;&nbsp;|___Medicine</option><option value="513" >|&nbsp;&nbsp;&nbsp;|___Movies</option><option value="514" >|&nbsp;&nbsp;&nbsp;|___Music</option><option value="515" >|&nbsp;&nbsp;&nbsp;|___Navigation</option><option value="516" >|&nbsp;&nbsp;&nbsp;|___Niche</option><option value="517" >|&nbsp;&nbsp;&nbsp;|___Office Products</option><option value="518" >|&nbsp;&nbsp;&nbsp;|___Outdoors</option><option value="519" >|&nbsp;&nbsp;&nbsp;|___Pets</option><option value="520" >|&nbsp;&nbsp;&nbsp;|___Photography</option><option value="521" >|&nbsp;&nbsp;&nbsp;|___Publications</option><option value="522" >|&nbsp;&nbsp;&nbsp;|___Recreation</option><option value="523" >|&nbsp;&nbsp;&nbsp;|___Smoking Products</option><option value="524" >|&nbsp;&nbsp;&nbsp;|___Sports</option><option value="525" >|&nbsp;&nbsp;&nbsp;|___Telecommunication</option><option value="526" >|&nbsp;&nbsp;&nbsp;|___Tools</option><option value="527" >|&nbsp;&nbsp;&nbsp;|___Toys and Games</option><option value="528" >|&nbsp;&nbsp;&nbsp;|___Travel</option><option value="529" >|&nbsp;&nbsp;&nbsp;|___Vehicles</option><option value="530" >|&nbsp;&nbsp;&nbsp;|___Visual Arts</option><option value="531" >|&nbsp;&nbsp;&nbsp;|___Weddings</option><option value="532" >|&nbsp;&nbsp;&nbsp;|___Wholesale</option><option value="18" >|___Society</option><option value="533" >|&nbsp;&nbsp;&nbsp;|___Activism</option><option value="534" >|&nbsp;&nbsp;&nbsp;|___Crime</option><option value="535" >|&nbsp;&nbsp;&nbsp;|___Death</option><option value="536" >|&nbsp;&nbsp;&nbsp;|___Disabled</option><option value="537" >|&nbsp;&nbsp;&nbsp;|___Environment and Nature</option><option value="538" >|&nbsp;&nbsp;&nbsp;|___Ethnicity</option><option value="539" >|&nbsp;&nbsp;&nbsp;|___Fashion and Beauty</option><option value="540" >|&nbsp;&nbsp;&nbsp;|___Folklore</option><option value="541" >|&nbsp;&nbsp;&nbsp;|___Food and Drink</option><option value="542" >|&nbsp;&nbsp;&nbsp;|___Genealogy</option><option value="543" >|&nbsp;&nbsp;&nbsp;|___Government</option><option value="544" >|&nbsp;&nbsp;&nbsp;|___History</option><option value="545" >|&nbsp;&nbsp;&nbsp;|___Holidays and Observances</option><option value="546" >|&nbsp;&nbsp;&nbsp;|___Issues</option><option value="547" >|&nbsp;&nbsp;&nbsp;|___Language</option><option value="548" >|&nbsp;&nbsp;&nbsp;|___Law</option><option value="549" >|&nbsp;&nbsp;&nbsp;|___Men</option><option value="550" >|&nbsp;&nbsp;&nbsp;|___Military</option><option value="551" >|&nbsp;&nbsp;&nbsp;|___Mythology and Folklore</option><option value="552" >|&nbsp;&nbsp;&nbsp;|___Organizations</option><option value="553" >|&nbsp;&nbsp;&nbsp;|___Paranormal</option><option value="554" >|&nbsp;&nbsp;&nbsp;|___People</option><option value="555" >|&nbsp;&nbsp;&nbsp;|___Philanthropy</option><option value="556" >|&nbsp;&nbsp;&nbsp;|___Philosophy</option><option value="557" >|&nbsp;&nbsp;&nbsp;|___Politics</option><option value="558" >|&nbsp;&nbsp;&nbsp;|___Relationships</option><option value="559" >|&nbsp;&nbsp;&nbsp;|___Religion and Spirituality</option><option value="561" >|&nbsp;&nbsp;&nbsp;|___Sociology</option><option value="562" >|&nbsp;&nbsp;&nbsp;|___Subcultures</option><option value="563" >|&nbsp;&nbsp;&nbsp;|___Support Groups</option><option value="564" >|&nbsp;&nbsp;&nbsp;|___Women</option><option value="19" >|___Sports</option><option value="565" >|&nbsp;&nbsp;&nbsp;|___American Football</option><option value="566" >|&nbsp;&nbsp;&nbsp;|___Baseball</option><option value="567" >|&nbsp;&nbsp;&nbsp;|___Basketball</option><option value="568" >|&nbsp;&nbsp;&nbsp;|___Billiards</option><option value="569" >|&nbsp;&nbsp;&nbsp;|___Boxing</option><option value="570" >|&nbsp;&nbsp;&nbsp;|___Cheerleading</option><option value="571" >|&nbsp;&nbsp;&nbsp;|___College and University</option><option value="572" >|&nbsp;&nbsp;&nbsp;|___Cricket</option><option value="573" >|&nbsp;&nbsp;&nbsp;|___Cycling</option><option value="574" >|&nbsp;&nbsp;&nbsp;|___Directories</option><option value="575" >|&nbsp;&nbsp;&nbsp;|___Equestrian</option><option value="576" >|&nbsp;&nbsp;&nbsp;|___Fantasy</option><option value="577" >|&nbsp;&nbsp;&nbsp;|___Golf</option><option value="578" >|&nbsp;&nbsp;&nbsp;|___Gymnastics</option><option value="579" >|&nbsp;&nbsp;&nbsp;|___Hockey</option><option value="580" >|&nbsp;&nbsp;&nbsp;|___Horse Racing</option><option value="581" >|&nbsp;&nbsp;&nbsp;|___Kayaking</option><option value="582" >|&nbsp;&nbsp;&nbsp;|___Martial Arts</option><option value="583" >|&nbsp;&nbsp;&nbsp;|___Motorsports</option><option value="584" >|&nbsp;&nbsp;&nbsp;|___Paintball</option><option value="585" >|&nbsp;&nbsp;&nbsp;|___Resources</option><option value="586" >|&nbsp;&nbsp;&nbsp;|___Running</option><option value="587" >|&nbsp;&nbsp;&nbsp;|___Skateboarding</option><option value="588" >|&nbsp;&nbsp;&nbsp;|___Skating</option><option value="589" >|&nbsp;&nbsp;&nbsp;|___Soccer</option><option value="590" >|&nbsp;&nbsp;&nbsp;|___Softball</option><option value="591" >|&nbsp;&nbsp;&nbsp;|___Squash</option><option value="592" >|&nbsp;&nbsp;&nbsp;|___Strength Sports</option><option value="593" >|&nbsp;&nbsp;&nbsp;|___Table Tennis</option><option value="594" >|&nbsp;&nbsp;&nbsp;|___Tennis</option><option value="595" >|&nbsp;&nbsp;&nbsp;|___Triathlon</option><option value="596" >|&nbsp;&nbsp;&nbsp;|___Volleyball</option><option value="597" >|&nbsp;&nbsp;&nbsp;|___Water Sports</option><option value="598" >|&nbsp;&nbsp;&nbsp;|___Winter Sports</option><option value="599" >|&nbsp;&nbsp;&nbsp;|___Wrestling</option><option value="20" >|___Travel</option><option value="600" >|&nbsp;&nbsp;&nbsp;|___Destination Guides</option><option value="601" >|&nbsp;&nbsp;&nbsp;|___Directories and Search Engines</option><option value="602" >|&nbsp;&nbsp;&nbsp;|___Hospitality</option><option value="603" >|&nbsp;&nbsp;&nbsp;|___Hotels and Accommodation</option><option value="604" >|&nbsp;&nbsp;&nbsp;|___Image Gallery</option><option value="605" >|&nbsp;&nbsp;&nbsp;|___Online Reservations</option><option value="606" >|&nbsp;&nbsp;&nbsp;|___Preparation</option><option value="607" >|&nbsp;&nbsp;&nbsp;|___Property Rentals</option><option value="608" >|&nbsp;&nbsp;&nbsp;|___Specialty Travel</option><option value="609" >|&nbsp;&nbsp;&nbsp;|___Transportation</option><option value="610" >|&nbsp;&nbsp;&nbsp;|___Travel Agents</option><option value="611" >|&nbsp;&nbsp;&nbsp;|___Travelogues</option><option value="612" >|&nbsp;&nbsp;&nbsp;|___Vacation Packages</option><option value="613" >|___Web Directories</option><option value="614" >|&nbsp;&nbsp;&nbsp;|___DeepLink Directories</option><option value="615" >|&nbsp;&nbsp;&nbsp;|___Directories of Directories</option><option value="616" >|&nbsp;&nbsp;&nbsp;|___Directory Blogs</option><option value="617" >|&nbsp;&nbsp;&nbsp;|___Directory Templates</option><option value="618" >|&nbsp;&nbsp;&nbsp;|___Free Directories</option><option value="619" >|&nbsp;&nbsp;&nbsp;|___Metasearch</option><option value="620" >|&nbsp;&nbsp;&nbsp;|___Niche Directories</option><option value="621" >|&nbsp;&nbsp;&nbsp;|___Paid Directories</option><option value="622" >|&nbsp;&nbsp;&nbsp;|___Search Engines</option><option value="623" >|&nbsp;&nbsp;&nbsp;|___Submission Services</option></select>&nbsp;</div><form method="post" action="" class="cmxform phpld-form" id="submitForm" name="submitForm" enctype="multipart/form-data" ><div class="formPage"><input type="hidden" name="LINK_TYPE" value="1" checked="true" /><div class="info-box" >Fields marked with a <span class="phpld-required">*</span> are required.</div><div class="phpld-columnar phpld-equalize"><div class="phpld-label float-left"><span class="phpld-required">*</span>Title:</div><div class="field float-left"><div class="phpld-fbox-text "><input type="text" id="TITLE" name="TITLE" value="PairDish - Food Pairing Tools and What-to-Serve Guides" maxlength="200" class="text" /></div></div></div><div class="phpld-columnar phpld-equalize"> <div class="phpld-label float-left"> <span class="phpld-required">*</span>
+                URL:
+    </div> <div class="field float-left"> <div class="phpld-fbox-text "> <input type="text" name="URL" id="URL" value="https://pairdish.com" size="40" class="text" /> </div> <div class="phpld-fbox-text  small"> </div> </div> </div> <div class="phpld-columnar phpld-equalize"><div class="phpld-label float-left">Category:</div><div class="field float-left"><div class="phpld-fbox-text ">Cooking</div><div id="inlineCategSelection"><input type="hidden" id="CATEGORY_ID" name="CATEGORY_ID" value="294" /></div></div></div><div class="phpld-columnar phpld-equalize"> <div class="phpld-label float-left">
+
+                Description:
+    </div> <div class="field float-left"> <div class="phpld-fbox-text "> <div class="phpld-fbox-text"> <textarea name="DESCRIPTION" id="DESCRIPTION" rows="6" cols="50" class="text" >PairDish is a free food pairing toolkit: a flavor pairing finder, cheese board builder, nutrition and meal-prep calculators, and pairing guides that answer what to serve with any main dish. No signup needed.</textarea> </div> </div> </div> </div> <div class="phpld-columnar phpld-equalize"><div class="phpld-label float-left">Owner Name:</div><div class="field float-left"><div class="phpld-fbox-text  "><input type="text" id="OWNER_NAME" name="OWNER_NAME" value="Abdul Rahim" maxlength="50" class="text" /></div></div></div><div class="phpld-columnar phpld-equalize"><div class="phpld-label float-left">Owner Email:</div><div class="field float-left"><div class="phpld-fbox-text  "><input type="text" id="OWNER_EMAIL" name="OWNER_EMAIL" value="mabdulrahim+pairdish@gmail.com" maxlength="255" class="text" /></div><div class="phpld-clearfix"></div><p class="small"><span style="display:inline-block; float: left;width:20px;"><input type="checkbox" name="OWNER_NEWSLETTER_ALLOW" checked="checked" /></span>&nbsp;<span style="display: block; float: left; margin: 2px 0 0 0;">Allow site administrator to send me newsletters.</span><div style="clear: both;"></div></p></div></div><div class="phpld-columnar phpld-equalize"><div class="phpld-label float-left">Reciprocal Link:</div><div class="field float-left"><div class="phpld-fbox-text "><input type="text" name="RECPR_URL" id="RECPR_URL" value="" size="40" maxlength="255" class="text" /></div><div class="phpld-clearfix"></div><p class="small">To validate the reciprocal link please include the<br />following HTML code in the page at the URL<br />specified above, before submiting this form:</p><div class="phpld-fbox-text "><textarea name="RECPR_TEXT" rows="2" readonly="readonly" cols="50" class="text">&lt;a href="https://exampledir.com/"&gt;Example Dir .com&lt;/a&gt;</textarea></div></div></div><div class="phpld-columnar phpld-equalize"><div class="phpld-label float-left"><span class="phpld-required">*</span>DO THE MATH:</div><div class="field float-left"><span style="color: red;"></span><font style="font-weight: bold; font-size: 14pt; color: red; margin-right: 10px;">6 + 4 = </font><input type="text" id="DO_MATH" name="DO_MATH" value='10' class="text" style="width: 60px;"/></div></div><div class="phpld-columnar phpld-equalize"><div id="AGREERULES"><div class="phpld-label float-left" style="width:20%"><span class="phpld-required">*</span><a href="/rules" title="Submission Rules" target='_blank'>Submission Rules Agreement</a>:</div><div class="field float-left" style="width:70%"><div class="phpld-fbox-check float-left "><input type="checkbox" id="AGREERULES" name="AGREERULES" /></div><div class="phpld-label float-left">I AGREE with the <a href="/rules" title="Submission Rules" target='_blank'>submission rules</a></div></div></div></div><div class="phpld-fbox-button"><div class="phpld-fbox-button"><input type="submit" name="continue" value="Continue" onclick="this.value='Please Wait'" class="button" /></div></div><input type="hidden" name="formSubmitted" value="1" /></div></form><div class="phpld-clearfix"></div> <script type="text/javascript">
+    //<![CDATA[
+
+            jQuery(document).ready(function(){
+
+                jQuery("input[name=choicemade]").click(function(){
+
+                   // alert('asdasd');
+                    //update_form(); // albert: seems useless, we are making a refresh when the user changes the link type
+                    var ts = jQuery('input[name=LINK_TYPE]:checked').val()
+                    var lt = getUrlVars()["LINK_TYPE"];
+                    if (lt) {
+                        var url = location.href.replace("LINK_TYPE="+lt, "LINK_TYPE=" + ts);
+                    } else {
+                        if (location.href.search(/\?/) == -1) {
+                            var url = location.href + "?LINK_TYPE="+ts;
+                        } else {
+                            var url = location.href + "&LINK_TYPE="+ts;
+                        }
+                    }
+                    location.href= url;
+                });
+
+                function getUrlVars()
+                {
+                    var vars = [], hash;
+                    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                    for(var i = 0; i < hashes.length; i++)
+                    {
+                        hash = hashes[i].split('=');
+                        vars.push(hash[0]);
+                        vars[hash[0]] = hash[1];
+                    }
+                    return vars;
+                }
+
+                var maxCats = 0;
+                var numCats = 1 + 0;
+
+                jQuery("#addCateg").click(function(){
+                    if (numCats >= maxCats){
+                        jQuery('#plusCategLink').hide();
+                    }
+                });
+
+                jQuery("#plusCategLink").click(function(){
+
+                    if (numCats < maxCats) {
+                        jQuery("#categ").clone(true).insertBefore("#fileDelCateg").attr('id','').show();
+                        jQuery("#fileDelCateg").show();
+                        numCats++;
+                    }
+                    if (numCats == maxCats)
+                        jQuery(this).hide();
+
+                    return false;
+                });
+
+                jQuery("#fileDelCateg").click(function(){
+
+                    if (numCats > 1) {
+                        jQuery(this).prev().remove();
+                        numCats--;
+                    }
+                    if (numCats < maxCats) {
+                        jQuery("#plusCategLink").show();
+                    }
+                    if (numCats == 1)
+                        jQuery(this).hide();
+
+                    return false;
+                });
+            });
+
+
+            Array.prototype.in_array = function(p_val) {
+                for(var i = 0, l = this.length; i < l; i++) {
+                    if(this[i] == p_val) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        //]]>
+        </script> <center> <link rel="stylesheet" type="text/css" href="/SponsLinks/banner-css/link_to_premium-featured-links.css" /><div class="premium-featured-links"><a href="http://exampledir.com/linkremoval.html" onclick="window.open('http://exampledir.com/linkremoval.html','newwindow','width=370,height=400');return false;" ><font color=#000000><b>For HTTPS websites or Link Removal</b></font></a></div><br /> <center></center><br /> <center><a href="https://obiwandispensary.com/" title="Obi Wan  Cannabis | Premium Cannabis Dispensary Near El Paso | Sunland Park, NM"><img src="/SponsLinks/ximages/obi_wan_dispensary.png" alt="Obi Wan  Cannabis | Premium Cannabis Dispensary Near El Paso | Sunland Park, NM" width="468" height="203" /></a><br /><center><div style='width: 468px;'>Discover premium cannabis at Obi Wan Cannabis, conveniently located in Sunland Park, NM, just minutes from El Paso. Explore quality flower, concentrates, edibles, vapes, pre-rolls, and accessories in a welcoming, themed dispensary. Open daily from 7 AM–11 PM. Visit obiwandispensary.com or call (505) 407-WEED. The Force Is Local™. Adults 21+ only.</div></center><br /><br /><a href="http://46-directories.directoriesadvertising.com/advertising-46-directories.php#468x60banner" target="_blank" title="advertising with 46 directories"><img src="/SponsLinks/ximages/1_banner_4680xx600.png" alt="YOUR BANNER HERE" /></a></center><br /> </center>
+</div>
+
+                            
+                    
+                    
+                    
+                    
+        
+    </div>
+</div></div></div></div></div><div class="footer"><div class="footer-inner"><br>Powered By: <a href="http://www.phplinkdirectory.com" title="powered by PHP Link Directory"> PHP Link Directory </a></div></div><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3696497-37']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31513574-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31513574-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><script type="text/javascript">
+    /* <![CDATA[ */
+    var root = '';
+    
+    var a = document.getElementsByTagName("a");
+    for(i = 0; i< a.length; i++)
+        if(a[i].id != '')
+            a[i].onclick = count_link;
+    function count_link(event) {
+        i = new Image();
+        i.src= root+'/cl.php?id='+this.id;
+        return true;
+    }
+
+    
+    /* ]]> */
+</script></body></html>

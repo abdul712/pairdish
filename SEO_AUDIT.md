@@ -1567,3 +1567,121 @@ it was resubmitted with `SubmitUrl` this run and the next crawl-stat delta is th
 ~10 minutes, and this is the sixth run blocked on it. (2) Pinterest access (the account exists; no
 credentials here). (3) Per-domain SMTP: only Gmail credentials are present, so `outreach@pairdish.com`
 sending and the link-outreach phase stay blocked.
+
+### Run 20 — 2026-10-21 (this run)
+
+**Phase 1 / 6 audit (live sweep).** **52/52** sitemap URLs return 200 (explicit status sweep, not
+just a body check). Every meta description is ≤160 characters, `href="undefined"` count 0, and
+`FAQPage` / visible "Frequently Asked Questions" count 0 across all 52 URLs - the run-18 `/contact`
+restructure still holds. No page needed a repair.
+
+**Bing traffic.** `GetQueryStats` reports **791 queries / 80 clicks / 1,251 impressions** - the same
+window run 19 saw (792 / 80 / 1,251), so it has not advanced yet. `GetRankAndTrafficStats` covers
+2025-09-07 to 2026-10-18 and totals **82 clicks / 2,991 impressions** over 100 daily rows; the last
+seven days ran 34-57 impressions and 0-3 clicks a day. The demand ridge is unchanged and still the
+best signal this site has: **"what to serve with philly cheesesteak" 22 impressions**,
+"must see seasonal ingredients" 20, "seasonal ingredients breakdown" 17, "compare seasonal
+ingredients" 16, "where to find seasonal ingredients" 12, "flavour pairing" 8 (plus 8 impressions
+and **3 clicks** on the flavour-pairing URL itself, the best CTR on the site). `GetCrawlStats`
+2026-10-14..19: Code2xx 62 every day, Code4xx 14-37, 301s 1-2, InIndex 56. Both feeds
+(`www.` and apex) report `Success` with 52 URLs. **GSC is still dark** - `400 invalid_grant` at the
+token refresh, seventh consecutive run, so Google-side coverage, queries and GA4 reads stay blocked.
+
+**Phase 4 (within gate) — two thin tool pages brought to the site band, and a stale price vintage
+corrected site-wide.** The review gate for new articles is still closed (43 days), so the work stays
+on existing pages. Live word counts are from the same `main`-scoped counter used in runs 18-19:
+
+* **`/tools/potluck-coordinator` 112 → 1,152 w / 2 tables.** The page was a grid of category cards
+  with no tables and no sources. It now carries the **USDA FSIS danger-zone clock** (bacteria
+  multiply rapidly between 40 °F and 140 °F; never leave perishables there more than 2 hours, 1 hour
+  above 90 °F) with a **seven-row holding-limit table** - hot holding 140 °F, cold holding 40 °F,
+  2-hour discard, 1-hour summer exception, reheat cooked-ahead food to 165 °F, **reheating in a slow
+  cooker or chafing dish is not recommended**, fridge 40 °F / freezer 0 °F - plus transport practice
+  (cooler with ice or gel packs and an appliance thermometer, insulated container at 140 °F for hot
+  food, ice-water bath for soups, shallow dated containers), the dish arithmetic that explains
+  over-supply (16 guests × 8 servings = 128 servings, eight per person), course-assignment advice
+  with internal links, and an **MSU Extension** table of reception per-person loads (14 appetizer
+  pieces per person per hour with no meal, 10 over the lunch hour, 6-8 late afternoon/evening, 1 oz
+  dry snacks, anchors for one third of guests, dessert and coffee for one third to one half, coffee
+  at 60/50/55 percent of attendance by group makeup).
+* **`/tools/grocery-list` 144 → 1,037 w / 3 tables.** Content: **13 BLS average prices** for
+  September 2026 (U.S. city average) with the year-over-year change computed from the series
+  themselves - eggs $2.272/dozen (**−34.9%**), butter $3.959/lb (−17.3%), ground beef $6.792/lb
+  (+7.4%), rice $1.118/lb (+5.5%), coffee $9.332/lb (+2.1%), flour $0.545/lb (−3.2%) - plus the BLS
+  methodology cautions (average prices estimate **levels** not change, are not seasonally adjusted,
+  and the sample rotates ~25%/yr); the **USDA ERS September 2026 forecast table with intervals**
+  (all food +2.9% [2.5-3.2], food away +3.5% [3.3-3.8], food at home +2.4% [1.8-3.0] for 2026;
+  +2.0% / +2.6% / +1.8% for 2027), the 2024 (+1.2%) and 2025 (+2.3%) actuals against the 2.6%
+  historical pace, and the worked budget arithmetic ($150/week = $7,800/year; 2.4% of that ≈ $187);
+  and the **FSIS shelf-stable chart** (canned low-acid 2-5 years unopened / 3-4 days refrigerated
+  after opening; high-acid 12-18 months / 5-7 days).
+* **`/articles/grocery-budget-meal-planning` — a stale vintage that had started to contradict the
+  site.** Its ERS table still carried the July-2026 window (food at home +2.7%, 2026 forecast
+  +2.5%) and its BLS table August-2026 prices, while the new tool page states the September
+  forecast (+2.4%) and September prices. Both tables were rebuilt from the same primary sources:
+  ERS September 2026 category detail (food at home **+2.2%** Aug-26 YoY and **+2.4%** 2026 forecast;
+  beef and veal +5.9% / +9.4%; pork +0.6% / +1.2%; poultry +0.5% / +1.0%; eggs −23.0% / −29.4%;
+  dairy −0.3% / +0.1%; fresh fruits +3.8% / +2.5%; fresh vegetables +2.6% / +5.7%; sugar and sweets
+  +6.1% / +6.6%; nonalcoholic beverages +3.7% / +4.2%) and September 2026 BLS actuals (milk $4.11,
+  whole chicken $2.06, spaghetti $1.38, beans $1.67, iceberg $1.64). `dateModified` 2026-10-21 and
+  the source notes now name the right vintages. This is the "stale factual claims persist" class:
+  the article was internally consistent but the site as a whole was not.
+
+**Internal links.** `/tools/buffet-planner` now links to the potluck coordinator in its quantities
+paragraph, giving the page a second contextual inbound link; the expanded pages carry 5 internal
+links each (potluck → party calculator, appetizer planner, buffet planner, dietary finder, leftover
+matcher; grocery list → recipe scaler, unit converter, meal prep, pantry helper, grocery-budget
+guide).
+
+**Build / deploy / verify.** QA gate PASS (tag balance, no literal escapes, no FAQ, no
+`href="undefined"`, metas ≤160, every internal href on disk, official-only externals, exact table
+row counts 16 and 21, **BLS 13/13 prices and changes internally consistent**, ERS 12/12 figures
+present, stated arithmetic true). Sitemap lastmod 2026-10-21 on the four edited URLs. Deploy version
+**b2609c6b-76a2-4839-a7b2-52af4a42fe23** from a clean `rm -rf dist .astro` build with
+`NODE_OPTIONS=--max-old-space-size=3584`. Live verify PASS: 1,152 / 1,037 / 1,439 words, 2 / 3 / 2
+tables, metas 122 / 123 / 127, no FAQ, no undefined, 52 sitemap URLs, and the three legacy 301s
+still answering in both slash forms. Browser test: the potluck coordinator hydrates and recomputes
+(24 guests moves the recommendations from 3/4 to 5/8/8/5/5), and the grocery list generator renders
+its controls. Bing `SubmitUrl` accepted all four URLs (`{"d":null}`).
+
+**Bing's stored copies are still the pre-expansion ones.** `GetUrlInfo` reports DocumentSize 32,280
+(potluck), 28,142 (grocery list), 67,716 (buffet planner) and 24,997 (the article) - all stored
+before this run's content, with `HttpStatus` 0 and no `LastCrawled` (the known non-signal on this
+account). `/articles/what-to-serve-with-pesto-chicken` **still has no Bing record at all**
+(DocumentSize 0) after run 19's `SubmitUrl`, so that is now a two-run discovery gap worth escalating
+to `FetchUrl` next run rather than another `SubmitUrl`.
+
+**Phase 5 — one new free submission that approved within the hour, plus one flip on a different
+listing path.** `exampledir.com` is the phpLD-5 `/submit` variant (free `LINK_TYPE=1`, label
+"Link - free", leaf category **294 Home > Cooking**) with a **math** challenge instead of an image
+captcha. The first POST was rejected with "DO_MATH: Please Check Your Math Below" - and the cause
+was our parser, not the install: a loose `(\d+)([+\-*x])(\d+)` regex grabbed unrelated digits from
+the page instead of the bold `<font>` prompt immediately before the input (`9 + 1`, then `4 + 7`).
+With the prompt read from its own element the POST answered a blank re-render with no error, and the
+identical retry answered **"TITLE: This TITLE already exists in our database"**, which proves the
+first POST created the entry. The approval mail ("Approved Link Submission at Example Dir .com")
+arrived **52 minutes later** to `mabdulrahim+pairdish@gmail.com`, and the listing is live at
+`https://exampledir.com/listing/pairdish--food-pairing-tools-and-what-to-serve-guides-312854`
+(200, 11,775 bytes, site name present, real outbound link to pairdish.com, no pending marker).
+`webdirectory.top` flipped to **listed** at its Laravel listing path
+`https://webdirectory.top/site/pairdish.com` (200, 71,044 bytes, PairDish present, 0
+pending/awaiting strings) - the flip the run-19 phpLD search could not see, because this platform
+does not list at `/search.php`.
+
+**Sibling ack sweep: nothing attributable, and the To: line settled every one.** Five untracked
+hosts appeared in the mailbox since 05-Oct: `activdirectory.net` (approved), `anoox.com` (confirm,
+three mails), `secretsearchenginelabs.com` (confirm), `toolwise.ai` (received) and `founder.best`
+(confirm). Every one is addressed to `mabdulrahim+pairingplates@gmail.com` or
+`support@pinbuilds.com` - other campaigns. The two pairdish-addressed "Action Required" confirms
+sitting in Spam (`athenelinks` 07-Oct, `brestlinks` 09-Oct) were already clicked on those dates per
+the tracker, so nothing was re-clicked. Pinterest activity mail to `admin@pairdish.com` confirms the
+account exists; there are still no credentials here.
+
+Tracker after run: **56 rows — 6 listed / 32 submitted / 4 pending_review / 11 skipped_other /
+2 skipped_paid / 1 failed.**
+
+**Unchanged user actions.** (1) Google re-consent:
+`python3 ~/.hermes/scripts/webmaster_auto_add.py google-auth` - codes are single-use and expire in
+~10 minutes, and this is the seventh run blocked on it. (2) Pinterest access (account exists; no
+credentials here). (3) Per-domain SMTP: only Gmail credentials are present, so
+`outreach@pairdish.com` sending and the link-outreach phase stay blocked.

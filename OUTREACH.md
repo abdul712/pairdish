@@ -472,3 +472,40 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   (account exists, no credentials here) and per-domain SMTP (only `EMAIL_ADDRESS` /
   `GMAIL_APP_PASSWORD` in `~/.hermes/.env`, so `outreach@pairdish.com` sending is still blocked and
   link outreach has not been attempted).
+### Run 20 — 2026-10-21 (1 new free submission approved same-day; 1 listing flip; 0 attributable acks)
+
+- **`exampledir.com` — submitted AND approved within 52 minutes.** phpLD-5 `/submit` variant (the
+  `/submit.php` path 404s), free radio **`LINK_TYPE=1`** labelled "Link - free" (2-6 are also free,
+  7 is the $1.50 featured tier), leaf category **294 Home > Cooking** (confirmed by the option
+  ordering: 292 Accessories, 293 Consumer Information, **294 Cooking**, 295 Directories - the Home
+  branch). No image captcha; the gate is an arithmetic challenge in a bold `<font>` immediately
+  before the `DO_MATH` input. **The first POST failed with "DO_MATH: Please Check Your Math Below"
+  because our regex read unrelated digits from the page, not the prompt** (`9 + 1`, later `4 + 7`);
+  reading the challenge from its own element made the next POST succeed. Success shape was the
+  documented blank re-render with no marker and no title echo; the proof was re-posting the identical
+  payload, which answered **"TITLE: This TITLE already exists in our database and cannot be submitted
+  again."** Listing live:
+  `https://exampledir.com/listing/pairdish--food-pairing-tools-and-what-to-serve-guides-312854`
+  (200, 11,775 bytes, site name present, real outbound link). Scripts:
+  `scripts/dir_run20_exampledir.py` (probe), `scripts/dir_run20_cat.py` (category parent), 
+  `scripts/dir_run20_exampledir_submit.py` (submit).
+- **`webdirectory.top` flipped to listed.** The run-19 submission (Laravel, leaf `categoryId` 121)
+  went live at the install's own path **`/site/pairdish.com`** - not a phpLD `/search.php` result,
+  which is why the previous flip sweep reported no hit. Verified 200, 71,044 bytes, "PairDish" in
+  the body, zero `pending`/`awaiting` strings. The confirmation mail "Website Added to Directory ::
+  pairdish.com" (2026-10-20) had already named this listing.
+- **Sibling-ack sweep: five untracked hosts, none attributable.** `activdirectory.net` (approved),
+  `anoox.com` (confirm x3), `secretsearchenginelabs.com` (confirm), `toolwise.ai` (received),
+  `founder.best` (confirm) - every one addressed to `mabdulrahim+pairingplates@gmail.com` or
+  `support@pinbuilds.com` per the To: header. Nothing clicked. The two pairdish-addressed
+  "Action Required" confirms in Spam (`athenelinks` 07-Oct, `brestlinks` 09-Oct) were already clicked
+  on those dates per the tracker, so they were left alone.
+- **Flip sweep:** 4/4 `listed` rows re-verified live (site name in body, 200). 0 further flips across
+  the 32 submitted / 4 pending rows; 28 hosts answer the phpLD name search with a 0-byte 200 or a
+  403, which is "proof unavailable on this install", not "not listed".
+- Tracker after run: **56 rows — 6 listed / 32 submitted / 4 pending_review / 11 skipped_other /
+  2 skipped_paid / 1 failed.**
+- Unchanged user actions: Google re-consent (seventh run blocked, `invalid_grant`), Pinterest access
+  (account exists, no credentials here, activity mail to `admin@pairdish.com` confirms it), and
+  per-domain SMTP (only `EMAIL_ADDRESS` / `GMAIL_APP_PASSWORD`, so `outreach@pairdish.com` sending
+  and link outreach remain blocked).

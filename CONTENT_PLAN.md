@@ -365,3 +365,34 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   (cooking-style-quiz 178 w, potluck-coordinator 193 w, grocery-list 196 w, recipe-generator 204 w,
   meal-prep 267 w — meal-prep's unsourced "$100-150/month" and "4-6 hours" claims need sources or
   removal before it can be expanded).
+- 2026-10-21 (run 20): **Two thin tool pages brought into the site band (+1,933 live words) and a
+  stale price vintage corrected site-wide.** `/tools/potluck-coordinator` 112 -> **1,152 w / 2
+  tables** (the USDA FSIS danger-zone clock with a seven-row holding-limit table - 140 F hot,
+  40 F cold, 2-hour discard, 1-hour above 90 F, 165 F reheat, "reheating in a slow cooker or chafing
+  dish is not recommended", 40 F/0 F storage; transport practice from "Cooking for Groups"; the
+  dish arithmetic 16 guests x 8 servings = 128 servings; course assignment with five internal links;
+  and the MSU Extension reception per-person loads) - the page had zero tables and zero sources
+  before this run. `/tools/grocery-list` 144 -> **1,037 w / 3 tables** (13 BLS average prices for
+  September 2026 with the change computed from the same series - eggs 2.272/dozen -34.9%, butter
+  3.959 -17.3%, ground beef 6.792 +7.4%, rice 1.118 +5.5%, coffee 9.332 +2.1%; the BLS methodology
+  cautions; the ERS September 2026 forecast with intervals, all food +2.9%, away +3.5%, at home
+  +2.4% [1.8-3.0], 2027 +1.8% [-5.0, 9.2]; the $150/week -> $7,800/yr -> $187 arithmetic; and the
+  FSIS shelf-stable storage chart). **Site-wide consistency fix:** `/articles/grocery-budget-meal-
+  planning` still carried the July/August 2026 price tables and its 2026 at-home forecast (+2.5%)
+  contradicted the new page (+2.4%); both tables were rebuilt from the September 2026 vintages of
+  the same two primary sources and `dateModified` bumped. The BLS series ids were re-derived from
+  the BLS average-price factsheet before use, which caught two wrong labels a first pass had
+  assumed (APU0000709112 is milk **per gallon**, not per half gallon; APU0000703112 is **ground
+  beef**, not chicken breast - boneless chicken breast is APU0000FF1101). QA gate PASS, deploy
+  `b2609c6b-76a2-4839-a7b2-52af4a42fe23`, live verify PASS (3/3 pages + 3/3 legacy 301s both slash
+  forms), sitemap lastmod 2026-10-21 on four URLs, Bing SubmitUrl 4/4. Directory: **1 new free
+  submission that approved in 52 minutes** (exampledir.com, phpLD-5 free LINK_TYPE=1, cat 294 Home >
+  Cooking; the "Please Check Your Math" first failure was our regex reading the wrong digits, not
+  the install) and **1 flip** (webdirectory.top -> listed at `/site/pairdish.com`), plus 0
+  attributable acks (all five untracked-host mails belonged to other campaigns by To: line). Bing
+  window unchanged at **791 queries / 80 clicks / 1,251 impressions**; GSC token still dead
+  (invalid_grant, seven runs). Gate still ACTIVE (43 days). Next within-gate: the remaining thin
+  tail - cooking-style-quiz 136 w, recipe-generator 159 w, meal-prep 167 w, then the tool pages
+  still under ~700 words; meal-prep's unsourced "$100-150/month" and "4-6 hours" claims need sources
+  (BLS/ERS for the cost, extension guidance for the time) before it can be expanded. Seasonality and
+  flavour-pairing are now covered and are NOT next.
