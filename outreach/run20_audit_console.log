@@ -1,0 +1,54 @@
+=== 1. sitemap sweep ===
+sitemap URLs: 52
+  meta>160 or missing: none
+  FAQ markers: none
+  href=undefined: none
+
+=== 2. Bing traffic ===
+  window 2025-09-07 .. 2026-10-18: clicks=82 impressions=2991 rows=100
+  last 7 rows: [('2026-10-12', 3, 57), ('2026-10-13', 2, 53), ('2026-10-14', 1, 45), ('2026-10-15', 0, 34), ('2026-10-16', 0, 51), ('2026-10-17', 2, 34), ('2026-10-18', 0, 51)]
+
+=== 3. Bing query stats ===
+  queries=791 clicks=80 impressions=1251
+    i= 22 c= 0  what to serve with philly cheesesteak
+    i= 20 c= 0  must see seasonal ingredients
+    i= 17 c= 0  seasonal ingredients breakdown
+    i= 16 c= 0  compare seasonal ingredients
+    i= 12 c= 0  where to find seasonal ingredients
+    i=  8 c= 0  flavour pairing
+    i=  8 c= 3  https://pairdish.com/tools/flavor-pairing
+    i=  7 c= 0  flavour pairing website
+    i=  7 c= 0  macro balance calculator
+    i=  6 c= 0  flavor pairing
+    i=  5 c= 1  flavor pairing tool
+    i=  5 c= 0  herbs and spices pairing flavor wheel
+    i=  5 c= 0  seasonal ingredients comparison
+    i=  5 c= 0  seasonal ingredients guide
+    i=  5 c= 0  whag to serve with pork loin australia
+    i=  4 c= 0  best french toast served with?.com
+    i=  4 c= 0  bread dough proofing 6 hours room temperature food safety yeast dough
+    i=  4 c= 0  casis puree pair with herb
+    i=  4 c= 1  chefs dish paring site
+    i=  4 c= 0  chocolate dessert coffee pairing guide
+    i=  4 c= 0  coffee dessert pairing guide chocolate cheesecake fruit desserts
+    i=  4 c= 0  emmental cheese pairing figs wine nuts honey official cheese pairing
+    i=  4 c= 0  final proof enriched dough 24 25 c hokkaido milk bread poke test
+    i=  4 c= 0  flavor pairing website
+    i=  4 c= 0  food and beverage buffet menu planning dishes
+    i=  4 c= 0  for 60 grams of cake flour, how much all-purpose and how much corn flour should i use?
+    i=  4 c= 0  make me a buffet menu that has fish, chicken, pork, beef, vegetable, and salad
+    i=  4 c= 0  matches well with taste flavor examples
+    i=  4 c= 0  no, 3 cups flour + cornstarch
+    i=  4 c= 0  pair of dishes
+
+=== 4. Bing crawl stats (last 6) ===
+  2026-10-14: 2xx=62 4xx=14 5xx=0 301=2 crawled=26 inIndex=56
+  2026-10-15: 2xx=62 4xx=26 5xx=0 301=2 crawled=39 inIndex=56
+  2026-10-16: 2xx=62 4xx=27 5xx=0 301=2 crawled=34 inIndex=56
+  2026-10-17: 2xx=62 4xx=33 5xx=0 301=1 crawled=46 inIndex=56
+  2026-10-18: 2xx=62 4xx=25 5xx=0 301=1 crawled=41 inIndex=56
+  2026-10-19: 2xx=62 4xx=37 5xx=0 301=2 crawled=50 inIndex=56
+
+=== 5. Bing feeds ===
+  https://www.pairdish.com/sitemap.xml | Success | urls=52 | last=/Date(1792388920000)/
+  https://pairdish.com/sitemap.xml | Success | urls=52 | last=/Date(1792469441000)/

@@ -119,6 +119,250 @@ import GroceryListGenerator from '../../components/tools/GroceryListGenerator';
     </div>
   </section>
 
+  <!-- Grocery prices and what the list has to survive -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        What a Grocery List Costs, and What the Food Has to Survive
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A shopping list does two jobs at once. It decides what comes home, and it decides what leaves your
+        account. Both halves are measurable: the U.S. Bureau of Labor Statistics publishes average retail
+        prices for staple foods every month, and the USDA Economic Research Service publishes an annual
+        price forecast. This section puts the current numbers beside the list, so the weekly total is a
+        decision you made rather than a surprise at the register.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Average U.S. prices, September 2026
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        These are national average prices, not the shelf tag in your store. The BLS calculates them from the
+        same price observations it collects for the Consumer Price Index, then publishes them as a price
+        level for a narrowly defined item &mdash; a dozen large grade A eggs, a pound of 100 percent ground
+        beef, a gallon of whole milk. The column on the right compares each one with the same month a year
+        earlier, which is the number that tells you whether the list got more expensive.
+      </p>
+
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            BLS average prices, U.S. city average, September 2026, with the change from September 2025.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Item, as BLS defines it</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Average price</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Change vs. September 2025</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Flour, white, all purpose, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$0.545</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;3.2%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Rice, white, long grain, uncooked, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$1.118</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+5.5%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bread, white, pan, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$1.830</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;2.0%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ground beef, 100% beef, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$6.792</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+7.4%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Chicken breast, boneless, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$4.203</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+0.7%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Eggs, grade A, large, per dozen</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$2.272</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;34.9%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Milk, fresh, whole, fortified, per gallon</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$4.106</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;0.6%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Butter, in sticks, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$3.959</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;17.3%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bananas, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$0.656</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;2.1%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Potatoes, white, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$0.989</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;2.5%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Tomatoes, field grown, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$1.992</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+4.3%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sugar, white, all sizes, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$1.019</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;2.2%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Coffee, 100% ground roast, all sizes, per lb.</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$9.332</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+2.1%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two cautions come straight from the BLS methodology, and they matter when you read a single month.
+        Average prices are estimates of price <em>levels</em>, not of price change, and they are not
+        seasonally adjusted, so a normal harvest or holiday swing shows up in the average price without
+        meaning anything about inflation. The BLS also rotates about a quarter of its sample every year,
+        which can move an average price even when the matching index barely budges.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The spread across these thirteen items is the practical lesson. Eggs averaged $2.272 a dozen in
+        September 2026 against $3.488 a year earlier, while ground beef rose to $6.792 a pound from $6.323
+        and rice to $1.118 from $1.060. A list built on the same recipes can be cheaper or dearer than last
+        year depending on which of those lines it leans on, which is why
+        <a href="/tools/recipe-scaler" class="text-[var(--color-wine)] underline">the recipe scaler</a>
+        is worth using before a bulk buy, and why
+        <a href="/tools/unit-converter" class="text-[var(--color-wine)] underline">the unit converter</a>
+        matters when a store prices in ounces and a recipe calls for cups.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        What the forecast says about the next year
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The USDA Economic Research Service publishes a forecast of annual average price change, in
+        September 2026 built from the August 2026 CPI and PPI releases. It separates food bought in a store
+        from food bought in a restaurant, and the two are moving at different speeds: groceries are forecast
+        to rise more slowly than restaurant meals in both years.
+      </p>
+
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            USDA ERS Food Price Outlook, September 2026 forecast, with the published forecast intervals.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Category</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">2026 forecast</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Interval</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">2027 forecast</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Interval</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">All food</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+2.9%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2.5 to 3.2%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+2.0%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;2.7 to 7.0%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Food away from home</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+3.5%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3.3 to 3.8%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+2.6%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">0.2 to 5.1%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Food at home (groceries)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+2.4%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1.8 to 3.0%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+1.8%</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;5.0 to 9.2%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        For context, food at home rose 1.2 percent in 2024 and 2.3 percent in 2025, both below the
+        historical average pace of 2.6 percent a year. Put the 2026 midpoint into a budget and the
+        arithmetic is small but real: $150 a week is $7,800 a year, and 2.4 percent of that is roughly $187.
+        The wide 2027 interval is the honest part of the table &mdash; the ERS forecasts are statistical
+        models fitted to recent trends, so the interval, not the midpoint, is what the uncertainty looks
+        like. Plan the year on the midpoint and keep a margin for the upper bound.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Buying what the week will actually use
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A cheap list that spoils is an expensive list. Two federal rules keep the math on your side. The
+        first is the cold chain: refrigerators at 40 &deg;F or below and freezers at 0 &deg;F or below,
+        checked with an appliance thermometer, with perishables refrigerated within two hours of leaving
+        the store &mdash; one hour when the outside temperature is above 90 &deg;F. The second is the
+        pantry, where canned goods keep far longer than most people assume but change behaviour once
+        opened.
+      </p>
+
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Shelf-stable storage times published in the USDA FSIS group-cooking guide.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Purchase</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Unopened in the pantry</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">After opening, refrigerated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Canned low-acid goods: meat, poultry, fish, gravy, stew, soups, beans, carrots, corn, pasta, peas, potatoes, spinach</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 to 5 years</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 4 days</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Canned high-acid goods: juices, fruit, sauerkraut, tomato soup, foods in vinegar-based sauce</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12 to 18 months</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5 to 7 days</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        That table is the argument for a list organised by how fast things go off rather than by aisle
+        alone. Fresh items belong in the first half of the week's plan, pantry and canned goods in the
+        second, and the freezer as the buffer. If you want the next step, build the week in
+        <a href="/tools/meal-prep" class="text-[var(--color-wine)] underline">the meal prep calculator</a>,
+        check what is already in the cupboard with
+        <a href="/tools/pantry-helper" class="text-[var(--color-wine)] underline">the pantry pairing helper</a>,
+        and see the full budgeting method in
+        <a href="/articles/grocery-budget-meal-planning" class="text-[var(--color-wine)] underline">the grocery budget plan</a>.
+      </p>
+
+      <p class="text-[var(--text-secondary)] text-sm leading-relaxed">
+        Sources:
+        <a href="https://www.bls.gov/cpi/factsheets/average-prices.htm" rel="noopener" class="underline">U.S. Bureau of Labor Statistics, &ldquo;CPI: Average Price Data&rdquo; (series pulled 21 October 2026)</a>;
+        <a href="https://www.ers.usda.gov/data-products/food-price-outlook/summary-findings" rel="noopener" class="underline">USDA Economic Research Service, &ldquo;Food Price Outlook &mdash; Summary Findings&rdquo; (updated 25 September 2026)</a>;
+        <a href="https://www.fsis.usda.gov/sites/default/files/media_file/2021-02/Cooking_for_Groups.pdf" rel="noopener" class="underline">USDA FSIS, &ldquo;Cooking for Groups: A Volunteer&rsquo;s Guide to Food Safety&rdquo;</a>;
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="underline">USDA FSIS, &ldquo;Danger Zone (40&nbsp;&deg;F &ndash; 140&nbsp;&deg;F)&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">

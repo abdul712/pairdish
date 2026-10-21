@@ -522,7 +522,7 @@ const coreArticles: Article[] = [
     eyebrow: 'Budget Planning',
     description: 'Create a practical grocery budget meal plan using price anchors, pantry staples, flexible recipes, and a focused shopping list.',
     datePublished: '2026-05-26',
-    dateModified: '2026-09-18',
+    dateModified: '2026-10-21',
     readingTime: '10 min read',
     category: 'Grocery Budget',
     image: '/images/articles/grocery-budget-meal-planning.webp',
@@ -556,26 +556,26 @@ const coreArticles: Article[] = [
       {
         heading: 'What food prices are doing right now',
         body: [
-          'Budget math works better when it starts from the official picture instead of a headline. The USDA Economic Research Service tracks food prices every month. As of July 2026, food-at-home prices were 2.7 percent higher than a year earlier, and the agency expects a further rise of about 2.5 percent across 2026.',
-          'The category detail is where it gets useful for planning. Egg prices are down sharply from their 2025 spike, dairy and cooking-oil prices are flat to falling, and the increases are concentrated in meat, produce, and sweets. That tells you where substitutions pay off this year and where they do not:'
+          'Budget math works better when it starts from the official picture instead of a headline. The USDA Economic Research Service tracks food prices every month. In its September 2026 forecast, food-at-home prices were 2.2 percent higher in August 2026 than a year earlier, and the agency expects a 2.4 percent rise across the whole of 2026, with a forecast interval of 1.8 to 3.0 percent.',
+          'The category detail is where it gets useful for planning. Eggs sit 23.0 percent below their level a year earlier and are forecast to fall 29.4 percent across 2026, dairy is close to flat, and fats and oils are the other category forecast to decline. The increases are concentrated in beef and veal, fresh vegetables, and sweets. That tells you where substitutions pay off this year and where they do not:'
         ],
         table: {
-          caption: 'USDA ERS: food-at-home prices, change over the last 12 months (July 2025 to July 2026) and the 2026 forecast midpoint',
+          caption: 'USDA ERS: food-at-home prices, change over the last 12 months (August 2025 to August 2026) and the 2026 forecast midpoint',
           headers: ['Category', 'Last 12 months', '2026 forecast'],
           rows: [
-            ['Food at home (all)', '+2.7%', '+2.5%'],
-            ['Meats, poultry, and fish', '+4.5%', '+4.8%'],
-            ['Eggs', '-25.7%', '-30.8%'],
-            ['Dairy products', '-0.5%', '0.0%'],
-            ['Fats and oils', '-1.5%', '-2.2%'],
-            ['Fruits and vegetables', '+5.1%', '+4.2%'],
-            ['Cereals and bakery products', '+2.7%', '+2.8%'],
-            ['Sugar and sweets', '+7.4%', '+7.1%'],
-            ['Nonalcoholic beverages', '+4.1%', '+4.3%'],
-            ['Other foods', '+2.1%', '+2.3%']
+            ['Food at home (all)', '+2.2%', '+2.4%'],
+            ['Beef and veal', '+5.9%', '+9.4%'],
+            ['Pork', '+0.6%', '+1.2%'],
+            ['Poultry', '+0.5%', '+1.0%'],
+            ['Eggs', '-23.0%', '-29.4%'],
+            ['Dairy products', '-0.3%', '+0.1%'],
+            ['Fresh fruits', '+3.8%', '+2.5%'],
+            ['Fresh vegetables', '+2.6%', '+5.7%'],
+            ['Sugar and sweets', '+6.1%', '+6.6%'],
+            ['Nonalcoholic beverages', '+3.7%', '+4.2%']
           ]
         },
-        callout: 'Planning rule for the year: lean on eggs, dairy, and cooking fats while they are flat or falling, and make fresh produce and sweets the categories where substitutions earn their keep.'
+        callout: 'Planning rule for the year: lean on eggs, dairy, and cooking fats while they are flat or falling, and make beef and sweets the categories where substitutions earn their keep.'
       },
       {
         heading: 'Pick price anchors for the week',
@@ -588,27 +588,27 @@ const coreArticles: Article[] = [
       {
         heading: 'Know the street price of your staples',
         body: [
-          'Price anchors only work when you know what they normally cost. Every month the Bureau of Labor Statistics publishes average U.S. city prices for common foods, which makes a free reality check for any deal you see. Here is what the basics averaged in August 2026:'
+          'Price anchors only work when you know what they normally cost. Every month the Bureau of Labor Statistics publishes average U.S. city prices for common foods, which makes a free reality check for any deal you see. Here is what the basics averaged in September 2026:'
         ],
         table: {
-          caption: 'BLS average price data: U.S. city average, August 2026',
+          caption: 'BLS average price data: U.S. city average, September 2026',
           headers: ['Staple', 'Average price'],
           rows: [
             ['Eggs, grade A large (per dozen)', '$2.27'],
-            ['Milk, whole (per gallon)', '$4.23'],
-            ['Bread, white pan (per pound)', '$1.82'],
-            ['Chicken, whole (per pound)', '$2.01'],
-            ['Ground beef, 100% beef (per pound)', '$6.92'],
-            ['Spaghetti and macaroni (per pound)', '$1.37'],
-            ['Rice, white long grain, uncooked (per pound)', '$1.11'],
-            ['Beans, dried (per pound)', '$1.63'],
-            ['Potatoes, white (per pound)', '$0.98'],
-            ['Bananas (per pound)', '$0.65'],
-            ['Tomatoes, field grown (per pound)', '$1.98'],
-            ['Lettuce, iceberg (per pound)', '$1.47']
+            ['Milk, whole (per gallon)', '$4.11'],
+            ['Bread, white pan (per pound)', '$1.83'],
+            ['Chicken, whole (per pound)', '$2.06'],
+            ['Ground beef, 100% beef (per pound)', '$6.79'],
+            ['Spaghetti and macaroni (per pound)', '$1.38'],
+            ['Rice, white long grain, uncooked (per pound)', '$1.12'],
+            ['Beans, dried (per pound)', '$1.67'],
+            ['Potatoes, white (per pound)', '$0.99'],
+            ['Bananas (per pound)', '$0.66'],
+            ['Tomatoes, field grown (per pound)', '$1.99'],
+            ['Lettuce, iceberg (per pound)', '$1.64']
           ]
         },
-        callout: 'Notice the spread: whole chicken near $2 a pound and dried beans at $1.63 give you very different dinner math than ground beef at $6.92. A price only beats these averages when it lands meaningfully under them.'
+        callout: 'Notice the spread: whole chicken at $2.06 a pound and dried beans at $1.67 give you very different dinner math than ground beef at $6.79. A price only beats these averages when it lands meaningfully under them.'
       },
       {
         heading: 'Use one grocery list for multiple meals',
@@ -662,12 +662,12 @@ const coreArticles: Article[] = [
       {
         label: 'USDA Economic Research Service - Food Price Outlook',
         href: 'https://www.ers.usda.gov/data-products/food-price-outlook/',
-        note: 'Source of the category price changes and 2026 forecast figures (data through July 2026).'
+        note: 'Source of the category price changes and 2026 forecast figures (September 2026 forecast, data through August 2026).'
       },
       {
         label: 'BLS - CPI Average Price Data',
         href: 'https://www.bls.gov/cpi/factsheets/average-prices.htm',
-        note: 'Documents the average-price series behind the staples table (U.S. city average, August 2026).'
+        note: 'Documents the average-price series behind the staples table (U.S. city average, September 2026).'
       },
       {
         label: 'Iowa State University Extension - Spend Smart. Eat Smart.',

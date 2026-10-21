@@ -1,0 +1,16 @@
+BLS average prices, U.S. city average, September 2026 vs September 2025
+source: BLS Average Price Data (APU series), API pull 2026-10-21
+
+APU0000701111 | Flour, white, all purpose, per lb | $0.545 per lb | Sep2025 $0.563 | -3.2%
+APU0000701312 | Rice, white, long grain, uncooked, per lb | $1.118 per lb | Sep2025 $1.060 | +5.5%
+APU0000702111 | Bread, white, pan, per lb | $1.830 per lb | Sep2025 $1.867 | -2.0%
+APU0000703112 | Ground beef, 100% beef, per lb | $6.792 per lb | Sep2025 $6.323 | +7.4%
+APU0000FF1101 | Chicken breast, boneless, per lb | $4.203 per lb | Sep2025 $4.172 | +0.7%
+APU0000708111 | Eggs, grade A, large, per doz | $2.272 per dozen | Sep2025 $3.488 | -34.9%
+APU0000709112 | Milk, fresh, whole, fortified, per gal | $4.106 per gallon | Sep2025 $4.129 | -0.6%
+APU0000FS1101 | Butter, in sticks, per lb | $3.959 per lb | Sep2025 $4.787 | -17.3%
+APU0000711211 | Bananas, per lb | $0.656 per lb | Sep2025 $0.670 | -2.1%
+APU0000712112 | Potatoes, white, per lb | $0.989 per lb | Sep2025 $1.014 | -2.5%
+APU0000712311 | Tomatoes, field grown, per lb | $1.992 per lb | Sep2025 $1.910 | +4.3%
+APU0000715211 | Sugar, white, all sizes, per lb | $1.019 per lb | Sep2025 $1.042 | -2.2%
+APU0000717311 | Coffee, 100% ground roast, all sizes, per lb | $9.332 per lb | Sep2025 $9.139 | +2.1%

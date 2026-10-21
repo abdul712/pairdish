@@ -119,6 +119,200 @@ import PotluckCoordinator from '../../components/tools/PotluckCoordinator';
     </div>
   </section>
 
+  <!-- Potluck quantities and the food-safety clock -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        How Much Food a Potluck Needs, and How Long It Can Sit Out
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two questions decide whether a potluck works. The first is arithmetic: how many dishes, and
+        how much of each, for the number of people coming. The second is time &mdash; a potluck table
+        is a buffet that nobody is guarding, and perishable food has a published limit on how long it
+        can stand at room temperature. The coordinator above tracks the first question. This section
+        covers both, using the figures the U.S. Department of Agriculture and the Food and Drug
+        Administration publish for group meals.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        The two-hour clock, and the one-hour exception
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Bacteria multiply rapidly between 40 &deg;F and 140 &deg;F. The USDA guide written for
+        volunteers cooking for church dinners, family reunions and community gatherings states the rule
+        without hedging: never leave perishable foods such as meat, poultry, eggs and casseroles in
+        that range for more than two hours, and no more than one hour when the air temperature is above
+        90 &deg;F. That single sentence matters more than any other number here, because a potluck dish
+        usually spends an hour on a kitchen counter before it spends a second hour on the serving table.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Holding limits for a potluck table, as published by USDA FSIS and the FDA.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Situation</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published limit</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What it means at the table</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Hot food, holding</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140 &deg;F or above</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Chafing dish, preheated steam table, warming tray or slow cooker, checked with a thermometer rather than assumed.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cold food, holding</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">40 &deg;F or below</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Shallow dish set inside a deeper pan of ice; drain the melt water and top up the ice as it goes.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Perishables left out</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 hours maximum</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Discard, do not refrigerate for later. The clock starts when the dish leaves the fridge, not when guests arrive.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Perishables above 90 &deg;F ambient</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 hour maximum</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The summer-picnic case. Same rule, half the time.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Food cooked ahead and cooled</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Reheat to 165 &deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sauces, soups and gravies to a boil. On the stove, in an oven set no lower than 325 &deg;F, or stirred and covered in a microwave.</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Reheating in a slow cooker or chafing dish</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Not recommended</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">They heat too slowly to be safe for reheating, but they are fine for holding food that is already at 140 &deg;F.</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Refrigerator and freezer</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">40 &deg;F and 0 &deg;F or below</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Check both with an appliance thermometer. An overloaded fridge cannot circulate cold air around a stack of potluck containers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Getting the dish there safely
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The trip is the part people skip. Cold food belongs in a cooler with plenty of ice or frozen gel
+        packs and an appliance thermometer inside it, held at 40 &deg;F or below. Hot food should be
+        wrapped well and packed in an insulated container at 140 &deg;F or above, which means a
+        casserole straight from the oven is a better traveller than one that cooled on the counter
+        first. Cool anything you cooked the night before in shallow containers, put soups and stews in
+        an ice-water bath and stir them, and label the container with the date it was made. Then plan
+        the route: cold shopping last, and no detour on the way to the party.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        How many dishes for the guest count
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Potlucks fail in one of two directions: four bags of chips and no protein, or eight desserts and
+        no vegetables. The arithmetic explains why it happens. If every guest brings a dish that serves
+        eight and sixteen people come, the table holds around 128 servings &mdash; eight per person, or
+        roughly three times what the group can eat. Left unassigned, the categories collide: whoever
+        arrives first fills the easy slots and the mains arrive last.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The fix is to assign by course rather than by dish count. Ask half the guests for mains, a
+        quarter for sides or salads, and the rest for desserts and drinks, then check the split in the
+        coordinator above before anyone cooks. Hosting the main dish yourself is the simplest way to
+        guarantee the table has a centre, and
+        <a href="/tools/party-calculator" class="text-[var(--color-wine)] underline">the party food calculator</a>
+        converts a headcount into quantities for the dishes you are supplying.
+        <a href="/tools/appetizer-planner" class="text-[var(--color-wine)] underline">The appetizer planner</a>
+        covers the before-dinner hour, and
+        <a href="/tools/buffet-planner" class="text-[var(--color-wine)] underline">the buffet planner</a>
+        handles the version where the potluck is the whole meal.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        If the potluck is really a reception
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Some gatherings are potlucks in name only: a reception where people graze standing up. Michigan
+        State University Extension publishes per-person loads for exactly that format, and the numbers
+        are far higher than a sit-down meal because guests eat with their hands over several hours.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Reception-style per-person loads published by Michigan State University Extension.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Item</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Published allowance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Appetizers, reception with no meal</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">14 pieces per person, per hour</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Appetizers over the lunch hour</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10 pieces per person</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Appetizers, late afternoon or late evening</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6 to 8 pieces per person</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dry snacks</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 ounce per person</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Anchor foods such as cheese and vegetables</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Enough for one third of the guests</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dessert and coffee</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Enough for one third to one half of the guests</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Regular coffee, morning break</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Attendance times 60 percent for an all-male group, 50 percent all-female, 55 percent mixed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Tag the dish, and plan the leftovers
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A potluck is a shared table, so the label on the dish does more work than the label on a menu.
+        Write the dish name, the allergens it contains, and whether it is vegetarian, vegan or
+        gluten-free, then use the coordinator's tags to check that every guest has more than one option.
+        <a href="/tools/dietary-finder" class="text-[var(--color-wine)] underline">The dietary meal finder</a>
+        lists the nine allergens U.S. labelling law requires and the places each one hides. For the end
+        of the night, the same two-hour clock governs: whatever sat out past it should be discarded
+        rather than packed up, and what did stay cold or hot goes into shallow containers with a date on
+        the lid. If you are left with more cooked food than you can use,
+        <a href="/tools/leftover-matcher" class="text-[var(--color-wine)] underline">the leftover matcher</a>
+        turns it into the next two dinners.
+      </p>
+
+      <p class="text-[var(--text-secondary)] text-sm leading-relaxed">
+        Sources:
+        <a href="https://www.fsis.usda.gov/sites/default/files/media_file/2021-02/Cooking_for_Groups.pdf" rel="noopener" class="underline">USDA FSIS, &ldquo;Cooking for Groups: A Volunteer&rsquo;s Guide to Food Safety&rdquo; (slightly revised September 2011)</a>;
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f" rel="noopener" class="underline">USDA FSIS, &ldquo;Danger Zone (40&nbsp;&deg;F &ndash; 140&nbsp;&deg;F)&rdquo;</a>;
+        <a href="https://www.fda.gov/food/buy-store-serve-safe-food/serving-safe-buffets" rel="noopener" class="underline">U.S. Food and Drug Administration, &ldquo;Serving Up Safe Buffets&rdquo;</a>;
+        <a href="https://www.canr.msu.edu/eventservices/uploads/files/Food%20&amp;%20Beverage%20Planning%20Tips.pdf" rel="noopener" class="underline">Michigan State University Extension, &ldquo;Food &amp; Beverage Planning Tips&rdquo;</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Related Tools -->
   <section class="py-12 bg-[var(--color-cream)]">
     <div class="container">
