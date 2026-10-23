@@ -66,29 +66,258 @@ import MealPrepCalculator from '../../components/tools/MealPrepCalculator';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
           <div class="bg-[var(--color-cream)] rounded-xl p-6">
             <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
-              Why Meal Prep?
+              Batching Is the Whole Method
             </h3>
             <p class="text-[var(--text-secondary)] text-base leading-relaxed">
-              Meal prepping saves an average of $100-150 per month compared to eating out.
-              It also saves 4-6 hours of cooking time weekly, helps with portion control,
-              and reduces food waste by planning exactly what you need.
+              One session works because the tasks share heat and equipment: a single oven run for
+              proteins, one pot of grain, one board of vegetables. Cooking the same dishes on five
+              separate evenings repeats every one of those steps.
             </p>
           </div>
 
           <div class="bg-[var(--color-cream)] rounded-xl p-6">
             <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
-              The 2-Hour Sunday Prep
+              The Limit Is Storage, Not Cooking
             </h3>
             <p class="text-[var(--text-secondary)] text-base leading-relaxed">
-              With efficient planning, you can prep an entire week's meals in just 2 hours.
-              The key is batching similar tasks: cook all proteins together, prep all vegetables
-              at once, and make grains in large batches.
+              Cooked meat, stews and casseroles keep three to four days in a refrigerator held at
+              40&nbsp;&deg;F or below. A five-day plan built entirely from fresh-cooked food is
+              therefore one day past the published limit, which is why the planner asks which meals
+              you intend to freeze.
             </p>
           </div>
         </div>
 
 
       </article>
+    </div>
+  </section>
+
+  <!-- Cost, storage life and reheating -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        What a Week of Meal Prep Costs, and How Long It Keeps
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two numbers decide whether batch cooking is worth the Sunday afternoon: the cost of a portion
+        and the number of days the food stays good. Both are published figures rather than rules of
+        thumb. The U.S. Bureau of Labor Statistics collects average prices for the ingredients, and the
+        USDA publishes how long cooked food can sit in a refrigerator. This section puts the two
+        together, then covers the step that spoils most meal-prep batches: cooling.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        From a price list to a cost per portion
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The prices below are BLS average prices for U.S. cities in September 2026, with the change from
+        September 2025 calculated from the same series. They are averages across package sizes and
+        regions, so treat them as a baseline rather than a quote from your own store. What they are good
+        for is the arithmetic: convert the per-pound price to a per-kilogram price, multiply by the
+        weight a portion uses, and add the components.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[680px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            BLS average prices, U.S. city average, September 2026, against September 2025.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Item</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">September 2026</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Change vs 2025</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Chicken breast, boneless</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$4.203 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+0.7%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ground beef, 100% beef</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$6.792 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+7.4%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Rice, white, long grain, uncooked</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$1.118 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+5.5%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Eggs, grade A, large</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$2.272 per dozen</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;34.9%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Milk, whole, fortified</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$4.106 per gallon</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;0.6%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Butter, in sticks</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$3.959 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;17.3%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Potatoes, white</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$0.989 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;2.5%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Tomatoes, field grown</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$1.992 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">+4.3%</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Bananas</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$0.656 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;2.1%</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Flour, white, all purpose</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">$0.545 per lb</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">&minus;3.2%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A worked example, so the method is visible. Chicken breast at $4.203 per pound is $9.27 per
+        kilogram once the pound is converted, so a 150&nbsp;g portion costs about $1.39. Rice at $1.118
+        per pound is $2.46 per kilogram, so 80&nbsp;g of dry rice is about $0.20 and cooks up to roughly
+        240&nbsp;g. A 150&nbsp;g potato and 100&nbsp;g of tomato add about $0.33 and $0.44. That is a
+        portion at roughly $2.35 before oil, seasoning or cheese, and five of them cost about $11.77.
+        Whether that is a saving depends entirely on what you would otherwise have bought, which is the
+        number worth checking against your own receipts rather than against a claim on a website.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two line items move the total more than the rest. Eggs fell 34.9% year on year and butter
+        17.3%, which makes an egg-based breakfast the cheapest protein in the batch this month. Ground
+        beef rose 7.4%, so a chilli or ragu costs noticeably more per portion than the chicken tray
+        beside it.
+        <a href="/tools/grocery-list" class="text-[var(--color-wine)] underline">The grocery list
+        generator</a> totals a shopping trip at the same prices, and
+        <a href="/articles/grocery-budget-meal-planning" class="text-[var(--color-wine)] underline">the
+        grocery budget guide</a> covers the wider food-price picture and the USDA forecast behind it.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        How long a prepped meal actually keeps
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        This is the constraint that decides the shape of the week. FoodSafety.gov publishes
+        refrigerator limits for cooked food, and for the components that make up a prepped container
+        they cluster tightly around three to four days at 40&nbsp;&deg;F or below. Freezer times are
+        about quality, not safety: food held continuously at 0&nbsp;&deg;F or below keeps
+        indefinitely, and the months listed are how long it still tastes right.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Refrigerator and freezer storage for typical meal-prep components, from the FoodSafety.gov
+            cold food storage chart.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Component</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Refrigerator, 40&nbsp;&deg;F</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Freezer, 0&nbsp;&deg;F</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cooked meat or poultry</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 4 days</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 to 6 months</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Soups and stews</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 4 days</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 to 3 months</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Casseroles containing eggs, after baking</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 4 days</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 to 3 months</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Quiche with filling, after baking</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 5 days</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2 to 3 months</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Prepared salads: egg, chicken, ham, tuna, macaroni</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 4 days</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Does not freeze well</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Hard-cooked eggs</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 week</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Do not freeze</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pizza, cooked</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 4 days</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 to 2 months</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Luncheon meat, opened or deli sliced</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 to 5 days</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1 to 2 months</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Read the table as a planning rule: a Sunday session covers Sunday to Wednesday, and anything
+        meant for Thursday or Friday should go into the freezer on Sunday rather than sit in the
+        refrigerator waiting. That is why the planner above separates the meals you will freeze. The
+        other workable shape is two shorter sessions, one at the start of the week and one midweek,
+        which keeps every container inside the three-to-four-day window without freezing anything.
+        <a href="/tools/recipe-scaler" class="text-[var(--color-wine)] underline">The recipe
+        scaler</a> sizes a recipe up to the number of portions you are cooking in one go, and
+        <a href="/tools/pantry-helper" class="text-[var(--color-wine)] underline">the pantry
+        helper</a> finds a use for what is already on the shelf before you shop again.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Cooling, reheating and the two-hour rule
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Most spoiled batches are cooled badly rather than cooked badly. A deep pot of stew left on the
+        hob spends hours passing through the range between 40&nbsp;&deg;F and 140&nbsp;&deg;F, where
+        bacteria multiply fastest. Divide it into shallow containers, stand the container in an
+        ice-water bath and stir, and refrigerate as soon as it stops steaming. Do not stack warm
+        containers against each other in the refrigerator; the cold air cannot circulate and the whole
+        shelf warms up.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Reheating has its own published minimum: 165&nbsp;&deg;F (73.9&nbsp;&deg;C) for leftovers and
+        casseroles, measured rather than guessed. Stir partway through in a microwave so the hot and
+        cold spots even out, and let a covered dish stand for a minute before eating. Reheat once. A
+        portion that has been warmed, eaten from and put back in the refrigerator has been through the
+        danger zone twice, and the two-hour limit applies to the total time out of refrigeration,
+        including the time on the plate. Above 90&nbsp;&deg;F ambient that limit halves to one hour,
+        which matters for a packed lunch left in a hot car.
+        <a href="/tools/leftover-matcher" class="text-[var(--color-wine)] underline">The leftover
+        matcher</a> turns what survives into the next two dinners, and
+        <a href="/tools/nutrition-calculator" class="text-[var(--color-wine)] underline">the nutrition
+        calculator</a> checks that a container actually hits the macros it was planned for.
+      </p>
+
+      <p class="text-[var(--text-secondary)] text-sm leading-relaxed">
+        Sources:
+        <a href="https://www.foodsafety.gov/food-safety-charts/cold-food-storage-charts" rel="noopener" class="underline">FoodSafety.gov, &ldquo;Cold Food Storage Chart&rdquo; (reviewed 19 September 2023)</a>;
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" rel="noopener" class="underline">USDA Food Safety and Inspection Service, &ldquo;Safe Minimum Internal Temperature Chart&rdquo; (last updated 14 April 2025)</a>;
+        <a href="https://www.fda.gov/food/buy-store-serve-safe-food/serving-safe-buffets" rel="noopener" class="underline">U.S. Food and Drug Administration, &ldquo;Serving Up Safe Buffets&rdquo;</a>;
+        BLS Average Price Data, APU series, U.S. city average, September 2026 and September 2025.
+      </p>
     </div>
   </section>
 

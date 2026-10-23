@@ -82,7 +82,7 @@ import ProteinCalculator from '../../components/tools/ProteinCalculator';
               The RDA of 0.8g/kg is the minimum to prevent deficiency. The Dietary Guidelines
               for Americans, 2025-2030 go further for the general population and set a protein
               serving goal of 1.2-1.6g per kg per day, prioritized at every meal. Athletes may
-              need more. <a href="https://www.dietaryguidelines.gov/" class="text-[var(--accent)] underline" target="_blank" rel="noopener">Read the current guidelines</a>.
+              need more. <a href="https://cdn.realfood.gov/DGA.pdf" class="text-[var(--accent)] underline" target="_blank" rel="noopener">Read the current guidelines</a>.
             </p>
           </div>
         </div>
@@ -120,6 +120,238 @@ import ProteinCalculator from '../../components/tools/ProteinCalculator';
 
 
       </article>
+    </div>
+  </section>
+
+  <!-- What the guidelines say, and what it looks like on a plate -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        How Much Protein the Guidelines Actually Recommend
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two different federal numbers are in circulation, and the gap between them explains most of the
+        confusion around protein targets. The older figure is the Recommended Dietary Allowance, the
+        intake that prevents deficiency in almost everyone. The newer figure is a serving goal in the
+        2025&ndash;2030 Dietary Guidelines for Americans, set well above the deficiency threshold
+        because the committee behind it wanted a target rather than a floor. Both are official, and
+        neither cancels the other.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        The two numbers, side by side
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The 2025&ndash;2030 edition says, under a heading that asks people to prioritize protein foods
+        at every meal, that protein serving goals are 1.2&ndash;1.6 grams of protein per kilogram of
+        body weight per day, adjusted for individual calorie needs. For an adult weighing 70&nbsp;kg
+        that is 84 to 112 grams a day; at 90&nbsp;kg it is 108 to 144 grams. The same document also
+        keeps the older quantitative goals in its appendix, and those are much lower: 46 grams a day for
+        women and 56 grams for men from age 19, with protein set at 10&ndash;35% of calories.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Daily protein goals from the Dietary Guidelines for Americans 2025&ndash;2030, Table A1-2.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Age and sex group</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Protein RDA</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Acceptable range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Girls and women, 14 to 18</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">46 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10&ndash;30% of calories</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Women, 19 and older</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">46 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10&ndash;35% of calories</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Boys, 14 to 18</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">52 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10&ndash;30% of calories</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Men, 19 and older</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">56 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10&ndash;35% of calories</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Serving goal, all adults</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1.2&ndash;1.6 g per kg body weight</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Adjust to calorie needs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The arithmetic behind the gap is worth seeing, because it is the reason the second figure
+        exists. Protein provides four calories per gram. The RDA of 46 grams is 184 calories, which is
+        10.2% of an 1,800-calorie day; the 56-gram RDA is 224 calories, or 9.3% of 2,400. Both sit at or
+        just under the bottom of the 10&ndash;35% acceptable range, which is what a deficiency
+        threshold looks like. The upper end of the new serving goal, 112 grams, is 448 calories, about
+        22% of a 2,000-calorie day and comfortably inside the range. The calculator above treats the RDA
+        as its maintenance band and multiplies it by an activity factor, so if you are following the
+        2025&ndash;2030 edition choose a higher activity level or read the serving goal directly from
+        the table.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        What that looks like in food
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A target in grams is abstract until it is weighed. The values below are from USDA FoodData
+        Central, per 100 grams as the record states it, so the raw and cooked distinction matters:
+        lentils and beans are uncooked weight here, which is why their protein density looks higher than
+        the same food on a plate.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Protein per 100 g, USDA FoodData Central. The FDC record number is given so the value can be checked.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Food, as recorded</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Protein per 100 g</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Food needed for 112 g</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Lentils, raw (FDC 172420)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">24.6 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">455 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Peanut butter, creamy (FDC 2262072)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">24.0 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">467 g</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Chicken breast, boneless and skinless, raw (FDC 2646170)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">22.5 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">498 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Black beans, mature seeds, raw (FDC 173734)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">21.6 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">519 g</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Salmon, chinook, raw (FDC 173688)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">19.9 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">563 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Egg, whole, raw (FDC 171287)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">12.6 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">889 g</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Yogurt, Greek, plain, lowfat (FDC 170903)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">9.95 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1,126 g</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The table makes the practical point better than any rule of thumb: reaching the top of the
+        serving goal from one food takes about half a kilogram of chicken, fish or dry pulses, and
+        rather more than a kilogram of yogurt. That is not a reason to eat one food; it is a reason to
+        spread the target across three meals, which is what the guideline asks for when it says to
+        prioritize protein at every meal. A breakfast with eggs and yogurt, a lunch with beans or
+        chicken, and a dinner with fish gets there without any single large portion.
+      </p>
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Splitting the target across three meals
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The same table, read the other way, shows how a day reaches the target without any single
+        oversized portion. The weights below are the raw weights the FDC records use, so they are
+        shopping weights rather than plate weights.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            A worked day at the top of the 112 g serving goal, using the FDC values above.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Meal</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Food and raw weight</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Protein</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Running total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Breakfast</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">250 g Greek yogurt, 100 g whole egg</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">24.9 g + 12.6 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">37.5 g</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Lunch</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">200 g chicken breast</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">45.0 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">82.5 g</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Dinner</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">150 g salmon</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">29.9 g</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">112.4 g</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Three ordinary portions, none of them large, land on the target. Swap the chicken for 180 g of
+        dry lentils and the day still works, at the cost of a much bigger bowl. The pattern matters more
+        than the exact foods: a protein food at each of the three meals, sized by weight rather than by
+        habit, and adjusted for whatever the calorie target allows.
+      </p>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two caveats belong on the page rather than in a footnote. The 2025&ndash;2030 protein goal is a
+        population target, and the same document tells people with chronic disease to work with a
+        clinician on how it applies to them; it also notes that vegan diets commonly fall short on
+        protein and several micronutrients, and asks for attention to nutrient gaps rather than
+        assuming a plant-only pattern covers them. And the values in the food table are for the food as
+        recorded. Cooked weights differ, water is lost during cooking, and the protein in 100&nbsp;g of
+        raw chicken is not the protein in 100&nbsp;g of the same chicken roasted.
+        <a href="/tools/nutrition-calculator" class="text-[var(--color-wine)] underline">The nutrition
+        calculator</a> handles the full macro split, and
+        <a href="/tools/macro-calculator" class="text-[var(--color-wine)] underline">the macro
+        calculator</a> sets the calorie and protein targets together, while
+        <a href="/articles/high-protein-meal-prep" class="text-[var(--color-wine)] underline">the
+        high-protein meal prep guide</a> turns the number into a week of containers and
+        <a href="/tools/dietary-finder" class="text-[var(--color-wine)] underline">the dietary meal
+        finder</a> filters meals by what you can actually eat.
+      </p>
+
+      <p class="text-[var(--text-secondary)] text-sm leading-relaxed">
+        Sources:
+        <a href="https://cdn.realfood.gov/DGA.pdf" rel="noopener" class="underline">U.S. Department of Agriculture and U.S. Department of Health and Human Services, &ldquo;Dietary Guidelines for Americans, 2025&ndash;2030&rdquo;</a>
+        (protein serving goal and Table A1-2 daily nutritional goals), linked as the current edition from
+        <a href="https://www.dietaryguidelines.gov/" rel="noopener" class="underline">DietaryGuidelines.gov</a>;
+        <a href="https://fdc.nal.usda.gov/" rel="noopener" class="underline">USDA FoodData Central</a>
+        records 172420, 2262072, 2646170, 173734, 173688, 171287 and 170903, protein per 100 g.
+      </p>
     </div>
   </section>
 

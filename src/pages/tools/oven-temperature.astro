@@ -11,7 +11,7 @@ import OvenTemperatureConverter from '../../components/tools/OvenTemperatureConv
 
 <BaseLayout
   title="Oven Temperature Converter"
-  description="Convert between Fahrenheit, Celsius, and Gas Mark instantly. Includes convection oven adjustments and high altitude baking tips."
+  description="Convert Fahrenheit, Celsius and gas mark, with the USDA safe minimum internal temperatures and a thermometer calibration check for your own oven."
   keywords={['oven temperature converter', 'fahrenheit to celsius', 'gas mark conversion', 'convection oven temperature', 'baking temperature chart']}
   breadcrumbs={[
     { name: 'Home', url: '/' },
@@ -81,7 +81,7 @@ import OvenTemperatureConverter from '../../components/tools/OvenTemperatureConv
             </h3>
             <p class="text-[var(--text-secondary)] text-base leading-relaxed">
               Convection (fan) ovens circulate hot air, cooking food faster and more evenly.
-              Reduce the temperature by 25°F (15°C) and check your food 25% sooner than the
+              Reduce the temperature by 25&deg;F (15&deg;C) and check your food 25% sooner than the
               recipe suggests.
             </p>
           </div>
@@ -94,28 +94,326 @@ import OvenTemperatureConverter from '../../components/tools/OvenTemperatureConv
         <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-10">
           <div class="text-center p-3 bg-blue-50 rounded-lg">
             <span class="block text-lg font-bold text-blue-700">Low</span>
-            <span class="text-xs text-[var(--text-muted)]">250-300°F</span>
+            <span class="text-xs text-[var(--text-muted)]">250-300&deg;F</span>
           </div>
           <div class="text-center p-3 bg-cyan-50 rounded-lg">
             <span class="block text-lg font-bold text-cyan-700">Moderate</span>
-            <span class="text-xs text-[var(--text-muted)]">325-350°F</span>
+            <span class="text-xs text-[var(--text-muted)]">325-350&deg;F</span>
           </div>
           <div class="text-center p-3 bg-yellow-50 rounded-lg">
             <span class="block text-lg font-bold text-yellow-700">Mod. Hot</span>
-            <span class="text-xs text-[var(--text-muted)]">375-400°F</span>
+            <span class="text-xs text-[var(--text-muted)]">375-400&deg;F</span>
           </div>
           <div class="text-center p-3 bg-orange-50 rounded-lg">
             <span class="block text-lg font-bold text-orange-700">Hot</span>
-            <span class="text-xs text-[var(--text-muted)]">425-450°F</span>
+            <span class="text-xs text-[var(--text-muted)]">425-450&deg;F</span>
           </div>
           <div class="text-center p-3 bg-red-50 rounded-lg">
             <span class="block text-lg font-bold text-red-700">Very Hot</span>
-            <span class="text-xs text-[var(--text-muted)]">475-500°F</span>
+            <span class="text-xs text-[var(--text-muted)]">475-500&deg;F</span>
           </div>
         </div>
 
 
       </article>
+    </div>
+  </section>
+
+  <!-- Oven temperatures: the scales, the safety floor, and the calibration check -->
+  <section class="py-16 bg-[var(--color-cream)]">
+    <div class="container max-w-4xl">
+      <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-4">
+        Oven Temperatures: What the Dial Means and What the Food Needs
+      </h2>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        An oven temperature does two separate jobs, and they fail in different ways. The first is
+        browning, rising and texture, where a rough number is good enough and a scale conversion does
+        the work. The second is killing bacteria, where the number is a published minimum measured
+        inside the food, not on the dial. This page covers both, and then the part most recipes
+        assume and never check: whether your oven actually reaches the temperature it claims.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Converting between Fahrenheit, Celsius and gas mark
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Fahrenheit and Celsius are exact conversions of each other: multiply Celsius by 9, divide by
+        5 and add 32 to get Fahrenheit, or subtract 32 from Fahrenheit, multiply by 5 and divide by 9
+        to get Celsius. Gas mark is not a conversion of that kind. It is a numbered scale printed on
+        appliance dials, and the Fahrenheit and Celsius pairs beside each mark are rounded to the
+        nearest 25&nbsp;&deg;F and 10&nbsp;&deg;C, so the columns below do not convert back into each
+        other exactly. Treat the table as what a dial says, and use the formula when a recipe gives an
+        exact figure.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Gas mark dial positions with the Fahrenheit and Celsius values printed beside them, and the
+            usual fan-oven equivalent.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Gas mark</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Fahrenheit</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Celsius</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Fan oven</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">What it is used for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1/4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">225&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">110&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">90&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Drying, meringue, slow-cooked conserves</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1/2</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">250&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">100&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Very low, drying and warming</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">1</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">275&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">120&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Slow roasting, custards</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">300&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">150&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">130&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Slow bakes, rich fruit cake</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">325&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">160&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Cakes, biscuits, slow roasts</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">350&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">180&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">160&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">The default for most baking and roasting</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">5</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">375&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">190&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">170&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Pastry, roast chicken pieces, traybakes</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">400&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">200&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">180&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Yorkshire pudding, first rise for bread</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">7</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">425&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">220&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">200&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">High-heat roasting, pizza</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">8</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">450&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">230&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">210&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Very hot, blistering pie pastry</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">9</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">475&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">240&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">220&nbsp;&deg;C</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Meringue browning, naan, demand settings</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        A fan oven moves that number down, because moving air transfers heat faster than still air.
+        The working rule on most appliance dials is 20&nbsp;&deg;C or 25&nbsp;&deg;F lower than the
+        conventional figure, with a shorter bake: start checking about a quarter of the way before the
+        recipe's time. That is a starting point, not a law. The pause in rising, the colour, and above
+        all the internal temperature are what decide whether it is done.
+        <a href="/tools/cooking-time" class="text-[var(--color-wine)] underline">The cooking time
+        calculator</a> converts a conventional time and weight into a starting estimate, and
+        <a href="/tools/bread-proofing" class="text-[var(--color-wine)] underline">the bread proofing
+        guide</a> covers the dough stages where oven temperature matters most.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Some oven temperatures are a safety limit, not a preference
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        The oven setting browns food. It does not by itself tell you the food is safe, because the
+        inside of a roast heats far more slowly than the air around it. The U.S. Department of
+        Agriculture publishes minimum internal temperatures instead, measured with a food thermometer
+        once the food comes out of the oven and, for whole cuts, held through a rest. These are the
+        numbers to cook to when the dish contains meat, poultry, seafood or eggs.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[720px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Safe minimum internal temperatures published by USDA FSIS and FoodSafety.gov.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Food</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Minimum internal temperature</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Rest time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Beef, pork, veal and lamb steaks, chops and roasts</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">145&nbsp;&deg;F (62.8&nbsp;&deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 minutes</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ground meats</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">160&nbsp;&deg;F (71.1&nbsp;&deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">None</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">All poultry, including ground poultry and stuffing</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165&nbsp;&deg;F (73.9&nbsp;&deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">None</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Ham, fresh or smoked and uncooked</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">145&nbsp;&deg;F (62.8&nbsp;&deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">3 minutes</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fully cooked ham, reheated</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">140&nbsp;&deg;F (60&nbsp;&deg;C) if packed in a USDA-inspected plant, otherwise 165&nbsp;&deg;F</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">None</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Eggs and egg dishes</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">160&nbsp;&deg;F (71.1&nbsp;&deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">None</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Fish and shellfish</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">145&nbsp;&deg;F (62.8&nbsp;&deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">None</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Leftovers and casseroles</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">165&nbsp;&deg;F (73.9&nbsp;&deg;C)</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        Two details get missed. The rest time for whole cuts is part of the cooking, not a serving
+        nicety: the temperature keeps rising and the juices redistribute while the joint stands, which
+        is why the minimum applies at the end of the rest as well as the moment it leaves the oven.
+        And the range between 40&nbsp;&deg;F and 140&nbsp;&deg;F is the zone where bacteria multiply
+        fastest, so an oven held below 140&nbsp;&deg;F is not cooking food, it is holding it in that
+        zone. If you are keeping a dish warm for a buffet,
+        <a href="/tools/potluck-coordinator" class="text-[var(--color-wine)] underline">the potluck
+        coordinator</a> sets out the holding limits, and
+        <a href="/tools/meal-prep" class="text-[var(--color-wine)] underline">the meal prep
+        planner</a> covers what happens to the food after it cools.
+      </p>
+
+      <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+        Check the oven, not the dial
+      </h3>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        An oven thermostat cycles on and off around its set point, so the display is a target rather
+        than a measurement. Kansas State University's extension calibration guide defines an accurate
+        thermometer as one reading within plus or minus 2&nbsp;&deg;F (0.5&nbsp;&deg;C) of the true
+        temperature, and notes that dial thermometers lose calibration after physical shock. An
+        inexpensive oven thermometer left on the middle rack for twenty minutes tells you what your
+        oven is actually doing, and it is the cheapest fix for a cake that browns before it sets.
+      </p>
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        You can check that thermometer at home against two fixed points. A slush of crushed ice and
+        water reads 32&nbsp;&deg;F (0&nbsp;&deg;C). Boiling water reads 212&nbsp;&deg;F
+        (100&nbsp;&deg;C) at sea level, and less as you climb, because the boiling point falls with
+        air pressure. The USDA figures reproduced in the K-State guide give the correction directly.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full min-w-[520px] border-collapse text-left text-[var(--text-secondary)]">
+          <caption class="px-4 pb-2 text-left text-sm font-medium text-[var(--text-muted)]">
+            Boiling point of water by altitude, from the USDA Complete Guide to Home Canning (Agriculture
+            Information Bulletin No. 539), as reproduced by Kansas State University extension.
+          </caption>
+          <thead>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Altitude</th>
+              <th class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Boiling point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">Sea level</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">212&nbsp;&deg;F (100&nbsp;&deg;C)</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">2,000 ft</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">208&nbsp;&deg;F (98&nbsp;&deg;C)</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">4,000 ft</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">204&nbsp;&deg;F (96&nbsp;&deg;C)</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">6,000 ft</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">201&nbsp;&deg;F (94&nbsp;&deg;C)</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">8,000 ft</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">197&nbsp;&deg;F (92&nbsp;&deg;C)</td>
+            </tr>
+            <tr class="bg-[var(--color-cream-soft)]">
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">10,000 ft</td>
+              <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">194&nbsp;&deg;F (90&nbsp;&deg;C)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+        If the oven thermometer disagrees with the dial by more than about 25&nbsp;&deg;F across the
+        range, stop trusting the dial and use the measured figure in recipes. If a probe thermometer
+        cannot be calibrated and reads more than 2&nbsp;&deg;F out, the K-State guidance is to replace
+        it rather than adjust around it. Two smaller habits close the same gap: preheat until the
+        element has cycled off rather than until the beep, and bake in the middle of the oven, where
+        the air is most even, on the rack the recipe names.
+        <a href="/tools/unit-converter" class="text-[var(--color-wine)] underline">The unit
+        converter</a> handles weights and volumes when a recipe mixes systems, and
+        <a href="/tools/sourdough-calculator" class="text-[var(--color-wine)] underline">the sourdough
+        calculator</a> scales a formula to the loaf you actually want to bake.
+      </p>
+
+      <p class="text-[var(--text-secondary)] text-sm leading-relaxed">
+        Sources:
+        <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" rel="noopener" class="underline">USDA Food Safety and Inspection Service, &ldquo;Safe Minimum Internal Temperature Chart&rdquo; (last updated 14 April 2025)</a>;
+        <a href="https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures" rel="noopener" class="underline">FoodSafety.gov, &ldquo;Cook to a Safe Minimum Internal Temperature&rdquo; (reviewed 21 November 2024)</a>;
+        <a href="https://www.asi.k-state.edu/doc/meat-science/thermometer-calibration-guide-2.pdf" rel="noopener" class="underline">Flores and Boyle, &ldquo;Thermometer Calibration Guide&rdquo;, Kansas State University Agricultural Experiment Station and Cooperative Extension Service, MF-2440</a>.
+      </p>
     </div>
   </section>
 
