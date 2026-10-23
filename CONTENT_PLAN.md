@@ -396,3 +396,38 @@ Priority = Bing-query demand + corpus pattern + tool synergy.
   still under ~700 words; meal-prep's unsourced "$100-150/month" and "4-6 hours" claims need sources
   (BLS/ERS for the cost, extension guidance for the time) before it can be expanded. Seasonality and
   flavour-pairing are now covered and are NOT next.
+- 2026-10-23 (run 21): **Three thin tool pages brought into the site band (+3,187 live words) and
+  two unsourced-claim classes removed.** `/tools/oven-temperature` 120 -> **1,066 source w / 1,209
+  live w / 3 tables** (gas-mark conversion table for 11 dial positions with the why-it-does-not-
+  invert explanation; the USDA FSIS safe minimum internal temperature table, 8 rows including the
+  3-minute rest and the 140 °F ham reheat; oven-versus-dial with K-State's ±2 °F accuracy
+  definition; the USDA boiling-point-by-altitude table from 212 °F at sea level to 194 °F at
+  10,000 ft). `/tools/meal-prep` 167 -> **1,077 source w / 1,177 live w / 2 tables** — the
+  unsourced "$100-150 a month" and "4-6 hours a week" claims are gone, replaced by 10 BLS
+  September-2026 average prices with computed year-over-year changes, a worked $2.35 portion
+  ($11.77 for five), the **FoodSafety.gov cold-storage table** (8 rows) that actually limits a
+  five-day plan to three-to-four days, and the cooling / 165 °F reheat / two-hour rules.
+  `/tools/protein-calculator` 176 -> **1,044 source w / 1,291 live w / 3 tables** — the DGA
+  2025-2030 serving goal (1.2-1.6 g/kg/day) now cited to the edition PDF, explained against the
+  RDA (46 g women / 56 g men / 52 g teenage boys, AMDR 10-35%) with the arithmetic that shows why
+  the two differ, plus a **USDA FoodData Central** protein-per-100 g table (7 rows with FDC record
+  numbers) and a worked 112.4 g day across three ordinary portions. `/tools/nutrition-calculator`
+  gained an inbound link to the protein calculator. QA gate PASS (tag balance, metas 122-159, no
+  FAQ/undefined/braces, exact row counts 28/20/18, gas-mark rows self-consistent, BLS subset
+  re-derived, cost and protein arithmetic recomputed), deploy
+  **46f18e3f-641e-46fa-8010-a47e3ae05f27**, live verify PASS (4/4 pages, 3/3 legacy 301s both
+  slash forms, sampled internal links 200), sitemap lastmod 2026-10-23 on four URLs, Bing
+  SubmitUrl 4/4 + **FetchUrl** on `/articles/what-to-serve-with-pesto-chicken` (still
+  DocumentSize 0 after two SubmitUrls — two-run discovery gap). Bing window unchanged at **791
+  queries / 80 clicks / 1,251 impressions**; crawl 2xx 62/day vs 4xx 25-44 for 2026-10-16..21; two
+  sitemap feeds subscribed (apex + www, both 52 URLs, both accurate). GSC token **invalid_grant,
+  eighth run**. Directory: **1 free submission accepted** (latesttopdirectory.org — Divi
+  `/submit-site/` form, free radios + math captcha, "now in the queue for review") and 1
+  host-side `failed` (freedirectory-listings.org, same template, "Please submit English language
+  websites only" twice on plain-English payloads); 0 flips across 33 submitted / 4 pending (28
+  hosts have no proof path), 6/6 listed re-verified, 0 new attributable acks. A 54-host screen of
+  two fresh aggregator lists found 11 phpLD pages and none with a usable free path (6 reCAPTCHA
+  walls, rest paid-only) — the phpLD vein is closed for this campaign pending a new instance list.
+  Gate still ACTIVE (45 days). Next within-gate: leftover-matcher 131 w and pan-size-converter
+  127 w (both sourceable from data already verified), then pantry-helper 156 w and recipe-scaler
+  156 w; cooking-style-quiz and recipe-generator have no demand signal and are not next.

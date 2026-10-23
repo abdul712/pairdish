@@ -1685,3 +1685,124 @@ Tracker after run: **56 rows — 6 listed / 32 submitted / 4 pending_review / 11
 ~10 minutes, and this is the seventh run blocked on it. (2) Pinterest access (account exists; no
 credentials here). (3) Per-domain SMTP: only Gmail credentials are present, so
 `outreach@pairdish.com` sending and the link-outreach phase stay blocked.
+
+## Run 21 — 2026-10-23 (gate-closed: three thin tool pages expanded, +3,187 live words)
+
+**Phase 1 — audit.** Sitemap sweep: **52/52 URLs 200**, zero metas over 160 characters, zero
+FAQ markers, zero `href="undefined"`. `python3 ~/.hermes/scripts/webmaster_auto_add.py status`
+reports the token file present with `webmasters`, `analytics.edit` and `siteverification`
+scopes — and the refresh probe answers **`400 invalid_grant`** again, the **eighth** consecutive
+run. GSC and GA4 therefore remain unreadable from this box; every traffic and coverage figure
+below comes from Bing. Bing traffic window unchanged at **791 queries / 80 clicks / 1,251
+impressions** (window through 2026-10-19), with "what to serve with philly cheesesteak" still the
+biggest single query at 22 impressions.
+
+**Crawl and feeds.** `GetCrawlStats` for 2026-10-16..21 shows **Code2xx 62 every day** against
+Code4xx 25-44 and 1-2 redirects, i.e. the same shape as run 20: the live tree is being fetched
+steadily while roughly a third of requests still hit dead legacy paths. `GetFeeds` now lists
+**two** subscriptions — `www.pairdish.com/sitemap.xml` (52 URLs, last crawled 2026-10-18) and
+`pairdish.com/sitemap.xml` (52 URLs, last crawled 2026-10-22). www is a Worker route serving the
+same build, so both feeds are accurate; the duplicate is noted rather than removed, because
+unsubscribing the www variant would only matter if the two ever diverged.
+
+**The two-run Bing discovery gap on `/articles/what-to-serve-with-pesto-chicken` is now a
+`FetchUrl` request, not another `SubmitUrl`.** `GetUrlInfo` still returns `DocumentSize 0` after
+run 19's `SubmitUrl` and run 21's second one. `FetchUrl` was fired for that URL this run
+(`{"d":null}`) and is the distinct lever; the next run decides whether it produced a record.
+The four edited URLs each carry a stored copy, all of them pre-expansion (34-54 KB), which is
+expected until Bing re-crawls.
+
+**Phase 4 — three thin tool pages brought into the site band.** The tail left by run 20 was
+`oven-temperature` 120 w, `pan-size-converter` 127 w, `leftover-matcher` 131 w,
+`cooking-style-quiz` 136 w, `recipe-scaler` 156 w, `pantry-helper` 156 w, `recipe-generator`
+159 w, `meal-prep` 167 w and `protein-calculator` 176 w — all with zero tables and zero external
+sources. Three of them are now sourced pages:
+
+* **`/tools/oven-temperature` 120 -> 1,066 source w / 1,209 live w, 3 tables.** A gas-mark
+  conversion table (11 rows, gas 1/4 to 9 with the Fahrenheit, Celsius, fan and use columns) that
+  states plainly why it does not invert exactly — the dial pairs are rounded to 25&nbsp;°F and
+  10&nbsp;°C, so the formula is given separately for precision. Then the **USDA FSIS safe minimum
+  internal temperature table** (8 rows: 145&nbsp;°F/62.8&nbsp;°C with a 3-minute rest for whole
+  cuts, 160&nbsp;°F/71.1&nbsp;°C ground meats, 165&nbsp;°F/73.9&nbsp;°C poultry and leftovers,
+  the 140&nbsp;°F reheat for USDA-inspected ham), a section on reading the dial versus measuring
+  the oven (K-State's ±2&nbsp;°F definition of an accurate thermometer), and the **USDA boiling
+  point by altitude table** (sea level 212&nbsp;°F down to 194&nbsp;°F at 10,000 ft) so the
+  ice-water/boiling-water calibration check is usable away from sea level.
+* **`/tools/meal-prep` 167 -> 1,077 source w / 1,177 live w, 2 tables.** The unsourced
+  "$100-150 per month" and "4-6 hours weekly" claims are **gone** (they were the reason this page
+  could not be expanded earlier); in their place, 10 BLS average prices for September 2026 with
+  the year-over-year change computed from the same series, a worked portion at **$2.35** (150 g
+  chicken $1.39 + 80 g dry rice $0.20 + 150 g potato $0.33 + 100 g tomato $0.44, five portions
+  $11.77), the eggs −34.9% / butter −17.3% / ground beef +7.4% movements called out, then the
+  **FoodSafety.gov cold-storage table** (8 rows) which is what actually constrains a five-day
+  plan, and the cooling / 165&nbsp;°F reheat / two-hour (one hour above 90&nbsp;°F) rules.
+* **`/tools/protein-calculator` 176 -> 1,044 source w / 1,291 live w, 3 tables.** The page's
+  existing "1.2-1.6 g/kg" line was correct but pointed at the DGA homepage; it now cites the
+  2025-2030 edition PDF and explains **both** federal numbers and why they differ: the DGA
+  serving goal of **1.2-1.6 g per kg per day** against the RDA (**46 g** women / **56 g** men from
+  19, **52 g** boys 14-18, AMDR 10-35% of calories) — with the arithmetic that makes the gap
+  legible (46 g is 10.2% of 1,800 kcal; 56 g is 9.3% of 2,400, i.e. the RDA sits at the bottom of
+  the acceptable range). Then a **USDA FoodData Central** table of protein per 100 g with the FDC
+  record numbers (lentils 24.6, peanut butter 24.0, chicken breast 22.5, black beans 21.6, salmon
+  19.9, egg 12.6, Greek yogurt 9.95) and the food weight each implies for 112 g, and a worked day
+  (37.5 + 45.0 + 29.9 = 112.4 g) that shows the target landing across three ordinary portions.
+  The page also tells the reader the calculator's maintenance band is RDA-based, so anyone
+  following the 2025-2030 edition should read the serving goal from the table instead.
+
+**Internal links.** `/tools/nutrition-calculator` now links to the protein calculator from its
+per-gram section, giving that page a third contextual inbound link (macro-calculator and
+caffeine-calculator already linked). The three expanded pages carry 11, 14 and 11 internal links.
+
+**Build / deploy / verify.** QA gate PASS on all three pages: tag balance, no literal escapes, no
+FAQ markup, no `href="undefined"`, no `undefined` token, metas 122-159 characters, every internal
+href resolving on disk, official-only externals, exact table row counts (28 / 20 / 18), the
+gas-mark table checked row by row against its own fan conversion, the BLS subset re-derived from
+the pulled API file, and the stated arithmetic recomputed (portion $2.35, five portions $11.77,
+protein day 112.4 g). Sitemap `lastmod` 2026-10-23 on the four edited URLs. Clean
+`rm -rf dist .astro` build with `NODE_OPTIONS=--max-old-space-size=3584` printed
+`[build] Complete!`; deploy version **46f18e3f-641e-46fa-8010-a47e3ae05f27**. Live verify PASS:
+1,209 / 1,177 / 1,291 / 807 words, 4 / 3 / 3 / 1 tables, metas 145 / 159 / 156 / 147, no FAQ, no
+undefined, 52 sitemap URLs, the three legacy 301s still answering in both slash forms, and every
+sampled internal link 200.
+
+**Phase 5 — one free submission accepted, one host-side failure, and the phpLD pool closed with
+evidence.** A 54-host screen of two fresh aggregator lists (every host built at runtime and
+diffed against the tracker first) found **11 pages carrying phpLD fields and zero with a usable
+free path**: six render Google reCAPTCHA (the `6LdC3EkU…` clone wall), the rest expose no
+`LINK_TYPE` radios or only paid ones. That is the roster-diff answer to "is this vein
+exhausted?" — it is, for now. The productive move was a different species: the **Divi
+`/submit-site/` family**, where `/submit.php` is reCAPTCHA-gated but the Divi contact form is not.
+`latesttopdirectory.org` accepted the submission through a browser fill plus a trusted click —
+"Regular Link (Free)" radio, the "Free - I don't mind a long waiting period" radio, and a math
+captcha read from `data-first_digit`/`data-second_digit` — and answered **"Thank you for
+submitting your link … now in the queue for review."** The identical template at
+`freedirectory-listings.org` rejected every payload twice with **"Please submit English language
+websites only"** despite plain-ASCII English content and a correct captcha, so it is logged
+`failed` as a host-side false positive rather than retried.
+
+**Flips and acks.** All **6 `listed` rows re-verified live** (200, "pairdish" in the body). **0
+flips** across 33 submitted / 4 pending rows: 28 host installs answer the phpLD name search with a
+0-byte 200 or a 403, which is "proof unavailable on this install", not "not listed". The mailbox
+sweep since 2026-10-19 found **no new pairdish-addressed directory mail** — the only attributable
+messages are the already-processed webdirectory.top pair and the exampledir approval; the ten
+other directory mails in that window (activdirectory, anoox ×6, secretsearcheginelabs,
+toolwise, founder.best) are all addressed to `mabdulrahim+pairingplates@gmail.com`,
+`support@pinbuilds.com`, `support@tweetreplier.com` or `mabdulrahim+socializeexperts@gmail.com`.
+
+Tracker after run: **58 rows — 6 listed / 33 submitted / 4 pending_review / 11 skipped_other /
+2 skipped_paid / 2 failed.**
+
+**Review gate still ACTIVE (45 days).** No new articles were published, so the gate did not need
+to open; the run stayed inside the within-gate work the plan specifies. **Next within-gate
+targets, in order:** `leftover-matcher` 131 w and `pan-size-converter` 127 w (both sourceable from
+data already verified here), `cooking-style-quiz` and `recipe-generator` (no demand signal, so
+only worth expanding if a sourced angle appears), then `pantry-helper` 156 w and `recipe-scaler`
+156 w.
+
+**Unchanged user actions.** (1) Google re-consent:
+`python3 ~/.hermes/scripts/webmaster_auto_add.py google-auth` — codes are single-use and expire in
+~10 minutes, and this is the eighth run blocked on it, which also blocks GA4 session figures the
+premium-network thresholds are measured in. (2) Pinterest access: the account exists (activity
+mail to `admin@pairdish.com`), there are no credentials here. (3) Per-domain SMTP: only
+`EMAIL_ADDRESS` / `GMAIL_APP_PASSWORD` exist, so `outreach@pairdish.com` sending and the
+link-outreach phase remain blocked.

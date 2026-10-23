@@ -509,3 +509,42 @@ Paste into pairdish.com homepage footer, then re-run scripts/huzzler_publish.py:
   (account exists, no credentials here, activity mail to `admin@pairdish.com` confirms it), and
   per-domain SMTP (only `EMAIL_ADDRESS` / `GMAIL_APP_PASSWORD`, so `outreach@pairdish.com` sending
   and link outreach remain blocked).
+### Run 21 — 2026-10-23 (1 new free submission accepted; the phpLD pool closed with evidence; 0 flips, 0 acks)
+
+- **`latesttopdirectory.org` — accepted, in the review queue.** This is the Divi
+  "Premium Free Web Directory" template: `/submit.php` serves Google reCAPTCHA, but
+  **`/submit-site/`** is a plain Divi contact form (fields `et_pb_contact_website_name_0`,
+  `_website_address_0`, `_description_0`, `_category_0`, `_name_0`, `_email_0`) with two radio
+  groups — `et_pb_contact_type_0` = "Featured Link with Priority Approval - Only $3 USD" or
+  **"Regular Link (Free)"** — and `et_pb_contact_free_prompt_0` = "Free - I don't mind a long
+  waiting period". The only challenge is Divi's own math captcha, read from
+  `data-first_digit`/`data-second_digit` on the captcha input (14+4). **Fill with the native value
+  setter plus input/change events, check both free radios, then click the button by coordinates**
+  (`click_at_xy`); `el.click()` was not tried. Success replaces the form message with
+  **"Thank you for submitting your link. If you selected 'Regular Link', your request is now in
+  the queue for review."**
+- **`freedirectory-listings.org` — `failed`, host-side.** Identical template, free radios and math
+  captcha all accepted, but **every** submit answers "Please submit English language websites
+  only." Two attempts, second with plain-ASCII values and a fresh correct captcha. That is a
+  server-side false positive, not a payload problem; do not burn a third attempt on it.
+- **The phpLD vein is closed for this campaign, and now with a measured answer rather than a
+  hunch.** Two fresh aggregator lists yielded 54 untracked hosts (built at runtime and diffed
+  against the tracker first); a 10-thread screen of `/submit.php` and `/submit` found 11 pages
+  carrying phpLD fields and **none with a usable free path** — six render Google reCAPTCHA, the
+  rest expose no `LINK_TYPE` radios or paid ones only. `afunnydir.com` is the instructive case: its
+  radios read "Regular Reviews free" and the page carries a 689-category tree with Cooking = 297,
+  but `recaptcha=True` puts it in the wall class. Record the screen, switch species.
+- **Flip sweep: 0 flips, 6/6 `listed` rows re-verified live.** All six (ShowMySites, Viesearch,
+  HuLu, webdirectory.top, Example Dir, plus the seed row) return 200 with "pairdish" in the body.
+  Of the 33 submitted / 4 pending rows, **28 installs answer the phpLD name search with a 0-byte
+  200 or a 403** — proof unavailable, not "not listed" — and the rest return no `listing/` href.
+- **Ack sweep: nothing attributable since 2026-10-19.** The only pairdish-addressed directory mail
+  in the window is the already-processed webdirectory.top confirmation/approval pair and the
+  exampledir approval. Ten other directory mails (activdirectory, anoox ×6,
+  secretsearcheginelabs, toolwise, founder.best) belong to pairingplates, pinbuilds, tweetreplier
+  and socializeexperts by the To: line.
+- Tracker after run: **58 rows — 6 listed / 33 submitted / 4 pending_review / 11 skipped_other /
+  2 skipped_paid / 2 failed.**
+- Unchanged user actions: Google re-consent (eighth run blocked, `invalid_grant`), Pinterest access
+  (account exists, no credentials here), per-domain SMTP (only `EMAIL_ADDRESS` /
+  `GMAIL_APP_PASSWORD`, so `outreach@pairdish.com` sending and link outreach remain blocked).
