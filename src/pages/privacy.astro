@@ -7,7 +7,7 @@
 
 import BaseLayout from '../components/layouts/BaseLayout.astro';
 
-const lastUpdated = "January 3, 2026";
+const lastUpdated = "November 9, 2026";
 ---
 
 <BaseLayout
@@ -38,7 +38,9 @@ const lastUpdated = "January 3, 2026";
           <p class="text-[var(--text-secondary)] m-0">
             <strong class="text-[var(--text-primary)]">Summary:</strong> We respect your privacy.
             PairDish is designed to work without requiring personal data. We don't sell your information,
-            and we only collect minimal analytics to improve our tools.
+            and we only collect minimal analytics to improve our tools. We use cookies, including cookies
+            for advertising served by Google and other third-party vendors — see sections 3 and 4 below
+            for details and how to opt out of personalized advertising.
           </p>
         </div>
 
@@ -70,7 +72,7 @@ const lastUpdated = "January 3, 2026";
           <li>Device type (mobile, desktop, tablet)</li>
         </ul>
         <p class="text-[var(--text-secondary)] mb-4">
-          This information is collected through privacy-respecting analytics and is used solely to understand
+          This information is collected through Google Analytics 4 (see section 7) and is used solely to understand
           how our tools are used and how we can improve them.
         </p>
 
@@ -96,14 +98,43 @@ const lastUpdated = "January 3, 2026";
         <ul class="list-disc list-inside text-[var(--text-secondary)] mb-4 space-y-2">
           <li><strong>Essential cookies:</strong> Required for basic website functionality</li>
           <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with our site</li>
+          <li><strong>Advertising cookies:</strong> Used by Google and other third-party vendors to serve ads
+          based on your prior visits to this and other websites (see section 4)</li>
         </ul>
         <p class="text-[var(--text-secondary)] mb-4">
           You can control cookies through your browser settings. Note that disabling cookies may affect
-          some functionality of our tools.
+          some functionality of our tools. To opt out of personalized advertising, see section 4.
         </p>
 
         <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
-          4. Data Sharing and Disclosure
+          4. Advertising
+        </h2>
+        <p class="text-[var(--text-secondary)] mb-4">
+          PairDish displays advertisements served by Google AdSense and other third-party advertising vendors.
+          Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this
+          website or other websites.
+        </p>
+        <p class="text-[var(--text-secondary)] mb-4">
+          Google's use of advertising cookies enables it and its partners to serve ads to you based on your
+          visit to this site and/or other sites on the Internet. You may opt out of personalized advertising
+          by visiting <a href="https://adssettings.google.com" class="text-[var(--color-wine)] hover:underline">Google Ads Settings</a>.
+          Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising
+          by visiting <a href="https://optout.aboutads.info" class="text-[var(--color-wine)] hover:underline">aboutads.info/choices</a>.
+        </p>
+        <p class="text-[var(--text-secondary)] mb-4">
+          For more information about how Google uses data when you use our site, see
+          <a href="https://policies.google.com/technologies/partner-sites" class="text-[var(--color-wine)] hover:underline">How Google uses information from sites or apps that use our services</a>
+          and <a href="https://policies.google.com/technologies/ads" class="text-[var(--color-wine)] hover:underline">Google's Advertising Privacy &amp; Terms</a>.
+          You can also learn how Google manages data in its advertising products at
+          <a href="https://business.safety.google/privacy/" class="text-[var(--color-wine)] hover:underline">business.safety.google/privacy</a>.
+        </p>
+        <p class="text-[var(--text-secondary)] mb-4">
+          We do not control the cookies set by third-party advertisers, and their use of your information
+          is governed by their own privacy policies.
+        </p>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
+          5. Data Sharing and Disclosure
         </h2>
         <p class="text-[var(--text-secondary)] mb-4">
           <strong>We do not sell, trade, or rent your personal information to third parties.</strong>
@@ -122,7 +153,7 @@ const lastUpdated = "January 3, 2026";
         </ul>
 
         <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
-          5. Data Security
+          6. Data Security
         </h2>
         <p class="text-[var(--text-secondary)] mb-4">
           We take reasonable measures to protect the information we collect. Our website uses HTTPS
@@ -134,7 +165,7 @@ const lastUpdated = "January 3, 2026";
         </p>
 
         <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
-          6. Third-Party Services
+          7. Third-Party Services
         </h2>
         <p class="text-[var(--text-secondary)] mb-4">
           PairDish is hosted on Cloudflare Workers and may use the following third-party services:
@@ -142,13 +173,19 @@ const lastUpdated = "January 3, 2026";
         <ul class="list-disc list-inside text-[var(--text-secondary)] mb-4 space-y-2">
           <li><strong>Cloudflare:</strong> For website hosting, security, and performance optimization</li>
           <li><strong>Google Fonts:</strong> For typography (loaded with privacy-preserving settings)</li>
+          <li><strong>Google Analytics 4:</strong> For understanding how visitors use the site (see section 1).
+          Google Analytics uses cookies and may collect your IP address, device and browser information,
+          and pages visited. You can opt out with the
+          <a href="https://tools.google.com/dlpage/gaoptout" class="text-[var(--color-wine)] hover:underline">Google Analytics Opt-out Browser Add-on</a>.</li>
+          <li><strong>Google AdSense:</strong> For serving advertisements. Google and its advertising partners
+          use cookies to serve ads based on your prior visits to this or other websites (see section 4).</li>
         </ul>
         <p class="text-[var(--text-secondary)] mb-4">
           These services have their own privacy policies, and we encourage you to review them.
         </p>
 
         <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
-          7. Children's Privacy
+          8. Children's Privacy
         </h2>
         <p class="text-[var(--text-secondary)] mb-4">
           PairDish is intended for general audiences and does not knowingly collect personal information
@@ -157,7 +194,7 @@ const lastUpdated = "January 3, 2026";
         </p>
 
         <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
-          8. Your Rights
+          9. Your Rights
         </h2>
         <p class="text-[var(--text-secondary)] mb-4">
           Depending on your location, you may have certain rights regarding your personal information:
@@ -166,6 +203,7 @@ const lastUpdated = "January 3, 2026";
           <li>Right to access the information we have about you</li>
           <li>Right to request deletion of your information</li>
           <li>Right to opt out of analytics tracking</li>
+          <li>Right to opt out of personalized advertising (see section 4)</li>
           <li>Right to lodge a complaint with a supervisory authority</li>
         </ul>
         <p class="text-[var(--text-secondary)] mb-4">
@@ -174,7 +212,7 @@ const lastUpdated = "January 3, 2026";
         </p>
 
         <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
-          9. Changes to This Policy
+          10. Changes to This Policy
         </h2>
         <p class="text-[var(--text-secondary)] mb-4">
           We may update this Privacy Policy from time to time. We will notify you of any changes by
@@ -185,7 +223,7 @@ const lastUpdated = "January 3, 2026";
         </p>
 
         <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-4">
-          10. Contact Us
+          11. Contact Us
         </h2>
         <p class="text-[var(--text-secondary)] mb-4">
           If you have any questions about this Privacy Policy, please contact us at:
