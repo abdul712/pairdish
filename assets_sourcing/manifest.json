@@ -31,5 +31,38 @@
   "descurl": "https://commons.wikimedia.org/wiki/File:Pesto_crusted_chicken_with_corn_dish.jpg",
   "license": "CC BY-SA 4.0",
   "artist": "Infrogmation of New Orleans"
+ },
+ "what-to-serve-with-chili": {
+  "status": "ok",
+  "query": "chili con carne bowl",
+  "title": "File:Chili con carne (4431800858).jpg",
+  "width": 4288,
+  "height": 2848,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Chili_con_carne_%284431800858%29.jpg/1920px-Chili_con_carne_%284431800858%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Chili_con_carne_(4431800858).jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "cyclonebill"
+ },
+ "what-to-serve-with-mac-and-cheese": {
+  "status": "ok",
+  "query": "macaroni and cheese bowl",
+  "title": "File:Macaroni and cheese (2) (cropped).jpg",
+  "width": 2935,
+  "height": 1592,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Macaroni_and_cheese_%282%29_%28cropped%29.jpg/1920px-Macaroni_and_cheese_%282%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Macaroni_and_cheese_(2)_(cropped).jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Sumeet Jain"
+ },
+ "what-to-serve-with-salmon": {
+  "status": "ok",
+  "query": "grilled salmon fillet lemon parsley",
+  "title": "File:Grilled salmon garnished with lemon and parsley.jpg",
+  "width": 3024,
+  "height": 4032,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Grilled_salmon_garnished_with_lemon_and_parsley.jpg/1920px-Grilled_salmon_garnished_with_lemon_and_parsley.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Grilled_salmon_garnished_with_lemon_and_parsley.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Gatorfan252525"
  }
 }

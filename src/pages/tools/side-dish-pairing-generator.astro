@@ -1,0 +1,231 @@
+---
+/**
+ * Side-Dish Pairing Generator Tool Page
+ *
+ * The hub tool for "what to serve with X": pick a main dish, set the
+ * occasion, diet and guest count, and get a ranked side list grouped by the
+ * four jobs a side dish can do, with portions scaled to the table.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import SideDishPairingGenerator from '../../components/tools/SideDishPairingGenerator';
+---
+
+<BaseLayout
+  title="Side-Dish Pairing Generator"
+  description="What to serve with chili, salmon, mac and cheese, steak, tacos and 20 more mains. Pick a dish, set the occasion and guest count, and get a ranked side list with per-person portions."
+  keywords={['what to serve with', 'side dish generator', 'side dish pairing', 'what goes with chili', 'what to serve with salmon', 'dinner side dishes', 'side dish planner']}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Side-Dish Pairing Generator', url: '/tools/side-dish-pairing-generator' }
+  ]}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+          <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+          <span>/</span>
+          <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+          <span>/</span>
+          <span class="text-[var(--color-wine)]">Side-Dish Pairing Generator</span>
+        </nav>
+
+        <!-- Title -->
+        <h1 class="text-display text-[var(--text-primary)] mb-4">
+          Side-Dish <span class="text-accent text-[var(--color-wine)]">Pairing Generator</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          You have the main dish. Now build the plate. Pick a dish, set the occasion,
+          diet and guest count, and get sides grouped by the four jobs a side dish can
+          do — with portions scaled to your table.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <SideDishPairingGenerator client:load />
+    </div>
+  </section>
+
+  <!-- Educational Content for SEO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+
+      <article class="prose prose-lg">
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mb-6">
+          The four jobs a side dish can do
+        </h2>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          Every side on this page is grouped by the job it does on the plate. A complete
+          plate usually needs one side from each group — that is the whole framework.
+          Pick one per group and the meal is balanced, whatever the main dish is.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              1. Cut the richness
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Acid, crunch and freshness. Vinegar slaw next to chili, lemon asparagus next
+              to salmon, pickles next to ribs. Rich mains need something sharp or cold or
+              the plate feels heavy after three bites.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              2. Add contrast
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              A different temperature, texture or colour from the main. Crispy smashed
+              potatoes next to soft salmon, cold sour cream on hot chili, crunchy slaw
+              next to soft meatloaf.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              3. Carry savoury depth
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              Roasted, smoky or umami-rich sides that stand up to a bold main. Baked beans
+              with ribs, mushrooms with steak, miso eggplant with teriyaki salmon.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-cream)] rounded-xl p-6">
+            <h3 class="font-display text-xl font-semibold mb-3 text-[var(--text-primary)]">
+              4. Supply the starch
+            </h3>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed">
+              The filling base that turns a main into a meal. Cornbread with chili, rice
+              with salmon, Yorkshire pudding with prime rib, garlic bread with lasagna.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Worked example: chili night for 8
+        </h3>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          Type “chili”, set 8 guests and game day. The generator suggests coleslaw and
+          pickled jalapeños to cut the richness, sour cream and cheddar for contrast,
+          smoky baked beans for depth, and cornbread for starch — 6 cups of slaw, a
+          cup of sour cream, 4 cups of beans and 8 pieces of cornbread. That is the
+          whole menu, with quantities, in one pass.
+        </p>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          How portions work
+        </h3>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          Every side lists a per-person portion — about ¾ cup for most vegetable sides,
+          4–6 oz for a protein side, 1 piece for breads and potatoes. The generator
+          multiplies by your guest count. Round up for big eaters and teenagers, and
+          round down when the menu has more than four sides, because guests eat less
+          of each when there is more choice.
+        </p>
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Per-dish pairing guides
+        </h3>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          For the full treatment — toppings bars, cooking-method filters, holiday modes
+          and FAQs — read the per-dish guides. The most-searched ones:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          <li><a href="/articles/what-to-serve-with-chili" class="text-[var(--color-wine)] underline">What to serve with chili</a> — including the toppings-bar module</li>
+          <li><a href="/articles/what-to-serve-with-mac-and-cheese" class="text-[var(--color-wine)] underline">What to serve with mac and cheese</a> — richness-cutters vs dinner-makers</li>
+          <li><a href="/articles/what-to-serve-with-salmon" class="text-[var(--color-wine)] underline">What to serve with salmon</a> — sides by cooking method</li>
+          <li><a href="/articles/what-to-serve-with-fried-fish" class="text-[var(--color-wine)] underline">What to serve with fried fish</a> — tartar science and regional takes</li>
+          <li><a href="/articles/what-to-serve-with-roasted-potatoes" class="text-[var(--color-wine)] underline">What to serve with roasted potatoes</a> — 12 pairings that always work</li>
+          <li><a href="/articles/what-to-serve-with-pesto-chicken" class="text-[var(--color-wine)] underline">What to serve with pesto chicken</a> — sides that let the basil lead</li>
+        </ul>
+
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-4">
+          Pair this tool with the
+          <a href="/tools/party-calculator" class="text-[var(--color-wine)] underline">party food calculator</a> for
+          quantities across the whole menu, the
+          <a href="/tools/buffet-planner" class="text-[var(--color-wine)] underline">buffet planner</a> for
+          holding and refill timing, and the
+          <a href="/tools/flavor-pairing" class="text-[var(--color-wine)] underline">flavor pairing finder</a> when
+          you want to go beyond sides and pair ingredients themselves.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/flavor-pairing" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-700">
+            ✨
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Flavor Pairing Finder</h4>
+            <p class="text-sm text-[var(--text-muted)]">Ingredient pairings by aroma</p>
+          </div>
+        </a>
+
+        <a href="/tools/party-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+            🎉
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Party Food Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Food quantities for events</p>
+          </div>
+        </a>
+
+        <a href="/tools/buffet-planner" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+            🍽️
+          </div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Buffet Menu Planner</h4>
+            <p class="text-sm text-[var(--text-muted)]">Plan buffet quantities</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Side-Dish Pairing Generator",
+  "description": "What to serve with chili, salmon, mac and cheese, steak, tacos and 20 more mains. Pick a dish, set the occasion and guest count, and get a ranked side list with per-person portions.",
+  "url": "https://pairdish.com/tools/side-dish-pairing-generator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

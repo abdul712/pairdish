@@ -837,11 +837,17 @@ const coreArticles: Article[] = [
 import roastedPotatoes from './articles/what-to-serve-with-roasted-potatoes.json';
 import friedFish from './articles/what-to-serve-with-fried-fish.json';
 import pestoChicken from './articles/what-to-serve-with-pesto-chicken.json';
+import chili from './articles/what-to-serve-with-chili.json';
+import macAndCheese from './articles/what-to-serve-with-mac-and-cheese.json';
+import salmon from './articles/what-to-serve-with-salmon.json';
 
 const pairingGuides: Article[] = [
   roastedPotatoes as unknown as Article,
   friedFish as unknown as Article,
-  pestoChicken as unknown as Article
+  pestoChicken as unknown as Article,
+  chili as unknown as Article,
+  macAndCheese as unknown as Article,
+  salmon as unknown as Article
 ];
 
 export const articles: Article[] = [...coreArticles, ...pairingGuides];
