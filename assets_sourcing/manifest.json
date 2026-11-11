@@ -64,5 +64,82 @@
   "descurl": "https://commons.wikimedia.org/wiki/File:Grilled_salmon_garnished_with_lemon_and_parsley.jpg",
   "license": "CC BY-SA 4.0",
   "artist": "Gatorfan252525"
+ },
+ "chili-pairing-finder-hero": {
+  "status": "ok",
+  "query": "chili con carne bowl",
+  "title": "File:Chili con carne (4431800858).jpg",
+  "width": 4288,
+  "height": 2848,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Chili_con_carne_%284431800858%29.jpg/1280px-Chili_con_carne_%284431800858%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Chili_con_carne_(4431800858).jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "cyclonebill"
+ },
+ "chili-pairing-finder-breads": {
+  "status": "ok",
+  "query": "cornbread skillet",
+  "title": "File:Corn Bread 3A (84).jpg",
+  "width": 3888,
+  "height": 2592,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Corn_Bread_3A_%2884%29.jpg/1280px-Corn_Bread_3A_%2884%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Corn_Bread_3A_(84).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Wheeler Cowperthwaite"
+ },
+ "chili-pairing-finder-potatoes-rice": {
+  "status": "ok",
+  "query": "sweet potato fries",
+  "title": "File:Sweet Potato Fries 2.jpg",
+  "width": 3072,
+  "height": 4080,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Sweet_Potato_Fries_2.jpg/1280px-Sweet_Potato_Fries_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Sweet_Potato_Fries_2.jpg",
+  "license": "CC0",
+  "artist": "Kurtkaiser"
+ },
+ "chili-pairing-finder-salads-slaws": {
+  "status": "ok",
+  "query": "coleslaw",
+  "title": "File:Coleslaw at Charlies.jpg",
+  "width": 4320,
+  "height": 3240,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Coleslaw_at_Charlies.jpg/1280px-Coleslaw_at_Charlies.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Coleslaw_at_Charlies.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Stanistani"
+ },
+ "chili-pairing-finder-finger-foods": {
+  "status": "ok",
+  "query": "tortilla chips queso",
+  "title": "File:2019-12-16 15 52 18 Tostitos Bite Size tortilla chips and Salsa Con Queso dip in the Dulles section of Sterling, Loudoun County, Virginia.jpg",
+  "width": 4032,
+  "height": 3024,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/2019-12-16_15_52_18_Tostitos_Bite_Size_tortilla_chips_and_Salsa_Con_Queso_dip_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg/1280px-2019-12-16_15_52_18_Tostitos_Bite_Size_tortilla_chips_and_Salsa_Con_Queso_dip_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:2019-12-16_15_52_18_Tostitos_Bite_Size_tortilla_chips_and_Salsa_Con_Queso_dip_in_the_Dulles_section_of_Sterling,_Loudoun_County,_Virginia.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Famartin"
+ },
+ "chili-pairing-finder-desserts": {
+  "status": "ok",
+  "query": "chocolate brownies plate",
+  "title": "File:Brownie-dessert-cake-sweet-45202.jpg",
+  "width": 2160,
+  "height": 1440,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Brownie-dessert-cake-sweet-45202.jpg/1280px-Brownie-dessert-cake-sweet-45202.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:Brownie-dessert-cake-sweet-45202.jpg",
+  "license": "CC0",
+  "artist": "johnkamatsos4"
+ },
+ "chili-pairing-finder-drinks": {
+  "status": "ok",
+  "query": "horchata glass",
+  "title": "File:FelipesNOLATostadaHorchata.JPG",
+  "width": 2816,
+  "height": 2112,
+  "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/FelipesNOLATostadaHorchata.JPG/1280px-FelipesNOLATostadaHorchata.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "descurl": "https://commons.wikimedia.org/wiki/File:FelipesNOLATostadaHorchata.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Infrogmation of New Orleans"
  }
 }

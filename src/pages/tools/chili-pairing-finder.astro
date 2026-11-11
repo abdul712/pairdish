@@ -1,0 +1,368 @@
+---
+/**
+ * Chili Pairing Finder Tool Page
+ *
+ * The standalone tool for "what should I serve with chili": pick a chili
+ * type, an occasion and a dietary preference, and get a shortlist of sides
+ * grouped by the role they play on the plate, plus a toppings bar.
+ * The guide below it is the ranking content: a direct answer, the
+ * how-to-choose framework, 24 sides grouped by category, a toppings
+ * table by chili type, a sides-by-chili-type matrix, and FAQ.
+ */
+
+import BaseLayout from '../../components/layouts/BaseLayout.astro';
+import ChiliPairingFinder from '../../components/tools/ChiliPairingFinder';
+import {
+  CATEGORY_IMAGES,
+  CATEGORY_LABELS,
+  CHILI_TYPE_LABELS,
+  FAQS,
+  HERO_IMAGE,
+  SIDES,
+  SIDES_BY_CHILI,
+  SIDE_COUNT,
+  TOPPINGS_TABLE,
+  type Category,
+} from '../../data/chiliPairings';
+
+const CATEGORY_ORDER: Category[] = [
+  'breads',
+  'potatoes-rice',
+  'salads-slaws',
+  'finger-foods',
+  'desserts',
+  'drinks',
+];
+const sidesByCategory = CATEGORY_ORDER.map((category) => ({
+  category,
+  sides: SIDES.filter((side) => side.category === category),
+}));
+const datePublished = '2026-11-11';
+const dateModified = '2026-11-11';
+const title = `Chili Pairing Finder: ${SIDE_COUNT} Sides to Serve with Chili`;
+const description =
+  'What to serve with chili? Pick your chili type, occasion and diet, and get a shortlist of sides grouped by role — dunkable, fresh and crunchy, hearty — plus a toppings bar. 24 sides, grouped by category.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={['what to serve with chili', 'chili side dishes', 'sides for chili', 'chili toppings', 'chili toppings bar', 'what goes with chili', 'chili pairing finder']}
+  ogImage={HERO_IMAGE.src}
+  canonical="https://pairdish.com/tools/chili-pairing-finder"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'Chili Pairing Finder', url: '/tools/chili-pairing-finder' }
+  ]}
+>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[var(--color-parchment)] to-[var(--color-cream)]">
+    <div class="container">
+      <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
+          <nav class="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-6">
+            <a href="/" class="hover:text-[var(--color-wine)] transition-colors">Home</a>
+            <span>/</span>
+            <a href="/tools" class="hover:text-[var(--color-wine)] transition-colors">Tools</a>
+            <span>/</span>
+            <span class="text-[var(--color-wine)]">Chili Pairing Finder</span>
+          </nav>
+          <span class="badge badge-wine mb-5">Pairing Tool</span>
+          <h1 class="text-display text-[var(--text-primary)] mb-4">
+            Chili Pairing Finder: <span class="text-accent text-[var(--color-wine)]">{SIDE_COUNT} Sides to Serve with Chili</span>
+          </h1>
+          <p class="text-lg text-[var(--text-secondary)] max-w-2xl">
+            Chili is rich, spiced and saucy — the plate needs crunch, acid and
+            something to soak it up. Pick your chili, set the occasion, and get
+            the sides that do those jobs, plus the toppings bar.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3 text-sm text-[var(--text-muted)]">
+            <span class="rounded-full bg-white px-4 py-2 shadow-[var(--shadow-soft)]">Published {datePublished}</span>
+            <span class="rounded-full bg-white px-4 py-2 shadow-[var(--shadow-soft)]">Updated {dateModified}</span>
+            <span class="rounded-full bg-white px-4 py-2 shadow-[var(--shadow-soft)]">{SIDE_COUNT} sides</span>
+          </div>
+        </div>
+        <figure class="overflow-hidden rounded-[2rem] border border-[var(--color-cream-dark)] bg-white p-3 shadow-[var(--shadow-heavy)]">
+          <img
+            src={HERO_IMAGE.src}
+            alt={HERO_IMAGE.alt}
+            width="1280"
+            height="850"
+            loading="eager"
+            class="h-full max-h-[420px] w-full rounded-[1.5rem] object-cover"
+          />
+          <figcaption class="mt-2 px-2 text-xs text-[var(--text-muted)]">
+            Photo: {HERO_IMAGE.credit}
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Section -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <ChiliPairingFinder client:load />
+    </div>
+  </section>
+
+  <!-- Guide -->
+  <section class="py-16 bg-white" id="chili-sides-guide">
+    <div class="container max-w-4xl">
+      <hr class="divider mb-12" />
+      <article class="prose prose-lg">
+        <h2 class="text-display text-3xl font-semibold text-[var(--text-primary)] mb-5">
+          What should I serve with chili?
+        </h2>
+
+        <!-- Direct answer: 47 words -->
+        <blockquote class="border-l-4 border-[var(--color-gold)] bg-[var(--color-parchment)] p-6 text-xl italic leading-relaxed text-[var(--text-primary)]">
+          Serve chili with skillet cornbread for dunking, one fresh, crunchy side
+          such as coleslaw or lime-cilantro slaw, and a toppings bar of cheddar,
+          sour cream, pickled jalapeños and avocado. Add a hearty side like baked
+          potatoes or rice for a crowd, and finish with brownies or churros.
+        </blockquote>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-12 mb-5">
+          How to choose: dunkable + fresh + toppings
+        </h2>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          Every chili plate is built the same way. First, something dunkable — a
+          bread or starch that soaks up the sauce. Second, something fresh and
+          crunchy — a slaw or salad that cuts the richness with acid and cold.
+          Third, a toppings bar, so each guest fixes their own bowl. One hearty
+          side, like baked potatoes or rice, turns the bowl into a meal when the
+          table is full. That is the whole framework; the finder above applies
+          it to your chili type, and the list below is the evidence.
+        </p>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          The chili type changes the picks, not the framework. Beef and Texas
+          chili are the richest, so they want the sharpest fresh side — classic
+          coleslaw, pickled jalapeños. White chicken chili is lighter and
+          brighter, so it pairs with lime, avocado and tortillas. Turkey chili
+          sits in between. Vegetarian chili keeps the pot meat-free, so the
+          cheese and sour cream stay on the toppings bar rather than in the pot.
+        </p>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-12 mb-5">
+          {SIDE_COUNT} sides to serve with chili
+        </h2>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-8">
+          The full list, grouped by category. Use the finder above to narrow it
+          to your chili, or browse the groups and pick one dunkable side, one
+          fresh side and one hearty side.
+        </p>
+
+        {sidesByCategory.map((group) => (
+          <section class="mb-10">
+            <figure class="mb-4 overflow-hidden rounded-2xl border border-[var(--color-cream-dark)]">
+              <img
+                src={CATEGORY_IMAGES[group.category].src}
+                alt={CATEGORY_IMAGES[group.category].alt}
+                width="1280"
+                height="850"
+                loading="lazy"
+                class="h-56 w-full object-cover"
+              />
+              <figcaption class="px-4 py-2 text-xs text-[var(--text-muted)] bg-[var(--color-cream-soft)]">
+                Photo: {CATEGORY_IMAGES[group.category].credit}
+              </figcaption>
+            </figure>
+            <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+              {CATEGORY_LABELS[group.category]}
+            </h3>
+            <ul class="space-y-3">
+              {group.sides.map((side) => (
+                <li class="flex gap-3 text-[var(--text-secondary)]">
+                  <span class="mt-2 h-2 w-2 flex-none rounded-full bg-[var(--color-wine)]"></span>
+                  <span><strong class="text-[var(--text-primary)]">{side.name}.</strong> {side.why}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+
+        <h3 class="text-display text-xl font-semibold text-[var(--text-primary)] mb-4">
+          Healthy options
+        </h3>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          Chili night does not have to be heavy. The lighter plate is the fresh
+          group: lime-cilantro slaw, cucumber-avocado salad, and corn, black
+          bean and avocado salad, with steamed white rice or baked sweet potato
+          fries as the starch. Skip the cheese-heavy finger foods and let the
+          toppings bar carry the richness instead — avocado, lime and pickled
+          onions rather than extra cheese and sour cream.
+        </p>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-12 mb-5">
+          The toppings table: what goes on each chili
+        </h2>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          A toppings bar is the single best upgrade for chili night, because it
+          lets each guest fix the exact problem their bowl has — too hot, too
+          rich, too plain. Set it out in small bowls and let people build their
+          own. The right toppings change with the chili.
+        </p>
+        <figure class="overflow-x-auto rounded-2xl border border-[var(--color-cream-dark)] bg-white shadow-[var(--shadow-soft)] mb-6">
+          <table class="w-full min-w-[560px] border-collapse text-left text-[var(--text-secondary)]">
+            <caption class="px-4 pt-3 text-left text-sm font-medium text-[var(--text-muted)]">Toppings by chili type — one pick per column makes a complete bar.</caption>
+            <thead>
+              <tr class="bg-[var(--color-cream-soft)]">
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Chili</th>
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Cheese</th>
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Cooling</th>
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Crunchy</th>
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Heat</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TOPPINGS_TABLE.map((row, i) => (
+                <tr class={i % 2 === 1 ? 'bg-[var(--color-cream)]' : 'bg-white'}>
+                  <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top font-medium text-[var(--text-primary)]">{CHILI_TYPE_LABELS[row.chiliType]}</td>
+                  <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">{row.cheese}</td>
+                  <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">{row.cooling}</td>
+                  <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">{row.crunchy}</td>
+                  <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">{row.heat}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </figure>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          For a chili bar, set out all four columns and let guests mix across
+          them. Quantities per guest: about ¼ cup shredded cheese, 2 tablespoons
+          sour cream, 2 tablespoons pickles or jalapeños, and a small handful of
+          chips.
+        </p>
+
+        <h2 class="text-display text-2xl font-semibold text-[var(--text-primary)] mt-12 mb-5">
+          The best sides for each type of chili
+        </h2>
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          The short version of the list above — the three or four sides that fit
+          each chili best. This is the same matching the finder computes.
+        </p>
+        <figure class="overflow-x-auto rounded-2xl border border-[var(--color-cream-dark)] bg-white shadow-[var(--shadow-soft)] mb-6">
+          <table class="w-full min-w-[560px] border-collapse text-left text-[var(--text-secondary)]">
+            <caption class="px-4 pt-3 text-left text-sm font-medium text-[var(--text-muted)]">Best sides by chili type and occasion.</caption>
+            <thead>
+              <tr class="bg-[var(--color-cream-soft)]">
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Chili / occasion</th>
+                <th scope="col" class="border-b border-[var(--color-cream-dark)] px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide text-[var(--text-primary)]">Best sides</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SIDES_BY_CHILI.map((row, i) => (
+                <tr class={i % 2 === 1 ? 'bg-[var(--color-cream)]' : 'bg-white'}>
+                  <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top font-medium text-[var(--text-primary)]">{row.label}</td>
+                  <td class="border-b border-[var(--color-cream-dark)] px-4 py-3 align-top">{row.sides.join(', ')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </figure>
+
+        <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-6">
+          For portions, food safety and the crowd version of this menu — one pot,
+          per-person amounts for 4, 8 or 12 guests — read the full{' '}
+          <a href="/articles/what-to-serve-with-chili" class="text-[var(--color-wine)] underline">chili pairing guide</a>.
+          To build a menu for a different main dish, use the{' '}
+          <a href="/tools/side-dish-pairing-generator" class="text-[var(--color-wine)] underline">Side-Dish Pairing Generator</a>.
+        </p>
+
+        <section class="mt-14">
+          <h2 class="text-display mb-6 text-3xl text-[var(--text-primary)]">Frequently asked questions</h2>
+          <div class="space-y-4">
+            {FAQS.map((faq) => (
+              <div class="rounded-2xl border border-[var(--color-cream-dark)] bg-white p-6 shadow-[var(--shadow-soft)]">
+                <h3 class="font-display text-xl font-semibold text-[var(--text-primary)]">{faq.question}</h3>
+                <p class="mt-2 text-lg leading-8 text-[var(--text-secondary)]">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="py-12 bg-[var(--color-cream)]">
+    <div class="container">
+      <h2 class="text-display text-xl font-semibold text-[var(--text-secondary)] mb-6 text-center">
+        Related Tools
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <a href="/tools/side-dish-pairing-generator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">🍲</div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Side-Dish Pairing Generator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Sides for 20+ mains, with portions</p>
+          </div>
+        </a>
+        <a href="/tools/party-calculator" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">🎉</div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Party Food Calculator</h4>
+            <p class="text-sm text-[var(--text-muted)]">Food quantities for events</p>
+          </div>
+        </a>
+        <a href="/tools/buffet-planner" class="card bg-white hover:border-[var(--color-wine)] border border-transparent flex items-center gap-4 p-4">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">🍽️</div>
+          <div>
+            <h4 class="font-medium text-[var(--text-primary)]">Buffet Menu Planner</h4>
+            <p class="text-sm text-[var(--text-muted)]">Plan buffet quantities</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- WebApplication Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Chili Pairing Finder",
+  "description": description,
+  "url": "https://pairdish.com/tools/chili-pairing-finder",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "PairDish", "url": "https://pairdish.com/" }
+})} />
+<!-- Article Structured Data for the guide -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": [HERO_IMAGE.src],
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": { "@type": "Organization", "name": "PairDish" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PairDish",
+    "logo": { "@type": "ImageObject", "url": "https://pairdish.com/favicon.svg" }
+  },
+  "mainEntityOfPage": "https://pairdish.com/tools/chili-pairing-finder",
+  "articleSection": "Pairing Tools",
+  "keywords": "what to serve with chili, chili side dishes, sides for chili, chili toppings, chili toppings bar"
+})} />
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQS.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+  }))
+})} />
+
+<style>
+  .prose {
+    color: var(--text-secondary);
+  }
+</style>
